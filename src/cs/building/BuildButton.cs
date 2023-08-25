@@ -191,6 +191,7 @@ public partial class BuildButton : TextureButton {
 	// Hides the button but not its children
 	private void HideOnlyButton() {
 		Disabled = true;
+		SelfModulate = new Color(1,1,1,0);
 	}
 
 	// Resets the button to it's initial state
@@ -201,7 +202,7 @@ public partial class BuildButton : TextureButton {
 	// Sets the button to the build state
 	private void SetToBuild() {
 		BuildSprite.Show();
-		TL.Text = TurnsToBuild.ToString() + " 🕐";
+		TL.Text = TurnsToBuild.ToString() + " ⌛";
 		Disabled = true;
 	}
 
