@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct4blqwh4y6ab"]
+[gd_scene load_steps=9 format=3 uid="uid://ct4blqwh4y6ab"]
 
 [ext_resource type="Script" path="res://src/cs/building/PowerPlant.cs" id="1_qsehc"]
 [ext_resource type="Texture2D" uid="uid://cf3amacrbvg0b" path="res://assets/Elements/ENERGY PLANT - ON.png" id="2_nry78"]
@@ -8,6 +8,10 @@
 
 [sub_resource type="Theme" id="Theme_f6ssq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpdo4"]
+atlas = ExtResource("2_nry78")
+region = Rect2(58, 262, 162, 46)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wggy5"]
 size = Vector2(208, 288)
 
@@ -16,13 +20,12 @@ script = ExtResource("1_qsehc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 2
-texture = ExtResource("2_nry78")
 
 [node name="Price" type="Label" parent="."]
-offset_left = -19.0
-offset_top = 36.0
-offset_right = 16.0
-offset_bottom = 61.0
+offset_left = -17.0
+offset_top = 146.0
+offset_right = 18.0
+offset_bottom = 171.0
 theme_override_font_sizes/font_size = 15
 text = "1000"
 horizontal_alignment = 1
@@ -180,11 +183,15 @@ flat = true
 alignment = 1
 expand_icon = true
 
+[node name="InfoBG2" type="Sprite2D" parent="."]
+position = Vector2(3, 119)
+texture = SubResource("AtlasTexture_vpdo4")
+
 [node name="ResRect" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = 88.0
-offset_right = -8.0
-offset_bottom = 117.0
+offset_left = -38.0
+offset_top = 106.0
+offset_right = -6.0
+offset_bottom = 135.0
 color = Color(0.398438, 0.398438, 0.398438, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ResRect"]

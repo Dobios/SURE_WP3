@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://i802aa7uc538"]
+[gd_scene load_steps=12 format=3 uid="uid://i802aa7uc538"]
 
 [ext_resource type="Script" path="res://src/cs/building/BuildMenu.cs" id="1_vbiqr"]
 [ext_resource type="PackedScene" uid="uid://ct4blqwh4y6ab" path="res://scenes/building/PowerPlant.tscn" id="2_236y8"]
+[ext_resource type="Texture2D" uid="uid://c0sb3kncaf7uc" path="res://assets/Plants/Solar.png" id="3_4vb5s"]
+[ext_resource type="Texture2D" uid="uid://bftiushevl5aj" path="res://assets/Plants/Wind.png" id="4_rnlgr"]
+[ext_resource type="Texture2D" uid="uid://d2ijw7avf37la" path="res://assets/Plants/Turbine.png" id="5_n1d5g"]
+[ext_resource type="Texture2D" uid="uid://ujeuwa2ehsay" path="res://assets/Plants/Forest.png" id="6_52mtj"]
+[ext_resource type="Texture2D" uid="uid://6nhylpws0rhg" path="res://assets/Plants/Dam.png" id="7_v8asv"]
+[ext_resource type="Texture2D" uid="uid://lvf5eog6buhr" path="res://assets/Plants/230601_CH_SUREgame_Gas-Plant.png" id="8_sbytn"]
 
 [sub_resource type="Animation" id="Animation_j4va7"]
 length = 0.001
@@ -71,6 +77,10 @@ PlantName = "Solar Plant"
 _PlantType = 2
 metadata/_edit_group_ = true
 
+[node name="Sprite" parent="TabContainer/TabBar/Solar" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4vb5s")
+
 [node name="SolarButton" type="Button" parent="TabContainer/TabBar/Solar"]
 offset_left = -104.0
 offset_top = -139.0
@@ -84,6 +94,15 @@ scale = Vector2(0.9, 0.9)
 PlantName = "Wind"
 _PlantType = 5
 metadata/_edit_group_ = true
+
+[node name="Sprite" parent="TabContainer/TabBar/Wind" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_rnlgr")
+
+[node name="Turbine" type="Sprite2D" parent="TabContainer/TabBar/Wind"]
+position = Vector2(0, -35.5558)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_n1d5g")
 
 [node name="WindButton" type="Button" parent="TabContainer/TabBar/Wind"]
 offset_left = -104.0
@@ -99,6 +118,10 @@ PlantName = "Trees"
 _PlantType = 3
 metadata/_edit_group_ = true
 
+[node name="Sprite" parent="TabContainer/TabBar/Tree" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_52mtj")
+
 [node name="TreeButton" type="Button" parent="TabContainer/TabBar/Tree"]
 offset_left = -109.0
 offset_top = -143.0
@@ -112,6 +135,10 @@ scale = Vector2(0.9, 0.9)
 PlantName = "Hydro Plant"
 _PlantType = 0
 metadata/_edit_group_ = true
+
+[node name="Sprite" parent="TabContainer/TabBar/Hydro" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_v8asv")
 
 [node name="HydroButton" type="Button" parent="TabContainer/TabBar/Hydro"]
 offset_left = -104.0
@@ -130,9 +157,18 @@ scale = Vector2(0.9, 0.9)
 PlantName = "Gas Plant"
 metadata/_edit_group_ = true
 
+[node name="Sprite" parent="TabContainer/TabBar2/Gas" index="0"]
+texture = ExtResource("8_sbytn")
+
 [node name="GasButton" type="Button" parent="TabContainer/TabBar2/Gas"]
 offset_left = -102.0
 offset_top = -143.0
 offset_right = 102.0
 offset_bottom = 141.0
 flat = true
+
+[editable path="TabContainer/TabBar/Solar"]
+[editable path="TabContainer/TabBar/Wind"]
+[editable path="TabContainer/TabBar/Tree"]
+[editable path="TabContainer/TabBar/Hydro"]
+[editable path="TabContainer/TabBar2/Gas"]

@@ -1,10 +1,384 @@
-[gd_scene load_steps=6 format=3 uid="uid://banvqdghwoj3p"]
+[gd_scene load_steps=22 format=3 uid="uid://banvqdghwoj3p"]
 
 [ext_resource type="Texture2D" uid="uid://efqqo78530ur" path="res://assets/Elements/BUILDING BUTTON.png" id="1_dqrnt"]
 [ext_resource type="PackedScene" uid="uid://ct4blqwh4y6ab" path="res://scenes/building/PowerPlant.tscn" id="1_wi5q3"]
 [ext_resource type="Texture2D" uid="uid://duoo8yelpa3l4" path="res://assets/Elements/ENERGY PLANT - BUILDING.png" id="2_0x6r5"]
 [ext_resource type="Texture2D" uid="uid://cvm4lopnmbupy" path="res://assets/Elements/BUILDINGBUTTONPressed.png" id="2_e5byc"]
 [ext_resource type="Texture2D" uid="uid://747hpnocr8yq" path="res://assets/Elements/BUILDINGBUTTONHover.png" id="3_6vldy"]
+[ext_resource type="Texture2D" uid="uid://25k27rpg0rwn" path="res://assets/Plants/230601_CH_SUREgame_Gas-PlantNoCloud.png" id="5_kuv5l"]
+[ext_resource type="Texture2D" uid="uid://6nhylpws0rhg" path="res://assets/Plants/Dam.png" id="6_lruly"]
+[ext_resource type="Texture2D" uid="uid://2u2prn54c0qr" path="res://assets/Plants/230601_CH_SUREgame_Gas-PlantClouds.png" id="6_rv7g4"]
+[ext_resource type="Texture2D" uid="uid://c0sb3kncaf7uc" path="res://assets/Plants/Solar.png" id="7_mt0mh"]
+[ext_resource type="Texture2D" uid="uid://1rj1xmhstc75" path="res://assets/Plants/230601_CH_SUREgame_Gas-PlantClouds5.png" id="7_owsdt"]
+[ext_resource type="Texture2D" uid="uid://bnyqsfndjikdn" path="res://assets/Plants/230601_CH_SUREgame_Gas-PlantClouds8.png" id="8_tkxxi"]
+[ext_resource type="Texture2D" uid="uid://ujeuwa2ehsay" path="res://assets/Plants/Forest.png" id="8_wp0io"]
+[ext_resource type="Texture2D" uid="uid://dsoyr833nrhyj" path="res://assets/Plants/230601_CH_SUREgame_Gas-PlantClouds2.png" id="9_4162j"]
+[ext_resource type="Texture2D" uid="uid://bftiushevl5aj" path="res://assets/Plants/Wind.png" id="9_lgc8d"]
+[ext_resource type="Texture2D" uid="uid://d2ijw7avf37la" path="res://assets/Plants/Turbine.png" id="10_1u3s0"]
+
+[sub_resource type="Animation" id="Animation_qonkf"]
+resource_name = "smoke"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud4:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-24, -56), Vector2(-14, -96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cloud2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cloud2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-56, -60), Vector2(-49, -77)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cloud3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, -64), Vector2(15, -94)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cloud:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cloud:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.3, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-24, -55), Vector2(-13, -105)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cloud5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(56, -31), Vector2(56, -63)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cloud5:skew")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.141372, 0.102974, -0.141372, 0.102974]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cloud5:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cloud6:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cloud6:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, -66), Vector2(8, -80), Vector2(3, -66)]
+}
+
+[sub_resource type="Animation" id="Animation_q0r05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud4:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, -96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cloud2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cloud2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-49, -77)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cloud3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, -94)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cloud:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cloud:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, -105)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cloud5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, -54)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cloud5:skew")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.141372]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cloud5:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cloud6:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cloud6:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuk7f"]
+_data = {
+"RESET": SubResource("Animation_q0r05"),
+"smoke": SubResource("Animation_qonkf")
+}
+
+[sub_resource type="Animation" id="Animation_s3im0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turbine:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7lfvt"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turbine:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcpmn"]
+_data = {
+"RESET": SubResource("Animation_s3im0"),
+"spin": SubResource("Animation_7lfvt")
+}
 
 [node name="BuildButton" type="TextureButton"]
 offset_left = -112.0
@@ -19,23 +393,113 @@ texture_hover = ExtResource("3_6vldy")
 [node name="Gas" parent="." instance=ExtResource("1_wi5q3")]
 position = Vector2(112, 88)
 
+[node name="Sprite" parent="Gas" index="0"]
+texture = ExtResource("5_kuv5l")
+
+[node name="Switch" parent="Gas" index="4"]
+visible = false
+
+[node name="HoverArea" parent="Gas" index="8"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gas"]
+autoplay = "smoke"
+libraries = {
+"": SubResource("AnimationLibrary_wuk7f")
+}
+
+[node name="Cloud" type="Sprite2D" parent="Gas"]
+position = Vector2(-13, -105)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_rv7g4")
+
+[node name="Cloud2" type="Sprite2D" parent="Gas"]
+position = Vector2(-49, -77)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_owsdt")
+
+[node name="Cloud3" type="Sprite2D" parent="Gas"]
+position = Vector2(15, -94)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("8_tkxxi")
+
+[node name="Cloud4" type="Sprite2D" parent="Gas"]
+position = Vector2(-14, -96)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_rv7g4")
+
+[node name="Cloud5" type="Sprite2D" parent="Gas"]
+position = Vector2(56, -54)
+scale = Vector2(1e-05, 1e-05)
+skew = -0.141372
+texture = ExtResource("9_4162j")
+
+[node name="Cloud6" type="Sprite2D" parent="Gas"]
+position = Vector2(3, -66)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_owsdt")
+
 [node name="Hydro" parent="." instance=ExtResource("1_wi5q3")]
+visible = false
 position = Vector2(112, 88)
 _PlantType = 0
 
+[node name="Sprite" parent="Hydro" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_lruly")
+
+[node name="Switch" parent="Hydro" index="4"]
+visible = false
+
 [node name="Solar" parent="." instance=ExtResource("1_wi5q3")]
+visible = false
 position = Vector2(112, 88)
 _PlantType = 2
 
+[node name="Sprite" parent="Solar" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_mt0mh")
+
+[node name="Switch" parent="Solar" index="4"]
+visible = false
+
 [node name="Tree" parent="." instance=ExtResource("1_wi5q3")]
+visible = false
 position = Vector2(112, 88)
 _PlantType = 3
 
+[node name="Sprite" parent="Tree" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_wp0io")
+
+[node name="Switch" parent="Tree" index="4"]
+visible = false
+
 [node name="Wind" parent="." instance=ExtResource("1_wi5q3")]
+visible = false
 position = Vector2(112, 88)
 _PlantType = 5
 
+[node name="Sprite" parent="Wind" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_lgc8d")
+
+[node name="Switch" parent="Wind" index="4"]
+visible = false
+
+[node name="Turbine" type="Sprite2D" parent="Wind"]
+position = Vector2(2, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_1u3s0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wind"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_dcpmn")
+}
+
 [node name="Building" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(112, 88)
 texture = ExtResource("2_0x6r5")
 
@@ -56,3 +520,9 @@ theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[editable path="Gas"]
+[editable path="Hydro"]
+[editable path="Solar"]
+[editable path="Tree"]
+[editable path="Wind"]
