@@ -70,6 +70,9 @@ public partial class ShockController : XMLController {
 
     // Retrieves the shock's description from the shocks xml given the shock's id
     public string _GetShockText(string id) => GetField(id, "text");
+	
+	// Retrieves the shock's image name from the shocks xml file given the shock's id
+	public string _GetShockImg(string id) => GetField(id, "img");
 
     // Retrieves the text from a requirement given the id of the shock and that of the requirement
     public List<ShockRequirement> _GetRequirements(string shock_id) {
