@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsoyr833nrhyj"
-path="res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds2.png-9195ed479e3982df7262962553a17252.ctex"
+uid="uid://ckufcbkvsi4ab"
+path="res://.godot/imported/ENERGY PANEL - BLANK.png-d5b2d91e6b5fbdccdffa6ce43615ac53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Elements/230601_CH_SUREgame_Gas-PlantClouds2.png"
-dest_files=["res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds2.png-9195ed479e3982df7262962553a17252.ctex"]
+source_file="res://assets/ENERGY PANEL - BLANK.png"
+dest_files=["res://.godot/imported/ENERGY PANEL - BLANK.png-d5b2d91e6b5fbdccdffa6ce43615ac53.ctex"]
 
 [params]
 

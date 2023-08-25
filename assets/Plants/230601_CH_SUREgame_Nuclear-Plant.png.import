@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvwwi6emyv1ds"
-path="res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds3.png-3eed4dbaba83a4846c0c5b95d863c3d5.ctex"
+uid="uid://ceorbg7ik1atw"
+path="res://.godot/imported/230601_CH_SUREgame_Nuclear-Plant.png-aa7a17d70a6eeea534a57bd9ca88f48a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Elements/230601_CH_SUREgame_Gas-PlantClouds3.png"
-dest_files=["res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds3.png-3eed4dbaba83a4846c0c5b95d863c3d5.ctex"]
+source_file="res://assets/Plants/230601_CH_SUREgame_Nuclear-Plant.png"
+dest_files=["res://.godot/imported/230601_CH_SUREgame_Nuclear-Plant.png-aa7a17d70a6eeea534a57bd9ca88f48a.ctex"]
 
 [params]
 

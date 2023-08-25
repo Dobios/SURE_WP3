@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jxt4ahlxcer4"
-path="res://.godot/imported/230601_CH_SUREgame_Nuclear-PlantNoCloud.png-4630ad0b5a6a06faeb9e8d5a158866d6.ctex"
+uid="uid://bfa7b1e5e7hxc"
+path="res://.godot/imported/CANCEL ICON.png-e83a64cf417e87e82bf5d5d32d2ee529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Elements/230601_CH_SUREgame_Nuclear-PlantNoCloud.png"
-dest_files=["res://.godot/imported/230601_CH_SUREgame_Nuclear-PlantNoCloud.png-4630ad0b5a6a06faeb9e8d5a158866d6.ctex"]
+source_file="res://assets/CANCEL ICON.png"
+dest_files=["res://.godot/imported/CANCEL ICON.png-e83a64cf417e87e82bf5d5d32d2ee529.ctex"]
 
 [params]
 

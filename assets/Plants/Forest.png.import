@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djmlxyt5loyaw"
-path="res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds4.png-365bca0dff58a75789514f7aa773ec5d.ctex"
+uid="uid://ujeuwa2ehsay"
+path="res://.godot/imported/Forest.png-70e9b65f097ec323d3a8f2eafee3ba90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Elements/230601_CH_SUREgame_Gas-PlantClouds4.png"
-dest_files=["res://.godot/imported/230601_CH_SUREgame_Gas-PlantClouds4.png-365bca0dff58a75789514f7aa773ec5d.ctex"]
+source_file="res://assets/Plants/Forest.png"
+dest_files=["res://.godot/imported/Forest.png-70e9b65f097ec323d3a8f2eafee3ba90.ctex"]
 
 [params]
 
