@@ -67,7 +67,8 @@ public partial class Tutorial : CanvasLayer {
 		IBs = new () {
 			(GetNode<NinePatchRect>("InfoBubble"), GetNode<RichTextLabel>("InfoBubble/ColorRect/Text")),
 			(GetNode<NinePatchRect>("InfoBubble2"), GetNode<RichTextLabel>("InfoBubble2/ColorRect/Text")),
-			(GetNode<NinePatchRect>("InfoBubble3"), GetNode<RichTextLabel>("InfoBubble3/ColorRect/Text"))
+			(GetNode<NinePatchRect>("InfoBubble3"), GetNode<RichTextLabel>("InfoBubble3/ColorRect/Text")),
+			(GetNode<NinePatchRect>("InfoBubble4"), GetNode<RichTextLabel>("InfoBubble4/ColorRect/Text"))
 		};
 
 		// Initialize the tutorial text

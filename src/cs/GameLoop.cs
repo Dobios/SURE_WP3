@@ -40,10 +40,10 @@ public partial class GameLoop : Node2D {
 
 	// The amount of money the player starts with (in millions of CHF)
 	[Export]
-	public int START_MONEY = 400;
+	public int START_MONEY = 420;
 
 	[Export]
-	public static int BUDGET_PER_TURN = 350;
+	public static int BUDGET_PER_TURN = 280;
 
 	// Internal game state
 	private GameState GS;
@@ -102,7 +102,16 @@ public partial class GameLoop : Node2D {
 		// Fetch initial nodes
 		// Start with PowerPlants, in the begining there are only 2 PowerPlants Nuclear and Coal
 		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear"));
-		PowerPlants.Add(GetNode<PowerPlant>("World/Coal"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear2"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear3"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Hydro"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Pump"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/River"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Waste"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Biomass"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Solar"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Wind"));
+		
 
 		// Fill in build buttons
 		BBs.Add(GetNode<BuildButton>("World/BuildButton"));
@@ -115,10 +124,6 @@ public partial class GameLoop : Node2D {
 		BBs.Add(GetNode<BuildButton>("World/BuildButton8"));
 		BBs.Add(GetNode<BuildButton>("World/BuildButton9"));
 		BBs.Add(GetNode<BuildButton>("World/BuildButton10"));
-		BBs.Add(GetNode<BuildButton>("World/BuildButton11"));
-		BBs.Add(GetNode<BuildButton>("World/BuildButton12"));
-		BBs.Add(GetNode<BuildButton>("World/BuildButton13"));
-		BBs.Add(GetNode<BuildButton>("World/BuildButton14"));
 
 		// Fetch UI and BuildMenu
 		_UI = GetNode<UI>("UI");
@@ -612,7 +617,15 @@ public partial class GameLoop : Node2D {
 
 		// Start with PowerPlants, in the begining there are only 2 PowerPlants Nuclear and Coal
 		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear"));
-		PowerPlants.Add(GetNode<PowerPlant>("World/Coal"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear2"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Nuclear3"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Hydro"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Pump"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/River"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Waste"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Biomass"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Solar"));
+		PowerPlants.Add(GetNode<PowerPlant>("World/Wind"));
 
 		// Fill in build buttons
 		BBs.Add(GetNode<BuildButton>("World/BuildButton"));

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bk0byrjhpqlci"
+path="res://.godot/imported/Demolish 1_5.wav-5b2c77210008d3403ca01ce352324d09.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Demolish 1_5.wav"
+dest_files=["res://.godot/imported/Demolish 1_5.wav-5b2c77210008d3403ca01ce352324d09.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

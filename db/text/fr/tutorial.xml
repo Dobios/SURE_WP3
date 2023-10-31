@@ -1,7 +1,7 @@
 <db id="tutorial" lang="fr">
 	<group id="tutorial_text">
 		<text id="0">Félicitations ! 
-Tu as été désigné pour [b]gérer le réseau énergétique[/b] afin de garantir un secteur durable et résilient.</text>
+Tu as été désigné pour [b]gérer le réseau énergétique[/b] afin de garantir un secteur durable et résilient pour les 30 prochaines années (10 tours).</text>
 		<text id="1">Tu dois [b]fournir[/b] suffisamment d'[b]énergie[/b] pour toute la population.
 Les gens ont besoin de charger leurs téléphones et de jouer à leurs jeux vidéo préférés.</text>
 		<text id="2">Tu dois [b]fournir[/b] suffisamment d'[b]énergie[/b] pour toute la population.
@@ -12,10 +12,14 @@ Les gens ont besoin de charger leurs téléphones et de jouer à leurs jeux vid�
 		<text id="4">Il existe différentes façons d'approvisionner plus d'énergie :
 
 - Tu peux construire de nouvelles centrales électriques, mais cela coûte du temps et de l'argent.</text>
+<text id="5">Il existe différentes façons d'approvisionner plus d'énergie :
+
+	- Tu peux améliorer les centrales existantes</text>
 	</group>
 	<group id="info_bubble">
-		<text id="0">Chaque tour, tu dois atteindre la demande pour l'été et l'hiver.</text>
+		<text id="0">Chaque tour, tu dois atteindre la demande pour l'été 🔆 et l'hiver ❄️.</text>
 		<text id="1">Voici la barre d'importation</text>
 		<text id="2">Le bouton de construction</text>
+		<text id="3">Améliorer les centrales existantes</text>
 	</group>
 </db>

@@ -325,66 +325,68 @@ public struct Availability : IColumn {
 
 // Represents the data retrieved from the Capacity columns of the model
 public struct Capacity : IColumn {
-    // Current availability of various type-based energies
-    public float Gas; // Refers to cap_ele_gas
-    public float Nuclear; // Refers to cap_ele_nuc
-    public float River; // Refers to cap_ele_riv (Hydro-electic)
-    public float Solar; // Refers to cap_ele_sol
-    public float Wind; // Refers to cap_ele_win
+	// Current availability of various type-based energies
+	public float Gas; // Refers to cap_ele_gas
+	public float Nuclear; // Refers to cap_ele_nuc
+	public float River; // Refers to cap_ele_riv (Hydro-electic)
+	public float Solar; // Refers to cap_ele_sol
+	public float Wind; // Refers to cap_ele_win
 
-    //TODO: Add entries for cap_pet, cap_res, cap_pmp, cap_bio, cap_wst, and cap_geo
+	//TODO: Add entries for cap_pet, cap_res, cap_pmp, cap_bio, cap_wst, and cap_geo
 
-    // Basic constructor for the Capacity struct
-    public Capacity(float g=0, float n=0, float r=0, float s=0, float w=0) {
-        Gas = g;
-        Nuclear = n;
-        River = r;
-        Solar = s;
-        Wind = w;
-    }
+	// Basic constructor for the Capacity struct
+	public Capacity(float g=0, float n=0, float r=0, float s=0, float w=0) {
+		Gas = g;
+		Nuclear = n;
+		River = r;
+		Solar = s;
+		Wind = w;
+	}
 
-    // Retrieves the field associated to the given building type
-    public float _GetField(Building b) => b.type switch {
-        Building.Type.HYDRO   => River,
-        Building.Type.GAS     => Gas,
-        Building.Type.SOLAR   => Solar,
-        Building.Type.NUCLEAR => Nuclear,
-        Building.Type.WIND    => Wind,
-        Building.Type.TREE    => 0.0f,
-        _ => throw new ArgumentException("No field is associated to the given type!")
-    };
+	// Retrieves the field associated to the given building type
+	public float _GetField(Building b) => b.type switch {
+		Building.Type.HYDRO   => River,
+		Building.Type.GAS     => Gas,
+		Building.Type.SOLAR   => Solar,
+		Building.Type.NUCLEAR => Nuclear,
+		Building.Type.WIND    => Wind,
+		Building.Type.TREE    => 0.0f,
+		Building.Type.RIVER    => 0.0f, // Quick fix, please delete
+		Building.Type.PUMP    => 0.0f,
+		_ => throw new ArgumentException("No field is associated to the given type!")
+	};
 
-    // Updates the internal value of a field
-    // The field is selected using the given building type
-    public void _UpdateField(Building b, float new_value) {
-        // Find which field to modify 
-        switch (b.type) {
-            case Building.Type.HYDRO: 
-                River = new_value;
-                break;
-            case Building.Type.GAS: 
-                Gas = new_value;
-                break;
-            case Building.Type.SOLAR: 
-                Solar = new_value;
-                break;
-            case Building.Type.NUCLEAR:
-                Nuclear = new_value;
-                break;
-            case Building.Type.WIND:
-                Wind = new_value;
-                break;
-            default: 
-                break;
-        }
-    }
+	// Updates the internal value of a field
+	// The field is selected using the given building type
+	public void _UpdateField(Building b, float new_value) {
+		// Find which field to modify 
+		switch (b.type) {
+			case Building.Type.HYDRO: 
+				River = new_value;
+				break;
+			case Building.Type.GAS: 
+				Gas = new_value;
+				break;
+			case Building.Type.SOLAR: 
+				Solar = new_value;
+				break;
+			case Building.Type.NUCLEAR:
+				Nuclear = new_value;
+				break;
+			case Building.Type.WIND:
+				Wind = new_value;
+				break;
+			default: 
+				break;
+		}
+	}
 
-     // Sum all the the values stored here
-    public float Aggregate() => Gas + Nuclear + River + Solar + Wind;
+	 // Sum all the the values stored here
+	public float Aggregate() => Gas + Nuclear + River + Solar + Wind;
 
-    // Checks whether the internal values are all 0 or not
-    public bool _IsEmpty() => 
-        Gas == Nuclear && Nuclear == River && River == Solar && Solar == Wind && Wind == 0.0f;
+	// Checks whether the internal values are all 0 or not
+	public bool _IsEmpty() => 
+		Gas == Nuclear && Nuclear == River && River == Solar && Solar == Wind && Wind == 0.0f;
 }
 
 // Represents the data retrived from the Demand columns of the model

@@ -44,7 +44,7 @@
 
     <!-- Labels for general UI buttons -->
     <group id="ui">
-        <text id="label_next_turn">Prochain Tour</text>
+        <text id="label_next_turn">Prochain Tour ⌛</text>
         <text id="label_import">Imports</text>
         <text id="debt_title">Combien voulez-vous emprunter?</text>
         <text id="label_borrow">Emprunter</text>

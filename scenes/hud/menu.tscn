@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://pvoi2mcc3oc1"]
+[gd_scene load_steps=8 format=3 uid="uid://pvoi2mcc3oc1"]
 
 [ext_resource type="Script" path="res://src/cs/ui/MainMenu.cs" id="1_acmck"]
+[ext_resource type="Texture2D" uid="uid://bdjbeos1j2wsr" path="res://assets/MAP-BG.png" id="2_rie33"]
 [ext_resource type="Texture2D" uid="uid://b7nmuayewqbbg" path="res://assets/Elements/NEXT TURN - BUTTON.png" id="2_tndym"]
 [ext_resource type="FontFile" uid="uid://dgb2xwp51s2cc" path="res://assets/Fonts/HeavyEquipment.otf" id="2_v5gom"]
 [ext_resource type="Texture2D" uid="uid://djj2k1h7yrhsy" path="res://assets/Elements/NEXTTURNBUTTONPressed.png" id="3_t8pt2"]
@@ -18,15 +19,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.596078, 0.596078, 0.596078, 1)
 
+[node name="Map-matternhorn" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_rie33")
+centered = false
+
 [node name="Title" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -366.0
+offset_bottom = -432.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.980392, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(1, 0.882353, 0.392157, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_v5gom")
-theme_override_font_sizes/font_size = 122
+theme_override_font_sizes/font_size = 135
 text = "Ensured 
 Energy"
 horizontal_alignment = 1
@@ -40,9 +49,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -98.5
-offset_top = -32.0
+offset_top = 5.0
 offset_right = 98.5
-offset_bottom = 32.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -71,9 +80,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 68.0
+offset_top = 105.0
 offset_right = 97.0
-offset_bottom = 132.0
+offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -103,9 +112,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 172.0
+offset_top = 209.0
 offset_right = 97.0
-offset_bottom = 236.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2

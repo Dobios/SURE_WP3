@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bs48lirfn2fp2"]
+[gd_scene load_steps=40 format=3 uid="uid://bs48lirfn2fp2"]
 
 [ext_resource type="Texture2D" uid="uid://b7nmuayewqbbg" path="res://assets/Elements/NEXT TURN - BUTTON.png" id="1_kbgc4"]
 [ext_resource type="Texture2D" uid="uid://bn8nkdb1vyogu" path="res://assets/Elements/ENERGY PANEL - BLANK.png" id="2_hhj2t"]
@@ -18,8 +18,115 @@
 [ext_resource type="PackedScene" uid="uid://jj476u8yn2g8" path="res://scenes/windows/window.tscn" id="7_yu7g8"]
 [ext_resource type="Texture2D" uid="uid://djx386wryt8ab" path="res://assets/Elements/ENVIORMENT BUTTON.png" id="9_kqwrt"]
 [ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="10_2gyrf"]
+[ext_resource type="AudioStream" uid="uid://ben5r72x0p8pr" path="res://assets/Sounds/Move_03.wav" id="10_po2ll"]
 [ext_resource type="Texture2D" uid="uid://3ypqypyywx05" path="res://assets/temp_pollution_icon.png" id="10_vhysx"]
+[ext_resource type="AudioStream" uid="uid://00apgxjmwgw0" path="res://assets/Sounds/Click_020.wav" id="11_tr1n1"]
 [ext_resource type="Texture2D" uid="uid://efqqo78530ur" path="res://assets/Elements/BUILDING BUTTON.png" id="18_42ope"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhpc3"]
+atlas = ExtResource("6_vs2ug")
+region = Rect2(222, 26, 198, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3c2j"]
+atlas = ExtResource("1_kbgc4")
+region = Rect2(42, 38, 200, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icmin"]
+atlas = ExtResource("3_l43te")
+region = Rect2(42, 38, 200, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t151c"]
+atlas = ExtResource("4_6fg8a")
+region = Rect2(42, 38, 200, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu5im"]
+atlas = ExtResource("5_xpjuf")
+region = Rect2(42, 38, 200, 64)
+
+[sub_resource type="Animation" id="Animation_pjxim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvnnc"]
+resource_name = "warning"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, -25), Vector2(20, -50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpw4y"]
+_data = {
+"RESET": SubResource("Animation_pjxim"),
+"warning": SubResource("Animation_kvnnc")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mw3r"]
 bg_color = Color(0.317647, 0.317647, 0.317647, 1)
@@ -100,6 +207,37 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 1.50526,
+"start_offset": 0.08,
+"stream": ExtResource("10_po2ll")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_tr1n1")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_tr1n1")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_tr1n1")
+}, {
+"end_offset": 1.38936,
+"start_offset": 0.03,
+"stream": ExtResource("10_po2ll")
+}],
+"times": PackedFloat32Array(0.05, 1.25, 2, 2.75, 3)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lrye6"]
 length = 0.001
@@ -215,22 +353,22 @@ corner_radius_bottom_left = 8
 follow_viewport_enabled = true
 
 [node name="CharacterInformation–Blank" type="Sprite2D" parent="."]
-position = Vector2(264, 168)
-texture = ExtResource("6_vs2ug")
+position = Vector2(99, 167)
+texture = SubResource("AtlasTexture_uhpc3")
 
 [node name="NextTurn" type="TextureButton" parent="."]
-offset_left = 1679.0
-offset_top = 929.0
-offset_right = 1879.0
-offset_bottom = 993.0
+offset_left = 1605.0
+offset_top = 966.0
+offset_right = 1869.0
+offset_bottom = 1033.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_kbgc4")
-texture_pressed = ExtResource("3_l43te")
-texture_hover = ExtResource("4_6fg8a")
-texture_disabled = ExtResource("5_xpjuf")
+texture_normal = SubResource("AtlasTexture_b3c2j")
+texture_pressed = SubResource("AtlasTexture_icmin")
+texture_hover = SubResource("AtlasTexture_t151c")
+texture_disabled = SubResource("AtlasTexture_wu5im")
 ignore_texture_size = true
-stretch_mode = 3
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="NextTurn"]
 layout_mode = 1
@@ -253,15 +391,33 @@ offset_right = 184.0
 offset_bottom = 56.0
 color = Color(0.398438, 0.398438, 0.398438, 1)
 
+[node name="NextTurnAP" type="AnimationPlayer" parent="NextTurn"]
+libraries = {
+"": SubResource("AnimationLibrary_jpw4y")
+}
+
+[node name="Warning" type="Label" parent="NextTurn"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = -25.0
+offset_right = 245.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 23
+text = "Not enough energy!"
+
 [node name="EnergyPanel-Blank" type="Sprite2D" parent="."]
-position = Vector2(236, 864)
+position = Vector2(216, 874)
 texture = ExtResource("2_hhj2t")
 
 [node name="EnergyBarSummerPredict" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 129.0
-offset_top = 932.0
-offset_right = 303.0
-offset_bottom = 974.0
+offset_left = 109.0
+offset_top = 942.0
+offset_right = 283.0
+offset_bottom = 984.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_8mw3r")
@@ -281,10 +437,10 @@ rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="EnergyBarWinterPredict" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 199.0
-offset_top = 932.0
-offset_right = 373.0
-offset_bottom = 973.0
+offset_left = 179.0
+offset_top = 942.0
+offset_right = 353.0
+offset_bottom = 983.0
 theme_override_styles/background = SubResource("StyleBoxFlat_opb6j")
 NormalColor = Color(0.94902, 0.815686, 0.0666667, 0.784314)
 LowColor = Color(0.94902, 0.533333, 0.0666667, 0.521569)
@@ -302,63 +458,114 @@ offset_bottom = 113.053
 rotation = 1.5708
 
 [node name="EnergyBarWinter" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 199.0
-offset_top = 932.0
-offset_right = 373.0
-offset_bottom = 973.0
-LowColor = Color(0.94902, 0.317647, 0.0666667, 1)
+offset_left = 179.0
+offset_top = 942.0
+offset_right = 353.0
+offset_bottom = 983.0
+LowColor = Color(0.94902, 0.156863, 0.0666667, 1)
 
 [node name="Target" parent="EnergyBarWinter" index="0"]
 position = Vector2(-195, -609.5)
 
 [node name="BarInfo" parent="EnergyBarWinter" index="1"]
 z_index = 1
-offset_left = 489.0
-offset_top = -131.0
-offset_right = 794.768
-offset_bottom = 113.053
+offset_left = 382.0
+offset_top = -130.0
+offset_right = 684.768
+offset_bottom = -5.947
 rotation = 1.5708
 
 [node name="InfoMoney" parent="EnergyBarWinter/BarInfo" index="0"]
-offset_right = 335.0
-offset_bottom = 258.0
+offset_right = 334.0
+offset_bottom = 168.0
+
+[node name="Control" parent="EnergyBarWinter/BarInfo" index="1"]
+offset_top = 32.0
+offset_bottom = 16.78
+
+[node name="TextContainer" parent="EnergyBarWinter/BarInfo/Control" index="0"]
+anchor_top = 0.0848428
+anchor_right = 0.820848
+anchor_bottom = 0.326765
+offset_left = 18.3652
+offset_top = -15.8418
+offset_right = 28.2081
+offset_bottom = 182.095
+
+[node name="Text0" parent="EnergyBarWinter/BarInfo/Control/TextContainer" index="0"]
+theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
+
+[node name="Text1" parent="EnergyBarWinter/BarInfo/Control/TextContainer" index="1"]
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+
+[node name="nContainer" parent="EnergyBarWinter/BarInfo/Control" index="1"]
+anchor_top = 0.0566696
+anchor_bottom = 0.402413
+offset_left = 18.1804
+offset_top = -12.5737
+offset_right = 43.0233
+offset_bottom = 177.469
+
+[node name="n" parent="EnergyBarWinter/BarInfo/Control/nContainer" index="0"]
+theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
+
+[node name="n1" parent="EnergyBarWinter/BarInfo/Control/nContainer" index="1"]
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 
 [node name="EnergyBarSummer" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 129.0
-offset_top = 932.0
-offset_right = 303.0
-offset_bottom = 974.0
+offset_left = 109.0
+offset_top = 942.0
+offset_right = 283.0
+offset_bottom = 984.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-LowColor = Color(0.94902, 0.317647, 0.0666667, 1)
+LowColor = Color(0.94902, 0.156863, 0.0666667, 1)
 
 [node name="Target" parent="EnergyBarSummer" index="0"]
 position = Vector2(-331, -609.5)
 
 [node name="BarInfo" parent="EnergyBarSummer" index="1"]
 z_index = 1
-offset_left = 490.0
-offset_top = -61.0
-offset_right = 792.768
-offset_bottom = 172.786
+offset_left = 382.0
+offset_top = -60.0
+offset_right = 684.768
+offset_bottom = 63.786
 rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="InfoMoney" parent="EnergyBarSummer/BarInfo" index="0"]
+offset_top = -8.0
 offset_right = 334.0
-offset_bottom = 261.0
+offset_bottom = 160.0
+
+[node name="Control" parent="EnergyBarSummer/BarInfo" index="1"]
+offset_bottom = -8.22
+
+[node name="Text0" parent="EnergyBarSummer/BarInfo/Control/TextContainer" index="0"]
+theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Text1" parent="EnergyBarSummer/BarInfo/Control/TextContainer" index="1"]
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+
+[node name="n" parent="EnergyBarSummer/BarInfo/Control/nContainer" index="0"]
+theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
+
+[node name="n1" parent="EnergyBarSummer/BarInfo/Control/nContainer" index="1"]
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 
 [node name="Import" parent="." instance=ExtResource("5_ps4b6")]
-offset_left = 330.0
-offset_top = 950.28
-offset_right = 330.96
-offset_bottom = 950.0
+offset_left = 310.0
+offset_top = 960.28
+offset_right = 310.96
+offset_bottom = 960.0
 ticks_on_borders = false
 
 [node name="Target" parent="Import" index="1"]
 position = Vector2(-120, -9)
 
 [node name="Amount" parent="Import" index="3"]
+visible = false
 offset_left = 0.0
 offset_top = 160.0
 offset_right = 40.0
@@ -386,7 +593,8 @@ offset_top = -38.0
 offset_right = 82.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 48
-text = "2020"
+text = "2023
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -395,10 +603,14 @@ libraries = {
 "": SubResource("AnimationLibrary_08hvt")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TimePanelBlank"]
+volume_db = -20.0
+pitch_scale = 0.5
+
 [node name="Trust" type="ProgressBar" parent="."]
-offset_left = 278.0
+offset_left = 17.0
 offset_top = 200.0
-offset_right = 357.0
+offset_right = 96.0
 offset_bottom = 237.0
 theme_override_styles/background = SubResource("StyleBoxFlat_uqc36")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mru71")
@@ -416,10 +628,10 @@ width = 1.0
 [node name="BarInfo" parent="Trust" instance=ExtResource("4_67rbh")]
 visible = false
 layout_mode = 1
-offset_left = -173.0
-offset_top = 81.0
-offset_right = 140.728
-offset_bottom = 286.121
+offset_left = -361.0
+offset_top = 80.0
+offset_right = -47.272
+offset_bottom = 285.121
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -440,10 +652,10 @@ text = "Support 👆"
 horizontal_alignment = 2
 
 [node name="Env" type="ProgressBar" parent="."]
-offset_left = 112.0
-offset_top = 608.0
-offset_right = 222.0
-offset_bottom = 718.0
+offset_left = 92.0
+offset_top = 591.0
+offset_right = 202.0
+offset_bottom = 701.0
 theme_override_styles/background = SubResource("StyleBoxFlat_nm6d8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ldrdn")
 value = 50.0
@@ -524,10 +736,10 @@ scale = Vector2(1.01351, 1.00676)
 texture = ExtResource("9_kqwrt")
 
 [node name="Poll" type="ProgressBar" parent="."]
-offset_left = 248.0
-offset_top = 608.0
-offset_right = 360.0
-offset_bottom = 720.0
+offset_left = 228.0
+offset_top = 591.0
+offset_right = 340.0
+offset_bottom = 703.0
 tooltip_text = "Reach the goal by 2050 to attain net zero"
 theme_override_styles/background = SubResource("StyleBoxFlat_0vvqt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dvfnp")
@@ -638,10 +850,10 @@ anchor_left = 0.233
 anchor_top = 0.076
 anchor_right = 0.233
 anchor_bottom = 0.076
-offset_left = 33.64
-offset_top = -5.08
-offset_right = 265.64
-offset_bottom = 168.92
+offset_left = -199.36
+offset_top = -2.08
+offset_right = 32.64
+offset_bottom = 171.92
 grow_horizontal = 0
 color = Color(0.121569, 0.219608, 0.360784, 1)
 
@@ -737,9 +949,9 @@ horizontal_alignment = 2
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1650.0
+offset_left = -1911.0
 offset_top = 89.0
-offset_right = -1557.0
+offset_right = -1818.0
 offset_bottom = 137.0
 grow_horizontal = 0
 color = Color(0.597656, 0.597656, 0.597656, 1)
@@ -756,12 +968,12 @@ vertical_alignment = 1
 
 [node name="money" type="Label" parent="Money"]
 layout_mode = 0
-offset_left = 2.0
+offset_left = 6.0
 offset_top = 2.0
-offset_right = 75.0
-offset_bottom = 46.0
+offset_right = 79.0
+offset_bottom = 47.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 30
 text = "000"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -770,9 +982,9 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1650.0
+offset_left = -1911.0
 offset_top = 72.0
-offset_right = -1472.0
+offset_right = -1733.0
 offset_bottom = 152.0
 grow_horizontal = 0
 focus_mode = 0
@@ -780,11 +992,98 @@ mouse_default_cursor_shape = 2
 flat = true
 alignment = 0
 
+[node name="Top" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.062
+offset_left = 656.0
+offset_right = -520.0
+offset_bottom = -10.96
+grow_horizontal = 2
+color = Color(0.231373, 0.290196, 0.372549, 0.643137)
+
+[node name="Timeline" type="HSlider" parent="Top"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 18.0
+offset_right = 674.0
+offset_bottom = 34.0
+min_value = 2020.0
+max_value = 2050.0
+step = 3.0
+value = 2020.0
+editable = false
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Label" type="Label" parent="Top/Timeline"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = 23.0
+text = "2020"
+
+[node name="Label2" type="Label" parent="Top/Timeline"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = -4.0
+offset_right = 664.0
+offset_bottom = 22.0
+text = "2050"
+
+[node name="Shock" parent="." instance=ExtResource("5_tj765")]
+visible = false
+
+[node name="Window" parent="." instance=ExtResource("7_yu7g8")]
+visible = false
+
+[node name="BuildingButton" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(235, 650)
+texture = ExtResource("18_42ope")
+
+[node name="MouseBlock" type="ColorRect" parent="."]
+visible = false
+offset_left = -166.0
+offset_top = -113.0
+offset_right = 2121.0
+offset_bottom = 1225.0
+color = Color(1, 1, 1, 0)
+
+[node name="BorrowMoney" type="Button" parent="."]
+offset_left = 183.0
+offset_top = 41.0
+offset_right = 221.0
+offset_bottom = 76.0
+text = "+"
+
+[node name="Debt" type="ColorRect" parent="BorrowMoney"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 49.0
+offset_right = 106.0
+offset_bottom = 92.0
+color = Color(0.596078, 0.596078, 0.596078, 1)
+
+[node name="DebtAmount" type="Label" parent="BorrowMoney/Debt"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "-000"
+
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 48.0
-offset_top = 40.0
-offset_right = 136.0
-offset_bottom = 128.0
+offset_left = 1.0
+offset_right = 89.0
+offset_bottom = 88.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 icon = ExtResource("7_mnpcp")
@@ -860,94 +1159,6 @@ offset_top = 216.0
 offset_right = 546.0
 offset_bottom = 269.0
 text = "No"
-
-[node name="Top" type="ColorRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(0, 40)
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.062
-offset_left = 656.0
-offset_right = -520.0
-offset_bottom = -10.96
-grow_horizontal = 2
-color = Color(0.231373, 0.290196, 0.372549, 0.643137)
-
-[node name="Timeline" type="HSlider" parent="Top"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 18.0
-offset_right = 674.0
-offset_bottom = 34.0
-min_value = 2020.0
-max_value = 2050.0
-step = 3.0
-value = 2020.0
-editable = false
-scrollable = false
-tick_count = 11
-ticks_on_borders = true
-
-[node name="Label" type="Label" parent="Top/Timeline"]
-layout_mode = 0
-offset_left = -44.0
-offset_top = -3.0
-offset_right = -4.0
-offset_bottom = 23.0
-text = "2020"
-
-[node name="Label2" type="Label" parent="Top/Timeline"]
-layout_mode = 0
-offset_left = 624.0
-offset_top = -4.0
-offset_right = 664.0
-offset_bottom = 22.0
-text = "2050"
-
-[node name="Shock" parent="." instance=ExtResource("5_tj765")]
-visible = false
-
-[node name="Window" parent="." instance=ExtResource("7_yu7g8")]
-visible = false
-
-[node name="BuildingButton" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(235, 650)
-texture = ExtResource("18_42ope")
-
-[node name="MouseBlock" type="ColorRect" parent="."]
-visible = false
-offset_left = -166.0
-offset_top = -113.0
-offset_right = 2121.0
-offset_bottom = 1225.0
-color = Color(1, 1, 1, 0)
-
-[node name="BorrowMoney" type="Button" parent="."]
-offset_left = 444.0
-offset_top = 41.0
-offset_right = 482.0
-offset_bottom = 76.0
-text = "+"
-
-[node name="Debt" type="ColorRect" parent="BorrowMoney"]
-visible = false
-layout_mode = 0
-offset_left = 9.0
-offset_top = 49.0
-offset_right = 106.0
-offset_bottom = 92.0
-color = Color(0.596078, 0.596078, 0.596078, 1)
-
-[node name="DebtAmount" type="Label" parent="BorrowMoney/Debt"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 6.0
-offset_right = 73.0
-offset_bottom = 37.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "-000"
 
 [node name="BorrowContainer" type="Button" parent="."]
 visible = false

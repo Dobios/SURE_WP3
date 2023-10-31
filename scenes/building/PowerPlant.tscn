@@ -12,8 +12,8 @@
 atlas = ExtResource("2_nry78")
 region = Rect2(58, 262, 162, 46)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wggy5"]
-size = Vector2(208, 288)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hky5x"]
+size = Vector2(176, 248)
 
 [node name="PowerPlant" type="Node2D"]
 script = ExtResource("1_qsehc")
@@ -21,43 +21,73 @@ script = ExtResource("1_qsehc")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 2
 
-[node name="Price" type="Label" parent="."]
-offset_left = -17.0
+[node name="PreviewInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -88.0
 offset_top = 146.0
-offset_right = 18.0
-offset_bottom = 171.0
-theme_override_font_sizes/font_size = 15
+offset_right = 88.0
+offset_bottom = 186.0
+
+[node name="Time" type="Label" parent="PreviewInfo"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -35.0
+offset_right = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
+text = "0"
+
+[node name="Time2" type="Label" parent="PreviewInfo"]
+visible = false
+layout_mode = 0
+offset_left = 138.0
+offset_top = 15.0
+offset_right = 174.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 26
+text = "🔨"
+
+[node name="Time3" type="Label" parent="PreviewInfo"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -30.0
+offset_right = -17.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "⌛"
+
+[node name="Price" type="Label" parent="PreviewInfo"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -34.0
+offset_right = 64.0
+offset_bottom = 1.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
 text = "1000"
 horizontal_alignment = 1
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Price"]
-visible = false
-show_behind_parent = true
-layout_mode = 0
-offset_left = -1.0
-offset_top = 3.0
-offset_right = 49.0
-offset_bottom = 21.0
-color = Color(0.498039, 0.498039, 0.498039, 0.580392)
-
-[node name="Line2D" type="Line2D" parent="Price"]
-visible = false
-position = Vector2(69, 68)
-points = PackedVector2Array(-68, 71, -68, -65, 60, -65, 60, 71)
-width = 2.0
-default_color = Color(0.498039, 0.498039, 0.498039, 0.580392)
-
-[node name="Label" type="Label" parent="Price"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = -1.0
-offset_right = 45.0
-offset_bottom = 25.0
-text = "$"
 
 [node name="BuildInfo" type="Control" parent="."]
 visible = false
+z_index = 1
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -65.0
@@ -68,7 +98,7 @@ offset_bottom = -236.0
 [node name="NinePatchRect" type="NinePatchRect" parent="BuildInfo"]
 layout_mode = 0
 offset_left = -79.0
-offset_top = 12.0
+offset_top = -108.0
 offset_right = 209.0
 offset_bottom = 126.0
 texture = ExtResource("3_jv8ie")
@@ -81,62 +111,158 @@ patch_margin_bottom = 12
 [node name="ColorRect" type="ColorRect" parent="BuildInfo"]
 layout_mode = 0
 offset_left = -55.0
-offset_top = 28.0
+offset_top = -87.0
 offset_right = 185.0
-offset_bottom = 92.0
-color = Color(0.597656, 0.597656, 0.597656, 1)
+offset_bottom = 97.0
+color = Color(0.596078, 0.596078, 0.596078, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildInfo/ColorRect"]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 184.0
+alignment = 2
+
+[node name="ColorRect2" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+color = Color(0.839216, 0.882353, 0.0862745, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+color = Color(0.541176, 0.541176, 0.541176, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+color = Color(0.231373, 0.584314, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+color = Color(0.545098, 0.976471, 0, 1)
 
 [node name="ContainerL" type="VBoxContainer" parent="BuildInfo/ColorRect"]
-visible = false
 layout_mode = 0
-offset_left = 1.0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_top = -44.0
+offset_right = 239.0
+offset_bottom = 167.0
+alignment = 2
+
+[node name="LifeSpan" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 22
+text = "Shutting down in"
 
 [node name="Prod" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 26
 text = "$ / ⌛"
 
 [node name="Poll" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "🏭"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 26
+text = "Pollution"
 
-[node name="Time" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
+[node name="Land" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 26
+text = "Land Use"
 
-[node name="ContainerN" type="HBoxContainer" parent="BuildInfo/ColorRect"]
+[node name="Bio" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 26
+text = "Biodiversity"
+
+[node name="ContainerN" type="VBoxContainer" parent="BuildInfo/ColorRect"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -50.0
-offset_bottom = -21.0
+offset_top = -184.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 29
-alignment = 1
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="LifeSpan" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 24
+text = "3"
+horizontal_alignment = 2
 
 [node name="Prod" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 26
 text = "100"
 horizontal_alignment = 2
 
 [node name="Poll" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 26
 text = "10"
 horizontal_alignment = 2
 
-[node name="Time" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
+[node name="Land" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "3 ⌛🔨"
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 26
+text = "3"
 horizontal_alignment = 2
+
+[node name="Bio" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 26
+text = "3"
+horizontal_alignment = 2
+
+[node name="Switch" type="CheckButton" parent="BuildInfo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = 64.0
+offset_right = 177.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_f6ssq")
+button_pressed = true
+action_mode = 0
+keep_pressed_outside = true
+flat = true
+alignment = 1
+expand_icon = true
 
 [node name="NameRect" type="ColorRect" parent="."]
 offset_left = -56.0
@@ -162,49 +288,37 @@ color = Color(0.597656, 0.597656, 0.597656, 1)
 layout_mode = 0
 offset_top = 1.0
 offset_right = 112.0
-offset_bottom = 27.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Switch" type="CheckButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = 7.0
-offset_right = 23.0
-offset_bottom = 39.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_f6ssq")
-button_pressed = true
-action_mode = 0
-keep_pressed_outside = true
-flat = true
-alignment = 1
-expand_icon = true
-
-[node name="InfoBG2" type="Sprite2D" parent="."]
-position = Vector2(3, 119)
-texture = SubResource("AtlasTexture_vpdo4")
-
 [node name="ResRect" type="ColorRect" parent="."]
-offset_left = -38.0
+visible = false
+z_index = 1
+offset_left = -50.0
 offset_top = 106.0
-offset_right = -6.0
+offset_right = -18.0
 offset_bottom = 135.0
+scale = Vector2(1.2, 1.2)
 color = Color(0.398438, 0.398438, 0.398438, 1)
+
+[node name="InfoBG2" type="Sprite2D" parent="ResRect"]
+position = Vector2(41, 10)
+texture = SubResource("AtlasTexture_vpdo4")
 
 [node name="ColorRect" type="ColorRect" parent="ResRect"]
 layout_mode = 0
 offset_left = 72.0
 offset_right = 108.0
+offset_bottom = 25.0
+color = Color(0.398438, 0.398438, 0.398438, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ResRect"]
+layout_mode = 0
+offset_right = 36.0
 offset_bottom = 25.0
 color = Color(0.398438, 0.398438, 0.398438, 1)
 
@@ -252,11 +366,11 @@ vertical_alignment = 1
 [node name="EnergyS" type="Label" parent="ResRect"]
 layout_mode = 0
 offset_left = 2.0
-offset_top = -1.0
-offset_right = 30.0
-offset_bottom = 25.0
+offset_top = -5.99999
+offset_right = 41.0
+offset_bottom = 28.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 22
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -264,11 +378,11 @@ vertical_alignment = 1
 [node name="EnergyW" type="Label" parent="ResRect"]
 layout_mode = 0
 offset_left = 76.0
-offset_top = -1.0
-offset_right = 104.0
-offset_bottom = 25.0
+offset_top = -5.99999
+offset_right = 115.0
+offset_bottom = 28.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 22
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -290,49 +404,92 @@ points = PackedVector2Array(0, 35, 0, 2, 128, 2, 128, 34, 0, 34)
 width = 2.0
 default_color = Color(0.109375, 0.0703125, 0.25, 1)
 
-[node name="ConfigController" type="Node" parent="."]
-script = ExtResource("3_runxt")
-
-[node name="HoverArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
-shape = SubResource("RectangleShape2D_wggy5")
-
-[node name="Delete" type="Button" parent="."]
-offset_left = 96.0
-offset_top = -166.0
-offset_right = 127.0
-offset_bottom = -136.0
-text = "X"
-
 [node name="Multiplier" type="ColorRect" parent="."]
-offset_left = 85.0
-offset_top = 99.0
-offset_right = 151.0
-offset_bottom = 139.0
+visible = false
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 94.0
+offset_right = 176.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
 color = Color(0.596078, 0.596078, 0.596078, 1)
+metadata/_edit_group_ = true
 
 [node name="MultAmount" type="Label" parent="Multiplier"]
 layout_mode = 0
+offset_left = 6.66666
 offset_top = 2.0
-offset_right = 67.0
+offset_right = 73.6667
 offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Inc" type="Button" parent="Multiplier"]
 layout_mode = 0
-offset_left = 47.0
+offset_left = 53.6667
 offset_top = 4.0
-offset_right = 78.0
+offset_right = 84.6667
 offset_bottom = 35.0
+text = "+"
+
+[node name="Label" type="Label" parent="Multiplier/Inc"]
+layout_mode = 0
+offset_left = 6.33334
+offset_top = -8.16667
+offset_right = 24.3333
+offset_bottom = 38.8333
+theme_override_font_sizes/font_size = 31
 text = "+"
 
 [node name="Dec" type="Button" parent="Multiplier"]
 layout_mode = 0
-offset_left = -11.0
+offset_left = -4.33334
 offset_top = 4.0
-offset_right = 20.0
+offset_right = 26.6667
 offset_bottom = 35.0
 text = "-"
+
+[node name="Label2" type="Label" parent="Multiplier/Dec"]
+layout_mode = 0
+offset_left = 10.1666
+offset_top = -9.00001
+offset_right = 28.1666
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 31
+text = "-"
+
+[node name="ConfigController" type="Node" parent="."]
+script = ExtResource("3_runxt")
+
+[node name="Delete" type="Button" parent="."]
+z_index = 1
+offset_left = 106.0
+offset_top = -141.0
+offset_right = 137.0
+offset_bottom = -110.0
+text = "X"
+
+[node name="InfoButton" type="Button" parent="."]
+offset_left = -88.0
+offset_top = -144.0
+offset_right = 88.0
+offset_bottom = 96.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_hky5x")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1xt7i8bt73lf"
+path="res://.godot/imported/10-Dark Fantasy Studio- Color the sky.mp3-782e43b176f9cdfd37c63e96bcc8171f.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/10-Dark Fantasy Studio- Color the sky.mp3"
+dest_files=["res://.godot/imported/10-Dark Fantasy Studio- Color the sky.mp3-782e43b176f9cdfd37c63e96bcc8171f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

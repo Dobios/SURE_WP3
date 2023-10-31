@@ -24,8 +24,8 @@
         </reaction>
         <reaction id="3">
             <text>Importer de l'électricité des pays voisins.
--150 $</text>
-            <effect field="money" value="-150"/>
+-50 $</text>
+            <effect field="money" value="-50"/>
         </reaction>
         <!-- Reward to the player in case they met the requirements -->
         <reward>
@@ -125,7 +125,7 @@
         <reward>
             <text>Coûts de production +10%</text>
             <effect field="support" value="0"/>
-            <effect field="money" value="-200"/>
+            <effect field="money" value="-20"/>
         </reward>
     </shock>
     
@@ -141,7 +141,7 @@
         <reward>
             <text>Coûts de production +20%</text>
             <effect field="support" value="0"/>
-            <effect field="money" value="-300"/>
+            <effect field="money" value="-50"/>
         </reward>
     </shock>
 <!-- Need policies
@@ -186,8 +186,8 @@
         </reaction>
         <reward>
             <text>Augmentation de la demande en énergie +50⚡</text>
-            <effect field="energyS" value="-50"/>
-            <effect field="energyW" value="-50"/>
+            <effect field="energyS" value="0"/>
+            <effect field="energyW" value="0"/>
         </reward>
     </shock>
 
@@ -200,13 +200,13 @@
             <text>Confiner la population. 
 -10 👍 +50 ⚡</text>
             <effect field="support" value="-10"/>
-            <effect field="support" value="-20"/>
+            <effect field="support" value="0"/>
         </reaction>
         <reaction id="1">
             <text>Mettre en place un plan de vaccination. 
--20 👍 -100$</text>
+-20 👍 -50$</text>
             <effect field="support" value="-20"/>
-            <effect field="money" value="-100"/>
+            <effect field="money" value="-50"/>
         </reaction>
         <reaction id="2">
             <text>Attendre l'immunité collective.</text>

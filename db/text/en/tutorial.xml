@@ -22,21 +22,25 @@
 <db id="tutorial" lang="en">
 	<group id="tutorial_text">
 		<text id="0">Congratulations !
-You have been designated to [b]manage the power grid[/b] and ensure a sustainable and resilient energy sector.</text>
+You have been designated to [b]manage the power grid[/b] and ensure a sustainable and resilient energy sector for the next 30 years (10 turns).</text>
 		<text id="1">You need to [b]supply[/b] enough [b]energy[/b] for your population.
 They need to charge their phones and play their favourite video games.</text>
 		<text id="2">You need to [b]supply[/b] enough [b]energy[/b] for your population.
 They need to charge their phones and play their favourite video games.</text>
 		<text id="3">There are different ways to supply more energy:
 
-- You can import energy, but it pollutes and can be expensive.</text>
+- You can import energy in winter, but it creates pollution and can be expensive.</text>
 		<text id="4">There are different ways to supply more energy:
 
 - You can build new power plants, but it costs time and money.</text>
+<text id="5">There are different ways to supply more energy:
+
+	- You can upgrade some of the existing power plants</text>
 	</group>
 	<group id="info_bubble">
-		<text id="0">Each turn, you have to reach the demand for summer and winter.</text>
+		<text id="0">Each turn, you have to reach the demand for summer 🔆 and winter ❄️.</text>
 		<text id="1">Import more energy here</text>
 		<text id="2">Build new power plants</text>
+		<text id="3">Upgrade existing power plant</text>
 	</group>
 </db>

@@ -1,90 +1,125 @@
-[gd_scene load_steps=26 format=3 uid="uid://g58p7rxvcdik"]
+[gd_scene load_steps=30 format=3 uid="uid://g58p7rxvcdik"]
 
 [ext_resource type="Script" path="res://src/cs/GameLoop.cs" id="1_4jam2"]
 [ext_resource type="PackedScene" uid="uid://ba56oxmvcxpos" path="res://scenes/world.tscn" id="1_prp6q"]
 [ext_resource type="PackedScene" uid="uid://bs48lirfn2fp2" path="res://scenes/hud/ui.tscn" id="2_d60f5"]
 [ext_resource type="PackedScene" uid="uid://i802aa7uc538" path="res://scenes/building/BuildMenu.tscn" id="2_wrh8p"]
-[ext_resource type="Texture2D" uid="uid://cnp5jnw2xibl8" path="res://assets/temp_swiss_map.png" id="3_fsnjl"]
 [ext_resource type="Script" path="res://src/cs/ui/UI.cs" id="3_l6dyd"]
 [ext_resource type="Script" path="res://src/cs/ui/Camera.cs" id="3_s6ssk"]
 [ext_resource type="Texture2D" uid="uid://tkvsvedhf6x4" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0020_Nuclear.png" id="4_wlqc3"]
 [ext_resource type="Texture2D" uid="uid://btk3fbtu5m5ua" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0014_Hydrolic-Reservoir.png" id="5_i2doc"]
-[ext_resource type="Texture2D" uid="uid://cf3amacrbvg0b" path="res://assets/Elements/ENERGY PLANT - ON.png" id="5_ra246"]
 [ext_resource type="Script" path="res://src/cs/utils/model/ModelController.cs" id="6_hyuox"]
 [ext_resource type="Script" path="res://src/cs/utils/xml/TextController.cs" id="6_wtjaw"]
-[ext_resource type="Texture2D" uid="uid://b0wao2oeami4x" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0013_Hydrolic-Reservoir-water.png" id="6_wxnjx"]
+[ext_resource type="Texture2D" uid="uid://com3jwqcdurjb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0016_Hydrolic-river-.png" id="7_ei5st"]
 [ext_resource type="Script" path="res://src/cs/resources/ResourceManager.cs" id="7_u5qtv"]
 [ext_resource type="Script" path="res://src/cs/resources/EnergyManager.cs" id="8_axsc3"]
+[ext_resource type="Texture2D" uid="uid://lkinuybw2vd8" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0006_Waste.png" id="8_ccefw"]
 [ext_resource type="Script" path="res://src/cs/resources/SupportManager.cs" id="9_44b4k"]
+[ext_resource type="AudioStream" uid="uid://chfos7nbvqtwi" path="res://assets/Sounds/Ambience_Place_Waterfall_Loop.wav" id="9_kpuis"]
+[ext_resource type="Texture2D" uid="uid://drju16akfui3t" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0012_Biomass.png" id="9_78toe"]
 [ext_resource type="Script" path="res://src/cs/resources/EnvironmentManager.cs" id="10_7fban"]
+[ext_resource type="Texture2D" uid="uid://drc6pwawtjjqu" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0001_Solar.png" id="10_qycq3"]
+[ext_resource type="Texture2D" uid="uid://bajeyuq7feqxr" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0004_Wind.png" id="11_80dv6"]
+[ext_resource type="Texture2D" uid="uid://cmeajgdmtv4xn" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0002_Wind-propeller.png" id="11_kslp2"]
 [ext_resource type="PackedScene" uid="uid://ciphd0cmpslrn" path="res://scenes/hud/tutorial.tscn" id="11_uite1"]
 [ext_resource type="PackedScene" uid="uid://885lty3v1qbq" path="res://scenes/windows/shock.tscn" id="12_vvejj"]
 [ext_resource type="PackedScene" uid="uid://pvoi2mcc3oc1" path="res://scenes/hud/menu.tscn" id="18_h65u3"]
 [ext_resource type="PackedScene" uid="uid://cej4dlw11su6f" path="res://scenes/hud/end.tscn" id="21_7pke6"]
+[ext_resource type="AudioStream" uid="uid://c78fhd6h6rxwg" path="res://assets/Sounds/Forest Loop.wav" id="23_xfeff"]
+[ext_resource type="AudioStream" uid="uid://b1xt7i8bt73lf" path="res://assets/Sounds/10-Dark Fantasy Studio- Color the sky.mp3" id="24_jvewo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlpb2"]
-atlas = ExtResource("5_ra246")
-region = Rect2(58, 262, 162, 46)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bbke"]
+atlas = ExtResource("11_kslp2")
+region = Rect2(130, 32, 80, 88)
 
-[sub_resource type="Animation" id="Animation_m0xv2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nxuw"]
+atlas = ExtResource("11_kslp2")
+region = Rect2(-2, 54, 86, 84)
+
+[sub_resource type="Animation" id="Animation_hyc1l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("water:position")
+tracks/0/path = NodePath("Turbine:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 80)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("water:skew")
+tracks/1/path = NodePath("Turbine2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.0349066]
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Turbine3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_3b8yy"]
-resource_name = "water"
+[sub_resource type="Animation" id="Animation_ci2t2"]
+resource_name = "Wind"
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("water:position")
+tracks/0/path = NodePath("Turbine:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, 80), Vector2(1, 78), Vector2(-1, 80)]
+"values": [-6.28319, 6.28319]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("water:skew")
+tracks/1/path = NodePath("Turbine2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.0349066, 0.0349066, -0.0349066]
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Turbine3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bnymk"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bm0fl"]
 _data = {
-"RESET": SubResource("Animation_m0xv2"),
-"water": SubResource("Animation_3b8yy")
+"RESET": SubResource("Animation_hyc1l"),
+"Wind": SubResource("Animation_ci2t2")
 }
 
 [node name="Main" type="Node2D"]
@@ -93,141 +128,151 @@ script = ExtResource("1_4jam2")
 [node name="World" parent="." instance=ExtResource("1_prp6q")]
 
 [node name="Map" parent="World" index="0"]
-visible = true
 texture_filter = 2
-position = Vector2(-2395, -1109)
-scale = Vector2(7, 7)
-texture = ExtResource("3_fsnjl")
 
-[node name="Nuclear" parent="World" index="1"]
-position = Vector2(1088, 276)
-
-[node name="Sprite" parent="World/Nuclear" index="0"]
-texture = ExtResource("4_wlqc3")
-
-[node name="NameRect" parent="World/Nuclear" index="3"]
-offset_top = -169.0
-offset_bottom = -141.0
-
-[node name="Switch" parent="World/Nuclear" index="4"]
-visible = false
-
-[node name="ResRect" parent="World/Nuclear" index="6"]
-offset_top = 104.0
-offset_bottom = 133.0
-metadata/_edit_group_ = true
-
-[node name="Nuclear2" parent="World" index="2"]
-visible = false
-
-[node name="Sprite" parent="World/Nuclear2" index="0"]
-texture = ExtResource("4_wlqc3")
-
-[node name="Nuclear3" parent="World" index="3"]
-visible = false
+[node name="Nuclear3" parent="World" index="1" groups=["PP"]]
 
 [node name="Sprite" parent="World/Nuclear3" index="0"]
 texture = ExtResource("4_wlqc3")
 
-[node name="Coal" parent="World" index="4"]
-position = Vector2(637, 385)
-PlantName = "Hydro"
-_PlantType = 9
+[node name="NinePatchRect" parent="World/Nuclear3/BuildInfo" index="0"]
+offset_top = -143.0
 
-[node name="Sprite" parent="World/Coal" index="0"]
-texture = ExtResource("5_i2doc")
+[node name="LifeSpan2" parent="World/Nuclear3/BuildInfo/ColorRect/ContainerL" index="0"]
+visible = true
 
-[node name="water" type="Sprite2D" parent="World/Coal" index="1"]
-position = Vector2(-1, 80)
-skew = -0.0349066
-texture = ExtResource("6_wxnjx")
+[node name="LifeSpan" parent="World/Nuclear3/BuildInfo/ColorRect/ContainerN" index="0"]
+visible = true
 
-[node name="NameRect" parent="World/Coal" index="4"]
-offset_top = -177.0
-offset_bottom = -149.0
+[node name="Nuclear2" parent="World" index="2" groups=["PP"]]
+position = Vector2(1479, -248)
 
-[node name="Switch" parent="World/Coal" index="5"]
-visible = false
+[node name="Sprite" parent="World/Nuclear2" index="0"]
+texture = ExtResource("4_wlqc3")
 
-[node name="InfoBG3" type="Sprite2D" parent="World/Coal" index="6"]
-position = Vector2(3, 119)
-texture = SubResource("AtlasTexture_xlpb2")
+[node name="NinePatchRect" parent="World/Nuclear2/BuildInfo" index="0"]
+offset_top = -142.0
 
-[node name="ResRect" parent="World/Coal" index="8"]
-offset_left = -39.0
-offset_right = -7.0
+[node name="LifeSpan2" parent="World/Nuclear2/BuildInfo/ColorRect/ContainerL" index="0"]
+visible = true
+
+[node name="LifeSpan" parent="World/Nuclear2/BuildInfo/ColorRect/ContainerN" index="0"]
+visible = true
+
+[node name="Nuclear" parent="World" index="3" groups=["PP"]]
+position = Vector2(1001, 130)
+
+[node name="Sprite" parent="World/Nuclear" index="0"]
+texture = ExtResource("4_wlqc3")
+
+[node name="NinePatchRect" parent="World/Nuclear/BuildInfo" index="0"]
+offset_top = -143.0
+
+[node name="LifeSpan2" parent="World/Nuclear/BuildInfo/ColorRect/ContainerL" index="0"]
+visible = true
+
+[node name="LifeSpan" parent="World/Nuclear/BuildInfo/ColorRect/ContainerN" index="0"]
+visible = true
+
+[node name="NameRect" parent="World/Nuclear" index="3"]
+offset_top = -192.0
+offset_bottom = -164.0
+
+[node name="ResRect" parent="World/Nuclear" index="4"]
+offset_top = 104.0
+offset_bottom = 133.0
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coal" index="11"]
-autoplay = "water"
+[node name="Waste" parent="World" index="4" groups=["PP"]]
+position = Vector2(380, 96)
+_PlantType = 6
+
+[node name="Sprite" parent="World/Waste" index="0"]
+texture = ExtResource("8_ccefw")
+
+[node name="Biomass" parent="World" index="6" groups=["PP"]]
+position = Vector2(-827, 1474)
+_PlantType = 7
+
+[node name="Sprite" parent="World/Biomass" index="0"]
+texture = ExtResource("9_78toe")
+
+[node name="Wind" parent="World" index="7" groups=["PP"]]
+position = Vector2(-556, 553)
+_PlantType = 5
+
+[node name="Sprite" parent="World/Wind" index="0"]
+texture = ExtResource("11_80dv6")
+
+[node name="Turbine" parent="World/Wind" index="10"]
+position = Vector2(-11, -78)
+texture = SubResource("AtlasTexture_3bbke")
+
+[node name="Turbine2" parent="World/Wind" index="11"]
+position = Vector2(-61, -37)
+texture = SubResource("AtlasTexture_3bbke")
+
+[node name="Turbine3" parent="World/Wind" index="12"]
+position = Vector2(67, -51)
+texture = SubResource("AtlasTexture_5nxuw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Wind" index="13"]
+autoplay = "Wind"
 libraries = {
-"": SubResource("AnimationLibrary_bnymk")
+"": SubResource("AnimationLibrary_bm0fl")
 }
 
-[node name="BuildButton" parent="World" index="5"]
-offset_left = 497.0
-offset_top = 1080.0
-offset_right = 589.0
-offset_bottom = 1130.0
-
-[node name="BuildButton2" parent="World" index="6"]
-offset_left = 1388.0
-offset_top = 631.0
-offset_right = 1480.0
-offset_bottom = 681.0
+[node name="BuildButton2" parent="World" index="9"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BuildButton3" parent="World" index="7"]
-offset_left = 1410.0
-offset_top = 1163.0
-offset_right = 1502.0
-offset_bottom = 1213.0
-
-[node name="BuildButton4" parent="World" index="8"]
-offset_left = -234.0
-offset_top = 496.0
-offset_right = -145.0
-offset_bottom = 539.0
-
-[node name="BuildButton5" parent="World" index="9"]
-offset_left = -572.0
-offset_top = 949.0
-offset_right = -483.0
-offset_bottom = 992.0
-
-[node name="BuildButton6" parent="World" index="10"]
-offset_left = -252.0
-offset_top = 1651.0
-offset_right = -163.0
-offset_bottom = 1694.0
-
-[node name="BuildButton7" parent="World" index="11"]
+[node name="BuildButton7" parent="World" index="14"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BuildButton8" parent="World" index="12"]
+[node name="BuildButton8" parent="World" index="15"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BuildButton9" parent="World" index="13"]
-offset_left = 1519.0
-offset_top = 1839.0
-offset_right = 1608.0
-offset_bottom = 1882.0
+[node name="River" parent="World" index="17" groups=["PP"]]
+_PlantType = 8
 
-[node name="BuildButton10" parent="World" index="14"]
-offset_left = 249.0
-offset_top = 1941.0
-offset_right = 338.0
-offset_bottom = 1984.0
+[node name="Sprite" parent="World/River" index="0"]
+texture = ExtResource("7_ei5st")
+
+[node name="Solar" parent="World" index="18" groups=["PP"]]
+position = Vector2(2617, 1493)
+_PlantType = 2
+
+[node name="Sprite" parent="World/Solar" index="0"]
+texture = ExtResource("10_qycq3")
 
 [node name="Camera2D" parent="World" index="19"]
-position = Vector2(958, 538)
+position = Vector2(858, 685)
 anchor_mode = 1
 zoom = Vector2(0.75, 0.75)
-limit_left = -2800
-limit_top = -1000
-limit_right = 5000
-limit_bottom = 3000
+limit_left = -2425
+limit_top = -950
+limit_right = 5240
+limit_bottom = 3350
 script = ExtResource("3_s6ssk")
+
+[node name="WaterSound" type="AudioStreamPlayer2D" parent="World"]
+position = Vector2(637, 432)
+stream = ExtResource("9_kpuis")
+volume_db = -8.0
+autoplay = true
+max_distance = 1000.0
+[node name="Hydro" parent="World" index="22" groups=["PP"]]
+position = Vector2(564, 1995)
+_PlantType = 0
+
+[node name="Sprite" parent="World/Hydro" index="0"]
+texture = ExtResource("5_i2doc")
+
+[node name="Pump" parent="World" index="26" groups=["PP"]]
+position = Vector2(1954, 2062)
+_PlantType = 9
+
+[node name="Sprite" parent="World/Pump" index="0"]
+texture = ExtResource("5_i2doc")
 
 [node name="UI" parent="." instance=ExtResource("2_d60f5")]
 follow_viewport_enabled = false
@@ -266,8 +311,24 @@ visible = false
 [node name="End" parent="." instance=ExtResource("21_7pke6")]
 visible = false
 
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_xfeff")
+volume_db = -10.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_jvewo")
+volume_db = -15.0
+autoplay = true
+
 [editable path="World"]
-[editable path="World/Nuclear"]
-[editable path="World/Nuclear2"]
 [editable path="World/Nuclear3"]
-[editable path="World/Coal"]
+[editable path="World/Nuclear2"]
+[editable path="World/Nuclear"]
+[editable path="World/Waste"]
+[editable path="World/Biomass"]
+[editable path="World/Wind"]
+[editable path="World/River"]
+[editable path="World/Solar"]
+[editable path="World/Hydro"]
+[editable path="World/Pump"]

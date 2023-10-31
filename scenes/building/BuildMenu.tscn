@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://lkinuybw2vd8" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0006_Waste.png" id="9_ydaxd"]
 [ext_resource type="Texture2D" uid="uid://drju16akfui3t" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0012_Biomass.png" id="10_mc0bo"]
 [ext_resource type="Texture2D" uid="uid://com3jwqcdurjb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0016_Hydrolic-river-.png" id="11_8ko7n"]
-[ext_resource type="Texture2D" uid="uid://bhkojglciqwmb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0009_Geothermal.png" id="12_2dgo3"]
+[ext_resource type="Texture2D" uid="uid://blctpbo8r261a" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0010_Geothermal.png" id="12_r0ufk"]
 
 [sub_resource type="Animation" id="Animation_j4va7"]
 length = 0.001
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(449, 656)]
+"values": [Vector2(400, 656)]
 }
 
 [sub_resource type="Animation" id="Animation_kodya"]
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(449, 1080), Vector2(449, 656)]
+"values": [Vector2(400, 1080), Vector2(400, 656)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqvg1"]
@@ -66,10 +66,11 @@ libraries = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="."]
-offset_left = 449.0
+offset_left = 400.0
 offset_top = 656.0
-offset_right = 2041.0
+offset_right = 1992.0
 offset_bottom = 1080.0
+mouse_filter = 0
 
 [node name="TabBar" type="TabBar" parent="TabContainer"]
 layout_mode = 2
@@ -83,6 +84,15 @@ metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Solar" index="0"]
 texture = ExtResource("3_x7du8")
+
+[node name="Price" parent="TabContainer/TabBar/Solar/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="SolarButton" type="Button" parent="TabContainer/TabBar/Solar"]
 offset_left = -104.0
@@ -101,6 +111,15 @@ metadata/_edit_group_ = true
 [node name="Sprite" parent="TabContainer/TabBar/Wind" index="0"]
 position = Vector2(0, 21.1111)
 texture = ExtResource("4_tld6o")
+
+[node name="Price" parent="TabContainer/TabBar/Wind/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Turbine" type="Sprite2D" parent="TabContainer/TabBar/Wind"]
 position = Vector2(1.11115, -45.5558)
@@ -124,6 +143,15 @@ metadata/_edit_group_ = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_52mtj")
 
+[node name="Price" parent="TabContainer/TabBar/Tree/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="TreeButton" type="Button" parent="TabContainer/TabBar/Tree"]
 offset_left = -109.0
 offset_top = -143.0
@@ -141,6 +169,15 @@ metadata/_edit_group_ = true
 [node name="Sprite" parent="TabContainer/TabBar/Hydro" index="0"]
 texture = ExtResource("7_lh640")
 
+[node name="Price" parent="TabContainer/TabBar/Hydro/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="HydroButton" type="Button" parent="TabContainer/TabBar/Hydro"]
 offset_left = -104.0
 offset_top = -143.0
@@ -156,6 +193,15 @@ metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Gas" index="0"]
 texture = ExtResource("8_sbytn")
+
+[node name="Price" parent="TabContainer/TabBar/Gas/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="GasButton" type="Button" parent="TabContainer/TabBar/Gas"]
 offset_left = -102.0
@@ -173,6 +219,15 @@ _PlantType = 6
 [node name="Sprite" parent="TabContainer/TabBar/Waste" index="0"]
 texture = ExtResource("9_ydaxd")
 
+[node name="Price" parent="TabContainer/TabBar/Waste/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="WasteButton" type="Button" parent="TabContainer/TabBar/Waste"]
 offset_left = -101.0
 offset_top = -144.0
@@ -187,6 +242,15 @@ _PlantType = 7
 
 [node name="Sprite" parent="TabContainer/TabBar/Biomass" index="0"]
 texture = ExtResource("10_mc0bo")
+
+[node name="Price" parent="TabContainer/TabBar/Biomass/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="BiomassButton" type="Button" parent="TabContainer/TabBar/Biomass"]
 offset_left = -103.0
@@ -204,6 +268,15 @@ _PlantType = 8
 [node name="Sprite" parent="TabContainer/TabBar/River" index="0"]
 texture = ExtResource("11_8ko7n")
 
+[node name="Price" parent="TabContainer/TabBar/River/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="RiverButton" type="Button" parent="TabContainer/TabBar/River"]
 offset_left = -98.0
 offset_top = -120.0
@@ -218,7 +291,16 @@ scale = Vector2(0.9, 0.9)
 _PlantType = 9
 
 [node name="Sprite" parent="TabContainer/TabBar/Pump" index="0"]
-texture = ExtResource("12_2dgo3")
+texture = ExtResource("12_r0ufk")
+
+[node name="Price" parent="TabContainer/TabBar/Pump/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="PumpButton" type="Button" parent="TabContainer/TabBar/Pump"]
 offset_left = -90.0

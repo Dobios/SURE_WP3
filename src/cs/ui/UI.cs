@@ -66,6 +66,8 @@ public partial class UI : CanvasLayer {
 	// Button that triggers the passage to a next turn
 	private TextureButton NextTurnButton;
 	private Label NextTurnL;
+	private AnimationPlayer NextTurnAP;
+	private Label Warning;
 
 	// The two energy bars, showing the availability and demand
 	private InfoBar WinterEnergy;
@@ -155,6 +157,8 @@ public partial class UI : CanvasLayer {
 		// Fetch Nodes
 		NextTurnButton = GetNode<TextureButton>("NextTurn");
 		NextTurnL = GetNode<Label>("NextTurn/Label");
+		NextTurnAP = GetNode<AnimationPlayer>("NextTurn/NextTurnAP");
+		Warning = GetNode<Label>("NextTurn/Warning");
 		TC = GetNode<TextController>("../TextController");
 		BM = GetNode<BuildMenu>("../BuildMenu");
 		GL = GetOwner<GameLoop>();
@@ -230,6 +234,7 @@ public partial class UI : CanvasLayer {
 		// Connect Various signals
 		MoneyButton.Pressed += _OnMoneyButtonPressed;
 		NextTurnButton.Pressed += _OnNextTurnPressed;
+		NextTurnButton.GuiInput += _OnNextTurnGuiInput;
 		SettingsButton.Pressed += _OnSettingsButtonPressed;
 		LanguageButton.Pressed += _OnLanguageButtonPressed;
 		SettingsClose.Pressed += _OnSettingsClosePressed;
@@ -741,6 +746,15 @@ public partial class UI : CanvasLayer {
 		
 		// Update the Timeline
 		Timeline.Value = Math.Min(Timeline.Value + TIMELINE_STEP_SIZE, TIMELINE_MAX_VALUE); 
+	}
+	
+	// If the player tries to press on the disabled next turn button they will get a warning
+	public void _OnNextTurnGuiInput(InputEvent E) {
+		if(E is InputEventMouseButton MouseButton) {
+			if(MouseButton.ButtonMask == MouseButtonMask.Left)
+				if(NextTurnButton.Disabled)
+					NextTurnAP.Play("warning");
+		}
 	}
 
 	// Displays the information box related to the winter energy

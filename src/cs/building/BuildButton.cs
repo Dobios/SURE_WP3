@@ -79,6 +79,9 @@ public partial class BuildButton : TextureButton {
 	public AnimationPlayer AP;
 	public Label AnimMoney;
 
+	
+	private AudioStreamPlayer2D BuildingSound;
+
 	// Reference to the game loop
 	private GameLoop GL;
 
@@ -131,6 +134,7 @@ public partial class BuildButton : TextureButton {
 		Cancel = GetNode<Button>("Cancel");
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
 		AnimMoney = GetNode<Label>("Money");
+		BuildingSound = GetNode<AudioStreamPlayer2D>("BuildingSound");
 
 		// Fetch the context
 		C = GetNode<Context>("/root/Context");
@@ -240,6 +244,8 @@ public partial class BuildButton : TextureButton {
 		// Hide the button
 		HideOnlyButton();
 
+		BuildingSound.Stop();
+
 		// Update the requested build fields
 		PPInProgress = null;
 		BS = BuildState.DONE;
@@ -267,6 +273,7 @@ public partial class BuildButton : TextureButton {
 
 	// Sets the button to the build state
 	private void SetToBuild() {
+		BuildingSound.Play();
 		BuildSprite.Show();
 		TL.Text = "⌛ " + TurnsToBuild.ToString();
 		Disabled = true;
@@ -407,7 +414,7 @@ public partial class BuildButton : TextureButton {
 		if(GL._RequestBuild(PP.BuildCost)) {
 			// Hide all plants
 			HideAllPlants();
-
+			
 			// Check for the requested plant's build time
 			if(PP.BuildTime >= 1) {
 				BeginBuild(PP);
@@ -447,6 +454,9 @@ public partial class BuildButton : TextureButton {
 		
 		// Hide all plants
 		HideAllPlants();
+
+		//Stop building sound
+		BuildingSound.Stop();
 
 		// Hide the cancel button
 		Cancel.Hide();

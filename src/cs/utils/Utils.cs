@@ -259,7 +259,6 @@ public readonly struct Building {
 		type == Type.SOLAR ? SOL_ID_BASE :
 		type == Type.NUCLEAR ? NUC_ID_BASE : 
 		-1;
-		// Could you fill this ?
 
 	// Performs the same check as the == operator, but with a run-time check on the type
 	public override bool Equals(object obj) {

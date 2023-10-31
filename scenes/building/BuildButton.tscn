@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://banvqdghwoj3p"]
+[gd_scene load_steps=41 format=3 uid="uid://banvqdghwoj3p"]
 
 [ext_resource type="Texture2D" uid="uid://efqqo78530ur" path="res://assets/Elements/BUILDING BUTTON.png" id="1_dqrnt"]
 [ext_resource type="PackedScene" uid="uid://ct4blqwh4y6ab" path="res://scenes/building/PowerPlant.tscn" id="1_wi5q3"]
@@ -17,9 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://bajeyuq7feqxr" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0004_Wind.png" id="13_uoixp"]
 [ext_resource type="Texture2D" uid="uid://cmeajgdmtv4xn" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0002_Wind-propeller.png" id="14_n41d3"]
 [ext_resource type="Texture2D" uid="uid://lkinuybw2vd8" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0006_Waste.png" id="17_q1r63"]
+[ext_resource type="AudioStream" uid="uid://dohnoi7wa60h6" path="res://assets/Sounds/Ambience_Place_Blacksmith_Shop_Loop.wav" id="17_q6pln"]
+[ext_resource type="AudioStream" uid="uid://xl4bsmv07wdo" path="res://assets/Sounds/Coin and Purse 09.wav" id="18_bdggr"]
 [ext_resource type="Texture2D" uid="uid://drju16akfui3t" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0012_Biomass.png" id="18_fbsst"]
+[ext_resource type="AudioStream" uid="uid://bk0byrjhpqlci" path="res://assets/Sounds/Demolish 1_5.wav" id="19_7wm0g"]
 [ext_resource type="Texture2D" uid="uid://com3jwqcdurjb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0016_Hydrolic-river-.png" id="19_jfn5w"]
 [ext_resource type="Texture2D" uid="uid://bhkojglciqwmb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0009_Geothermal.png" id="20_6kkmi"]
+[ext_resource type="AudioStream" uid="uid://c3jt3ou2rb68h" path="res://assets/Sounds/HammerHits.wav" id="20_86vnk"]
 
 [sub_resource type="Animation" id="Animation_q0r05"]
 length = 0.001
@@ -544,6 +548,36 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(0.0156863, 0.592157, 0, 1), Color(0.0156863, 0.592157, 0, 1), Color(0.0156863, 0.592157, 0, 0)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoneySound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_bdggr")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DestroySound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_7wm0g")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_gdbaf"]
 resource_name = "Money-"
@@ -583,6 +617,36 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoneySound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_bdggr")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BuildSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_86vnk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_5sliq"]
 length = 0.001
@@ -630,11 +694,9 @@ _data = {
 "RESET": SubResource("Animation_5sliq")
 }
 
-[node name="BuildButton" type="TextureButton"]
-offset_left = -112.0
-offset_top = -88.0
-offset_right = 115.0
-offset_bottom = 97.0
+[node name="BuildButton" type="TextureButton" groups=["BB"]]
+offset_right = 227.0
+offset_bottom = 185.0
 focus_mode = 0
 texture_normal = ExtResource("1_dqrnt")
 texture_pressed = ExtResource("2_e5byc")
@@ -646,6 +708,15 @@ position = Vector2(112, 88)
 
 [node name="Sprite" parent="Gas" index="0"]
 texture = ExtResource("5_kuv5l")
+
+[node name="Price" parent="Gas/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gas"]
 autoplay = "smoke"
@@ -692,8 +763,14 @@ _PlantType = 0
 [node name="Sprite" parent="Hydro" index="0"]
 texture = ExtResource("10_wly2t")
 
-[node name="Switch" parent="Hydro" index="4"]
-visible = false
+[node name="Price" parent="Hydro/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Water" type="Sprite2D" parent="Hydro"]
 position = Vector2(-1, 82)
@@ -714,8 +791,14 @@ _PlantType = 2
 [node name="Sprite" parent="Solar" index="0"]
 texture = ExtResource("11_4r262")
 
-[node name="Switch" parent="Solar" index="4"]
-visible = false
+[node name="Price" parent="Solar/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Tree" parent="." instance=ExtResource("1_wi5q3")]
 visible = false
@@ -726,8 +809,14 @@ _PlantType = 3
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_wp0io")
 
-[node name="Switch" parent="Tree" index="4"]
-visible = false
+[node name="Price" parent="Tree/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Wind" parent="." instance=ExtResource("1_wi5q3")]
 visible = false
@@ -737,8 +826,14 @@ _PlantType = 5
 [node name="Sprite" parent="Wind" index="0"]
 texture = ExtResource("13_uoixp")
 
-[node name="Switch" parent="Wind" index="4"]
-visible = false
+[node name="Price" parent="Wind/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Turbine" type="Sprite2D" parent="Wind"]
 position = Vector2(-64, -36)
@@ -796,6 +891,15 @@ _PlantType = 6
 [node name="Sprite" parent="Waste" index="0"]
 texture = ExtResource("17_q1r63")
 
+[node name="Price" parent="Waste/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="Biomass" parent="." instance=ExtResource("1_wi5q3")]
 visible = false
 position = Vector2(112, 88)
@@ -803,6 +907,15 @@ _PlantType = 7
 
 [node name="Sprite" parent="Biomass" index="0"]
 texture = ExtResource("18_fbsst")
+
+[node name="Price" parent="Biomass/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="River" parent="." instance=ExtResource("1_wi5q3")]
 visible = false
@@ -812,6 +925,15 @@ _PlantType = 8
 [node name="Sprite" parent="River" index="0"]
 texture = ExtResource("19_jfn5w")
 
+[node name="Price" parent="River/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
+
 [node name="Pump" parent="." instance=ExtResource("1_wi5q3")]
 visible = false
 position = Vector2(112, 88)
@@ -819,6 +941,15 @@ _PlantType = 9
 
 [node name="Sprite" parent="Pump" index="0"]
 texture = ExtResource("20_6kkmi")
+
+[node name="Price" parent="Pump/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 35.0
+grow_vertical = 1
 
 [node name="Cancel" type="Button" parent="."]
 visible = false
@@ -828,6 +959,11 @@ offset_top = -17.0
 offset_right = 208.0
 offset_bottom = 14.0
 text = "X"
+
+[node name="BuildingSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(112, 88)
+stream = ExtResource("17_q6pln")
+max_distance = 1000.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -843,10 +979,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -24.5
-offset_right = 55.5
-offset_bottom = 33.5
+offset_left = 57.0
+offset_top = 68.0
+offset_right = 169.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -856,6 +992,18 @@ theme_override_font_sizes/font_size = 40
 text = "-100$"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MoneySound" type="AudioStreamPlayer" parent="."]
+volume_db = 2.0
+pitch_scale = 1.29
+
+[node name="BuildSound" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0
+pitch_scale = 0.5
+autoplay = true
+
+[node name="DestroySound" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
 
 [editable path="Gas"]
 [editable path="Hydro"]

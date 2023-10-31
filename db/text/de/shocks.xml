@@ -40,8 +40,8 @@
         </reaction>
         <reaction id="3">
             <text>Strom aus Nachbarländern importieren.
-- 150 💰</text>
-            <effect field="money" value="-150"/>
+- 50 💰</text>
+            <effect field="money" value="-50"/>
         </reaction>
         <!-- Reward to the player in case they met the requirements -->
         <reward>
@@ -93,8 +93,8 @@
         </reaction>
         <reward>
             <text>Hydraulische Energieerzeugung -1% pro Umdrehung</text>
-            <effect field="money" value="50"/>
-            <effect field="env" value="50"/>
+            <effect field="money" value="0"/>
+            <effect field="env" value="0"/>
         </reward>
     </shock>
 
@@ -109,8 +109,8 @@
         </reaction>
         <reward>
             <text>Wind- und Solarenergie -20% ⚡</text>
-            <effect field="support" value="50"/>
-            <effect field="money" value="50"/>
+            <effect field="support" value="0"/>
+            <effect field="money" value="0"/>
         </reward>
     </shock>
 <!-- Need geothermal
@@ -140,8 +140,8 @@
         </reaction>
         <reward>
             <text>Produktionskosten +10%</text>
-            <effect field="support" value="50"/>
-            <effect field="money" value="50"/>
+            <effect field="support" value="0"/>
+            <effect field="money" value="-20"/>
         </reward>
     </shock>
     
@@ -156,8 +156,8 @@
         </reaction>
         <reward>
             <text>Produktionskosten +20%</text>
-            <effect field="support" value="50"/>
-            <effect field="money" value="50"/>
+            <effect field="support" value="0"/>
+            <effect field="money" value="-50"/>
         </reward>
     </shock>
 <!-- Need policies
@@ -202,8 +202,8 @@
         </reaction>
         <reward>
             <text>Energiebedarf im Winter und Sommer +50 ⚡</text>
-            <effect field="energyS" value="-50"/>
-            <effect field="energyW" value="-50"/>
+            <effect field="energyS" value="0"/>
+            <effect field="energyW" value="0"/>
         </reward>
     </shock>
 
@@ -213,16 +213,16 @@
         <text>Ein neues Virus breitet sich rasant in der Welt aus. Was sollten wir tun?</text>
         <requirement id="0" field="energyW" value="5000" bound="min"/>
         <reaction id="0">
-            <text>Put the population in lockdown. 
+            <text>Beschränkungen einrichten. 
 -10 👍 +50 ⚡</text>
             <effect field="support" value="-10"/>
-            <effect field="support" value="-10"/>
+            <effect field="support" value="0"/>
         </reaction>
         <reaction id="1">
             <text>Legen Sie eine Impfkampagne fest.
--20 👍 -100$</text>
+-20 👍 -50$</text>
             <effect field="support" value="-20"/>
-            <effect field="money" value="-100"/>
+            <effect field="money" value="-50"/>
         </reaction>
         <reaction id="2">
             <text>Warten Sie auf die Herdenimmunität.</text>
