@@ -142,6 +142,10 @@ texture_filter = 2
 [node name="Sprite" parent="World/Nuclear3" index="0"]
 texture = ExtResource("4_wlqc3")
 
+[node name="Price" parent="World/Nuclear3/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="NinePatchRect" parent="World/Nuclear3/BuildInfo" index="0"]
 offset_top = -143.0
 
@@ -157,6 +161,10 @@ position = Vector2(1479, -248)
 [node name="Sprite" parent="World/Nuclear2" index="0"]
 texture = ExtResource("4_wlqc3")
 
+[node name="Price" parent="World/Nuclear2/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="NinePatchRect" parent="World/Nuclear2/BuildInfo" index="0"]
 offset_top = -142.0
 
@@ -171,6 +179,10 @@ position = Vector2(1001, 130)
 
 [node name="Sprite" parent="World/Nuclear" index="0"]
 texture = ExtResource("4_wlqc3")
+
+[node name="Price" parent="World/Nuclear/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
 
 [node name="NinePatchRect" parent="World/Nuclear/BuildInfo" index="0"]
 offset_top = -143.0
@@ -197,6 +209,10 @@ _PlantType = 6
 [node name="Sprite" parent="World/Waste" index="0"]
 texture = ExtResource("8_ccefw")
 
+[node name="Price" parent="World/Waste/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="Biomass" parent="World" index="10" groups=["PP"]]
 position = Vector2(-827, 1474)
 _PlantType = 7
@@ -204,12 +220,20 @@ _PlantType = 7
 [node name="Sprite" parent="World/Biomass" index="0"]
 texture = ExtResource("9_78toe")
 
+[node name="Price" parent="World/Biomass/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="Wind" parent="World" index="11" groups=["PP"]]
 position = Vector2(-556, 553)
 _PlantType = 5
 
 [node name="Sprite" parent="World/Wind" index="0"]
 texture = ExtResource("11_80dv6")
+
+[node name="Price" parent="World/Wind/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
 
 [node name="Turbine" parent="World/Wind" index="11"]
 position = Vector2(-11, -78)
@@ -244,12 +268,20 @@ _PlantType = 8
 [node name="Sprite" parent="World/River" index="0"]
 texture = ExtResource("7_ei5st")
 
+[node name="Price" parent="World/River/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="Solar" parent="World" index="22" groups=["PP"]]
 position = Vector2(2617, 1493)
 _PlantType = 2
 
 [node name="Sprite" parent="World/Solar" index="0"]
 texture = ExtResource("10_qycq3")
+
+[node name="Price" parent="World/Solar/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
 
 [node name="Hydro" parent="World" index="26" groups=["PP"]]
 position = Vector2(564, 1995)
@@ -258,12 +290,20 @@ _PlantType = 0
 [node name="Sprite" parent="World/Hydro" index="0"]
 texture = ExtResource("5_i2doc")
 
+[node name="Price" parent="World/Hydro/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
+
 [node name="Pump" parent="World" index="30" groups=["PP"]]
 position = Vector2(1954, 2062)
 _PlantType = 9
 
 [node name="Sprite" parent="World/Pump" index="0"]
 texture = ExtResource("5_i2doc")
+
+[node name="Price" parent="World/Pump/PreviewInfo" index="3"]
+offset_left = 0.0
+offset_right = 52.0
 
 [node name="UI" parent="." instance=ExtResource("2_d60f5")]
 follow_viewport_enabled = false
