@@ -365,6 +365,25 @@ public partial class PowerPlant : Node2D {
 		// Workaround to allow for an immediate update
 		IsAlive = false;
 		_OnSwitchToggled(false);
+		
+		// Propagate to UI
+		_UpdatePlantData();
+		
+		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
+		
+					// Update the label and make sure that it is shown
+		MultiplierL.Text = MultiplierValue.ToString();
+		//Multiplier.Show();
+
+		// Check if we can still increase
+		if(MultiplierValue < mult.MaxElements) {
+			MultInc.Show();
+		} 
+
+		// Check if we can decrement now 
+		if(MultiplierValue <= 1) {
+			MultDec.Hide();
+		}
 	}
 
 	// Getter for the powerplant's current capacity
@@ -744,14 +763,16 @@ public partial class PowerPlant : Node2D {
 		// Retrieve the multiplier
 		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
 
+		//GD.Print(RefundAmount, MultiplierValue);
 		// Set the refund amount
-		if(RefundAmount == -1) {
-			RefundAmount = BuildCost + (mult.Cost * (MultiplierValue - 1));
-		}
 
+		RefundAmount = BuildCost + (mult.Cost * (MultiplierValue - 1));
+		GD.Print(RefundAmount);
+		
+		
 		// Reset the multiplier
 		MultiplierValue = 1;
-
+		GD.Print(MultiplierValue);
 		// Reset the label
 		MultiplierL.Text = MultiplierValue.ToString();
 
@@ -774,6 +795,8 @@ public partial class PowerPlant : Node2D {
 
 		// Signal that the plant was deleted
 		EmitSignal(SignalName.DeletePlant, BB, this, true);
+		
+		_Reset();
 
 		// Reactivate the plant for future construction
 		ActivatePowerPlant();
