@@ -693,7 +693,7 @@ public partial class GameLoop : Node2D {
 		_UI._UpdateUI();
 
 		// Reset money and propagate resource update to UI
-		Money = new MoneyData(START_MONEY);
+		Money = new MoneyData(START_MONEY + 90);
 		_UpdateResourcesUI();
 
 		// Reset the camera's position
@@ -738,11 +738,13 @@ public partial class GameLoop : Node2D {
 		}
 	}
 	
+	
+	// Press esc to quit the game
 	public override void _UnhandledInput(InputEvent E) {
 		if (E is InputEventKey eventKey) {
 			if (eventKey.Pressed && eventKey.Keycode == Key.Escape) {
 				GetTree().Quit();
 			}
-		} 
-	}
+		}
+	} 
 }
