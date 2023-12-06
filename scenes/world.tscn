@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://ba56oxmvcxpos"]
+[gd_scene load_steps=21 format=3 uid="uid://ba56oxmvcxpos"]
 
 [ext_resource type="Texture2D" uid="uid://bdjbeos1j2wsr" path="res://assets/MAP-BG.png" id="1_prbrp"]
-[ext_resource type="Texture2D" uid="uid://cmeajgdmtv4xn" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0002_Wind-propeller.png" id="3_srlmm"]
 [ext_resource type="Script" path="res://src/cs/building/BuildButton.cs" id="4_mo62v"]
 [ext_resource type="Texture2D" uid="uid://dnuq60vou7jic" path="res://assets/Mountains/MAP-mountains_0000_A.png" id="6_4yo2s"]
 [ext_resource type="PackedScene" uid="uid://ct4blqwh4y6ab" path="res://scenes/building/PowerPlant.tscn" id="7_6x5m2"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://curvmq4s83e7w" path="res://assets/Mountains/MAP-mountains_0002_A.png" id="8_600g3"]
 [ext_resource type="Texture2D" uid="uid://d0nonmo0jroqa" path="res://assets/Mountains/MAP-mountains_0003_A.png" id="9_6ffyi"]
 [ext_resource type="Texture2D" uid="uid://buseob4ix0xih" path="res://assets/Mountains/MAP-mountains_0004_A.png" id="10_c3oti"]
+[ext_resource type="Texture2D" uid="uid://hwov71epfekc" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0024_River-Slot.png" id="11_3jxcs"]
 [ext_resource type="Texture2D" uid="uid://cpcm2hmku8t83" path="res://assets/Mountains/MAP-mountains_0005_A.png" id="11_6ys5y"]
 [ext_resource type="Texture2D" uid="uid://ex0mlwlymf7k" path="res://assets/Forest/MAP-forest_0000_A.png" id="12_eor4b"]
 [ext_resource type="Texture2D" uid="uid://gw7tutfgps6v" path="res://assets/Forest/MAP-forest_0001_A.png" id="13_c4oex"]
@@ -19,14 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://b0b88h1h3qru2" path="res://assets/Forest/MAP-forest_0005_A.png" id="17_vyoia"]
 [ext_resource type="Texture2D" uid="uid://cww2obs22h5na" path="res://assets/Forest/MAP-forest_0006_A.png" id="18_0rr2p"]
 [ext_resource type="Texture2D" uid="uid://imn01mt51ob8" path="res://assets/Forest/MAP-forest_0007_A.png" id="19_2806d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kklxw"]
-atlas = ExtResource("3_srlmm")
-region = Rect2(130, 32, 80, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6v0b"]
-atlas = ExtResource("3_srlmm")
-region = Rect2(-2, 54, 86, 84)
 
 [sub_resource type="Theme" id="Theme_mklkc"]
 
@@ -53,7 +45,7 @@ position = Vector2(2580, 244)
 texture = ExtResource("15_mndp2")
 
 [node name="Nuclear3" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(1244, -395)
+position = Vector2(1241, -398)
 PlantName = "Nuclear"
 _PlantType = 4
 NUCLEAR_LIFE_SPAN = 9
@@ -64,12 +56,14 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
 [node name="Nuclear2" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(1503, -104)
+position = Vector2(1504, -103)
 PlantName = "Nuclear"
 _PlantType = 4
 NUCLEAR_LIFE_SPAN = 6
@@ -80,12 +74,14 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
 [node name="Nuclear" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(729, 216)
+position = Vector2(953, 215)
 PlantName = "Nuclear"
 _PlantType = 4
 NUCLEAR_LIFE_SPAN = 3
@@ -96,7 +92,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -110,7 +108,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -119,7 +119,7 @@ position = Vector2(-1265, 1085)
 texture = ExtResource("6_4yo2s")
 
 [node name="Biomass" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(-777, 1462)
+position = Vector2(-421, 1276)
 PlantName = "Gas"
 metadata/_edit_group_ = true
 
@@ -128,12 +128,14 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
 [node name="Wind" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(-489, 520)
+position = Vector2(-636, 439)
 PlantName = "Gas"
 metadata/_edit_group_ = true
 
@@ -142,25 +144,17 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
-[node name="Turbine" type="Sprite2D" parent="Wind"]
-texture = SubResource("AtlasTexture_kklxw")
-
-[node name="Turbine2" type="Sprite2D" parent="Wind"]
-texture = SubResource("AtlasTexture_kklxw")
-
-[node name="Turbine3" type="Sprite2D" parent="Wind"]
-texture = SubResource("AtlasTexture_q6v0b")
-
 [node name="BuildButton" parent="." instance=ExtResource("16_pnu0i")]
 offset_left = 2268.0
-offset_top = -307.0
-offset_right = 2495.0
-offset_bottom = -122.0
-mouse_default_cursor_shape = 2
+offset_top = -323.0
+offset_right = 2508.0
+offset_bottom = -83.0
 theme = SubResource("Theme_mklkc")
 script = ExtResource("4_mo62v")
 
@@ -169,71 +163,55 @@ position = Vector2(2930, 777)
 texture = ExtResource("11_6ys5y")
 
 [node name="BuildButton2" parent="." instance=ExtResource("16_pnu0i")]
-offset_left = 2578.0
-offset_top = 154.0
-offset_right = 2805.0
-offset_bottom = 339.0
-mouse_default_cursor_shape = 2
+offset_left = 2606.0
+offset_top = 107.0
+offset_right = 2846.0
+offset_bottom = 347.0
 script = ExtResource("4_mo62v")
 
 [node name="BuildButton3" parent="." instance=ExtResource("16_pnu0i")]
-offset_left = 2093.0
+offset_left = 2152.0
 offset_top = 718.0
-offset_right = 2320.0
-offset_bottom = 903.0
-mouse_default_cursor_shape = 2
+offset_right = 2392.0
+offset_bottom = 958.0
 script = ExtResource("4_mo62v")
 
 [node name="BuildButton4" parent="." instance=ExtResource("16_pnu0i")]
-self_modulate = Color(0.380392, 0.654902, 1, 1)
-offset_left = 3080.0
-offset_top = 728.0
-offset_right = 3307.0
-offset_bottom = 913.0
+offset_left = 2963.0
+offset_top = 890.0
+offset_right = 3203.0
+offset_bottom = 1130.0
+texture_normal = ExtResource("11_3jxcs")
 script = ExtResource("4_mo62v")
 AllowHydro = true
 
 [node name="BuildButton5" parent="." instance=ExtResource("16_pnu0i")]
 offset_left = 88.0
 offset_top = 670.0
-offset_right = 315.0
-offset_bottom = 855.0
+offset_right = 328.0
+offset_bottom = 910.0
 script = ExtResource("4_mo62v")
 
 [node name="BuildButton6" parent="." instance=ExtResource("16_pnu0i")]
-offset_left = -343.0
-offset_top = 1331.0
-offset_right = -116.0
-offset_bottom = 1516.0
+offset_left = -155.0
+offset_top = 1533.0
+offset_right = 85.0
+offset_bottom = 1773.0
 script = ExtResource("4_mo62v")
 
 [node name="BuildButton7" parent="." instance=ExtResource("16_pnu0i")]
 offset_left = 3407.0
 offset_top = 1206.0
-offset_right = 3634.0
-offset_bottom = 1391.0
+offset_right = 3647.0
+offset_bottom = 1446.0
 script = ExtResource("4_mo62v")
 
 [node name="BuildButton8" parent="." instance=ExtResource("16_pnu0i")]
-offset_left = 1517.0
-offset_top = 984.0
-offset_right = 1744.0
-offset_bottom = 1169.0
+offset_left = 1626.0
+offset_top = 898.0
+offset_right = 1866.0
+offset_bottom = 1138.0
 script = ExtResource("4_mo62v")
-
-[node name="River" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(1979, 1525)
-PlantName = "Gas"
-metadata/_edit_group_ = true
-
-[node name="Price" parent="River/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 35.0
-grow_vertical = 1
 
 [node name="Solar" parent="." instance=ExtResource("7_6x5m2")]
 position = Vector2(2697, 1446)
@@ -245,7 +223,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -257,46 +237,8 @@ texture = ExtResource("7_oigb5")
 position = Vector2(816, 1830)
 texture = ExtResource("9_6ffyi")
 
-[node name="BuildButton9" parent="." instance=ExtResource("16_pnu0i")]
-self_modulate = Color(0.380392, 0.654902, 1, 1)
-offset_left = 1143.0
-offset_top = 1864.0
-offset_right = 1370.0
-offset_bottom = 2049.0
-script = ExtResource("4_mo62v")
-AllowHydro = true
-
-[node name="Hydro" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(678, 2005)
-PlantName = "Gas"
-metadata/_edit_group_ = true
-
-[node name="Price" parent="Hydro/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 35.0
-grow_vertical = 1
-
-[node name="BuildButton10" parent="." instance=ExtResource("16_pnu0i")]
-offset_left = 57.0
-offset_top = 2239.0
-offset_right = 284.0
-offset_bottom = 2424.0
-script = ExtResource("4_mo62v")
-
-[node name="Mountain3" type="Sprite2D" parent="."]
-position = Vector2(526, 2669)
-texture = ExtResource("8_600g3")
-
-[node name="Mountain5" type="Sprite2D" parent="."]
-position = Vector2(2152, 1807)
-texture = ExtResource("10_c3oti")
-
 [node name="Pump" parent="." instance=ExtResource("7_6x5m2")]
-position = Vector2(2016, 2100)
+position = Vector2(1757, 1602)
 PlantName = "Gas"
 metadata/_edit_group_ = true
 
@@ -308,7 +250,58 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
+offset_bottom = 35.0
+grow_vertical = 1
+
+[node name="BuildButton9" parent="." instance=ExtResource("16_pnu0i")]
+offset_left = 1143.0
+offset_top = 1864.0
+offset_right = 1383.0
+offset_bottom = 2104.0
+texture_normal = ExtResource("11_3jxcs")
+script = ExtResource("4_mo62v")
+AllowHydro = true
+
+[node name="Hydro" parent="." instance=ExtResource("7_6x5m2")]
+position = Vector2(476, 1956)
+PlantName = "Gas"
+metadata/_edit_group_ = true
+
+[node name="Price" parent="Hydro/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 52.0
+offset_bottom = 35.0
+grow_vertical = 1
+
+[node name="Mountain3" type="Sprite2D" parent="."]
+position = Vector2(526, 2669)
+texture = ExtResource("8_600g3")
+
+[node name="Mountain5" type="Sprite2D" parent="."]
+position = Vector2(2152, 1807)
+texture = ExtResource("10_c3oti")
+
+[node name="River" parent="." instance=ExtResource("7_6x5m2")]
+position = Vector2(2014, 1983)
+PlantName = "Gas"
+metadata/_edit_group_ = true
+
+[node name="Price" parent="River/PreviewInfo" index="3"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -324,6 +317,13 @@ texture = ExtResource("16_53p1h")
 position = Vector2(-509, 2466)
 texture = ExtResource("17_vyoia")
 
+[node name="BuildButton10" parent="." instance=ExtResource("16_pnu0i")]
+offset_left = 57.0
+offset_top = 2366.0
+offset_right = 297.0
+offset_bottom = 2606.0
+script = ExtResource("4_mo62v")
+
 [node name="Forest7" type="Sprite2D" parent="."]
 position = Vector2(2319, 2280)
 texture = ExtResource("18_0rr2p")
@@ -338,7 +338,7 @@ texture = ExtResource("19_2806d")
 [editable path="Waste"]
 [editable path="Biomass"]
 [editable path="Wind"]
-[editable path="River"]
 [editable path="Solar"]
-[editable path="Hydro"]
 [editable path="Pump"]
+[editable path="Hydro"]
+[editable path="River"]

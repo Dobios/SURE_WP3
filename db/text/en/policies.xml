@@ -1,0 +1,97 @@
+<db id="policies">
+    <!-- ============================ -->
+    <!-- Campaigns -->
+    <!-- ============================ -->
+    <!-- The tag here represents where the policy button will be displayed in the policy window-->
+    <campaign id="renewables" tag="env">
+        <!-- The title that will be displayed at the top of the policy -->
+        <name>Renewable energy information campaign</name>
+        <!-- The description text that will be displayed in the policy popup -->
+        <text>Start Information Campaign informing on the advantages of Renewable Energy.
+            Increases acceptance of renewable energy and their related policies by n %.
+        </text>
+        <!-- The effect the campaign will have on the probability of passing the env policies -->
+        <effect tag="env" value="0.2"/>
+        <!-- Number of turns that the campaign will take -->
+        <length value="1"/>
+    </campaign>
+
+    <campaign id="home" tag="demand">
+        <name>Home insulation</name>
+        <text>Start information campaign explaining the advantages of home insulation.
+            Increases acceptance of home insulation and their related policies by n %.
+        </text>
+        <effect tag="demand" value="0.2"/>
+        <length value="1"/>
+    </campaign>
+
+    <!-- ============================ -->
+    <!-- Policies -->
+    <!-- ============================ -->
+
+    <policy id="rooftop_PV" tag="env">
+        <name>Rooftop solar PV regulation</name>
+        <text>Mandatory rooftop solar PV installation by [year].
+            Increase of decentral production of Solar Energy by n %.
+        </text>
+        <!-- A requirement on the amount of support needed to attempt the policy -->
+        <requirement field="support" value="50" bound="min"/>
+        <effect field="energyS" value="n"/>
+        <effect field="energyW" value="n"/>
+        <!-- The base probability of passing this policy
+        This can be increased by an internal counter for accumulated campaign results -->
+        <probability value="0.5"/>
+    </policy>
+
+    <policy id="Upgrade_PV" tag="env">
+        <name>Alpine solar PV regulation</name>
+        <text>Limitation of Appeal to large scale Solar Projects.
+            Increase solar plant upgrades from 1 to 3.
+        </text>
+        <effect field="solar_mult_max" value="3"/>
+        <requirement field="support" value="70" bound="min"/>
+        <probability value="0.5"/>
+    </policy>
+
+    <policy id="Wind_buildtime" tag="env">
+        <name>Wind parks regulation</name>
+        <text>Limitation of the possibilities of appeal for wind parks.
+            Lowers required building time for wind parks from 2 to 0.
+        </text>
+        <effect field="wind_build_time" value="0"/>
+        <requirement field="support" value="70" bound="min" />
+        <probability value="50"/>
+    </policy>
+
+    <policy id="Upgrade_wind" tag="env">
+        <name>Wind parks regulation</name>
+        <text>Limitation of the possibilities of appeal for wind parks.
+            Increase wind parks upgrades from 2 to 5.
+        </text>
+        <effect field="wind_mult_max" value="5"/>
+        <requirement field="support" value="70" bound="min" />
+        <probability value="0.5"/>
+    </policy>
+
+    <policy id="home_regulation" tag="demand">
+        <name>Home</name>
+        <text>Mandatory insulation of buildings within n turns.
+            Lowers energy demand by n.
+        </text>
+        <effect field="energyDemandW" value="-5"/>
+        <effect field="energyDemandS" value="-5"/>
+        <requirement field="support" value="40" bound="min" />
+        <probability value="0.5"/>
+    </policy>
+
+    <policy id="industry_subsidy" tag="demand">
+        <name>Industry Subsidy</name>
+        <text>Grant for Production Flexibility.
+            Lowers Energy Demand from Industry by n.
+        </text>
+        <effect field="energyDemandW" value="-5"/>
+        <effect field="energyDemandS" value="-5"/>
+        <requirement field="support" value="60" bound="min"/>
+        <popularity value="0.5"/>
+    </policy>
+</db>

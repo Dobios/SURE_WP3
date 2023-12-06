@@ -24,14 +24,16 @@ script = ExtResource("1_qsehc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 2
+position = Vector2(-1, 44)
+scale = Vector2(0.8, 0.8)
 
 [node name="PreviewInfo" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -88.0
-offset_top = 146.0
+offset_top = 194.0
 offset_right = 88.0
-offset_bottom = 186.0
+offset_bottom = 234.0
 
 [node name="Time" type="Label" parent="PreviewInfo"]
 layout_mode = 1
@@ -332,9 +334,9 @@ color = Color(0.597656, 0.597656, 0.597656, 1)
 visible = false
 z_index = 1
 offset_left = -50.0
-offset_top = 106.0
+offset_top = 154.0
 offset_right = -18.0
-offset_bottom = 135.0
+offset_bottom = 183.0
 scale = Vector2(1.2, 1.2)
 color = Color(0.398438, 0.398438, 0.398438, 1)
 
@@ -446,9 +448,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 96.0
-offset_top = 94.0
+offset_top = 142.0
 offset_right = 176.0
-offset_bottom = 134.0
+offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)

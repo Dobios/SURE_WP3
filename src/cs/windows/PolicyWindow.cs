@@ -22,14 +22,14 @@ using System;
 // TODO: This requires implementing policies, which is a tricky task that will require a ton of work.
 public partial class PolicyWindow : CanvasLayer {
 
-	private Panel P;
+	private ColorRect P;
 	private AnimationPlayer AP;
 
 	// ==================== GODOT Method Overrides ====================
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		P = GetNode<Panel>("MarginContainer/Panel");
+		P = GetNode<ColorRect>("ColorRect");
 		P.GuiInput += _OnPanelGuiInput;
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
 	}

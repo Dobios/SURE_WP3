@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://i802aa7uc538"]
+[gd_scene load_steps=17 format=3 uid="uid://i802aa7uc538"]
 
 [ext_resource type="Script" path="res://src/cs/building/BuildMenu.cs" id="1_vbiqr"]
 [ext_resource type="PackedScene" uid="uid://ct4blqwh4y6ab" path="res://scenes/building/PowerPlant.tscn" id="2_236y8"]
-[ext_resource type="Texture2D" uid="uid://drc6pwawtjjqu" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0001_Solar.png" id="3_x7du8"]
-[ext_resource type="Texture2D" uid="uid://bajeyuq7feqxr" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0004_Wind.png" id="4_tld6o"]
-[ext_resource type="Texture2D" uid="uid://cmeajgdmtv4xn" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0002_Wind-propeller.png" id="5_tp7dt"]
-[ext_resource type="Texture2D" uid="uid://ujeuwa2ehsay" path="res://assets/Plants/Forest.png" id="6_52mtj"]
-[ext_resource type="Texture2D" uid="uid://btk3fbtu5m5ua" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0014_Hydrolic-Reservoir.png" id="7_lh640"]
-[ext_resource type="Texture2D" uid="uid://lvf5eog6buhr" path="res://assets/Plants/230601_CH_SUREgame_Gas-Plant.png" id="8_sbytn"]
-[ext_resource type="Texture2D" uid="uid://lkinuybw2vd8" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0006_Waste.png" id="9_ydaxd"]
-[ext_resource type="Texture2D" uid="uid://drju16akfui3t" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0012_Biomass.png" id="10_mc0bo"]
-[ext_resource type="Texture2D" uid="uid://com3jwqcdurjb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0016_Hydrolic-river-.png" id="11_8ko7n"]
-[ext_resource type="Texture2D" uid="uid://blctpbo8r261a" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0010_Geothermal.png" id="12_r0ufk"]
+[ext_resource type="Texture2D" uid="uid://bgbm8t4r0m4a0" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0025_Solar-1.png" id="3_jhvum"]
+[ext_resource type="Texture2D" uid="uid://bh1jd2q534s57" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0020_Wind-1.png" id="4_35oxp"]
+[ext_resource type="Texture2D" uid="uid://c47ihdkfwask6" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0009_Propeller-1.png" id="5_y46fy"]
+[ext_resource type="Texture2D" uid="uid://cwrt2g3iv8p4p" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0017_Tree.png" id="6_cx1ud"]
+[ext_resource type="Texture2D" uid="uid://dt3vgdfiymmbl" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0018_Hydrolic-Reservoir.png" id="7_n0676"]
+[ext_resource type="Texture2D" uid="uid://cigv4d5ij1ymx" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0011_Gas.png" id="8_61mnc"]
+[ext_resource type="Texture2D" uid="uid://40ncc2tsu56l" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0008_Water-Pump-3.png" id="8_ypqld"]
+[ext_resource type="Texture2D" uid="uid://eou3fo8c40ne" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0015_Waste.png" id="9_5wkvd"]
+[ext_resource type="Texture2D" uid="uid://c83qs7d4owesp" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0012_Biomass.png" id="10_xrjfu"]
+[ext_resource type="Texture2D" uid="uid://cumvhtc05t8h5" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0016_Hydrolic-River.png" id="11_orq8p"]
+[ext_resource type="Texture2D" uid="uid://doe7y0txnwax7" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0005_Water-3.png" id="13_wuh2w"]
 
 [sub_resource type="Animation" id="Animation_j4va7"]
 length = 0.001
@@ -77,20 +78,22 @@ layout_mode = 2
 
 [node name="Solar" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(140, 183)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Solar Plant"
 _PlantType = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Solar" index="0"]
-texture = ExtResource("3_x7du8")
+texture = ExtResource("3_jhvum")
 
 [node name="Price" parent="TabContainer/TabBar/Solar/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -103,27 +106,29 @@ flat = true
 
 [node name="Wind" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(380, 183)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Wind"
 _PlantType = 5
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Wind" index="0"]
 position = Vector2(0, 21.1111)
-texture = ExtResource("4_tld6o")
+texture = ExtResource("4_35oxp")
 
 [node name="Price" parent="TabContainer/TabBar/Wind/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
 [node name="Turbine" type="Sprite2D" parent="TabContainer/TabBar/Wind"]
-position = Vector2(1.11115, -45.5558)
-texture = ExtResource("5_tp7dt")
+position = Vector2(-86.25, -107.5)
+texture = ExtResource("5_y46fy")
 
 [node name="WindButton" type="Button" parent="TabContainer/TabBar/Wind"]
 offset_left = -104.0
@@ -134,21 +139,22 @@ flat = true
 
 [node name="Tree" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(1374, 182)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Trees"
 _PlantType = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Tree" index="0"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_52mtj")
+texture = ExtResource("6_cx1ud")
 
 [node name="Price" parent="TabContainer/TabBar/Tree/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -161,20 +167,26 @@ flat = true
 
 [node name="Hydro" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(140, 183)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Hydro Plant"
 _PlantType = 0
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Hydro" index="0"]
-texture = ExtResource("7_lh640")
+texture = ExtResource("7_n0676")
+
+[node name="Water" type="Sprite2D" parent="TabContainer/TabBar/Hydro/Sprite" index="0"]
+position = Vector2(-39.375, 85.625)
+texture = ExtResource("8_ypqld")
 
 [node name="Price" parent="TabContainer/TabBar/Hydro/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -187,19 +199,21 @@ flat = true
 
 [node name="Gas" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(630, 182)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Gas Plant"
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="TabContainer/TabBar/Gas" index="0"]
-texture = ExtResource("8_sbytn")
+texture = ExtResource("8_61mnc")
 
 [node name="Price" parent="TabContainer/TabBar/Gas/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -212,19 +226,21 @@ flat = true
 
 [node name="Waste" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(884, 182)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 PlantName = "Waste"
 _PlantType = 6
 
 [node name="Sprite" parent="TabContainer/TabBar/Waste" index="0"]
-texture = ExtResource("9_ydaxd")
+texture = ExtResource("9_5wkvd")
 
 [node name="Price" parent="TabContainer/TabBar/Waste/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -237,18 +253,20 @@ flat = true
 
 [node name="Biomass" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 position = Vector2(1134, 182)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 _PlantType = 7
 
 [node name="Sprite" parent="TabContainer/TabBar/Biomass" index="0"]
-texture = ExtResource("10_mc0bo")
+texture = ExtResource("10_xrjfu")
 
 [node name="Price" parent="TabContainer/TabBar/Biomass/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -262,18 +280,24 @@ flat = true
 [node name="River" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 visible = false
 position = Vector2(381, 183)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 _PlantType = 8
 
 [node name="Sprite" parent="TabContainer/TabBar/River" index="0"]
-texture = ExtResource("11_8ko7n")
+texture = ExtResource("11_orq8p")
+
+[node name="Water" type="Sprite2D" parent="TabContainer/TabBar/River/Sprite" index="0"]
+position = Vector2(80.9375, 60.625)
+texture = ExtResource("13_wuh2w")
 
 [node name="Price" parent="TabContainer/TabBar/River/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 
@@ -287,18 +311,20 @@ flat = true
 [node name="Pump" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
 visible = false
 position = Vector2(629, 181)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 _PlantType = 9
 
 [node name="Sprite" parent="TabContainer/TabBar/Pump" index="0"]
-texture = ExtResource("12_r0ufk")
+texture = ExtResource("7_n0676")
 
 [node name="Price" parent="TabContainer/TabBar/Pump/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 0.0
+offset_right = 52.0
 offset_bottom = 35.0
 grow_vertical = 1
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://jj476u8yn2g8"]
+[gd_scene load_steps=14 format=3 uid="uid://jj476u8yn2g8"]
 
 [ext_resource type="Script" path="res://src/cs/windows/PolicyWindow.cs" id="1_is3ep"]
+[ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="2_2apud"]
+[ext_resource type="PackedScene" uid="uid://dna2006dnsx2x" path="res://scenes/windows/policy_button.tscn" id="3_wnx31"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oju76"]
 bg_color = Color(0.301961, 0.584314, 0.309804, 1)
@@ -17,8 +19,20 @@ bg_color = Color(0.843137, 0.72549, 0.352941, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip8xd"]
 bg_color = Color(0.513726, 0.588235, 0.839216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77vk0"]
-bg_color = Color(0.196078, 0.545098, 0.968627, 1)
+[sub_resource type="Animation" id="Animation_wviye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/NinePatchRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_k75ra"]
 resource_name = "popup"
@@ -27,35 +41,45 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Panel/ColorRect:scale")
+tracks/0/path = NodePath("ColorRect/NinePatchRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8dlcw"]
 _data = {
+"RESET": SubResource("Animation_wviye"),
 "popup": SubResource("Animation_k75ra")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcjrg"]
+bg_color = Color(0.823529, 0.521569, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77vk0"]
+bg_color = Color(0.196078, 0.545098, 0.968627, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
 
 [node name="Policy" type="CanvasLayer"]
 script = ExtResource("1_is3ep")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="OldWindow" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="OldWindow"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/Panel"]
+[node name="ColorRect" type="ColorRect" parent="OldWindow/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,12 +92,10 @@ offset_right = 556.0
 offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(554, 302)
 color = Color(0.823529, 0.823529, 0.870588, 1)
-metadata/_edit_group_ = true
 
-[node name="Info" type="ColorRect" parent="MarginContainer/Panel/ColorRect"]
+[node name="Info" type="ColorRect" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 32.0
@@ -81,7 +103,7 @@ offset_right = 1048.0
 offset_bottom = 184.0
 color = Color(0.900945, 0.901041, 0.92816, 1)
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/ColorRect/Info"]
+[node name="Title" type="Label" parent="OldWindow/Panel/ColorRect/Info"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = -4.0
@@ -92,7 +114,7 @@ theme_override_font_sizes/font_size = 20
 text = "Information"
 vertical_alignment = 1
 
-[node name="Tax" type="ColorRect" parent="MarginContainer/Panel/ColorRect"]
+[node name="Tax" type="ColorRect" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 203.0
@@ -100,7 +122,7 @@ offset_right = 1048.0
 offset_bottom = 376.0
 color = Color(0.900945, 0.901041, 0.92816, 1)
 
-[node name="Regulation" type="ColorRect" parent="MarginContainer/Panel/ColorRect"]
+[node name="Regulation" type="ColorRect" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 392.0
@@ -108,7 +130,7 @@ offset_right = 1048.0
 offset_bottom = 568.0
 color = Color(0.900945, 0.901041, 0.92816, 1)
 
-[node name="Title4" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title4" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 157.0
 offset_top = 136.0
@@ -119,7 +141,7 @@ theme_override_font_sizes/font_size = 15
 text = "Renewable energy"
 vertical_alignment = 1
 
-[node name="Title5" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title5" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 458.0
 offset_top = 136.0
@@ -130,7 +152,7 @@ theme_override_font_sizes/font_size = 15
 text = "Transportation"
 vertical_alignment = 1
 
-[node name="Title6" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title6" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 667.0
 offset_top = 136.0
@@ -142,7 +164,7 @@ text = "Heating"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title19" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title19" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 875.0
 offset_top = 136.0
@@ -154,7 +176,7 @@ text = "Insulation"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title7" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title7" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 328.0
@@ -166,7 +188,7 @@ text = "Wind"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title8" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title8" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 328.0
@@ -178,7 +200,7 @@ text = "Solar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title9" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title9" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 264.0
 offset_top = 328.0
@@ -190,7 +212,7 @@ text = "Biomass"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title14" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title14" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 528.0
@@ -202,7 +224,7 @@ text = "Wind"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title15" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title15" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 528.0
@@ -214,7 +236,7 @@ text = "Solar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title16" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title16" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 264.0
 offset_top = 528.0
@@ -226,7 +248,7 @@ text = "Biomass"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title17" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title17" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 438.0
 offset_top = 524.0
@@ -238,7 +260,7 @@ text = "Ban"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title18" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title18" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 666.0
 offset_top = 525.0
@@ -250,7 +272,7 @@ text = "Mandatory change"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title20" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title20" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 856.0
 offset_top = 520.0
@@ -262,7 +284,7 @@ text = "Mandatory installation"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title10" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title10" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 385.0
 offset_top = 328.0
@@ -274,7 +296,7 @@ text = "Subsidy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title11" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title11" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 625.0
 offset_top = 328.0
@@ -286,7 +308,7 @@ text = "Subsidy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title12" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title12" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 497.0
 offset_top = 328.0
@@ -298,7 +320,7 @@ text = "Tax"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title13" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title13" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 729.0
 offset_top = 328.0
@@ -310,7 +332,7 @@ text = "Tax"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title2" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title2" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 392.0
@@ -321,7 +343,7 @@ theme_override_font_sizes/font_size = 20
 text = "Regulation"
 vertical_alignment = 1
 
-[node name="Title3" type="Label" parent="MarginContainer/Panel/ColorRect"]
+[node name="Title3" type="Label" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 203.0
@@ -332,7 +354,7 @@ theme_override_font_sizes/font_size = 20
 text = "Subsidy / Tax"
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button2" type="Button" parent="OldWindow/Panel/ColorRect"]
 layout_mode = 0
 offset_left = 1080.0
 offset_right = 1098.0
@@ -341,7 +363,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "X"
 flat = true
 
-[node name="PolicyButton" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="PolicyButton" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 176.0
@@ -353,7 +375,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🍃"
 
-[node name="Button4" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button4" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 64.0
@@ -364,7 +386,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🌬"
 
-[node name="Button11" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button11" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 64.0
@@ -375,7 +397,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🌬"
 
-[node name="Button5" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button5" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 176.0
@@ -386,7 +408,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🌞"
 
-[node name="Button12" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button12" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 176.0
@@ -397,7 +419,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🌞"
 
-[node name="Button6" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button6" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 690.0
@@ -409,7 +431,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqyxx")
 text = "♨"
 
-[node name="Button18" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button18" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 899.0
@@ -421,7 +443,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_r08rr")
 text = "🏠"
 
-[node name="Button19" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button19" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 891.0
@@ -433,7 +455,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_vfsxn")
 text = "🌆"
 
-[node name="Button7" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button7" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 465.0
@@ -445,7 +467,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip8xd")
 text = "🚊🚘"
 
-[node name="Button8" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button8" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 288.0
@@ -456,7 +478,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🗑"
 
-[node name="Button13" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button13" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 288.0
@@ -467,7 +489,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
 text = "🗑"
 
-[node name="Button9" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button9" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 409.0
@@ -478,7 +500,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip8xd")
 text = "📈"
 
-[node name="Button14" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button14" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 649.0
@@ -489,7 +511,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqyxx")
 text = "📈"
 
-[node name="Button17" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button17" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 690.0
@@ -500,7 +522,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqyxx")
 text = "🔄"
 
-[node name="Button16" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button16" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 465.0
@@ -511,7 +533,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip8xd")
 text = "🚫"
 
-[node name="Button10" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button10" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 753.0
@@ -522,7 +544,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqyxx")
 text = "📉"
 
-[node name="Button15" type="Button" parent="MarginContainer/Panel/ColorRect"]
+[node name="Button15" type="Button" parent="OldWindow/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_left = 521.0
@@ -533,7 +555,171 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip8xd")
 text = "📉"
 
-[node name="Popup" type="Panel" parent="MarginContainer/Panel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8dlcw")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.619608)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -381.5
+offset_right = 540.0
+offset_bottom = 381.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(540, 381)
+texture = ExtResource("2_2apud")
+region_rect = Rect2(24, 28, 302, 216)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.0
+offset_top = -301.5
+offset_right = 517.0
+offset_bottom = 310.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.597656, 0.597656, 0.597656, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/NinePatchRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -6.0
+offset_right = 963.0
+offset_bottom = -390.0
+grow_vertical = 2
+color = Color(0.760784, 0.760784, 0.760784, 1)
+
+[node name="PolicyButton" parent="ColorRect/NinePatchRect/ColorRect/ColorRect" instance=ExtResource("3_wnx31")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.472
+anchor_top = 0.185
+anchor_right = 0.472
+anchor_bottom = 0.185
+offset_left = -278.016
+offset_top = 21.32
+offset_right = -158.016
+offset_bottom = 141.32
+
+[node name="PolicyButton4" parent="ColorRect/NinePatchRect/ColorRect/ColorRect" instance=ExtResource("3_wnx31")]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 57.5
+offset_right = 768.0
+offset_bottom = 177.5
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcjrg")
+text = "🏠"
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/NinePatchRect/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.954
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_left = -934.264
+offset_top = 273.5
+offset_right = -8.26398
+offset_bottom = 9.5
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.800781, 0.800781, 0.800781, 1)
+
+[node name="PolicyButton8" parent="ColorRect/NinePatchRect/ColorRect/ColorRect2" instance=ExtResource("3_wnx31")]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 24.0
+offset_right = 768.0
+offset_bottom = 144.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcjrg")
+text = "♨"
+
+[node name="PolicyButton9" parent="ColorRect/NinePatchRect/ColorRect/ColorRect2" instance=ExtResource("3_wnx31")]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 312.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcjrg")
+text = "🌆"
+
+[node name="PolicyButton5" parent="ColorRect/NinePatchRect/ColorRect/ColorRect2" instance=ExtResource("3_wnx31")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.486
+anchor_top = 0.787
+anchor_right = 0.486
+anchor_bottom = 0.787
+offset_left = -282.036
+offset_top = -225.876
+offset_right = -162.036
+offset_bottom = -105.876
+text = "🌬"
+
+[node name="PolicyButton6" parent="ColorRect/NinePatchRect/ColorRect/ColorRect2" instance=ExtResource("3_wnx31")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 192.0
+offset_right = 168.0
+offset_bottom = 312.0
+text = "🌞"
+
+[node name="PolicyButton7" parent="ColorRect/NinePatchRect/ColorRect/ColorRect2" instance=ExtResource("3_wnx31")]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 192.0
+offset_right = 392.0
+offset_bottom = 312.0
+text = "🌞"
+
+[node name="Label" type="Label" parent="ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 73.5
+offset_right = 280.0
+offset_bottom = 131.5
+theme_override_font_sizes/font_size = 30
+text = "Campaigns"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 353.5
+offset_right = 256.0
+offset_bottom = 411.5
+theme_override_font_sizes/font_size = 30
+text = "Policies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Popup" type="Panel" parent="ColorRect/NinePatchRect"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -542,111 +728,131 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="MarginContainer/Panel/Popup"]
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect/NinePatchRect/Popup"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -258.0
-offset_top = -200.0
-offset_right = 258.0
-offset_bottom = 200.0
+offset_left = -208.0
+offset_top = -193.5
+offset_right = 208.0
+offset_bottom = 193.5
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_2apud")
+region_rect = Rect2(26, 28, 298, 218)
+patch_margin_left = 18
+patch_margin_top = 18
+patch_margin_right = 20
+patch_margin_bottom = 20
 
-[node name="Text" type="Label" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 60.0
-offset_right = 466.0
-offset_bottom = 144.0
-theme_override_colors/font_color = Color(0.270588, 0.270588, 0.270588, 1)
-theme_override_font_sizes/font_size = 15
-text = "Information campaign / Raise grants / Guaranteed purchase of _"
-autowrap_mode = 3
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/NinePatchRect/Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.5
+offset_top = -166.5
+offset_right = 202.5
+offset_bottom = 166.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.597656, 0.597656, 0.597656, 1)
 
-[node name="Title" type="Label" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 186.0
-offset_top = 4.0
-offset_right = 331.0
-offset_bottom = 52.0
+[node name="Title" type="Label" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = -11.0
+offset_right = 72.5
+offset_bottom = 37.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Policy name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Effect" type="Label" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 142.0
-offset_right = 458.0
-offset_bottom = 292.0
-theme_override_colors/font_color = Color(0.270588, 0.270588, 0.270588, 1)
+[node name="Text" type="Label" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -115.5
+offset_right = 160.5
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 15
+text = "Information campaign / Raise grants / Guaranteed purchase of _"
+autowrap_mode = 3
+
+[node name="Effect" type="Label" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 0
+offset_left = 98.5
+offset_top = 116.5
+offset_right = 295.5
+offset_bottom = 248.5
+theme_override_font_sizes/font_size = 21
 text = "Effects:
  + n ⚡   
  - n 💰     
  n turns 
-
-Estimated popularity with voters:"
+"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 300.0
-offset_right = 370.0
-offset_bottom = 327.0
+[node name="PopularityL" type="Label" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -58.5
+offset_right = 81.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Estimated popularity with voters:"
+
+[node name="Popularity" type="ProgressBar" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -27.0
+offset_right = 71.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_77vk0")
 value = 42.0
 
-[node name="Button" type="Button" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 186.0
-offset_top = 348.0
-offset_right = 328.0
-offset_bottom = 379.0
-text = "Try to Implement"
-
-[node name="CheckButton" type="Button" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 100.0
-offset_right = 227.0
-offset_bottom = 131.0
-focus_mode = 0
-toggle_mode = true
-keep_pressed_outside = true
-text = "LVL 1"
-
-[node name="CheckButton2" type="Button" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 100.0
-offset_right = 277.0
-offset_bottom = 131.0
-focus_mode = 0
-toggle_mode = true
-keep_pressed_outside = true
-text = "LVL 2"
-
-[node name="CheckButton3" type="Button" parent="MarginContainer/Panel/Popup/ColorRect2"]
-layout_mode = 0
-offset_left = 278.0
-offset_top = 100.0
-offset_right = 327.0
-offset_bottom = 131.0
-focus_mode = 0
-toggle_mode = true
-keep_pressed_outside = true
-text = "LVL 3"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8dlcw")
-}
+[node name="Vote" type="Button" parent="ColorRect/NinePatchRect/Popup/ColorRect2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -31.0
+offset_right = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Vote
+"

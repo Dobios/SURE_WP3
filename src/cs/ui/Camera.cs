@@ -24,10 +24,10 @@ public partial class Camera : Camera2D {
 
 	// Camera control parameters
 	private Vector2 ZOOM_MIN = new (0.5f,0.5f);
-	private Vector2 ZOOM_MAX = new (1f,1f);
+	private Vector2 ZOOM_MAX = new (0.8f,0.8f);
 	private Vector2 ZOOM_SPEED = new (0.2f,0.2f);
-	private Vector2 ZoomVal = new (1.0f,1.0f);
-	private Vector2 SCALE_LIMIT = new (0.9f, 0.9f);
+	private Vector2 ZoomVal = new (0.8f,0.8f);
+	private Vector2 SCALE_LIMIT = new (1f, 1f);
 
 	// Record initial position and zoom for reset
 	private Vector2 InitPos;
@@ -50,13 +50,13 @@ public partial class Camera : Camera2D {
 			foreach (Node2D Plant in GetTree().GetNodesInGroup("PP")) {
 				// Create an animation for the zoom
 				Tween TweenScale = CreateTween();
-				TweenScale.TweenProperty(Plant, "scale", new Vector2(1,1) / (ZoomVal*1.75f), 0.3f);
+				TweenScale.TweenProperty(Plant, "scale", new Vector2(1,1) / (ZoomVal*2f), 0.3f);
 			}
 
 			// Do the same for all buildbuttons
 			foreach (TextureButton BuildButton in GetTree().GetNodesInGroup("BB")) {
 				Tween TweenScale = CreateTween();
-				TweenScale.TweenProperty(BuildButton, "scale", new Vector2(1,1) / (ZoomVal*1.75f), 0.3f);
+				TweenScale.TweenProperty(BuildButton, "scale", new Vector2(1,1) / (ZoomVal*2f), 0.3f);
 			}
 		}
 	}
@@ -107,7 +107,7 @@ public partial class Camera : Camera2D {
 	public void _ResetPos() {
 		Offset = Vector2.Zero;
 		Position = InitPos;
-		ZoomVal = new (0.75f, 0.75f);
+		ZoomVal = new (0.8f, 0.8f);
 		Zoom = InitZoom;
 		
 		// reset scale

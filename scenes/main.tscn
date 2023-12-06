@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://g58p7rxvcdik"]
+[gd_scene load_steps=66 format=3 uid="uid://g58p7rxvcdik"]
 
 [ext_resource type="Script" path="res://src/cs/GameLoop.cs" id="1_4jam2"]
 [ext_resource type="PackedScene" uid="uid://ba56oxmvcxpos" path="res://scenes/world.tscn" id="1_prp6q"]
@@ -6,28 +6,1015 @@
 [ext_resource type="PackedScene" uid="uid://i802aa7uc538" path="res://scenes/building/BuildMenu.tscn" id="2_wrh8p"]
 [ext_resource type="Script" path="res://src/cs/ui/UI.cs" id="3_l6dyd"]
 [ext_resource type="Script" path="res://src/cs/ui/Camera.cs" id="3_s6ssk"]
-[ext_resource type="Texture2D" uid="uid://tkvsvedhf6x4" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0020_Nuclear.png" id="4_wlqc3"]
-[ext_resource type="Texture2D" uid="uid://btk3fbtu5m5ua" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0014_Hydrolic-Reservoir.png" id="5_i2doc"]
+[ext_resource type="Texture2D" uid="uid://56mnndf1ggaj" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0010_Nuclear.png" id="4_e6lsk"]
+[ext_resource type="Texture2D" uid="uid://eou3fo8c40ne" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0015_Waste.png" id="5_vx3tb"]
 [ext_resource type="Script" path="res://src/cs/utils/model/ModelController.cs" id="6_hyuox"]
+[ext_resource type="Texture2D" uid="uid://c83qs7d4owesp" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0012_Biomass.png" id="6_q3df2"]
 [ext_resource type="Script" path="res://src/cs/utils/xml/TextController.cs" id="6_wtjaw"]
-[ext_resource type="Texture2D" uid="uid://com3jwqcdurjb" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0016_Hydrolic-river-.png" id="7_ei5st"]
+[ext_resource type="Texture2D" uid="uid://bh1jd2q534s57" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0020_Wind-1.png" id="7_4q6ww"]
 [ext_resource type="Script" path="res://src/cs/resources/ResourceManager.cs" id="7_u5qtv"]
+[ext_resource type="Texture2D" uid="uid://blskwje2kl2w5" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0000_Smoke-1.png" id="7_ugl8s"]
+[ext_resource type="Texture2D" uid="uid://c47ihdkfwask6" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0009_Propeller-1.png" id="8_7bikf"]
 [ext_resource type="Script" path="res://src/cs/resources/EnergyManager.cs" id="8_axsc3"]
-[ext_resource type="Texture2D" uid="uid://lkinuybw2vd8" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0006_Waste.png" id="8_ccefw"]
+[ext_resource type="Texture2D" uid="uid://cehdhadcxkehx" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0001_Smoke-2.png" id="8_jh2tr"]
+[ext_resource type="Texture2D" uid="uid://7igraqqaltxx" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0002_Smoke-3.png" id="9_2lgj4"]
 [ext_resource type="Script" path="res://src/cs/resources/SupportManager.cs" id="9_44b4k"]
-[ext_resource type="Texture2D" uid="uid://drju16akfui3t" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0012_Biomass.png" id="9_78toe"]
+[ext_resource type="Texture2D" uid="uid://cumvhtc05t8h5" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0016_Hydrolic-River.png" id="9_agn8w"]
+[ext_resource type="Texture2D" uid="uid://bgbm8t4r0m4a0" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0025_Solar-1.png" id="10_3byff"]
 [ext_resource type="Script" path="res://src/cs/resources/EnvironmentManager.cs" id="10_7fban"]
-[ext_resource type="Texture2D" uid="uid://drc6pwawtjjqu" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0001_Solar.png" id="10_qycq3"]
-[ext_resource type="Texture2D" uid="uid://bajeyuq7feqxr" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0004_Wind.png" id="11_80dv6"]
-[ext_resource type="Texture2D" uid="uid://cmeajgdmtv4xn" path="res://assets/Power plants/230601_CH_SUREgame_Power-Plants_0002_Wind-propeller.png" id="11_kslp2"]
+[ext_resource type="Texture2D" uid="uid://dt3vgdfiymmbl" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0018_Hydrolic-Reservoir.png" id="11_nggna"]
 [ext_resource type="PackedScene" uid="uid://ciphd0cmpslrn" path="res://scenes/hud/tutorial.tscn" id="11_uite1"]
+[ext_resource type="Texture2D" uid="uid://40ncc2tsu56l" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0008_Water-Pump-3.png" id="11_y3iyb"]
+[ext_resource type="Texture2D" uid="uid://dnvf0ua70317k" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0007_Water-Pump-2.png" id="12_boo6a"]
 [ext_resource type="PackedScene" uid="uid://885lty3v1qbq" path="res://scenes/windows/shock.tscn" id="12_vvejj"]
+[ext_resource type="Texture2D" uid="uid://dcpr8ukl4bkqc" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0006_Water-Pump-1.png" id="13_udqyc"]
+[ext_resource type="Texture2D" uid="uid://qq50ou5x8jbb" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0003_Water-1.png" id="15_terxt"]
+[ext_resource type="Texture2D" uid="uid://tep3shxoy2eg" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0004_Water-2.png" id="16_d8kd2"]
+[ext_resource type="Texture2D" uid="uid://doe7y0txnwax7" path="res://assets/new Power plants/Power plants/230601_CH_SUREgame_Power-Plants.psd_0005_Water-3.png" id="17_4nld4"]
 [ext_resource type="PackedScene" uid="uid://pvoi2mcc3oc1" path="res://scenes/hud/menu.tscn" id="18_h65u3"]
 [ext_resource type="PackedScene" uid="uid://cej4dlw11su6f" path="res://scenes/hud/end.tscn" id="21_7pke6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3bbke"]
-atlas = ExtResource("11_kslp2")
-region = Rect2(130, 32, 80, 88)
+[sub_resource type="Animation" id="Animation_k4it7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, -325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, -360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, -280)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke4:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xwf17"]
+resource_name = "Smoke"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, -325), Vector2(95, -355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, -360), Vector2(105, -400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2, 1.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, -280), Vector2(50, -310)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.5, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke4:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abmly"]
+_data = {
+"RESET": SubResource("Animation_k4it7"),
+"Smoke": SubResource("Animation_xwf17")
+}
+
+[sub_resource type="Animation" id="Animation_j7gcx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Smoke2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(55, -295)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(55, -340)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Smoke2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Smoke4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, -265)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Smoke4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Smoke3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ojfec"]
+resource_name = "Smoke"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Smoke2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(55, -295), Vector2(60, -325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(55, -340), Vector2(79.9999, -390)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Smoke2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1, 1.4, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Smoke4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, -265), Vector2(50, -295)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Smoke4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Smoke3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.784314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1shh4"]
+_data = {
+"RESET": SubResource("Animation_j7gcx"),
+"Smoke": SubResource("Animation_ojfec")
+}
+
+[sub_resource type="Animation" id="Animation_obqmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57, -268)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57, -268)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(82, -333)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47, -340)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Smoke5:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Smoke6:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Smoke4:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_81pcw"]
+resource_name = "Smoke"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.6, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.196078)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1, 1.9, 2.4, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(57, -260), Vector2(57, -288)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(57, -265), Vector2(57, -293)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(82, -333), Vector2(82, -358)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, -340), Vector2(67, -360)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Smoke5:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Smoke6:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.784314)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Smoke4:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.588235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3k1tp"]
+_data = {
+"RESET": SubResource("Animation_obqmd"),
+"Smoke": SubResource("Animation_81pcw")
+}
+
+[sub_resource type="Animation" id="Animation_0vvtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(76, -330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, -240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, -265)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.345098, 0.345098, 0.345098, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.345098, 0.345098, 0.345098, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eps1c"]
+resource_name = "Smoke"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(34, -225), Vector2(34, -265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(106, -205), Vector2(106, -240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(76, -285), Vector2(76, -330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvye6"]
+_data = {
+"RESET": SubResource("Animation_0vvtx"),
+"Smoke": SubResource("Animation_eps1c")
+}
+
+[sub_resource type="Animation" id="Animation_ac3am"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, -325)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, -325)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-127, -282)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke4:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4c5b4"]
+resource_name = "Smoke"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.345098, 0.345098, 0.345098, 0.784314), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1, 1.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smoke3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.7, 2.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smoke:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-60, -250), Vector2(-60, -285), Vector2(-60, -305)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Smoke2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-60, -295), Vector2(-60, -365)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Smoke3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-58, -315), Vector2(-58, -365)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Smoke4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-127, -222), Vector2(-127, -300)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Smoke4:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 1.1, 1.7, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(0.345098, 0.345098, 0.345098, 0.588235), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgvt4"]
+_data = {
+"RESET": SubResource("Animation_ac3am"),
+"Smoke": SubResource("Animation_4c5b4")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st7y5"]
+atlas = ExtResource("8_7bikf")
+region = Rect2(0, 36, 24, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7dvq"]
+atlas = ExtResource("8_7bikf")
+region = Rect2(30, 60, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obbpa"]
+atlas = ExtResource("8_7bikf")
+region = Rect2(22, 88, 14, 32)
 
 [sub_resource type="Animation" id="Animation_hyc1l"]
 length = 0.001
@@ -41,7 +1028,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [0.785398]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -53,7 +1040,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [1.39626]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -65,12 +1052,12 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [1.39626]
 }
 
 [sub_resource type="Animation" id="Animation_ci2t2"]
 resource_name = "Wind"
-length = 3.0
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -79,10 +1066,10 @@ tracks/0/path = NodePath("Turbine:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-6.28319, 6.28319]
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 1.5708]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,10 +1078,10 @@ tracks/1/path = NodePath("Turbine2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 1.39626, 2.26893]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,10 +1090,10 @@ tracks/2/path = NodePath("Turbine3:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 1.39626, 2.26893]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bm0fl"]
@@ -115,9 +1102,269 @@ _data = {
 "Wind": SubResource("Animation_ci2t2")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5nxuw"]
-atlas = ExtResource("11_kslp2")
-region = Rect2(-2, 54, 86, 84)
+[sub_resource type="Gradient" id="Gradient_e2int"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mhl0d"]
+gradient = SubResource("Gradient_e2int")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_8k287"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture:fill_from")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:texture:fill_to")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kn5c8"]
+resource_name = "Sun"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.38, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture:fill_from")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0794393, 0.0747664), Vector2(1, 1), Vector2(0.941241, 0.940943)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:texture:fill_to")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.878505, 0.869159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rsdt"]
+_data = {
+"RESET": SubResource("Animation_8k287"),
+"Sun": SubResource("Animation_kn5c8")
+}
+
+[sub_resource type="Animation" id="Animation_w8phc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Water:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(41, 106)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v16fw"]
+resource_name = "Water"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Water:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(41, 117), Vector2(41, 106), Vector2(41, 117), Vector2(41, 106)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7anxu"]
+_data = {
+"RESET": SubResource("Animation_w8phc"),
+"Water": SubResource("Animation_v16fw")
+}
+
+[sub_resource type="Animation" id="Animation_tsl1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Water2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q07b7"]
+resource_name = "Water"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Water2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.831373, 0.890196, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5k73m"]
+_data = {
+"RESET": SubResource("Animation_tsl1p"),
+"Water": SubResource("Animation_q07b7")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4jam2")
@@ -127,7 +1374,7 @@ script = ExtResource("1_4jam2")
 [node name="Camera2D" parent="World" index="0"]
 position = Vector2(858, 685)
 anchor_mode = 1
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(0.8, 0.8)
 limit_left = -2425
 limit_top = -950
 limit_right = 5240
@@ -138,9 +1385,38 @@ script = ExtResource("3_s6ssk")
 texture_filter = 2
 
 [node name="Nuclear3" parent="World" index="5" groups=["PP"]]
+HasAnimation = true
 
-[node name="Sprite" parent="World/Nuclear3" index="0"]
-texture = ExtResource("4_wlqc3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Nuclear3" index="0"]
+root_node = NodePath("../Sprite")
+autoplay = "Smoke"
+libraries = {
+"": SubResource("AnimationLibrary_abmly")
+}
+
+[node name="Sprite" parent="World/Nuclear3" index="1"]
+texture = ExtResource("4_e6lsk")
+
+[node name="Smoke" type="Sprite2D" parent="World/Nuclear3/Sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(100, -360)
+texture = ExtResource("7_ugl8s")
+
+[node name="Smoke2" type="Sprite2D" parent="World/Nuclear3/Sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(80, -325)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke3" type="Sprite2D" parent="World/Nuclear3/Sprite" index="2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(50, -280)
+scale = Vector2(0.7, 1)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke4" type="Sprite2D" parent="World/Nuclear3/Sprite" index="3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(50, -277.5)
+texture = ExtResource("9_2lgj4")
 
 [node name="NinePatchRect" parent="World/Nuclear3/BuildInfo" index="0"]
 offset_top = -143.0
@@ -153,9 +1429,38 @@ visible = true
 
 [node name="Nuclear2" parent="World" index="6" groups=["PP"]]
 position = Vector2(1479, -248)
+HasAnimation = true
 
-[node name="Sprite" parent="World/Nuclear2" index="0"]
-texture = ExtResource("4_wlqc3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Nuclear2" index="0"]
+root_node = NodePath("../Sprite/Smoke")
+autoplay = "Smoke"
+libraries = {
+"": SubResource("AnimationLibrary_1shh4")
+}
+
+[node name="Sprite" parent="World/Nuclear2" index="1"]
+texture = ExtResource("4_e6lsk")
+
+[node name="Smoke" type="Sprite2D" parent="World/Nuclear2/Sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(55, -340)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke2" type="Sprite2D" parent="World/Nuclear2/Sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(55, -295)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke3" type="Sprite2D" parent="World/Nuclear2/Sprite" index="2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(52.5, -275)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke4" type="Sprite2D" parent="World/Nuclear2/Sprite" index="3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(50, -265)
+scale = Vector2(0.8, 1)
+texture = ExtResource("9_2lgj4")
 
 [node name="NinePatchRect" parent="World/Nuclear2/BuildInfo" index="0"]
 offset_top = -142.0
@@ -168,9 +1473,47 @@ visible = true
 
 [node name="Nuclear" parent="World" index="7" groups=["PP"]]
 position = Vector2(1001, 130)
+HasAnimation = true
 
-[node name="Sprite" parent="World/Nuclear" index="0"]
-texture = ExtResource("4_wlqc3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Nuclear" index="0"]
+root_node = NodePath("../Sprite")
+autoplay = "Smoke"
+libraries = {
+"": SubResource("AnimationLibrary_3k1tp")
+}
+
+[node name="Sprite" parent="World/Nuclear" index="1"]
+texture = ExtResource("4_e6lsk")
+
+[node name="Smoke" type="Sprite2D" parent="World/Nuclear/Sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(82, -333)
+texture = ExtResource("7_ugl8s")
+
+[node name="Smoke2" type="Sprite2D" parent="World/Nuclear/Sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(57, -268)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke3" type="Sprite2D" parent="World/Nuclear/Sprite" index="2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(57, -268)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke4" type="Sprite2D" parent="World/Nuclear/Sprite" index="3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(57, -283)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke5" type="Sprite2D" parent="World/Nuclear/Sprite" index="4"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(47, -340)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke6" type="Sprite2D" parent="World/Nuclear/Sprite" index="5"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(57, -249.25)
+texture = ExtResource("8_jh2tr")
 
 [node name="NinePatchRect" parent="World/Nuclear/BuildInfo" index="0"]
 offset_top = -143.0
@@ -181,49 +1524,110 @@ visible = true
 [node name="LifeSpan" parent="World/Nuclear/BuildInfo/ColorRect/ContainerN" index="0"]
 visible = true
 
-[node name="ResRect" parent="World/Nuclear" index="4"]
+[node name="ResRect" parent="World/Nuclear" index="5"]
 offset_top = 104.0
 offset_bottom = 133.0
 metadata/_edit_group_ = true
 
 [node name="Waste" parent="World" index="8" groups=["PP"]]
 position = Vector2(380, 96)
+HasAnimation = true
 _PlantType = 6
 
-[node name="Sprite" parent="World/Waste" index="0"]
-texture = ExtResource("8_ccefw")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Waste" index="0"]
+root_node = NodePath("../Sprite")
+autoplay = "Smoke"
+libraries = {
+"": SubResource("AnimationLibrary_pvye6")
+}
+
+[node name="Sprite" parent="World/Waste" index="1"]
+texture = ExtResource("5_vx3tb")
+
+[node name="Smoke" type="Sprite2D" parent="World/Waste/Sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(34, -265)
+texture = ExtResource("7_ugl8s")
+
+[node name="Smoke2" type="Sprite2D" parent="World/Waste/Sprite" index="1"]
+modulate = Color(0.345098, 0.345098, 0.345098, 0)
+position = Vector2(106, -240)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke3" type="Sprite2D" parent="World/Waste/Sprite" index="2"]
+modulate = Color(0.345098, 0.345098, 0.345098, 0)
+position = Vector2(76, -330)
+texture = ExtResource("9_2lgj4")
 
 [node name="Biomass" parent="World" index="10" groups=["PP"]]
-position = Vector2(-827, 1474)
+position = Vector2(-420, 1275)
+HasAnimation = true
 _PlantType = 7
 
-[node name="Sprite" parent="World/Biomass" index="0"]
-texture = ExtResource("9_78toe")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Biomass" index="0"]
+root_node = NodePath("../Sprite")
+autoplay = "Smoke"
+libraries = {
+"": SubResource("AnimationLibrary_tgvt4")
+}
+
+[node name="Sprite" parent="World/Biomass" index="1"]
+texture = ExtResource("6_q3df2")
+
+[node name="Smoke" type="Sprite2D" parent="World/Biomass/Sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-60, -325)
+texture = ExtResource("7_ugl8s")
+
+[node name="Smoke2" type="Sprite2D" parent="World/Biomass/Sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-60, -325)
+texture = ExtResource("8_jh2tr")
+
+[node name="Smoke3" type="Sprite2D" parent="World/Biomass/Sprite" index="2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-58, -365)
+texture = ExtResource("9_2lgj4")
+
+[node name="Smoke4" type="Sprite2D" parent="World/Biomass/Sprite" index="3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-127, -282)
+texture = ExtResource("8_jh2tr")
+
+[node name="NameRect" parent="World/Biomass" index="4"]
+visible = false
 
 [node name="Wind" parent="World" index="11" groups=["PP"]]
 position = Vector2(-556, 553)
+HasAnimation = true
 _PlantType = 5
 
 [node name="Sprite" parent="World/Wind" index="0"]
-texture = ExtResource("11_80dv6")
+texture = ExtResource("7_4q6ww")
 
-[node name="Turbine" parent="World/Wind" index="11"]
-position = Vector2(-11, -78)
-texture = SubResource("AtlasTexture_3bbke")
+[node name="Turbine" type="Sprite2D" parent="World/Wind" index="10"]
+position = Vector2(-109, -73)
+rotation = 0.785398
+texture = SubResource("AtlasTexture_st7y5")
+offset = Vector2(-12, -20)
 
-[node name="Turbine2" parent="World/Wind" index="12"]
-position = Vector2(-61, -37)
-texture = SubResource("AtlasTexture_3bbke")
+[node name="Turbine2" type="Sprite2D" parent="World/Wind" index="11"]
+position = Vector2(-104, -70)
+rotation = 1.39626
+texture = SubResource("AtlasTexture_p7dvq")
+offset = Vector2(16, -11)
+
+[node name="Turbine3" type="Sprite2D" parent="World/Wind" index="12"]
+position = Vector2(-108, -68)
+rotation = 1.39626
+texture = SubResource("AtlasTexture_obbpa")
+offset = Vector2(3, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World/Wind" index="13"]
 autoplay = "Wind"
 libraries = {
 "": SubResource("AnimationLibrary_bm0fl")
 }
-
-[node name="Turbine3" parent="World/Wind" index="14"]
-position = Vector2(67, -51)
-texture = SubResource("AtlasTexture_5nxuw")
 
 [node name="BuildButton2" parent="World" index="14"]
 metadata/_edit_use_anchors_ = true
@@ -234,33 +1638,98 @@ metadata/_edit_use_anchors_ = true
 [node name="BuildButton8" parent="World" index="20"]
 metadata/_edit_use_anchors_ = true
 
-[node name="River" parent="World" index="21" groups=["PP"]]
-_PlantType = 8
-
-[node name="Sprite" parent="World/River" index="0"]
-texture = ExtResource("7_ei5st")
-
-[node name="Solar" parent="World" index="22" groups=["PP"]]
+[node name="Solar" parent="World" index="21" groups=["PP"]]
 position = Vector2(2617, 1493)
+HasAnimation = true
 _PlantType = 2
 
 [node name="Sprite" parent="World/Solar" index="0"]
-texture = ExtResource("10_qycq3")
+texture = ExtResource("10_3byff")
 
-[node name="Hydro" parent="World" index="26" groups=["PP"]]
-position = Vector2(564, 1995)
-_PlantType = 0
+[node name="PointLight2D" type="PointLight2D" parent="World/Solar" index="10"]
+position = Vector2(17.6992, -24.5252)
+rotation = 0.523599
+scale = Vector2(1.50021, 1.88161)
+color = Color(1, 1, 0.823529, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_mhl0d")
 
-[node name="Sprite" parent="World/Hydro" index="0"]
-texture = ExtResource("5_i2doc")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Solar" index="11"]
+autoplay = "Sun"
+libraries = {
+"": SubResource("AnimationLibrary_1rsdt")
+}
 
-[node name="Pump" parent="World" index="30" groups=["PP"]]
-position = Vector2(1954, 2062)
+[node name="Pump" parent="World" index="24" groups=["PP"]]
 _PlantType = 9
 
 [node name="Sprite" parent="World/Pump" index="0"]
 position = Vector2(0, 0)
-texture = ExtResource("5_i2doc")
+texture = ExtResource("11_nggna")
+
+[node name="Hydro" parent="World" index="26" groups=["PP"]]
+position = Vector2(783, 1982)
+HasAnimation = true
+_PlantType = 0
+
+[node name="Sprite" parent="World/Hydro" index="0"]
+texture = ExtResource("11_nggna")
+flip_h = true
+
+[node name="Water" type="Sprite2D" parent="World/Hydro" index="10"]
+position = Vector2(41, 106)
+rotation = -0.016075
+texture = ExtResource("13_udqyc")
+flip_h = true
+
+[node name="Water2" type="Sprite2D" parent="World/Hydro" index="11"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(30, 105)
+scale = Vector2(1, 0.748175)
+skew = -0.0667202
+texture = ExtResource("12_boo6a")
+flip_h = true
+
+[node name="Water3" type="Sprite2D" parent="World/Hydro" index="12"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(36, 104)
+texture = ExtResource("11_y3iyb")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Hydro" index="13"]
+autoplay = "Water"
+libraries = {
+"": SubResource("AnimationLibrary_7anxu")
+}
+
+[node name="River" parent="World" index="29" groups=["PP"]]
+HasAnimation = true
+_PlantType = 8
+
+[node name="Sprite" parent="World/River" index="0"]
+texture = ExtResource("9_agn8w")
+
+[node name="HoverArea" parent="World/River" index="9"]
+visible = false
+
+[node name="Water" type="Sprite2D" parent="World/River" index="10"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(49, 91)
+texture = ExtResource("15_terxt")
+
+[node name="Water2" type="Sprite2D" parent="World/River" index="11"]
+position = Vector2(62, 102)
+texture = ExtResource("16_d8kd2")
+
+[node name="Water3" type="Sprite2D" parent="World/River" index="12"]
+position = Vector2(61, 93)
+texture = ExtResource("17_4nld4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/River" index="13"]
+autoplay = "Water"
+libraries = {
+"": SubResource("AnimationLibrary_5k73m")
+}
 
 [node name="UI" parent="." instance=ExtResource("2_d60f5")]
 follow_viewport_enabled = false
@@ -306,7 +1775,7 @@ visible = false
 [editable path="World/Waste"]
 [editable path="World/Biomass"]
 [editable path="World/Wind"]
-[editable path="World/River"]
 [editable path="World/Solar"]
-[editable path="World/Hydro"]
 [editable path="World/Pump"]
+[editable path="World/Hydro"]
+[editable path="World/River"]
