@@ -66,9 +66,9 @@ public partial class Shock : CanvasLayer {
 	private ShockController SC;
 
 	// Store the current requirements, rewards and possible reactions
-	private List<ShockRequirement> CurRequirements;
-	private ShockEffect CurReward;
-	private List<ShockEffect> CurReactions;
+	private List<Requirement> CurRequirements;
+	private Reward CurReward;
+	private List<Reward> CurReactions;
 
 	// Context for persistent states
 	private Context C;
@@ -131,10 +131,10 @@ public partial class Shock : CanvasLayer {
 	}
 
 	// Getter for the shock's reward effects
-	public ShockEffect _GetReward() => CurReward;
+	public Reward _GetReward() => CurReward;
 
 	// Getter for the shock's reactions 
-	public List<ShockEffect> _GetReactions() => CurReactions;
+	public List<Reward> _GetReactions() => CurReactions;
 
 	// Shows the shock
 	// Requires the current money, energy, environment, and support levels to check the requirements
@@ -254,7 +254,7 @@ public partial class Shock : CanvasLayer {
 	}
 
 	// Checks the validity of the reaction based on current resources
-	private void CheckAllEffectReqs(ShockEffect se, ref Button react, (MoneyData, Energy, Environment, Support) res) {
+	private void CheckAllEffectReqs(Reward se, ref Button react, (MoneyData, Energy, Environment, Support) res) {
 		
 		// We start looking at if our effect requirements are all met
 		bool AllReqsMet = se.ToRequirements().Aggregate(true, (acc, req) => 
@@ -323,7 +323,7 @@ public partial class Shock : CanvasLayer {
 	}
 
 	// Checks if a given requirement is met
-	private bool CheckRequirement(ShockRequirement SR, MoneyData M, Energy E, Environment Env, Support S) =>
+	private bool CheckRequirement(Requirement SR, MoneyData M, Energy E, Environment Env, Support S) =>
 		SR.RT switch {
 			// For energy supply, we need to be ${value} above the demand
 			ResourceType.ENERGY_W => (E.SupplyWinter - E.DemandWinter) >= SR.Value,

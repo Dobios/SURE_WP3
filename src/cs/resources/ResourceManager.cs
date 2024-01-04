@@ -278,23 +278,23 @@ public partial class ResourceManager : Node {
 	);
 
 	// Applies a given shock effect
-	public void _ApplyShockEffect(ResourceType rt, float v) {
+	public void _ApplyEffect(Effect e) {
 		// Figure out which resource to affect
-		switch(rt) {
+		switch(e.RT) {
 			case ResourceType.ENERGY_S:
 				// Update the summer model's demand
-				C._UpdateModelDemand(v, winter: false);
+				C._UpdateModelDemand(e.Value, winter: false);
 				break;
 			case ResourceType.ENERGY_W:
 				// Update the winter model's demand
-				C._UpdateModelDemand(v);
+				C._UpdateModelDemand(e.Value);
 				break;
 			case ResourceType.ENVIRONMENT:
-				EnvM._ApplyShockEffect(v);
+				EnvM._ApplyShockEffect(e.Value);
 				break;
 			case ResourceType.SUPPORT:
 				// Naive update for support for now
-				SM._UpdateSupport((int)v);
+				SM._UpdateSupport((int)e.Value);
 				Debug.Print("Support: " + SM._GetSupportValue().ToString());
 				break;
 			default:

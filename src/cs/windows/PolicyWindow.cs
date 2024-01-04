@@ -17,19 +17,22 @@
 */
 using Godot;
 using System;
+using System.Collections.Generic;
 
 // Represents the policy window containing all policy choices
 // TODO: This requires implementing policies, which is a tricky task that will require a ton of work.
 public partial class PolicyWindow : CanvasLayer {
 
-	private Panel P;
+	private ColorRect P;
 	private AnimationPlayer AP;
+
+	private List<Button> PolicyButtons;
 
 	// ==================== GODOT Method Overrides ====================
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		P = GetNode<Panel>("MarginContainer/Panel");
+		P = GetNode<ColorRect>("ColorRect");
 		P.GuiInput += _OnPanelGuiInput;
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
@@ -51,7 +54,7 @@ public partial class PolicyWindow : CanvasLayer {
 
 	// Hides the window if the panel is pressed
 	public void _OnPanelGuiInput(InputEvent input) {
-		if(input.GetType() == (new InputEventMouseButton().GetType()))
+		if(input.GetType() == new InputEventMouseButton().GetType())
 			Hide();
 	} 
 }

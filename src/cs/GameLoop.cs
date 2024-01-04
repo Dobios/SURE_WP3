@@ -439,18 +439,18 @@ public partial class GameLoop : Node2D {
 	}
 
 	// Applies a given shock effect
-	private void ApplyShockEffect(ShockEffect SE) {
+	private void ApplyShockEffect(Reward SE) {
 		// Apply each individual effect
-		foreach((ResourceType rt, float v) in SE.Effects) {
+		foreach(Effect e in SE.Effects) {
 			// Figure out which resource to affect
-			switch(rt) {
+			switch(e.RT) {
 				// The game loop only handles money (for some reason lol)
 				case ResourceType.MONEY:
-					Money.Money += (int)v;
+					Money.Money += (int)e.Value;
 					break;
 				// All other resources are handled by the resource manager
 				default:
-					RM._ApplyShockEffect(rt, v);
+					RM._ApplyEffect(e);
 					break;
 			}
 		}
@@ -549,7 +549,7 @@ public partial class GameLoop : Node2D {
 	// Updates the resources after a reaction to a shock has been selected
 	public void _OnShockSelectReaction(int id) {
 		// Fetch the reaction effect
-		List<ShockEffect> reactions = ShockWindow._GetReactions();
+		List<Reward> reactions = ShockWindow._GetReactions();
 
 		// Sanity check: make sure that the id is valid
 		if(reactions.Count <= id) {
@@ -566,7 +566,7 @@ public partial class GameLoop : Node2D {
 	// Updates the resources to apply a given shock reward
 	public void _OnShockApplyReward() {
 		// Extract the reward
-		ShockEffect reward = ShockWindow._GetReward();
+		Reward reward = ShockWindow._GetReward();
 
 		// Apply the reward
 		ApplyShockEffect(reward);
