@@ -39,6 +39,11 @@ public partial class PolicyManager : Node {
 	public const string ENV_TAG = "env";
 	public const string DEM_TAG = "demand";
 
+	// Keeps track of the number of turns remaining for each ongoing campaign
+	// Does so by mapping affected tags with the value of the campaign 
+	// and the number of turns left
+	public List<(string, float, int)> OngoingCampaings;
+
 	// ==================== GODOT Method Overrides ====================
 
 	// Called when the node enters the scene tree for the first time.
@@ -48,6 +53,7 @@ public partial class PolicyManager : Node {
 			{ENV_TAG, 0.0f},
 			{DEM_TAG, 0.0f}
 		};
+		OngoingCampaings = new();
 
 		// Fetch Children Nodes
 		PC = GetNode<PolicyController>("/root/PolicyController");
@@ -65,6 +71,7 @@ public partial class PolicyManager : Node {
 			{ENV_TAG, 0.0f},
 			{DEM_TAG, 0.0f}
 		};
+		OngoingCampaings = new();
 	}
 
 	// Checks that the requirements are met for a given policy
@@ -134,6 +141,40 @@ public partial class PolicyManager : Node {
 		return pass;
 	}
 
+	// Schedule a campaign if it takes longer than a turn
+	// We assume that all campaigns take at least 1 turn
+	// We also assume that it only contains a single effect
+	public void _ScheduleCampaign(string campaignId) {
+		// Extract the campaign data and schedule it
+		OngoingCampaings.Add((
+			PC._GetCampaignTag(campaignId),
+			PC._GetEffects("campaign", campaignId)[0].Value,
+			PC._GetCampaignLength(campaignId)
+		));
+	}	
+
+	// On a turn tick, update the state of the ongoing campaigns
+	public void _NextTurn() {
+		OngoingCampaings = OngoingCampaings.Select(c => {
+			// Extract arguments
+			(string tag, float amount, int turns) = c;
+
+			// Update the number of turns
+			int remainingTurns =  turns - 1;
+			if(remainingTurns <= 0) {
+				// Apply the campaign effect
+				Bonuses[tag] += amount;
+
+				// Set a sentinal to mark this for deletion
+				return ("", -1.0f, -1);
+			}
+			return (tag, amount, remainingTurns);
+		}).ToList();
+
+		// Delete all sentinal nodes
+		OngoingCampaings = OngoingCampaings.Where(c => c.Item3 != -1).ToList();
+	} 
+
 	// ==================== Internal Helpers ====================
 
 	// Checks that the given tag is valid
@@ -159,5 +200,4 @@ public partial class PolicyManager : Node {
 	private void ApplyEffects(List<Effect> effects) {
 		effects.ForEach(e => C._GetGL()._ApplyEffect(e));
 	}
-	
 }

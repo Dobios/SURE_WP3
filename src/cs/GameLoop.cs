@@ -610,6 +610,9 @@ public partial class GameLoop : Node2D {
 
 	// Triggers a new turn if the game is currently acitve
 	public void _OnNextTurn() {
+		// Update the policy manager
+		PM._NextTurn();
+		
 		// Display a shock
 		DisplayShock();
 	}

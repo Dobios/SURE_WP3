@@ -37,6 +37,9 @@
     <group id="policies">
         <text id="policy_success">Policy was passed successfully!</text>
         <text id="policy_failure">Policy failed to be passed...</text>
+        <text id="label_popularity">Estimated popularity with voters:</text>
+        <text id="label_campaign">Duration of campaign:</text>
+        <text id="label_camp_start">The campaign has started!</text>
     </group>
     
     <!-- Labels for the resource bars -->

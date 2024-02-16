@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://pvoi2mcc3oc1" path="res://scenes/hud/menu.tscn" id="18_h65u3"]
 [ext_resource type="Script" path="res://src/cs/resources/PolicyManager.cs" id="21_0i66f"]
 [ext_resource type="PackedScene" uid="uid://cej4dlw11su6f" path="res://scenes/hud/end.tscn" id="21_7pke6"]
-[ext_resource type="PackedScene" path="res://scenes/audio.tscn" id="34_smnob"]
+[ext_resource type="PackedScene" uid="uid://cuuj2s4h1588i" path="res://scenes/audio.tscn" id="34_smnob"]
 
 [sub_resource type="Animation" id="Animation_k4it7"]
 length = 0.001

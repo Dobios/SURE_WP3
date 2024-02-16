@@ -3,25 +3,21 @@
     <!-- Campaigns -->
     <!-- ============================ -->
     <!-- The tag here represents where the policy button will be displayed in the policy window-->
-    <campaign id="renewables" tag="env">
+    <campaign id="campaign_env" tag="env">
         <!-- The title that will be displayed at the top of the policy -->
         <name>Renewable energy</name>
         <!-- The description text that will be displayed in the policy popup -->
-        <text>Start an information campaign on the advantages of renewable energy.
-            Increases acceptance of renewable energy and their related policies by n %.
-        </text>
+        <text>Start an information campaign on the advantages of renewable energy.</text>
         <!-- The effect the campaign will have on the probability of passing the env policies -->
-        <effect field="tag" value="0.2"/>
+        <effect field="tag" value="0.2">Increase environmental policy support by 20%</effect>
         <!-- Number of turns that the campaign will take -->
         <length>1</length>
     </campaign>
 
-    <campaign id="home" tag="demand">
+    <campaign id="campaign_demand" tag="demand">
         <name>Home insulation</name>
-        <text>Start an information campaign explaining the advantages of home insulation.
-            Increases acceptance of home insulation and their related policies by n %.
-        </text>
-        <effect field="tag" value="0.2"/>
+        <text>Start an information campaign explaining the advantages of home insulation.</text>
+        <effect field="tag" value="0.2">Increase energy policy support by 20%</effect>
         <length>1</length>
     </campaign>
 

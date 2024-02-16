@@ -341,7 +341,6 @@ text = "List of effects"
 autowrap_mode = 3
 
 [node name="Vote" type="Button" parent="ColorRect/NinePatchRect/ColorRect2"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -358,6 +357,7 @@ text = "Vote
 "
 
 [node name="PopularityL" type="Label" parent="ColorRect/NinePatchRect/ColorRect2/Vote"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -374,6 +374,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Estimated popularity with voters:"
 
 [node name="Popularity" type="ProgressBar" parent="ColorRect/NinePatchRect/ColorRect2/Vote"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -387,6 +388,39 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_77vk0")
 value = 42.0
+
+[node name="Length" type="Label" parent="ColorRect/NinePatchRect/ColorRect2/Vote"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -59.0
+offset_right = 32.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="CampaignL" type="Label" parent="ColorRect/NinePatchRect/ColorRect2/Vote"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.5
+offset_top = -59.0
+offset_right = -125.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Duration of campaign:"
 
 [node name="VoteResult" type="Label" parent="ColorRect/NinePatchRect/ColorRect2"]
 visible = false
