@@ -18,6 +18,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 // Represents the generic window that will contain info about the current shock
@@ -32,13 +33,15 @@ public partial class Shock : CanvasLayer {
 	// Signals that a reward must be applied
 	public delegate void ApplyRewardEventHandler();
 
+	[Signal]
+	public delegate void ReintroduceNuclearEventHandler()
+;
+	[Export]
+	// Probability of getting a shock
+	public int ShockProba = 70;
+
 	// Big list of shock ids
-	private string[] SHOCKS = { 
-		"cold_spell", "heat_wave", "glaciers_melting", 
-		"severe_weather",
-		"inc_raw_cost_10", "inc_raw_cost_20", "mass_immigration",
-		 "pandemic", "nuc_accident"
-	};
+	private List<string> SHOCKS;
 
 	// The currently displayed shock's ID
 	private string CurShock;
@@ -99,6 +102,13 @@ public partial class Shock : CanvasLayer {
 		R2.Pressed += _OnR2Pressed;
 		R3.Pressed += _OnR3Pressed;
 
+		SHOCKS = new() { 
+			"cold_spell", "heat_wave", "glaciers_melting", 
+			"severe_weather",
+			"inc_raw_cost_10", "inc_raw_cost_20", "mass_immigration",
+			"pandemic", "nuc_accident"
+		};
+	
 		// Set the initial shock
 		CurShock = SHOCKS[0];
 		SetFields();
@@ -107,27 +117,46 @@ public partial class Shock : CanvasLayer {
 	// ==================== Public API ====================
 
 	// Sets the internal current shock to a newly selected one
-	public void _SelectNewShock(MoneyData M, Energy E, Environment Env, Support S) {
-		// Initialize pseudo-random number generator
-		Random rnd = new ();
+	public bool _SelectNewShock(MoneyData M, Energy E, Environment Env, Support S) {
+		Debug.Print("CURRENT TURN: " + C._GetTurn());
+		// The nuclear reintroduction must always happen at the same turn
+		if(C._GetTurn() == 3) {
+			Debug.Print("REINTRODUCE NUCLEAR");
+			// Set the next shock
+			CurShock = "nuc_reintro";
 
-		// Pick a random number in the range of shock ids
-		int next_idx = rnd.Next(SHOCKS.Length);
+			// Update the fields to match the new shock
+			SetFields(M, E, Env, S);
+		} else {
+			// Initialize pseudo-random number generator
+			Random rnd = new ();
 
-		// Pick the associated id
-		string next_shock = SHOCKS[next_idx];
+			Debug.Print("RANDOM SHOCK");
 
-		// Sanity check: make sure we didn't pick the same one twice
-		while(next_shock == CurShock) {
-			// Pick the a new id
-			next_shock = SHOCKS[rnd.Next(SHOCKS.Length)];
+			// Pick a random number in the range of shock ids
+			int next_idx = rnd.Next(SHOCKS.Count);
+
+			// Pick the associated id
+			string next_shock = SHOCKS[next_idx];
+
+			// Remove the shock from the list
+			SHOCKS.RemoveAt(next_idx);
+
+			// Set the next shock
+			CurShock = next_shock;
+
+			// Update the fields to match the new shock
+			SetFields(M, E, Env, S);
+
+			// Decide whether or not to show a shock
+			// There is a 50% chance of getting a shock
+			if(rnd.Next(0, 100) > ShockProba) {
+				return false;
+			}
 		}
-
-		// Set the next shock
-		CurShock = next_shock;
-
-		// Update the fields to match the new shock
-		SetFields(M, E, Env, S);
+		
+		Debug.Print("SHOCKKKKKKKKK");
+		return true;
 	}
 
 	// Getter for the shock's reward effects
@@ -342,6 +371,13 @@ public partial class Shock : CanvasLayer {
 	// Reaction to the first button being pressed
 	// This will trigger the effects set by the first reaction of the shock
 	public void _OnR1Pressed() {
+
+		if(CurShock == "nuc_reintro") {
+			// Make sure that nuclear powerplants get turned back on
+			EmitSignal(SignalName.ReintroduceNuclear);
+			return;
+		}
+
 		// Signal that the first reaction was picked
 		EmitSignal(SignalName.SelectReaction, 0);
 	}

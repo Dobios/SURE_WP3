@@ -846,4 +846,23 @@ public partial class PowerPlant : Node2D {
 			EmitSignal(SignalName.UpgradePlant, false, -mult.Cost, this);
 		}
 	}
+
+	// Reactivates dead nuclear plants
+	public void _OnReintroduceNuclear() {
+		if(PlantType.type == Building.Type.NUCLEAR) {
+			Debug.Print("REACTIVATING PLANT");
+			EndTurn = DEFAULT_LIFE_SPAN;
+
+			// Reactivate the plant
+			ActivatePowerPlant();
+
+			// Disable the switch
+			Switch.ButtonPressed = true;
+			Switch.Disabled = false;
+			
+			// Workaround to allow for an immediate update
+			IsAlive = true;
+			_OnSwitchToggled(true);
+		}
+	}
 }

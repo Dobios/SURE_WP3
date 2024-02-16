@@ -247,7 +247,7 @@
             <effect field="money" value="0"/>
         </reward>
     </shock>
-<!-- Needs to be scripted
+
     <shock id="nuc_reintro" tag="env">
         <name>Nuclear Re-introduction</name>
         <img>vote</img>
@@ -271,7 +271,7 @@
             <effect field="money" value="50"/>
         </reward>
     </shock>
--->
+
 <!--
     <shock id="remote_jobs" tag="env">
         <name>Remote Jobs</name>
