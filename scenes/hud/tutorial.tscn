@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciphd0cmpslrn"]
+[gd_scene load_steps=12 format=3 uid="uid://ciphd0cmpslrn"]
 
-[ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="1_ua11s"]
 [ext_resource type="Script" path="res://src/cs/ui/Tutorial.cs" id="1_xyv1m"]
+[ext_resource type="Texture2D" uid="uid://dyc87atrxvivu" path="res://assets/UI Elements/Paper_Info-1.png" id="2_rj886"]
+[ext_resource type="FontFile" uid="uid://deuo2u4mu60yb" path="res://assets/Fonts/static/OpenSans-Regular.ttf" id="3_llihj"]
 [ext_resource type="Texture2D" uid="uid://03lloca0uata" path="res://assets/Elements/ARROW INFO – 1.png" id="3_xv1gs"]
-[ext_resource type="Texture2D" uid="uid://cf3amacrbvg0b" path="res://assets/Elements/ENERGY PLANT - ON.png" id="4_ymnp0"]
+[ext_resource type="FontFile" uid="uid://dxtsp51pqna2o" path="res://assets/Fonts/static/OpenSans-Bold.ttf" id="4_ti5m6"]
+[ext_resource type="Texture2D" uid="uid://ikiclp3p8k8k" path="res://assets/key_tab_icon.png" id="5_mivsl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s13c5"]
-atlas = ExtResource("4_ymnp0")
-region = Rect2(56, 260, 166, 48)
+[sub_resource type="FontVariation" id="FontVariation_ha2te"]
+base_font = ExtResource("3_llihj")
+
+[sub_resource type="FontVariation" id="FontVariation_nalg5"]
+base_font = ExtResource("4_ti5m6")
 
 [sub_resource type="Animation" id="Animation_b0nkl"]
 resource_name = "Float"
@@ -15,14 +19,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TutoPopUp/Arrow:position")
+tracks/0/path = NodePath("MarginContainer/TutoPopUp/Arrow:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(485, 328), Vector2(491, 328)]
+"values": [Vector2(0.7, 0.7), Vector2(1.1, 1.1), Vector2(0.7, 0.7)]
 }
 
 [sub_resource type="Animation" id="Animation_kfxwr"]
@@ -30,14 +34,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TutoPopUp/Arrow:position")
+tracks/0/path = NodePath("MarginContainer/TutoPopUp/Arrow:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(485, 267)]
+"values": [Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6dub"]
@@ -57,499 +61,294 @@ offset_bottom = 1129.0
 color = Color(1, 1, 1, 0)
 metadata/_edit_lock_ = true
 
-[node name="TutoPopUp" type="NinePatchRect" parent="."]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -148.0
-offset_right = 280.0
-offset_bottom = 228.0
+offset_left = -282.0
+offset_top = -201.0
+offset_right = 283.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="ColorRect" type="ColorRect" parent="TutoPopUp"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -172.0
-offset_right = 242.0
-offset_bottom = 172.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.596078, 0.596078, 0.596078, 1)
+[node name="TutoPopUp" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 8, 592, 520)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 56
+patch_margin_bottom = 64
 
-[node name="Text" type="RichTextLabel" parent="TutoPopUp/ColorRect"]
+[node name="Arrow" type="TextureRect" parent="MarginContainer/TutoPopUp"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -236.0
-offset_top = -164.0
-offset_right = 242.0
-offset_bottom = 172.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -114.0
+offset_right = -25.0001
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.14159
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("3_xv1gs")
+
+[node name="Skip" type="Label" parent="MarginContainer/TutoPopUp"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 11.0
+offset_right = 620.0
+offset_bottom = 37.0
+grow_vertical = 0
+text = "to skip"
+
+[node name="KeyTabIcon" type="Sprite2D" parent="MarginContainer/TutoPopUp/Skip"]
+position = Vector2(-25.1, 13)
+scale = Vector2(0.329687, 0.225)
+texture = ExtResource("5_mivsl")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_ha2te")
+theme_override_fonts/bold_font = SubResource("FontVariation_nalg5")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 text = "Congratulations ! You have been designated to [b]manage the power grid[/b] and ensure a sustainable and resilient energy sector."
+fit_content = true
+scroll_active = false
 
-[node name="Button" type="Button" parent="TutoPopUp/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -26.0
-offset_top = -16.0
-offset_right = 34.0
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 flat = true
-
-[node name="Arrow" type="Sprite2D" parent="TutoPopUp"]
-position = Vector2(485, 267)
-rotation = 3.14159
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_xv1gs")
-
-[node name="InfoBubble" type="NinePatchRect" parent="."]
-visible = false
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -704.0
-offset_top = 292.0
-offset_right = -350.0
-offset_bottom = 444.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -60.0
-offset_right = 161.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Text" type="RichTextLabel" parent="InfoBubble/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-bbcode_enabled = true
-text = "Each turn, you have to reach the demand for summer and winter."
-
-[node name="Arrow" type="Sprite2D" parent="InfoBubble"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-position = Vector2(-12, 66)
-texture = ExtResource("3_xv1gs")
-region_rect = Rect2(24, 24, 30, 32)
-
-[node name="InfoBubble2" type="NinePatchRect" parent="."]
-visible = false
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -568.0
-offset_top = 260.0
-offset_right = -313.0
-offset_bottom = 391.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble2"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.5
-offset_top = -48.5
-offset_right = 119.5
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Text" type="RichTextLabel" parent="InfoBubble2/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.5
-offset_top = -41.0
-offset_right = 103.5
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
-bbcode_enabled = true
-text = "Import more energy"
-
-[node name="Arrow" type="Sprite2D" parent="InfoBubble2"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-position = Vector2(-12, 83)
-texture = ExtResource("3_xv1gs")
-region_rect = Rect2(24, 24, 30, 32)
-
-[node name="InfoBubble3" type="NinePatchRect" parent="."]
-visible = false
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 318.0
-offset_top = 216.0
-offset_right = 582.0
-offset_bottom = 347.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble3"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -48.5
-offset_right = 116.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Text" type="RichTextLabel" parent="InfoBubble3/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = -41.0
-offset_right = 116.0
-offset_bottom = 49.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
-bbcode_enabled = true
-text = "Build new power plants"
-
-[node name="Arrow" type="Sprite2D" parent="InfoBubble3"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-position = Vector2(272, 67)
-texture = ExtResource("3_xv1gs")
-flip_h = true
-region_rect = Rect2(24, 24, 30, 32)
-
-[node name="InfoBubble4" type="NinePatchRect" parent="."]
-visible = false
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = -412.0
-offset_right = 128.0
-offset_bottom = -260.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble4"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -48.5
-offset_right = 116.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Text" type="RichTextLabel" parent="InfoBubble4/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = -60.0
-offset_right = 126.0
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
-bbcode_enabled = true
-text = "Build new power plants"
-
-[node name="Arrow" type="Sprite2D" parent="InfoBubble4"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-position = Vector2(-12, 66)
-texture = ExtResource("3_xv1gs")
-region_rect = Rect2(24, 24, 30, 32)
-
-[node name="Sprite2D" type="Sprite2D" parent="InfoBubble4"]
-position = Vector2(-221, 64)
-texture = SubResource("AtlasTexture_s13c5")
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble4/Sprite2D"]
-offset_left = 36.0
-offset_top = -13.0
-offset_right = 68.0
-offset_bottom = 11.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="InfoBubble4/Sprite2D"]
-offset_left = -36.0
-offset_top = -12.0
-offset_right = -4.0
-offset_bottom = 12.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
-
-[node name="Label" type="Label" parent="InfoBubble4/Sprite2D"]
-offset_left = -37.0
-offset_top = -18.0
-offset_right = 3.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 24
-text = "15"
-
-[node name="Label2" type="Label" parent="InfoBubble4/Sprite2D"]
-offset_left = 34.0
-offset_top = -18.0
-offset_right = 74.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 24
-text = "15"
-
-[node name="Multiplier" type="ColorRect" parent="InfoBubble4"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -270.0
-offset_top = -112.0
-offset_right = -190.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.2, 1.2)
-color = Color(0.596078, 0.596078, 0.596078, 1)
-metadata/_edit_group_ = true
-
-[node name="MultAmount" type="Label" parent="InfoBubble4/Multiplier"]
-layout_mode = 0
-offset_left = 6.66666
-offset_top = 2.0
-offset_right = 73.6667
-offset_bottom = 39.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Inc" type="Button" parent="InfoBubble4/Multiplier"]
-layout_mode = 0
-offset_left = 53.6667
-offset_top = 4.0
-offset_right = 84.6667
-offset_bottom = 35.0
-text = "+"
-
-[node name="Label" type="Label" parent="InfoBubble4/Multiplier/Inc"]
-layout_mode = 0
-offset_left = 6.33334
-offset_top = -8.16667
-offset_right = 24.3333
-offset_bottom = 38.8333
-theme_override_font_sizes/font_size = 31
-text = "+"
-
-[node name="Dec" type="Button" parent="InfoBubble4/Multiplier"]
-visible = false
-layout_mode = 0
-offset_left = -4.33334
-offset_top = 4.0
-offset_right = 26.6667
-offset_bottom = 35.0
-text = "-"
-
-[node name="Label2" type="Label" parent="InfoBubble4/Multiplier/Dec"]
-layout_mode = 0
-offset_left = 10.1666
-offset_top = -9.00001
-offset_right = 28.1666
-offset_bottom = 38.0
-theme_override_font_sizes/font_size = 31
-text = "-"
-
-[node name="InfoBubble5" type="NinePatchRect" parent="."]
-visible = false
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -808.0
-offset_top = -284.0
-offset_right = -544.0
-offset_bottom = -140.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ua11s")
-region_rect = Rect2(26, 28, 298, 216)
-patch_margin_left = 16
-patch_margin_top = 18
-patch_margin_right = 16
-patch_margin_bottom = 16
-
-[node name="ColorRect" type="ColorRect" parent="InfoBubble5"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -48.5
-offset_right = 116.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Text" type="RichTextLabel" parent="InfoBubble5/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = -44.0
-offset_right = 108.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
-bbcode_enabled = true
-text = "Build new power plants"
-
-[node name="Arrow" type="Sprite2D" parent="InfoBubble5"]
-self_modulate = Color(0.478431, 0.478431, 0.478431, 1)
-position = Vector2(-12, 66)
-texture = ExtResource("3_xv1gs")
-region_rect = Rect2(24, 24, 30, 32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Float"
 libraries = {
 "": SubResource("AnimationLibrary_b6dub")
 }
+
+[node name="InfoBubble" type="MarginContainer" parent="."]
+visible = false
+offset_left = 393.0
+offset_top = 828.0
+offset_right = 774.0
+offset_bottom = 1030.0
+
+[node name="InfoBubble" type="NinePatchRect" parent="InfoBubble"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 16, 592, 512)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 48
+patch_margin_bottom = 64
+metadata/_edit_group_ = true
+
+[node name="Arrow" type="Sprite2D" parent="InfoBubble/InfoBubble"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-12, 66)
+texture = ExtResource("3_xv1gs")
+region_rect = Rect2(24, 24, 30, 32)
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoBubble"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 44
+
+[node name="Text" type="RichTextLabel" parent="InfoBubble/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Each turn, you have to reach the demand for summer and winter."
+fit_content = true
+scroll_active = false
+
+[node name="InfoBubble2" type="MarginContainer" parent="."]
+visible = false
+offset_left = 207.0
+offset_top = 913.0
+offset_right = 445.0
+offset_bottom = 1033.0
+
+[node name="InfoBubble" type="NinePatchRect" parent="InfoBubble2"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 16, 592, 512)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 48
+patch_margin_bottom = 64
+metadata/_edit_group_ = true
+
+[node name="Arrow" type="Sprite2D" parent="InfoBubble2/InfoBubble"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-12, 66)
+texture = ExtResource("3_xv1gs")
+region_rect = Rect2(24, 24, 30, 32)
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoBubble2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 44
+
+[node name="Text" type="RichTextLabel" parent="InfoBubble2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Each turn, "
+fit_content = true
+scroll_active = false
+
+[node name="InfoBubble3" type="MarginContainer" parent="."]
+visible = false
+offset_left = 1596.0
+offset_top = 667.0
+offset_right = 1834.0
+offset_bottom = 787.0
+
+[node name="InfoBubble" type="NinePatchRect" parent="InfoBubble3"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 16, 592, 512)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 48
+patch_margin_bottom = 64
+metadata/_edit_group_ = true
+
+[node name="Arrow" type="Sprite2D" parent="InfoBubble3/InfoBubble"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-12, 66)
+texture = ExtResource("3_xv1gs")
+region_rect = Rect2(24, 24, 30, 32)
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoBubble3"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 44
+
+[node name="Text" type="RichTextLabel" parent="InfoBubble3/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Each turn,"
+fit_content = true
+scroll_active = false
+
+[node name="InfoBubble4" type="MarginContainer" parent="."]
+visible = false
+offset_left = 875.0
+offset_top = 160.0
+offset_right = 1126.0
+offset_bottom = 280.0
+
+[node name="InfoBubble" type="NinePatchRect" parent="InfoBubble4"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 16, 592, 512)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 48
+patch_margin_bottom = 64
+metadata/_edit_group_ = true
+
+[node name="Arrow" type="Sprite2D" parent="InfoBubble4/InfoBubble"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-12, 66)
+texture = ExtResource("3_xv1gs")
+region_rect = Rect2(24, 24, 30, 32)
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoBubble4"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 44
+
+[node name="Text" type="RichTextLabel" parent="InfoBubble4/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Each turn,"
+fit_content = true
+scroll_active = false
+
+[node name="InfoBubble5" type="MarginContainer" parent="."]
+visible = false
+offset_left = 249.0
+offset_top = 22.0
+offset_right = 496.0
+offset_bottom = 142.0
+
+[node name="InfoBubble" type="NinePatchRect" parent="InfoBubble5"]
+layout_mode = 2
+texture = ExtResource("2_rj886")
+region_rect = Rect2(0, 16, 592, 512)
+patch_margin_left = 48
+patch_margin_top = 56
+patch_margin_right = 48
+patch_margin_bottom = 64
+metadata/_edit_group_ = true
+
+[node name="Arrow" type="Sprite2D" parent="InfoBubble5/InfoBubble"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-12, 47)
+texture = ExtResource("3_xv1gs")
+region_rect = Rect2(24, 24, 30, 32)
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoBubble5"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 44
+
+[node name="Text" type="RichTextLabel" parent="InfoBubble5/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Each turn"
+fit_content = true
+scroll_active = false

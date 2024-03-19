@@ -29,7 +29,7 @@ public partial class GameLoop : Node2D {
 	public enum GameState { NOT_STARTED, PLAYING, ENDED };
 
 	// Start year const
-	private const int START_YEAR = 2020;
+	private const int START_YEAR = 2022;
 
 	// Context of the game
 	private Context C;
@@ -494,8 +494,15 @@ public partial class GameLoop : Node2D {
 
 		// Deactivate all buttons
 		foreach(var bb in BBs) {
-			bb._Disable();
+			bb._Disable(PowerPlants);
 		}
+		
+		// Disable powerplant buttons
+		GetTree().CallGroup("PP", "Disable");
+			
+		
+		// Hide next turn button
+		_UI.NextTurnButton.Hide();
 
 		// Retrieve the current resources
 		(Energy Eng, Environment Env, Support Sup) = RM._GetResources();
@@ -787,6 +794,12 @@ public partial class GameLoop : Node2D {
 		// Reset the tutorial and main menu
 		Tuto._Reset();
 		MM._Reset();
+		
+		// Hide End scene
+		EndScreen.Hide();
+		
+		// Show Next Turn button
+		_UI.NextTurnButton.Show();
 	}
 
 	// Reacts to the reception of a debt request
@@ -821,6 +834,8 @@ public partial class GameLoop : Node2D {
 				pp._DecMultiplier();
 			}
 			_UpdateResourcesUI();
+		} else {
+			pp.PlayAnimation();
 		}
 	}
 	

@@ -27,7 +27,10 @@ public partial class Camera : Camera2D {
 	private Vector2 ZOOM_MAX = new (0.8f,0.8f);
 	private Vector2 ZOOM_SPEED = new (0.2f,0.2f);
 	private Vector2 ZoomVal = new (0.8f,0.8f);
-	private Vector2 SCALE_LIMIT = new (1f, 1f);
+	private Vector2 SCALE_LIMIT = new (0.65f, 0.65f);
+	private Vector2 PLANT_ZOOM = new (0.6f, 0.6f);
+	private Vector2 TargetZoom = new (1f, 1f);
+	private int CAMERA_SPEED = 40;
 
 	// Record initial position and zoom for reset
 	private Vector2 InitPos;
@@ -40,6 +43,10 @@ public partial class Camera : Camera2D {
 		// Record initial position and zoom
 		InitPos = Position;
 		InitZoom = Zoom;
+		
+		foreach (PowerPlant Plant in GetTree().GetNodesInGroup("PP")) {
+			Plant.ZoomSignal += PlantZoom;
+			}
 	}
 	
 	// Updates the size of the plants to follow the zoom amount
@@ -66,6 +73,14 @@ public partial class Camera : Camera2D {
 	//     1) When the player clicks the screen, in which case we want to drag the camera around
 	//     2) When the player uses the mouse wheel, in which case we want to zoom in or out
 	public override void _UnhandledInput(InputEvent E) {
+		if(E is InputEventMagnifyGesture Magnify) {
+			var zoom_factor = Zoom;
+			zoom_factor *= Magnify.Factor;
+			TargetZoom = zoom_factor.Clamp(ZOOM_MIN, ZOOM_MAX);
+			Zoom = TargetZoom;
+			
+		}
+		
 		// Camera can be moved by holding left click and dragging the mouse
 		if(E is InputEventMouseMotion MouseMotion) {
 			if(MouseMotion.ButtonMask == MouseButtonMask.Left) {
@@ -100,6 +115,21 @@ public partial class Camera : Camera2D {
 			}
 		}
 	}
+	
+	// When the player clicks on a power plant, zoom and move the camera to the selected power plant
+	public void PlantZoom(Vector2 PlantPos) {
+		Tween TweenPos = CreateTween();
+		TweenPos.TweenProperty(this, "position", PlantPos, 0.4f);
+		Tween TweenZoom = CreateTween();
+		TweenZoom.TweenProperty(this, "zoom", PLANT_ZOOM, 0.4f);
+	}
+	
+	// Arrow key camera movement
+	public override void _PhysicsProcess(double delta) {
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Position = Position.Lerp(Position + direction*CAMERA_SPEED * Zoom, CAMERA_SPEED * (float)delta);
+	}
+  
 
 	// ==================== Public API ====================
 

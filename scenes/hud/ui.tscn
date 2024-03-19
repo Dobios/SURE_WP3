@@ -1,47 +1,64 @@
-[gd_scene load_steps=42 format=3 uid="uid://bs48lirfn2fp2"]
+[gd_scene load_steps=97 format=3 uid="uid://bs48lirfn2fp2"]
 
-[ext_resource type="Texture2D" uid="uid://b7nmuayewqbbg" path="res://assets/Elements/NEXT TURN - BUTTON.png" id="1_kbgc4"]
-[ext_resource type="Texture2D" uid="uid://bn8nkdb1vyogu" path="res://assets/Elements/ENERGY PANEL - BLANK.png" id="2_hhj2t"]
+[ext_resource type="Texture2D" uid="uid://c0rjlvrr2ncy1" path="res://assets/UI Elements/Button-Next-Normal.png" id="2_aobed"]
 [ext_resource type="PackedScene" uid="uid://d2hyunjbx7qb7" path="res://scenes/hud/energy_bar.tscn" id="3_fm1y6"]
-[ext_resource type="Texture2D" uid="uid://djj2k1h7yrhsy" path="res://assets/Elements/NEXTTURNBUTTONPressed.png" id="3_l43te"]
-[ext_resource type="Texture2D" uid="uid://sob7pstxhrp" path="res://assets/Elements/NEXTTURNBUTTONHover.png" id="4_6fg8a"]
+[ext_resource type="Texture2D" uid="uid://biq6v1m7nc6l" path="res://assets/UI Elements/Button-Next-Press.png" id="3_qtdni"]
 [ext_resource type="PackedScene" uid="uid://u1nvhv5ceok" path="res://scenes/hud/BarInfo.tscn" id="4_67rbh"]
 [ext_resource type="Script" path="res://src/cs/ui/InfoBar.cs" id="4_e5tgv"]
+[ext_resource type="Texture2D" uid="uid://c25aef4m4yd40" path="res://assets/UI Elements/Button-Next-Hover.png" id="4_mh4j1"]
+[ext_resource type="Texture2D" uid="uid://60dl810b25fd" path="res://assets/UI Elements/Button-press.png" id="5_hh5pc"]
 [ext_resource type="PackedScene" uid="uid://c81iji81uc4g7" path="res://scenes/hud/import.tscn" id="5_ps4b6"]
 [ext_resource type="PackedScene" uid="uid://885lty3v1qbq" path="res://scenes/windows/shock.tscn" id="5_tj765"]
-[ext_resource type="Texture2D" uid="uid://d2dxa7x362j3j" path="res://assets/Elements/NEXTTURNBUTTONDisabled.png" id="5_xpjuf"]
 [ext_resource type="Texture2D" uid="uid://dddt3hgvf20b6" path="res://assets/Elements/POLICIES BUTTON.png" id="6_ivien"]
-[ext_resource type="Texture2D" uid="uid://b5c8nhwhjb6rh" path="res://assets/Elements/TIME PANEL – BLANK.png" id="6_mfs1l"]
-[ext_resource type="Texture2D" uid="uid://yom48x87obxw" path="res://assets/Elements/CHARACTER INFORMATION – BLANK.png" id="6_vs2ug"]
+[ext_resource type="AudioStream" uid="uid://d0mx81kv2vlha" path="res://assets/Sounds/Negative 2_1.wav" id="6_jw1cb"]
 [ext_resource type="Texture2D" uid="uid://d01b6u4flcphj" path="res://assets/Elements/GRAPH BUTTON.png" id="7_7gbcu"]
+[ext_resource type="Texture2D" uid="uid://cgf1xjsx0mfot" path="res://assets/UI Elements/Button-Next-Base.png" id="7_g7ih8"]
 [ext_resource type="Texture2D" uid="uid://b8lwrin3nxbmj" path="res://assets/Elements/SETTINGS BUTTON.png" id="7_mnpcp"]
 [ext_resource type="PackedScene" uid="uid://jj476u8yn2g8" path="res://scenes/windows/window.tscn" id="7_yu7g8"]
-[ext_resource type="Texture2D" uid="uid://djx386wryt8ab" path="res://assets/Elements/ENVIORMENT BUTTON.png" id="9_kqwrt"]
-[ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="10_2gyrf"]
 [ext_resource type="AudioStream" uid="uid://ben5r72x0p8pr" path="res://assets/Sounds/Move_03.wav" id="10_po2ll"]
-[ext_resource type="Texture2D" uid="uid://3ypqypyywx05" path="res://assets/temp_pollution_icon.png" id="10_vhysx"]
+[ext_resource type="Texture2D" uid="uid://bjeebs7uy4hpn" path="res://assets/UI Elements/Button-small-Hole.png" id="11_i0u5d"]
+[ext_resource type="Texture2D" uid="uid://bbnupxdtp78l5" path="res://assets/UI Elements/Icon-Wind.png" id="11_qepre"]
 [ext_resource type="AudioStream" uid="uid://00apgxjmwgw0" path="res://assets/Sounds/Click_020.wav" id="11_tr1n1"]
-[ext_resource type="Texture2D" uid="uid://efqqo78530ur" path="res://assets/Elements/BUILDING BUTTON.png" id="18_42ope"]
+[ext_resource type="Texture2D" uid="uid://ca5ev88u31iqa" path="res://assets/UI Elements/Icon-Solar.png" id="12_72t8i"]
+[ext_resource type="Texture2D" uid="uid://cp5u5s0g7ff24" path="res://assets/UI Elements/Clock_Case.png" id="14_m0dc4"]
+[ext_resource type="Texture2D" uid="uid://ck62bj2g88e8t" path="res://assets/UI Elements/Clock_Hand.png" id="17_8ninl"]
+[ext_resource type="Texture2D" uid="uid://d313vvhrt0dso" path="res://assets/UI Elements/Clock_Hand-Shadow.png" id="18_183xf"]
+[ext_resource type="Texture2D" uid="uid://xyxroar1ffyt" path="res://assets/UI Elements/Envirornment-Bar-Metal.png" id="18_oaaki"]
+[ext_resource type="Texture2D" uid="uid://52o3k8juwbmd" path="res://assets/UI Elements/Clock_Meter-1.png" id="19_bcm0u"]
+[ext_resource type="Texture2D" uid="uid://bmjee8ocqy0ge" path="res://assets/UI Elements/Enviornment-Base.png" id="21_i8c3o"]
+[ext_resource type="Texture2D" uid="uid://cke7lrsfhrr8c" path="res://assets/UI Elements/Enviorment-Bar.png" id="22_facdj"]
+[ext_resource type="Texture2D" uid="uid://bwmnloeklg76n" path="res://assets/UI Elements/Enviornment-Hand.png" id="23_3qgyr"]
+[ext_resource type="Texture2D" uid="uid://lxqt8kspr35q" path="res://assets/UI Elements/Icon-Environment-.png" id="24_t8vy5"]
+[ext_resource type="Texture2D" uid="uid://0mihvtaw003w" path="res://assets/UI Elements/Icon-Pollution-.png" id="25_7q1c5"]
+[ext_resource type="Texture2D" uid="uid://dyyio7rs1i1l6" path="res://assets/UI Elements/Import_energy-Bar-Metal.png" id="27_6qqtw"]
+[ext_resource type="Texture2D" uid="uid://vff0e83ytund" path="res://assets/UI Elements/Energy-base.png" id="28_mr6x7"]
+[ext_resource type="Texture2D" uid="uid://da8jr70q0tucb" path="res://assets/UI Elements/Profil-Bar-Metal.png" id="30_0k2ft"]
+[ext_resource type="Texture2D" uid="uid://h78kteff8v5d" path="res://assets/UI Elements/Money-counter-hole.png" id="31_jcf3k"]
+[ext_resource type="Texture2D" uid="uid://p2nyvgv4j2ll" path="res://assets/UI Elements/Money-counter-1.png" id="32_2wt40"]
+[ext_resource type="Texture2D" uid="uid://sopgul71025f" path="res://assets/UI Elements/Icon-Money.png" id="33_my285"]
+[ext_resource type="Texture2D" uid="uid://bam7su0aw6q65" path="res://assets/UI Elements/Icon-Popularity.png" id="34_xcgyc"]
+[ext_resource type="Texture2D" uid="uid://b2g8qas0h64m8" path="res://assets/UI Elements/Popularity-.png" id="35_qiawk"]
+[ext_resource type="Texture2D" uid="uid://clnitajx25spt" path="res://assets/UI Elements/Button-Square-normal.png" id="36_xxsv6"]
+[ext_resource type="Texture2D" uid="uid://4dcp6f66sdeo" path="res://assets/UI Elements/Button-Square-press.png" id="37_533gb"]
+[ext_resource type="Texture2D" uid="uid://dlccss1xvy8tb" path="res://assets/UI Elements/Button-Square-hover.png" id="38_7v12r"]
+[ext_resource type="Texture2D" uid="uid://bj6ubksmn350n" path="res://assets/UI Elements/Button-Hole.png" id="39_jsaox"]
+[ext_resource type="Texture2D" uid="uid://bfa7b1e5e7hxc" path="res://assets/CANCEL ICON.png" id="40_h6a6a"]
+[ext_resource type="FontFile" uid="uid://doaord8a13muh" path="res://assets/Fonts/Helvetica.ttc" id="40_knfjx"]
+[ext_resource type="Texture2D" uid="uid://dyc87atrxvivu" path="res://assets/UI Elements/Paper_Info-1.png" id="42_5ijjs"]
+[ext_resource type="Texture2D" uid="uid://dcbjy5kxo2vbm" path="res://assets/Elements/INFO ICON.png" id="42_v8iq7"]
+[ext_resource type="Texture2D" uid="uid://duxc28wuegrwc" path="res://assets/UI Elements/Button-small-normal.png" id="44_5a58h"]
+[ext_resource type="Texture2D" uid="uid://bvgpy40ml2nxm" path="res://assets/UI Elements/Button-small-press.png" id="45_nhcbq"]
+[ext_resource type="Texture2D" uid="uid://cuvs42pma25xn" path="res://assets/UI Elements/Button-small-hover.png" id="46_mga3n"]
+[ext_resource type="Texture2D" uid="uid://ckf6s1uhm87ae" path="res://assets/UI Elements/Policies_Base-1.png" id="50_inaxr"]
+[ext_resource type="FontFile" uid="uid://dxtsp51pqna2o" path="res://assets/Fonts/static/OpenSans-Bold.ttf" id="51_joowr"]
+[ext_resource type="Texture2D" uid="uid://co2hnnf0cnn72" path="res://assets/UI Elements/Plant_Menu_Base.png" id="52_tsua8"]
+[ext_resource type="FontFile" uid="uid://bwuskgw4ek8y" path="res://assets/Fonts/static/OpenSans-Medium.ttf" id="53_v477p"]
+[ext_resource type="Texture2D" uid="uid://od33hjtqpm14" path="res://assets/UI Elements/Build_Menu_0003_Numbers-hole.png" id="54_7juy1"]
+[ext_resource type="Texture2D" uid="uid://bobwaj4wxr0fj" path="res://assets/UI Elements/Build_Menu_0002_Numbers-counter-1.png" id="55_5s2up"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uhpc3"]
-atlas = ExtResource("6_vs2ug")
-region = Rect2(222, 26, 198, 208)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3c2j"]
-atlas = ExtResource("1_kbgc4")
-region = Rect2(42, 38, 200, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_icmin"]
-atlas = ExtResource("3_l43te")
-region = Rect2(42, 38, 200, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t151c"]
-atlas = ExtResource("4_6fg8a")
-region = Rect2(42, 38, 200, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wu5im"]
-atlas = ExtResource("5_xpjuf")
-region = Rect2(42, 38, 200, 64)
+[sub_resource type="FontVariation" id="FontVariation_74xhr"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.5
 
 [sub_resource type="Animation" id="Animation_pjxim"]
 length = 0.001
@@ -95,7 +112,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(20, -25), Vector2(20, -50)]
+"values": [Vector2(-30, -40), Vector2(-30, -70)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -121,6 +138,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Error")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_jw1cb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jpw4y"]
 _data = {
@@ -128,92 +160,70 @@ _data = {
 "warning": SubResource("Animation_kvnnc")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mw3r"]
-bg_color = Color(0.317647, 0.317647, 0.317647, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="FontVariation" id="FontVariation_rdii0"]
+base_font = ExtResource("40_knfjx")
+spacing_glyph = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opb6j"]
-bg_color = Color(0.317647, 0.317647, 0.317647, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mw3r"]
+bg_color = Color(0.214844, 0.335938, 0.347656, 1)
 border_color = Color(0, 0, 0, 1)
 border_blend = true
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglqh"]
+bg_color = Color(0.214844, 0.335938, 0.347656, 1)
 
 [sub_resource type="Animation" id="Animation_f32o7"]
 resource_name = "NextTurnAnim"
 length = 4.0
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.7, 0.8, 3.3, 3.4, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1711, 156), Vector2(1019, 577), Vector2(1024, 568), Vector2(1024, 568), Vector2(1019, 577), Vector2(1711, 156)]
+"values": [Vector2(0.5, 0.5), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0.5, 0.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath("Year:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8, 3.3, 3.4, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(3.2, 3.2), Vector2(3, 3), Vector2(3, 3), Vector2(3.2, 3.2), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Year:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.25, 2, 2.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": ["2020", "2021", "2022", "2023
 "]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../MouseBlock:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MouseBlock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "clips": [{
 "end_offset": 1.50526,
 "start_offset": 0.08,
@@ -237,57 +247,213 @@ tracks/4/keys = {
 }],
 "times": PackedFloat32Array(0.05, 1.25, 2, 2.75, 3)
 }
-tracks/4/use_blend = true
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arrow:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.25, 2, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [-2.18166, -2.0944, -2.00713, -1.8326]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Year4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.25, 1.26, 2, 2.01, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(40, 90), Vector2(40, 90), Vector2(40, 32), Vector2(40, 90), Vector2(40, 32), Vector2(40, 90), Vector2(40, 32)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Year5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.25, 1.26, 2, 2.01, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(40, 146), Vector2(40, 146), Vector2(40, 90), Vector2(40, 146), Vector2(40, 90), Vector2(40, 146), Vector2(40, 90)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1790, 130), Vector2(1024, 568), Vector2(1024, 568), Vector2(1790, 130)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Year5:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.26, 2.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["3", "4", "5"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Year4:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.26, 2.01, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["2", "3", "4", "5"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Shadow:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.25, 2, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [-2.21657, -2.0944, -2.00713, -1.81514]
+}
 
 [sub_resource type="Animation" id="Animation_lrye6"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1711, 156)]
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/enabled = false
+tracks/1/path = NodePath("Year:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": ["2020"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("Year:text")
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MouseBlock:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["2020"]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../MouseBlock:visible")
+tracks/3/path = NodePath("Arrow:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.18166]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Year4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 90)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Year5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 90)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1790, 130)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Year5:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["2"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Year4:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["2"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Shadow:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.21657]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_08hvt"]
@@ -296,28 +462,141 @@ _data = {
 "RESET": SubResource("Animation_lrye6")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_qalwp"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dw2x"]
+atlas = ExtResource("14_m0dc4")
+region = Rect2(241, 283, 90, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou8cv"]
+atlas = ExtResource("14_m0dc4")
+region = Rect2(237, 395, 99, 60)
+
+[sub_resource type="Animation" id="Animation_xtl2t"]
+resource_name = "NextDecade"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Year3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 90), Vector2(0, 34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Year6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 146), Vector2(0, 90)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Year3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["2"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Year6:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+
+[sub_resource type="Animation" id="Animation_qpho6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Year3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Year6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 146)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Year3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["2"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Year6:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dlvf"]
+_data = {
+"NextDecade": SubResource("Animation_xtl2t"),
+"RESET": SubResource("Animation_qpho6")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_kjeuh"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.2
+spacing_glyph = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqc36"]
-bg_color = Color(0.317647, 0.317647, 0.317647, 0.87451)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+bg_color = Color(0.317647, 0.317647, 0.317647, 0)
 border_color = Color(0, 0, 0, 1)
 border_blend = true
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mru71"]
-bg_color = Color(0.137255, 0.470588, 0.760784, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+bg_color = Color(0.137255, 0.470588, 0.760784, 0.701961)
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 14
-corner_radius_bottom_left = 14
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm6d8"]
 bg_color = Color(0.317647, 0.317647, 0.317647, 0.87451)
@@ -349,24 +628,164 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dajl"]
+atlas = ExtResource("6_ivien")
+region = Rect2(48, 49, 43, 44)
+
+[sub_resource type="FontVariation" id="FontVariation_4ww80"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.2
+
+[sub_resource type="FontVariation" id="FontVariation_aj2ar"]
+base_font = ExtResource("53_v477p")
+
+[sub_resource type="FontVariation" id="FontVariation_yha4g"]
+base_font = ExtResource("53_v477p")
+
+[sub_resource type="FontVariation" id="FontVariation_gr4gv"]
+base_font = ExtResource("51_joowr")
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_15ni2"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.5
+spacing_glyph = 7
+
+[sub_resource type="FontVariation" id="FontVariation_lgwoq"]
+base_font = ExtResource("40_knfjx")
+variation_embolden = 0.2
+spacing_glyph = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21dh1"]
+atlas = ExtResource("50_inaxr")
+region = Rect2(0, 0, 328, 776)
+
+[sub_resource type="FontVariation" id="FontVariation_2lxgj"]
+base_font = ExtResource("51_joowr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwy5b"]
+bg_color = Color(0.988235, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vka7n"]
+bg_color = Color(0.709804, 0.176471, 0.113725, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgbvl"]
+bg_color = Color(0.509804, 0, 0.117647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_4p1wg"]
+Button/styles/hover = SubResource("StyleBoxFlat_pwy5b")
+Button/styles/normal = SubResource("StyleBoxFlat_vka7n")
+Button/styles/pressed = SubResource("StyleBoxFlat_fgbvl")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2x8o"]
+bg_color = Color(0.45098, 0.45098, 0.45098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnqwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xki6c"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_6evow"]
+base_font = ExtResource("51_joowr")
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_1sp4q"]
+base_font = ExtResource("53_v477p")
+
 [node name="UI" type="CanvasLayer"]
 follow_viewport_enabled = true
 
-[node name="CharacterInformation–Blank" type="Sprite2D" parent="."]
-position = Vector2(99, 167)
-texture = SubResource("AtlasTexture_uhpc3")
+[node name="Profil-bar-metal" type="Sprite2D" parent="."]
+position = Vector2(142, 133)
+texture = ExtResource("30_0k2ft")
+
+[node name="Money-counter-hole" type="Sprite2D" parent="Profil-bar-metal"]
+position = Vector2(-4, 7)
+texture = ExtResource("31_jcf3k")
+
+[node name="Money-counter-1" type="Sprite2D" parent="Profil-bar-metal/Money-counter-hole"]
+position = Vector2(-30, 0)
+texture = ExtResource("32_2wt40")
+
+[node name="Money-counter-2" type="Sprite2D" parent="Profil-bar-metal/Money-counter-hole"]
+position = Vector2(-10, 0)
+texture = ExtResource("32_2wt40")
+
+[node name="Money-counter-3" type="Sprite2D" parent="Profil-bar-metal/Money-counter-hole"]
+position = Vector2(10, 0)
+texture = ExtResource("32_2wt40")
+
+[node name="Money-counter-4" type="Sprite2D" parent="Profil-bar-metal/Money-counter-hole"]
+position = Vector2(30, 0)
+texture = ExtResource("32_2wt40")
+
+[node name="Icon-money" type="Sprite2D" parent="Profil-bar-metal"]
+position = Vector2(-84, 8)
+texture = ExtResource("33_my285")
+
+[node name="Icon-popularity" type="Sprite2D" parent="Profil-bar-metal"]
+position = Vector2(-83, 70)
+texture = ExtResource("34_xcgyc")
+
+[node name="Popularity-" type="Sprite2D" parent="Profil-bar-metal"]
+position = Vector2(0, 75)
+texture = ExtResource("35_qiawk")
+
+[node name="TextureButton" type="TextureButton" parent="Profil-bar-metal"]
+offset_left = -91.0
+offset_top = -96.0
+offset_right = -25.0
+offset_bottom = -32.0
+texture_normal = ExtResource("36_xxsv6")
+texture_pressed = ExtResource("37_533gb")
+texture_hover = ExtResource("38_7v12r")
+
+[node name="Button-hole" type="Sprite2D" parent="Profil-bar-metal/TextureButton"]
+show_behind_parent = true
+position = Vector2(32, 32)
+texture = ExtResource("39_jsaox")
+
+[node name="TextureButton2" type="TextureButton" parent="Profil-bar-metal"]
+offset_left = -6.0
+offset_top = -97.0
+offset_right = 60.0
+offset_bottom = -33.0
+texture_normal = ExtResource("36_xxsv6")
+texture_pressed = ExtResource("37_533gb")
+texture_hover = ExtResource("38_7v12r")
+
+[node name="Button-hole2" type="Sprite2D" parent="Profil-bar-metal/TextureButton2"]
+show_behind_parent = true
+position = Vector2(32, 32)
+texture = ExtResource("39_jsaox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Profil-bar-metal"]
+position = Vector2(82, 24)
+texture = ExtResource("11_i0u5d")
 
 [node name="NextTurn" type="TextureButton" parent="."]
-offset_left = 1605.0
-offset_top = 966.0
-offset_right = 1869.0
-offset_bottom = 1033.0
+offset_left = 1664.0
+offset_top = 936.0
+offset_right = 1856.0
+offset_bottom = 1022.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-texture_normal = SubResource("AtlasTexture_b3c2j")
-texture_pressed = SubResource("AtlasTexture_icmin")
-texture_hover = SubResource("AtlasTexture_t151c")
-texture_disabled = SubResource("AtlasTexture_wu5im")
+texture_normal = ExtResource("2_aobed")
+texture_pressed = ExtResource("3_qtdni")
+texture_hover = ExtResource("4_mh4j1")
+texture_disabled = ExtResource("5_hh5pc")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -375,54 +794,83 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_74xhr")
 theme_override_font_sizes/font_size = 24
 text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="NextTurn"]
-visible = false
-layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 184.0
-offset_bottom = 56.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
+autowrap_mode = 2
+uppercase = true
 
 [node name="NextTurnAP" type="AnimationPlayer" parent="NextTurn"]
 libraries = {
 "": SubResource("AnimationLibrary_jpw4y")
 }
 
+[node name="Button-next-base" type="Sprite2D" parent="NextTurn"]
+show_behind_parent = true
+position = Vector2(109, 43)
+texture = ExtResource("7_g7ih8")
+
 [node name="Warning" type="Label" parent="NextTurn"]
 visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = -25.0
-offset_right = 245.0
+offset_right = 291.0
 offset_bottom = 10.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
+theme_override_colors/font_color = Color(0.683594, 0.238281, 0.195313, 1)
+theme_override_colors/font_shadow_color = Color(0.141176, 0.192157, 0.2, 0.592157)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("40_knfjx")
 theme_override_font_sizes/font_size = 23
 text = "Not enough energy!"
+uppercase = true
 
-[node name="EnergyPanel-Blank" type="Sprite2D" parent="."]
-position = Vector2(216, 874)
-texture = ExtResource("2_hhj2t")
+[node name="Error" type="AudioStreamPlayer" parent="NextTurn"]
+
+[node name="ImportEnergy-bar-metal" type="Sprite2D" parent="."]
+position = Vector2(218, 896)
+texture = ExtResource("27_6qqtw")
+
+[node name="Energy-base" type="Sprite2D" parent="ImportEnergy-bar-metal"]
+z_index = 1
+position = Vector2(72, -16)
+texture = ExtResource("28_mr6x7")
+
+[node name="Icon-wind" type="Sprite2D" parent="ImportEnergy-bar-metal/Energy-base"]
+position = Vector2(-35, 155)
+texture = ExtResource("11_qepre")
+
+[node name="Icon-solar" type="Sprite2D" parent="ImportEnergy-bar-metal/Energy-base"]
+position = Vector2(36, 155)
+texture = ExtResource("12_72t8i")
+
+[node name="Label" type="Label" parent="ImportEnergy-bar-metal/Energy-base"]
+offset_left = -98.0
+offset_top = -120.0
+offset_right = 70.0
+offset_bottom = -89.0
+theme_override_fonts/font = SubResource("FontVariation_rdii0")
+theme_override_font_sizes/font_size = 12
+text = "ENERGY"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnergyBarSummerPredict" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 109.0
-offset_top = 942.0
-offset_right = 283.0
-offset_bottom = 984.0
+offset_left = 303.0
+offset_top = 975.0
+offset_right = 494.0
+offset_bottom = 1017.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_8mw3r")
-NormalColor = Color(0.94902, 0.815686, 0.0666667, 0.45098)
-LowColor = Color(0.94902, 0.533333, 0.0666667, 0.45098)
 
 [node name="Target" parent="EnergyBarSummerPredict" index="0"]
 position = Vector2(-331, -609.5)
@@ -437,13 +885,10 @@ rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="EnergyBarWinterPredict" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 179.0
-offset_top = 942.0
-offset_right = 353.0
-offset_bottom = 983.0
-theme_override_styles/background = SubResource("StyleBoxFlat_opb6j")
-NormalColor = Color(0.94902, 0.815686, 0.0666667, 0.784314)
-LowColor = Color(0.94902, 0.533333, 0.0666667, 0.521569)
+offset_left = 237.0
+offset_top = 975.0
+offset_right = 428.0
+offset_bottom = 1016.0
 
 [node name="Target" parent="EnergyBarWinterPredict" index="0"]
 visible = false
@@ -458,145 +903,118 @@ offset_bottom = 113.053
 rotation = 1.5708
 
 [node name="EnergyBarWinter" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 179.0
-offset_top = 942.0
-offset_right = 353.0
-offset_bottom = 983.0
-LowColor = Color(0.94902, 0.156863, 0.0666667, 1)
+offset_left = 237.0
+offset_top = 975.0
+offset_right = 428.0
+offset_bottom = 1016.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qglqh")
 
 [node name="Target" parent="EnergyBarWinter" index="0"]
 position = Vector2(-195, -609.5)
 
 [node name="BarInfo" parent="EnergyBarWinter" index="1"]
 z_index = 1
-offset_left = 382.0
-offset_top = -130.0
-offset_right = 684.768
-offset_bottom = -5.947
+offset_left = 247.999
+offset_top = 186.001
+offset_right = 550.767
+offset_bottom = 310.054
 rotation = 1.5708
 
-[node name="InfoMoney" parent="EnergyBarWinter/BarInfo" index="0"]
-offset_right = 334.0
-offset_bottom = 168.0
+[node name="InfoText" parent="EnergyBarWinter/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "In winter, energy demand is higher due to the need for heating. Switzerland often has to import the missing energy supply."
 
-[node name="Control" parent="EnergyBarWinter/BarInfo" index="1"]
-offset_top = 32.0
-offset_bottom = 16.78
-
-[node name="TextContainer" parent="EnergyBarWinter/BarInfo/Control" index="0"]
-anchor_top = 0.0848428
-anchor_right = 0.820848
-anchor_bottom = 0.326765
-offset_left = 18.3652
-offset_top = -15.8418
-offset_right = 28.2081
-offset_bottom = 182.095
-
-[node name="Text0" parent="EnergyBarWinter/BarInfo/Control/TextContainer" index="0"]
-theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
-
-[node name="Text1" parent="EnergyBarWinter/BarInfo/Control/TextContainer" index="1"]
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-
-[node name="nContainer" parent="EnergyBarWinter/BarInfo/Control" index="1"]
-anchor_top = 0.0566696
-anchor_bottom = 0.402413
-offset_left = 18.1804
-offset_top = -12.5737
-offset_right = 43.0233
-offset_bottom = 177.469
-
-[node name="n" parent="EnergyBarWinter/BarInfo/Control/nContainer" index="0"]
-theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
-
-[node name="n1" parent="EnergyBarWinter/BarInfo/Control/nContainer" index="1"]
-theme_override_colors/font_color = Color(1, 1, 0, 1)
+[node name="InfoText2" parent="EnergyBarWinter/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+text = "You need to reach the demand in energy. The target is the white line on the energy bar.
+"
 
 [node name="EnergyBarSummer" parent="." instance=ExtResource("3_fm1y6")]
-offset_left = 109.0
-offset_top = 942.0
-offset_right = 283.0
-offset_bottom = 984.0
+offset_left = 303.0
+offset_top = 975.0
+offset_right = 494.0
+offset_bottom = 1017.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-LowColor = Color(0.94902, 0.156863, 0.0666667, 1)
 
 [node name="Target" parent="EnergyBarSummer" index="0"]
 position = Vector2(-331, -609.5)
 
 [node name="BarInfo" parent="EnergyBarSummer" index="1"]
 z_index = 1
-offset_left = 382.0
-offset_top = -60.0
-offset_right = 684.768
-offset_bottom = 63.786
+offset_left = 248.0
+offset_top = 117.001
+offset_right = 550.768
+offset_bottom = 409.787
 rotation = 1.5708
 metadata/_edit_group_ = true
 
-[node name="InfoMoney" parent="EnergyBarSummer/BarInfo" index="0"]
-offset_top = -8.0
-offset_right = 334.0
-offset_bottom = 160.0
+[node name="InfoText" parent="EnergyBarSummer/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Importing energy from neighbouring countries can also create emissions unless you pay more for green imports.
+"
 
-[node name="Control" parent="EnergyBarSummer/BarInfo" index="1"]
-offset_bottom = -8.22
-
-[node name="Text0" parent="EnergyBarSummer/BarInfo/Control/TextContainer" index="0"]
-theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-
-[node name="Text1" parent="EnergyBarSummer/BarInfo/Control/TextContainer" index="1"]
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-
-[node name="n" parent="EnergyBarSummer/BarInfo/Control/nContainer" index="0"]
-theme_override_colors/font_color = Color(0.835294, 0.12549, 0.0431373, 1)
-
-[node name="n1" parent="EnergyBarSummer/BarInfo/Control/nContainer" index="1"]
-theme_override_colors/font_color = Color(1, 1, 0, 1)
+[node name="InfoText2" parent="EnergyBarSummer/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+text = "You need to reach the demand in energy. The target is the white line on the energy bar.
+"
 
 [node name="Import" parent="." instance=ExtResource("5_ps4b6")]
-offset_left = 310.0
-offset_top = 960.28
-offset_right = 310.96
-offset_bottom = 960.0
+offset_left = 128.0
+offset_top = 911.28
+offset_right = 143.96
+offset_bottom = 1007.0
 ticks_on_borders = false
 
-[node name="Target" parent="Import" index="1"]
-position = Vector2(-120, -9)
+[node name="TargetLine" parent="Import" index="3"]
+visible = false
 
-[node name="Amount" parent="Import" index="3"]
+[node name="Amount" parent="Import" index="5"]
 visible = false
 offset_left = 0.0
 offset_top = 160.0
 offset_right = 40.0
 offset_bottom = 186.0
 
-[node name="Apply" parent="Import" index="4"]
+[node name="Apply" parent="Import" index="6"]
 offset_left = -19.0
 offset_top = 187.0
 offset_right = 12.0
 offset_bottom = 217.0
 
-[node name="Cancel" parent="Import" index="5"]
+[node name="Cancel" parent="Import" index="7"]
 offset_left = 18.0
 offset_top = 187.0
 offset_right = 36.0
 offset_bottom = 218.0
 
-[node name="TimePanelBlank" type="Sprite2D" parent="."]
-position = Vector2(1711, 156)
-texture = ExtResource("6_mfs1l")
+[node name="ImportSwitch" parent="Import" index="8"]
+offset_left = -96.0
+offset_top = 41.0
+offset_right = -16.0
+offset_bottom = 117.0
 
-[node name="Year" type="Label" parent="TimePanelBlank"]
-offset_left = -81.0
-offset_top = -38.0
-offset_right = 82.0
-offset_bottom = 32.0
-theme_override_font_sizes/font_size = 48
-text = "2023
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Icon-import" parent="Import" index="10"]
+position = Vector2(16, 279)
+
+[node name="UpButton" parent="Import" index="11"]
+offset_left = -40.0
+offset_top = 169.0
+offset_right = -8.0
+offset_bottom = 201.0
+
+[node name="DownButton" parent="Import" index="12"]
+offset_left = -71.0
+offset_top = 172.0
+offset_right = -39.0
+offset_bottom = 204.0
+
+[node name="Label" parent="Import" index="13"]
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 39.0
+offset_bottom = 3.0
+
+[node name="TimePanelBlank" type="Sprite2D" parent="."]
+position = Vector2(1790, 130)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_m0dc4")
 
 [node name="TimelineAnimation" type="AnimationPlayer" parent="TimePanelBlank"]
 libraries = {
@@ -607,17 +1025,161 @@ libraries = {
 volume_db = -20.0
 pitch_scale = 0.5
 
+[node name="Year" type="Label" parent="TimePanelBlank"]
+visible = false
+offset_left = -78.0
+offset_top = 88.0
+offset_right = 85.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_font_sizes/font_size = 48
+text = "2020"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Year2" type="Label" parent="TimePanelBlank"]
+offset_left = -78.0
+offset_top = 90.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_fonts/font = SubResource("FontVariation_qalwp")
+theme_override_font_sizes/font_size = 46
+text = "2 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num1" type="Sprite2D" parent="TimePanelBlank/Year2"]
+show_behind_parent = true
+position = Vector2(18, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="Num2" type="Sprite2D" parent="TimePanelBlank/Year2"]
+show_behind_parent = true
+position = Vector2(58, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="Year3" type="Label" parent="TimePanelBlank"]
+offset_top = 90.0
+offset_right = 40.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_fonts/font = SubResource("FontVariation_qalwp")
+theme_override_font_sizes/font_size = 46
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num3" type="Sprite2D" parent="TimePanelBlank/Year3"]
+show_behind_parent = true
+position = Vector2(20, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="Year6" type="Label" parent="TimePanelBlank"]
+offset_top = 146.0
+offset_right = 40.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_fonts/font = SubResource("FontVariation_qalwp")
+theme_override_font_sizes/font_size = 46
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num3" type="Sprite2D" parent="TimePanelBlank/Year6"]
+show_behind_parent = true
+position = Vector2(20, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="Year4" type="Label" parent="TimePanelBlank"]
+offset_left = 40.0
+offset_top = 90.0
+offset_right = 80.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_fonts/font = SubResource("FontVariation_qalwp")
+theme_override_font_sizes/font_size = 46
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num4" type="Sprite2D" parent="TimePanelBlank/Year4"]
+show_behind_parent = true
+position = Vector2(20, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="Year5" type="Label" parent="TimePanelBlank"]
+offset_left = 40.0
+offset_top = 90.0
+offset_right = 80.0
+offset_bottom = 160.005
+theme_override_colors/font_color = Color(0.0390625, 0.160156, 0.171875, 1)
+theme_override_fonts/font = SubResource("FontVariation_qalwp")
+theme_override_font_sizes/font_size = 46
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num4" type="Sprite2D" parent="TimePanelBlank/Year5"]
+show_behind_parent = true
+position = Vector2(20, 32)
+texture = ExtResource("19_bcm0u")
+
+[node name="HideNum" type="Sprite2D" parent="TimePanelBlank"]
+position = Vector2(41, 66.5)
+texture = SubResource("AtlasTexture_2dw2x")
+
+[node name="HideNum2" type="Sprite2D" parent="TimePanelBlank"]
+position = Vector2(41.5, 179.5)
+texture = SubResource("AtlasTexture_ou8cv")
+
+[node name="Shadow" type="Sprite2D" parent="TimePanelBlank"]
+modulate = Color(1, 1, 1, 0.780392)
+position = Vector2(4, 4)
+rotation = -2.21657
+texture = ExtResource("18_183xf")
+offset = Vector2(0, -40)
+
+[node name="Arrow" type="Sprite2D" parent="TimePanelBlank"]
+rotation = -2.18166
+texture = ExtResource("17_8ninl")
+offset = Vector2(0, -40)
+
+[node name="NextDecadeAP" type="AnimationPlayer" parent="TimePanelBlank"]
+libraries = {
+"": SubResource("AnimationLibrary_5dlvf")
+}
+
+[node name="CurrentTurn" type="Label" parent="TimePanelBlank"]
+visible = false
+offset_left = -124.0
+offset_top = 268.0
+offset_right = -71.0
+offset_bottom = 294.0
+text = "Turn N"
+
+[node name="RemainingTurns" type="Label" parent="TimePanelBlank"]
+visible = false
+offset_left = -124.0
+offset_top = 302.0
+offset_right = 4.0
+offset_bottom = 328.0
+text = "Remaining turns before 2050 N"
+
+[node name="Envirornment-bar-metal" type="Sprite2D" parent="."]
+position = Vector2(216, 636)
+texture = ExtResource("18_oaaki")
+
 [node name="Trust" type="ProgressBar" parent="."]
-offset_left = 17.0
-offset_top = 200.0
-offset_right = 96.0
-offset_bottom = 237.0
+offset_left = 97.0
+offset_top = 192.0
+offset_right = 177.0
+offset_bottom = 230.0
+theme_override_fonts/font = SubResource("FontVariation_kjeuh")
+theme_override_font_sizes/font_size = 18
 theme_override_styles/background = SubResource("StyleBoxFlat_uqc36")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mru71")
 value = 60.0
 script = ExtResource("4_e5tgv")
-NormalColor = Color(0.180392, 0.509804, 1, 1)
-LowColor = Color(0.435294, 0.282353, 1, 1)
 
 [node name="Target" type="Line2D" parent="Trust"]
 visible = false
@@ -628,15 +1190,19 @@ width = 1.0
 [node name="BarInfo" parent="Trust" instance=ExtResource("4_67rbh")]
 visible = false
 layout_mode = 1
-offset_left = -361.0
-offset_top = 80.0
-offset_right = -47.272
-offset_bottom = 285.121
+offset_left = -74.0
+offset_top = 87.0
+offset_right = 239.728
+offset_bottom = 292.121
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="InfoMoney" parent="Trust/BarInfo" index="0"]
-offset_bottom = 255.0
+[node name="InfoText" parent="Trust/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Political support shows how popular your decisions are. The higher the support the more options in policy choices you have.
+"
+
+[node name="InfoText2" parent="Trust/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+text = ""
 
 [node name="Name" type="Label" parent="Trust"]
 visible = false
@@ -651,19 +1217,33 @@ theme_override_constants/outline_size = 1
 text = "Support 👆"
 horizontal_alignment = 2
 
+[node name="Button" type="Button" parent="Trust"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
 [node name="Env" type="ProgressBar" parent="."]
-offset_left = 92.0
-offset_top = 591.0
-offset_right = 202.0
-offset_bottom = 701.0
+offset_left = 89.0
+offset_top = 593.0
+offset_right = 189.0
+offset_bottom = 650.0
 theme_override_styles/background = SubResource("StyleBoxFlat_nm6d8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ldrdn")
 value = 50.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("4_e5tgv")
-NormalColor = Color(0.0313726, 0.67451, 0.2, 1)
-LowColor = Color(0.329412, 0.372549, 0, 1)
+EnergyBar = false
 metadata/_edit_group_ = true
 
 [node name="Target" type="Line2D" parent="Env"]
@@ -673,48 +1253,21 @@ points = PackedVector2Array(332, 646, 332, 614)
 width = 1.0
 
 [node name="BarInfo" parent="Env" instance=ExtResource("4_67rbh")]
-visible = false
 layout_mode = 1
-offset_left = -37.0
-offset_top = 128.0
-offset_right = 265.52
-offset_bottom = 284.63
+offset_left = 319.0
+offset_top = -48.0
+offset_right = 621.2
+offset_bottom = 107.781
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="InfoMoney" parent="Env/BarInfo" index="0"]
-offset_bottom = 146.0
+[node name="InfoText" parent="Env/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Land use shows how much land is used by the energy system. The smaller the indicator, the less impact from the energy system on land use. Some power plants need more land than others. This can negatively impact biodiversity."
 
-[node name="Control" parent="Env/BarInfo" index="1"]
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -15.0
-offset_bottom = -54.792
-
-[node name="TextContainer" parent="Env/BarInfo/Control" index="0"]
-anchors_preset = 10
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = 13.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 226.0
-grow_vertical = 1
-
-[node name="nContainer" parent="Env/BarInfo/Control" index="1"]
-anchors_preset = 10
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = -17.0
-offset_bottom = 226.0
-grow_vertical = 1
+[node name="InfoText2" parent="Env/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+text = "Biodiversity shows the environmental impact of the energy system. The higher the score, the more can animals and plants thrive in their natural habitats. Most power plants negatively affect biodiversity because they require lots of land and water.
+"
 
 [node name="Name" type="Label" parent="Env"]
 visible = false
@@ -729,26 +1282,49 @@ theme_override_constants/outline_size = 1
 text = "Environment 🍃"
 horizontal_alignment = 2
 
-[node name="Temp" type="Sprite2D" parent="Env"]
-modulate = Color(1, 1, 1, 0.329412)
-position = Vector2(55, 55.5)
-scale = Vector2(1.01351, 1.00676)
-texture = ExtResource("9_kqwrt")
+[node name="Enviornment-base" type="Sprite2D" parent="Env"]
+position = Vector2(45, 46)
+texture = ExtResource("21_i8c3o")
+
+[node name="Button" type="Button" parent="Env"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.17
+anchor_right = 1.0
+anchor_bottom = 1.526
+offset_bottom = 0.0179977
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 16
+flat = true
+
+[node name="Bar" type="Sprite2D" parent="Env"]
+position = Vector2(45, 63)
+texture = ExtResource("22_facdj")
+flip_h = true
+
+[node name="Arrow" type="Sprite2D" parent="Env"]
+position = Vector2(47, 63)
+texture = ExtResource("23_3qgyr")
+offset = Vector2(-1.5, -30)
+
+[node name="Icon" type="Sprite2D" parent="Env"]
+position = Vector2(46, 70)
+texture = ExtResource("24_t8vy5")
 
 [node name="Poll" type="ProgressBar" parent="."]
-offset_left = 228.0
-offset_top = 591.0
-offset_right = 340.0
-offset_bottom = 703.0
-tooltip_text = "Reach the goal by 2050 to attain net zero"
+offset_left = 227.0
+offset_top = 593.0
+offset_right = 287.0
+offset_bottom = 658.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0vvqt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dvfnp")
 value = 50.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("4_e5tgv")
-NormalColor = Color(0.239216, 0.239216, 0.239216, 1)
-LowColor = Color(0.74902, 0.74902, 0.74902, 1)
+EnergyBar = false
 metadata/_edit_group_ = true
 
 [node name="Target" type="Line2D" parent="Poll"]
@@ -759,46 +1335,26 @@ width = 1.0
 
 [node name="BarInfo" parent="Poll" instance=ExtResource("4_67rbh")]
 layout_mode = 1
-offset_left = -171.0
-offset_top = 128.0
-offset_right = -26.816
-offset_bottom = 148.096
+offset_left = 181.0
+offset_top = -48.0
+offset_right = 324.92
+offset_bottom = -28.355
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="InfoMoney" parent="Poll/BarInfo" index="0"]
-offset_bottom = 146.0
+[node name="InfoText" parent="Poll/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "CO2 emission shows how much greenhouse gas is released by the energy system. Lower emissions mean a lower impact on global warming. Some power plants emit CO2. Switzerland has decided to be carbon neutral and reach net zero by 2050."
 
-[node name="Control" parent="Poll/BarInfo" index="1"]
-offset_left = 20.0
-offset_top = 18.0
-offset_right = 143.0
-offset_bottom = 77.4
+[node name="Text1" parent="Poll/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+theme_override_colors/font_color = Color(0.666667, 0, 0, 1)
 
-[node name="TextContainer" parent="Poll/BarInfo/Control" index="0"]
-anchors_preset = 10
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = 11.0
-offset_top = 0.0
-offset_right = -0.0119934
-offset_bottom = 226.0
-grow_vertical = 1
+[node name="n1" parent="Poll/BarInfo/MarginContainer/MarginContainer/VBoxContainer/Text1" index="0"]
+theme_override_colors/font_color = Color(0.666667, 0, 0, 1)
 
-[node name="nContainer" parent="Poll/BarInfo/Control" index="1"]
-anchors_preset = 10
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = 19.0
-offset_top = 0.0
-offset_right = -15.0
-offset_bottom = 226.0
-grow_vertical = 1
+[node name="InfoText2" parent="Poll/BarInfo/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+text = "Importing energy from neighbouring countries can also create emissions unless you pay more for green imports.
+"
 
 [node name="Name" type="Label" parent="Poll"]
 visible = false
@@ -813,17 +1369,71 @@ theme_override_constants/outline_size = 1
 text = "Pollution"
 horizontal_alignment = 2
 
-[node name="Temp" type="Sprite2D" parent="Poll"]
-position = Vector2(63, 52.73)
-scale = Vector2(0.0802083, 0.0752813)
-texture = ExtResource("10_vhysx")
+[node name="Button" type="Button" parent="Poll"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_right = 49.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Base" type="Sprite2D" parent="Poll"]
+position = Vector2(48, 47)
+texture = ExtResource("21_i8c3o")
+
+[node name="Bar" type="Sprite2D" parent="Poll"]
+position = Vector2(47, 63)
+texture = ExtResource("22_facdj")
+
+[node name="Arrow" type="Sprite2D" parent="Poll"]
+position = Vector2(49, 64)
+texture = ExtResource("23_3qgyr")
+offset = Vector2(-1.5, -30)
+
+[node name="Icon" type="Sprite2D" parent="Poll"]
+position = Vector2(49, 67)
+texture = ExtResource("25_7q1c5")
 
 [node name="PolicyButton" type="TextureButton" parent="."]
-offset_left = -8.0
-offset_top = 248.0
-offset_right = 140.0
-offset_bottom = 396.0
-texture_normal = ExtResource("6_ivien")
+offset_left = 147.0
+offset_top = 46.0
+offset_right = 190.0
+offset_bottom = 89.0
+texture_normal = SubResource("AtlasTexture_0dajl")
+ignore_texture_size = true
+
+[node name="Notif" type="Label" parent="PolicyButton"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = -16.0
+offset_right = 43.0
+offset_bottom = 10.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_4ww80")
+text = "1"
+
+[node name="CancelIcon" type="Sprite2D" parent="PolicyButton/Notif"]
+self_modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(5, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("40_h6a6a")
+
+[node name="ColorRect" type="ColorRect" parent="PolicyButton/Notif/CancelIcon"]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.580392, 0, 0, 1)
 
 [node name="Stats" type="TextureButton" parent="."]
 visible = false
@@ -833,127 +1443,330 @@ offset_right = 441.0
 offset_bottom = 758.0
 texture_normal = ExtResource("7_7gbcu")
 
-[node name="ImportsB" type="Button" parent="."]
+[node name="MoneyInfo" type="Control" parent="."]
 visible = false
-offset_left = 1136.0
-offset_top = 808.0
-offset_right = 1223.0
-offset_bottom = 839.0
-focus_mode = 0
-text = "Import ⚡"
-
-[node name="MoneyInfo" type="ColorRect" parent="."]
-visible = false
-anchors_preset = -1
+layout_mode = 3
 anchor_left = 0.233
 anchor_top = 0.076
 anchor_right = 0.233
 anchor_bottom = 0.076
-offset_left = -199.36
-offset_top = -2.08
-offset_right = 32.64
-offset_bottom = 171.92
+offset_left = -175.36
+offset_top = -34.08
+offset_right = 56.64
+offset_bottom = 139.92
 grow_horizontal = 0
-color = Color(0.121569, 0.219608, 0.360784, 1)
 
-[node name="InfoMoney" type="Sprite2D" parent="MoneyInfo"]
-position = Vector2(141, 93)
-texture = ExtResource("10_2gyrf")
-
-[node name="ColorRect" type="ColorRect" parent="MoneyInfo"]
+[node name="MarginContainer" type="MarginContainer" parent="MoneyInfo"]
 layout_mode = 0
-offset_right = 231.0
-offset_bottom = 185.0
+offset_right = 400.0
+offset_bottom = 336.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InfoMoney" type="NinePatchRect" parent="MoneyInfo/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("42_5ijjs")
+region_rect = Rect2(0, 18, 585, 510)
+patch_margin_left = 54
+patch_margin_top = 48
+patch_margin_right = 51
+patch_margin_bottom = 68
+
+[node name="MarginContainer" type="MarginContainer" parent="MoneyInfo/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MoneyInfo/MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
 color = Color(0.597656, 0.597656, 0.597656, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MoneyInfo"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 138.0
-offset_bottom = 147.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MoneyInfo/MarginContainer/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Label3" type="Label" parent="MoneyInfo/VBoxContainer"]
+[node name="ColName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = " "
+vertical_alignment = 1
+
+[node name="Now" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/ColName"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -3.0
+offset_right = 185.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "Now"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Next" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/ColName"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "Next Turn"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BudgetName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "  Budget:"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MoneyInfo/VBoxContainer"]
+[node name="budgetNow" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/BudgetName"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -3.0
+offset_right = 185.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0.701961, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="budgetNext" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/BudgetName"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = -3.0
+offset_right = 281.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0.701961, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BudgetInfo" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "The budget shows you how much money you have and can spend. You start the game with 700.- and at the beginning of each turn receive 280.-."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ProdName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "  Production: "
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="MoneyInfo/VBoxContainer"]
+[node name="prod" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/ProdName"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -5.0
+offset_right = 282.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.945098, 0, 0.0705882, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ProdInfo" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "Some power plants have production costs because they need materials to run."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BuildName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "  Building: "
 vertical_alignment = 1
 
-[node name="Import" type="Label" parent="MoneyInfo/VBoxContainer"]
+[node name="build" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/BuildName"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -4.0
+offset_right = 185.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.945098, 0, 0.0705882, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BuildInfo" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "  Import:"
-
-[node name="prod" type="Label" parent="MoneyInfo"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 51.0
-offset_right = 194.0
-offset_bottom = 91.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "000"
-horizontal_alignment = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "Indicates how much you have spent on building or upgrading power plants."
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="build" type="Label" parent="MoneyInfo"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 97.0
-offset_right = 195.0
-offset_bottom = 137.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+[node name="ImportName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = " Import:"
+
+[node name="importamounts" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/ImportName"]
+layout_mode = 2
+offset_left = 153.0
+offset_top = 2.0
+offset_right = 281.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.945098, 0, 0.0705882, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "000"
 horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="budget" type="Label" parent="MoneyInfo"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 8.0
-offset_right = 195.0
-offset_bottom = 48.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+[node name="ImportInfo" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 14
+text = "Indicates how much you will be spending on imports. Clean imports cost N more."
+autowrap_mode = 3
+
+[node name="Debt" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = " Loan:"
+
+[node name="debtamount" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/Debt"]
+layout_mode = 2
+offset_left = 153.0
+offset_top = 2.0
+offset_right = 281.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.945098, 0, 0.0705882, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "000"
 horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="importamounts" type="Label" parent="MoneyInfo"]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 148.0
-offset_right = 194.0
-offset_bottom = 179.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+[node name="borrowamount" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/Debt"]
+layout_mode = 2
+offset_left = 57.0
+offset_top = 2.0
+offset_right = 185.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.0156863, 0.819608, 0.00392157, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
 theme_override_font_sizes/font_size = 20
 text = "000"
 horizontal_alignment = 2
+
+[node name="DebtInfo" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_aj2ar")
+theme_override_font_sizes/font_size = 20
+text = "Info about the loan blablablabla"
+autowrap_mode = 3
+
+[node name="TotalName" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_yha4g")
+theme_override_font_sizes/font_size = 20
+text = "    Total:"
+
+[node name="TotalNow" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/TotalName"]
+layout_mode = 2
+offset_left = 56.0
+offset_top = 2.0
+offset_right = 184.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_gr4gv")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+
+[node name="TotalNext" type="Label" parent="MoneyInfo/MarginContainer/MarginContainer/VBoxContainer/TotalName"]
+layout_mode = 2
+offset_left = 153.0
+offset_top = 2.0
+offset_right = 281.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_gr4gv")
+theme_override_font_sizes/font_size = 20
+text = "000"
+horizontal_alignment = 2
+
+[node name="MoneyInfoButton" type="TextureButton" parent="MoneyInfo"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = -36.0
+offset_right = 368.0
+offset_bottom = 44.0
+texture_normal = ExtResource("42_v8iq7")
+texture_pressed = ExtResource("42_v8iq7")
+texture_hover = ExtResource("42_v8iq7")
+
+[node name="ColorRect" type="ColorRect" parent="MoneyInfo/MoneyInfoButton"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 29.0
+offset_right = 47.0
+offset_bottom = 50.0
+mouse_filter = 2
+color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[node name="Label" type="Label" parent="MoneyInfo/MoneyInfoButton"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 25.0
+offset_right = 75.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.356863, 0.356863, 0.356863, 1)
+theme_override_font_sizes/font_size = 20
+text = "?"
 
 [node name="Money" type="ColorRect" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1911.0
-offset_top = 89.0
-offset_right = -1818.0
-offset_bottom = 137.0
+offset_left = -1833.0
+offset_top = 116.0
+offset_right = -1740.0
+offset_bottom = 164.0
 grow_horizontal = 0
-color = Color(0.597656, 0.597656, 0.597656, 1)
+color = Color(0.596078, 0.596078, 0.596078, 0)
 
 [node name="Label" type="Label" parent="Money"]
 visible = false
@@ -967,13 +1780,15 @@ vertical_alignment = 1
 
 [node name="money" type="Label" parent="Money"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 79.0
-offset_bottom = 47.0
+offset_left = 13.0
+offset_top = 5.0
+offset_right = 88.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.015625, 0.109375, 0.117188, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "000"
+theme_override_fonts/font = SubResource("FontVariation_15ni2")
+theme_override_font_sizes/font_size = 23
+text = "0000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -981,10 +1796,10 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1911.0
-offset_top = 72.0
-offset_right = -1733.0
-offset_bottom = 152.0
+offset_left = -1898.0
+offset_top = 114.0
+offset_right = -1736.0
+offset_bottom = 169.0
 grow_horizontal = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -1009,10 +1824,10 @@ offset_left = 63.0
 offset_top = 18.0
 offset_right = 674.0
 offset_bottom = 34.0
-min_value = 2020.0
-max_value = 2050.0
+min_value = 2022.0
+max_value = 2052.0
 step = 3.0
-value = 2020.0
+value = 2022.0
 editable = false
 scrollable = false
 tick_count = 11
@@ -1040,34 +1855,32 @@ visible = false
 [node name="Window" parent="." instance=ExtResource("7_yu7g8")]
 visible = false
 
-[node name="BuildingButton" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(235, 650)
-texture = ExtResource("18_42ope")
-
 [node name="MouseBlock" type="ColorRect" parent="."]
 visible = false
-offset_left = -166.0
+offset_left = -167.0
 offset_top = -113.0
-offset_right = 2121.0
+offset_right = 2120.0
 offset_bottom = 1225.0
 color = Color(1, 1, 1, 0)
 
-[node name="BorrowMoney" type="Button" parent="."]
-offset_left = 183.0
-offset_top = 41.0
-offset_right = 221.0
-offset_bottom = 76.0
-text = "+"
+[node name="BorrowMoney" type="TextureButton" parent="."]
+offset_left = 194.0
+offset_top = 123.0
+offset_right = 225.0
+offset_bottom = 155.0
+texture_normal = ExtResource("44_5a58h")
+texture_pressed = ExtResource("45_nhcbq")
+texture_hover = ExtResource("46_mga3n")
+ignore_texture_size = true
 
 [node name="Debt" type="ColorRect" parent="BorrowMoney"]
 visible = false
 layout_mode = 0
-offset_left = 9.0
-offset_top = 49.0
-offset_right = 106.0
-offset_bottom = 92.0
-color = Color(0.596078, 0.596078, 0.596078, 1)
+offset_left = 54.0
+offset_top = -2.0
+offset_right = 151.0
+offset_bottom = 41.0
+color = Color(0.443137, 0.564706, 0.580392, 1)
 
 [node name="DebtAmount" type="Label" parent="BorrowMoney/Debt"]
 layout_mode = 0
@@ -1076,63 +1889,209 @@ offset_top = 6.0
 offset_right = 73.0
 offset_bottom = 37.0
 theme_override_colors/font_color = Color(0.752941, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lgwoq")
 theme_override_font_sizes/font_size = 20
 text = "-000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BorrowMoney"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0196078, 0.101961, 0.109804, 1)
+theme_override_font_sizes/font_size = 25
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 1.0
-offset_right = 89.0
-offset_bottom = 88.0
+offset_left = 39.0
+offset_top = 25.0
+offset_right = 127.0
+offset_bottom = 113.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 icon = ExtResource("7_mnpcp")
 flat = true
 
-[node name="SettingsBox" type="ColorRect" parent="SettingsButton"]
+[node name="ColorRect" type="ColorRect" parent="SettingsButton"]
 visible = false
-layout_mode = 0
-offset_left = 86.0
-offset_top = 19.0
-offset_right = 277.0
-offset_bottom = 115.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
-metadata/_edit_group_ = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 21.898
+anchor_bottom = 12.364
+offset_left = -39.0
+offset_top = -25.0
+offset_right = -47.024
+offset_bottom = -33.032
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.313726, 0.313726, 0.313726, 0.345098)
 
-[node name="Close" type="Button" parent="SettingsButton/SettingsBox"]
+[node name="Sprite2D" type="Sprite2D" parent="SettingsButton/ColorRect"]
+position = Vector2(958, 544)
+texture = SubResource("AtlasTexture_21dh1")
+
+[node name="SettingsBox" type="ColorRect" parent="SettingsButton/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -316.0
+offset_right = 256.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.4, 0.4, 0)
+
+[node name="Title" type="Label" parent="SettingsButton/ColorRect/SettingsBox"]
 layout_mode = 0
-offset_left = -49.0
-offset_top = -76.0
-offset_right = 1873.0
-offset_bottom = 1008.0
+offset_left = 65.0
+offset_top = -53.0
+offset_right = 449.0
+offset_bottom = 15.0
+theme_override_fonts/font = SubResource("FontVariation_2lxgj")
+theme_override_font_sizes/font_size = 22
+text = "ENSURED
+ENERGY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="SettingsButton/ColorRect/SettingsBox"]
+layout_mode = 0
+offset_left = -703.5
+offset_top = -224.0
+offset_right = 1218.5
+offset_bottom = 860.0
 focus_mode = 0
 flat = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsButton/SettingsBox"]
-layout_mode = 0
-offset_right = 188.0
-offset_bottom = 96.0
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsButton/ColorRect/SettingsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_top = 42.0
+offset_right = 102.0
+offset_bottom = 636.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
 
-[node name="Language" type="Button" parent="SettingsButton/SettingsBox/VBoxContainer"]
+[node name="ScreenOption" type="CheckBox" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Fullscreen"
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="VolMusic" type="HSlider" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="VolSound" type="HSlider" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space2" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space3" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space4" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space5" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Language" type="Button" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Language: English"
-flat = true
 
-[node name="Reset" type="Button" parent="SettingsButton/SettingsBox/VBoxContainer"]
+[node name="Instructions" type="Button" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "Reset"
-flat = true
+text = "Instructions"
 
-[node name="ResetConfirm" type="ColorRect" parent="SettingsButton/SettingsBox/VBoxContainer/Reset"]
+[node name="ColorRect" type="ColorRect" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Instructions"]
 visible = false
-layout_mode = 0
-offset_left = 476.0
-offset_top = 223.0
-offset_right = 1162.0
-offset_bottom = 568.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.638
+anchor_top = -9.333
+anchor_right = 5.66
+anchor_bottom = 13.292
+offset_left = -0.0559692
+offset_top = 7.98401
+offset_right = -16.0801
+offset_bottom = -0.0160522
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 0.470588)
+
+[node name="ColorRect" type="ColorRect" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Instructions/ColorRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -724.0
+offset_top = -444.0
+offset_right = 724.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.398438, 0.398438, 0.398438, 1)
+
+[node name="Credits" type="Button" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Credits"
+
+[node name="Reset" type="TextureButton" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_4p1wg")
+texture_normal = ExtResource("2_aobed")
+texture_pressed = ExtResource("3_qtdni")
+texture_hover = ExtResource("4_mh4j1")
+
+[node name="ResetConfirm" type="ColorRect" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Reset"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -172.5
+offset_right = 343.0
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.560784, 0.560784, 0.560784, 1)
 
-[node name="Label" type="Label" parent="SettingsButton/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
+[node name="Label" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 64.0
@@ -1142,7 +2101,7 @@ theme_override_font_sizes/font_size = 32
 text = "Are you sure that you want to restart?"
 autowrap_mode = 2
 
-[node name="Yes" type="Button" parent="SettingsButton/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
+[node name="Yes" type="Button" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 216.0
@@ -1151,13 +2110,29 @@ offset_bottom = 269.0
 text = "Yes
 "
 
-[node name="No" type="Button" parent="SettingsButton/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
+[node name="No" type="Button" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Reset/ResetConfirm"]
 layout_mode = 0
 offset_left = 440.0
 offset_top = 216.0
 offset_right = 546.0
 offset_bottom = 269.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2x8o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xnqwg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xki6c")
 text = "No"
+
+[node name="Label" type="Label" parent="SettingsButton/ColorRect/SettingsBox/VBoxContainer/Reset"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 183.0
+offset_bottom = 74.0
+theme_override_fonts/font = SubResource("FontVariation_6evow")
+theme_override_font_sizes/font_size = 20
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="BorrowContainer" type="Button" parent="."]
 visible = false
@@ -1166,31 +2141,38 @@ offset_right = 1928.0
 offset_bottom = 1088.0
 flat = true
 
+[node name="Sprite2D" type="Sprite2D" parent="BorrowContainer"]
+position = Vector2(968, 520)
+scale = Vector2(2, 2)
+texture = ExtResource("52_tsua8")
+
 [node name="BorrowMoneyWindow" type="ColorRect" parent="BorrowContainer"]
 layout_mode = 0
 offset_left = 474.0
 offset_top = 220.0
 offset_right = 1483.0
 offset_bottom = 831.0
-color = Color(0.596078, 0.596078, 0.596078, 1)
+color = Color(0.596078, 0.596078, 0.596078, 0)
 
 [node name="Title" type="Label" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
-offset_left = 153.0
-offset_top = 122.0
-offset_right = 843.0
+offset_left = 214.0
+offset_top = 140.0
+offset_right = 774.0
 offset_bottom = 234.0
-theme_override_font_sizes/font_size = 37
+theme_override_colors/font_color = Color(0.721569, 1, 0.996078, 1)
+theme_override_fonts/font = SubResource("FontVariation_1sp4q")
+theme_override_font_sizes/font_size = 28
 text = "How much would you like to borrow?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="BorrowSlider" type="HSlider" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 248.0
-offset_right = 848.0
-offset_bottom = 282.0
+offset_left = 214.0
+offset_top = 404.0
+offset_right = 774.0
+offset_bottom = 438.0
 max_value = 500.0
 step = 100.0
 rounded = true
@@ -1199,11 +2181,12 @@ ticks_on_borders = true
 
 [node name="Money" type="Label" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 310.0
-offset_right = 344.0
-offset_bottom = 370.0
+offset_left = 280.0
+offset_top = 210.0
+offset_right = 399.0
+offset_bottom = 270.0
 theme_override_colors/font_color = Color(0.435294, 0.956863, 0.435294, 1)
+theme_override_fonts/font = SubResource("FontVariation_1sp4q")
 theme_override_font_sizes/font_size = 27
 text = "Borrow"
 
@@ -1214,6 +2197,7 @@ offset_top = 50.0
 offset_right = 73.0
 offset_bottom = 101.0
 theme_override_colors/font_color = Color(0.454902, 0.94902, 0.458824, 1)
+theme_override_fonts/font = SubResource("FontVariation_1sp4q")
 theme_override_font_sizes/font_size = 27
 text = "0"
 horizontal_alignment = 2
@@ -1221,10 +2205,11 @@ horizontal_alignment = 2
 [node name="Interest" type="Label" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
 offset_left = 481.0
-offset_top = 310.0
+offset_top = 210.0
 offset_right = 819.0
-offset_bottom = 357.0
-theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_1sp4q")
 theme_override_font_sizes/font_size = 27
 text = "Pay Back (next turn)"
 
@@ -1234,28 +2219,55 @@ offset_left = 144.0
 offset_top = 52.0
 offset_right = 223.0
 offset_bottom = 94.0
-theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_1sp4q")
 theme_override_font_sizes/font_size = 27
 text = "0"
 horizontal_alignment = 2
 
 [node name="Apply" type="Button" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 480.0
-offset_right = 362.0
-offset_bottom = 534.0
+offset_left = 270.0
+offset_top = 468.0
+offset_right = 432.0
+offset_bottom = 522.0
 theme_override_font_sizes/font_size = 27
 text = "Apply"
 
 [node name="Cancel" type="Button" parent="BorrowContainer/BorrowMoneyWindow"]
 layout_mode = 0
-offset_left = 584.0
-offset_top = 480.0
-offset_right = 743.0
-offset_bottom = 532.0
+offset_left = 566.0
+offset_top = 468.0
+offset_right = 725.0
+offset_bottom = 520.0
 theme_override_font_sizes/font_size = 28
 text = "Cancel"
+
+[node name="BuildMenu0003Numbers-hole" type="Sprite2D" parent="BorrowContainer/BorrowMoneyWindow"]
+visible = false
+position = Vector2(303.5, 380)
+scale = Vector2(1.52326, 1)
+texture = ExtResource("54_7juy1")
+
+[node name="BuildMenu0002Numbers-counter-1" type="Sprite2D" parent="BorrowContainer/BorrowMoneyWindow"]
+visible = false
+position = Vector2(333, 380)
+texture = ExtResource("55_5s2up")
+
+[node name="BuildMenu0002Numbers-counter-2" type="Sprite2D" parent="BorrowContainer/BorrowMoneyWindow"]
+visible = false
+position = Vector2(353.058, 380)
+texture = ExtResource("55_5s2up")
+
+[node name="BuildMenu0002Numbers-counter-3" type="Sprite2D" parent="BorrowContainer/BorrowMoneyWindow"]
+visible = false
+position = Vector2(313.058, 380)
+texture = ExtResource("55_5s2up")
+
+[node name="BuildMenu0003Numbers-hole2" type="Sprite2D" parent="BorrowContainer/BorrowMoneyWindow"]
+visible = false
+position = Vector2(638, 380)
+texture = ExtResource("54_7juy1")
 
 [editable path="EnergyBarSummerPredict"]
 [editable path="EnergyBarWinterPredict"]

@@ -67,7 +67,7 @@ public partial class BuildMenu : CanvasLayer {
 	private AnimationPlayer BuildMenuAP;
 	
 	// Tab Container
-	private TabContainer TabC;
+	private ColorRect MenuC;
 	
 	private GameLoop GL;
 
@@ -82,26 +82,26 @@ public partial class BuildMenu : CanvasLayer {
 		Hide();
 
 		// Fetch Power plants
-		GasPlant = GetNode<PowerPlant>("TabContainer/TabBar/Gas");
-		SolarPlant = GetNode<PowerPlant>("TabContainer/TabBar/Solar");
-		HydroPlant = GetNode<PowerPlant>("TabContainer/TabBar/Hydro");
-		TreePlant = GetNode<PowerPlant>("TabContainer/TabBar/Tree");
-		WindPlant = GetNode<PowerPlant>("TabContainer/TabBar/Wind");
-		WastePlant = GetNode<PowerPlant>("TabContainer/TabBar/Waste");
-		BiomassPlant = GetNode<PowerPlant>("TabContainer/TabBar/Biomass");
-		RiverPlant = GetNode<PowerPlant>("TabContainer/TabBar/River");
-		PumpPlant = GetNode<PowerPlant>("TabContainer/TabBar/Pump");
+		GasPlant = GetNode<PowerPlant>("Container/Gas");
+		SolarPlant = GetNode<PowerPlant>("Container/Solar");
+		HydroPlant = GetNode<PowerPlant>("Container/Hydro");
+		TreePlant = GetNode<PowerPlant>("Container/Tree");
+		WindPlant = GetNode<PowerPlant>("Container/Wind");
+		WastePlant = GetNode<PowerPlant>("Container/Waste");
+		BiomassPlant = GetNode<PowerPlant>("Container/Biomass");
+		RiverPlant = GetNode<PowerPlant>("Container/River");
+		PumpPlant = GetNode<PowerPlant>("Container/Pump");
 
 		// Fetch associated buttons
-		GasButton = GetNode<Button>("TabContainer/TabBar/Gas/GasButton");
-		SolarButton = GetNode<Button>("TabContainer/TabBar/Solar/SolarButton");
-		HydroButton = GetNode<Button>("TabContainer/TabBar/Hydro/HydroButton");
-		TreeButton = GetNode<Button>("TabContainer/TabBar/Tree/TreeButton");
-		WindButton = GetNode<Button>("TabContainer/TabBar/Wind/WindButton");
-		WasteButton = GetNode<Button>("TabContainer/TabBar/Waste/WasteButton");
-		BiomassButton = GetNode<Button>("TabContainer/TabBar/Biomass/BiomassButton");
-		RiverButton = GetNode<Button>("TabContainer/TabBar/River/RiverButton");
-		PumpButton = GetNode<Button>("TabContainer/TabBar/Pump/PumpButton");
+		GasButton = GetNode<Button>("Container/Gas/GasButton");
+		SolarButton = GetNode<Button>("Container/Solar/SolarButton");
+		HydroButton = GetNode<Button>("Container/Hydro/HydroButton");
+		TreeButton = GetNode<Button>("Container/Tree/TreeButton");
+		WindButton = GetNode<Button>("Container/Wind/WindButton");
+		WasteButton = GetNode<Button>("Container/Waste/WasteButton");
+		BiomassButton = GetNode<Button>("Container/Biomass/BiomassButton");
+		RiverButton = GetNode<Button>("Container/River/RiverButton");
+		PumpButton = GetNode<Button>("Container/Pump/PumpButton");
 
 		// Fetch Close button
 		CloseButton = GetNode<Button>("CloseButton");
@@ -112,10 +112,8 @@ public partial class BuildMenu : CanvasLayer {
 		// Fetch Context
 		C = GetNode<Context>("/root/Context");
 		
-		// Fetch TabContainer and sets tab titles 
-		//TODO for all tabs in all lang
-		TabC = GetNode<TabContainer>("TabContainer");
-		TabC.SetTabTitle(0,"_");
+		// Fetch TabContainer and sets tab titles
+		MenuC = GetNode<ColorRect>("Container");
 
 		// Connect the associated button callbacks
 		GasButton.Pressed += _OnGasButtonPressed;

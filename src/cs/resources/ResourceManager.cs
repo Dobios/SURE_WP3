@@ -42,6 +42,10 @@ public partial class ResourceManager : Node {
 	public float ImportCost = 5.0f;
 
 	[Export]
+	/* Additional cost of importing green energy */
+	public float GreenImportCostMultiplier = 1.5f;
+
+	[Export]
 	/* The base pollution of a kWh imported from abroad */
 	public float ImportPollution = 0.1f;
 
@@ -130,9 +134,11 @@ public partial class ResourceManager : Node {
 		Energy E = EngM._GetEnergyValues(_UI._GetImportSliderPercentage(), ImportInSummer);
 
 		// Compute the total import cost
-		int imported = EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
+		int imported = _UI._GetGreenImportState() ?
+			0 : 
+			EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
 
-		// Update the amount of pollution caused by imports
+		// Update the amount of pollution caused by imports ( if not green )
 		EnvM._UpdateImportPollution(imported, ImportPollution);
 
 		// Update the environment manager
@@ -173,9 +179,11 @@ public partial class ResourceManager : Node {
 		}
 
 		// Compute the total import cost
-		int imported = EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
+		int imported = _UI._GetGreenImportState() ?
+			0 : 
+			EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
 
-		// Update the amount of pollution caused by imports
+		// Update the amount of pollution caused by imports ( if not green )
 		EnvM._UpdateImportPollution(imported, ImportPollution);
 
 		// Get the environment manager data
@@ -204,13 +212,15 @@ public partial class ResourceManager : Node {
 		}
 
 		// Compute the total import cost
-		int imported = EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
+		int imported = _UI._GetGreenImportState() ?
+			0 : 
+			EngM._ComputeTotalImportAmount(_UI._GetImportSliderPercentage(), ImportInSummer);
 
 		// Update the import and production cost in the moneydata
 		money.UpdateImportCost(_GetTotalImportCost(_UI._GetImportSliderPercentage()));
 		money.UpdateProductionCost(AggregateProductionCost());
 
-		// Update the amount of pollution caused by imports
+		// Update the amount of pollution caused by imports ( if not green )
 		EnvM._UpdateImportPollution(imported, ImportPollution);
 
 		// Get the environment manager data
@@ -305,7 +315,8 @@ public partial class ResourceManager : Node {
 		var (import_amount_w, import_amount_s) = EngM._ComputeImportAmount(C._GetDemand(), import_perc, ImportInSummer);
 
 		// Compute the final cost
-		return (int)(import_amount_w + import_amount_s * ImportCost);
+		return (int)((import_amount_w + import_amount_s * ImportCost) *
+				(_UI._GetGreenImportState() ? GreenImportCostMultiplier : 1.0f));
 	}
 
 	// ==================== Helper Methods ====================  
@@ -331,7 +342,7 @@ public partial class ResourceManager : Node {
 		_UI._UpdateData(
 			UI.InfoType.ENVIRONMENT,
 			(int)(Env.LandUse * 100), // Convert floating point to integer percentage
-			Env.Pollution,
+			(int)Env.Pollution,
 			(int)(Env.Biodiversity * 100),
 			(int)(Env.EnvBarValue() * 100),
 			Env.ImportedPollution

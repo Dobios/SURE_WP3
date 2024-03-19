@@ -1,16 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://c81iji81uc4g7"]
+[gd_scene load_steps=17 format=3 uid="uid://c81iji81uc4g7"]
 
 [ext_resource type="Script" path="res://src/cs/ui/ImportSlider.cs" id="1_3r6om"]
+[ext_resource type="Texture2D" uid="uid://dm24o8isvyq3f" path="res://assets/UI Elements/Import-Slider.png" id="1_wlgbb"]
+[ext_resource type="Texture2D" uid="uid://bticb2k83c61t" path="res://assets/UI Elements/Import-line-limit.png" id="2_mncwm"]
+[ext_resource type="Texture2D" uid="uid://dwys7y27kiabl" path="res://assets/UI Elements/Import-Switch-On.png" id="3_5cyy2"]
+[ext_resource type="Texture2D" uid="uid://bbjycbp8muvr1" path="res://assets/UI Elements/Import-bar-hole.png" id="3_xcc16"]
+[ext_resource type="Texture2D" uid="uid://dhxkhfg2qxlgx" path="res://assets/UI Elements/Import-Switch-Off.png" id="4_h7pam"]
+[ext_resource type="Texture2D" uid="uid://ftccvuweij8o" path="res://assets/UI Elements/Import-line.png" id="7_ielfg"]
+[ext_resource type="Texture2D" uid="uid://djt8tok2g8xsq" path="res://assets/UI Elements/Icon-Import.png" id="8_mstc7"]
+[ext_resource type="Texture2D" uid="uid://cokx22pm0fqii" path="res://assets/UI Elements/Button-arrow-Hole.png" id="9_o4d1x"]
+[ext_resource type="Texture2D" uid="uid://br8x77xbqv6ru" path="res://assets/UI Elements/Button-arrow-normal.png" id="10_2eakc"]
+[ext_resource type="Texture2D" uid="uid://dn55t3gtpb3f8" path="res://assets/UI Elements/Button-arrow-press.png" id="11_yk6ot"]
+[ext_resource type="Texture2D" uid="uid://d2tmcpmc7mb3o" path="res://assets/UI Elements/Button-arrow-hover.png" id="12_d2wnx"]
+[ext_resource type="FontFile" uid="uid://doaord8a13muh" path="res://assets/Fonts/Helvetica.ttc" id="13_fjyei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8dnj"]
+atlas = ExtResource("1_wlgbb")
+region = Rect2(2, 1, 37, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03nlt"]
+
+[sub_resource type="FontVariation" id="FontVariation_afv1h"]
+base_font = ExtResource("13_fjyei")
+spacing_glyph = 1
 
 [node name="Import" type="VSlider"]
 anchors_preset = -1
 anchor_top = -0.141
 anchor_right = 0.012
 offset_top = 0.279999
-offset_right = 0.959999
+offset_right = 15.96
+offset_bottom = 96.0
+theme_override_icons/grabber = SubResource("AtlasTexture_k8dnj")
+theme_override_icons/grabber_highlight = ExtResource("1_wlgbb")
+theme_override_styles/slider = SubResource("StyleBoxFlat_03nlt")
+max_value = 500.0
+scrollable = false
 tick_count = 2
 ticks_on_borders = true
 script = ExtResource("1_3r6om")
+
+[node name="Target" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-5, 220)
+texture = ExtResource("2_mncwm")
+
+[node name="Import-line" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-8, 123)
+scale = Vector2(1.5, 0.8)
+texture = ExtResource("7_ielfg")
 
 [node name="Text" type="Label" parent="."]
 visible = false
@@ -26,8 +65,8 @@ text = "Imports"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Target" type="Line2D" parent="."]
-position = Vector2(-120, 128)
+[node name="TargetLine" type="Line2D" parent="."]
+position = Vector2(-112, -16)
 points = PackedVector2Array(144, 16, 120, 16)
 width = 2.0
 
@@ -45,9 +84,9 @@ vertical_alignment = 2
 [node name="Amount" type="Label" parent="."]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 168.0
+offset_top = 262.0
 offset_right = 48.0
-offset_bottom = 194.0
+offset_bottom = 288.0
 text = "0 %"
 
 [node name="Apply" type="Button" parent="."]
@@ -70,3 +109,94 @@ offset_right = 288.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "X"
+
+[node name="ImportSwitch" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 287.0
+offset_right = 66.0
+offset_bottom = 363.0
+tooltip_text = "Clean import switch
+No CO2 emissions
+Cost more $
+"
+focus_mode = 0
+theme_override_icons/checked = ExtResource("3_5cyy2")
+theme_override_icons/unchecked = ExtResource("4_h7pam")
+icon_alignment = 1
+
+[node name="OnL" type="Label" parent="ImportSwitch"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -4.0
+offset_right = 82.0
+offset_bottom = 22.0
+theme_override_fonts/font = SubResource("FontVariation_afv1h")
+theme_override_font_sizes/font_size = 14
+text = "ON"
+uppercase = true
+
+[node name="OffL" type="Label" parent="ImportSwitch"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 69.0
+offset_right = 77.0
+offset_bottom = 95.0
+theme_override_fonts/font = SubResource("FontVariation_afv1h")
+theme_override_font_sizes/font_size = 14
+text = "OFF"
+uppercase = true
+
+[node name="Import-bar-hole" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(26, 122)
+texture = ExtResource("3_xcc16")
+
+[node name="Icon-import" type="Sprite2D" parent="."]
+position = Vector2(-24, 289)
+texture = ExtResource("8_mstc7")
+
+[node name="UpButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 126.0
+offset_right = -16.0
+offset_bottom = 158.0
+rotation = -3.14159
+texture_normal = ExtResource("10_2eakc")
+texture_pressed = ExtResource("11_yk6ot")
+texture_hover = ExtResource("12_d2wnx")
+ignore_texture_size = true
+
+[node name="Button-arrow-hole2" type="Sprite2D" parent="UpButton"]
+show_behind_parent = true
+position = Vector2(2, -1)
+rotation = 3.14159
+texture = ExtResource("9_o4d1x")
+
+[node name="DownButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -79.0
+offset_top = 129.0
+offset_right = -47.0
+offset_bottom = 161.0
+texture_normal = ExtResource("10_2eakc")
+texture_pressed = ExtResource("11_yk6ot")
+texture_hover = ExtResource("12_d2wnx")
+ignore_texture_size = true
+
+[node name="Button-arrow-hole" type="Sprite2D" parent="DownButton"]
+show_behind_parent = true
+position = Vector2(29, 34)
+texture = ExtResource("9_o4d1x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 256.0
+offset_right = 30.0
+offset_bottom = 282.0
+theme_override_fonts/font = SubResource("FontVariation_afv1h")
+theme_override_font_sizes/font_size = 14
+text = "Import"
+uppercase = true

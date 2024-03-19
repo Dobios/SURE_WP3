@@ -62,8 +62,10 @@ public partial class PolicyController : XMLController {
 		if(C._GetLanguage() != Lang) {
 			Lang = C._GetLanguage();
 			
+			CheckXML();
+			
 			// Update the loaded xml
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + LoadedFileName));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + LoadedFileName));
 		}
 		// Don't do anything if the languages are the same
 	}
@@ -176,7 +178,7 @@ public partial class PolicyController : XMLController {
 	private void CheckXML() {
 		// Check if the file is loaded in or not
 		if(LoadedFileName != POLICY_FILENAME || LoadedLanguage != Lang) {
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + POLICY_FILENAME));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + POLICY_FILENAME));
 			LoadedFileName = POLICY_FILENAME;
 			LoadedLanguage = Lang;
 		}

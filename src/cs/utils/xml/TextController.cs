@@ -60,7 +60,7 @@ public partial class TextController : XMLController {
 			Lang = C._GetLanguage();
 			
 			// Update the loaded xml
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + LoadedFileName));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + LoadedFileName));
 		}
 		// Don't do anything if the languages are the same
 		EmitSignal(SignalName.UpdateUI);
@@ -105,7 +105,7 @@ public partial class TextController : XMLController {
 		// Check if the file is loaded in or not
 		if(LoadedFileName != filename || LoadedLanguage != Lang) {
 			// If not parse the file
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + filename));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + filename));
 
 			// Update the current loaded file data
 			LoadedFileName = filename;

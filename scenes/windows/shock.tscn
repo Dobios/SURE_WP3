@@ -193,6 +193,8 @@ offset_left = 136.0
 offset_top = 48.0
 offset_right = 272.0
 offset_bottom = 74.0
+NormalColor = null
+LowColor = null
 
 [node name="Reactions" type="Control" parent="NinePatchRect/ColorRect"]
 visible = false

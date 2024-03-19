@@ -60,7 +60,7 @@ public partial class ShockController : XMLController {
 			Lang = C._GetLanguage();
 			
 			// Update the loaded xml
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + LoadedFileName));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + LoadedFileName));
 		}
 		// Don't do anything if the languages are the same
 	}
@@ -169,7 +169,7 @@ public partial class ShockController : XMLController {
 	private void CheckXML() {
 		// Check if the file is loaded in or not
 		if(LoadedFileName != SHOCK_FILENAME || LoadedLanguage != Lang) {
-			ParseXML(ref LoadedXML, Path.Combine("text", Lang.ToString() + "/" + SHOCK_FILENAME));
+			ParseXML(ref LoadedXML, Path.Combine("text/", Lang.ToString() + "/" + SHOCK_FILENAME));
 			LoadedFileName = SHOCK_FILENAME;
 			LoadedLanguage = Lang;
 		}

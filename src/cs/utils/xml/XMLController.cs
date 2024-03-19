@@ -27,7 +27,7 @@ using System.Collections.Generic;
 public abstract partial class XMLController : Node {
 
 	// The path to the base of the db 
-	protected const string DB_PATH = "db/";
+	protected const string DB_PATH = "res://db/";
 
 	// ==================== XML Generic methods ====================
 
@@ -42,8 +42,9 @@ public abstract partial class XMLController : Node {
 		string loadedXML;
 		XDocument xml;
 		string path = DB_PATH + filename;
-		try { 
-			loadedXML = File.ReadAllText(path);
+		try {
+			using var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read);
+			loadedXML = file.GetAsText();
 			xml = XDocument.Parse(loadedXML);
 		} catch(Exception) {
 			// Control what error is displayed for better debugging

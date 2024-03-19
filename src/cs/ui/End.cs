@@ -43,6 +43,7 @@ public partial class End : CanvasLayer {
 	private Label EnvScore;
 
 	// End Screen text labels
+	private ColorRect EndWindow;
 	private Label Bravo;
 	private Label EndText;
 
@@ -54,7 +55,7 @@ public partial class End : CanvasLayer {
 	private Label PollT;
 	private Label EnvT;
 	
-	private Button Close;
+	private TextureButton ScoreToggle;
 
 	// Text controller for the dynamic text
 	private TextController TC;
@@ -65,28 +66,29 @@ public partial class End : CanvasLayer {
 	public override void _Ready() {
 
 		// Fetch Value label nodess
-		Shocks = GetNode<Label>("Stats/Shocks");
-		EnergyW = GetNode<Label>("Stats/EnergyW");
-		EnergyS = GetNode<Label>("Stats/EnergyS");
-		Support = GetNode<Label>("Stats/Support");
-		EnvScore = GetNode<Label>("Stats/Env");
+		Shocks = GetNode<Label>("EndWindow/Stats/Shocks");
+		EnergyW = GetNode<Label>("EndWindow/Stats/EnergyW");
+		EnergyS = GetNode<Label>("EndWindow/Stats/EnergyS");
+		Support = GetNode<Label>("EndWindow/Stats/Support");
+		EnvScore = GetNode<Label>("EndWindow/Stats/Env");
 
 		// Fetch Text Label Nodes
-		Bravo = GetNode<Label>("Bravo");
-		EndText = GetNode<Label>("EndText");
-		ShockT = GetNode<Label>("HBoxContainer/Shock");
-		EnergyT = GetNode<Label>("HBoxContainer/Energy");
-		MoneyT = GetNode<Label>("HBoxContainer/Money");
-		SupportT = GetNode<Label>("HBoxContainer/Support");
-		PollT = GetNode<Label>("HBoxContainer/Poll");
-		EnvT = GetNode<Label>("HBoxContainer/Env");
+		EndWindow = GetNode<ColorRect>("EndWindow");
+		Bravo = GetNode<Label>("EndWindow/Bravo");
+		EndText = GetNode<Label>("EndWindow/EndText");
+		ShockT = GetNode<Label>("EndWindow/HBoxContainer/Shock");
+		EnergyT = GetNode<Label>("EndWindow/HBoxContainer/Energy");
+		MoneyT = GetNode<Label>("EndWindow/HBoxContainer/Money");
+		SupportT = GetNode<Label>("EndWindow/HBoxContainer/Support");
+		PollT = GetNode<Label>("EndWindow/HBoxContainer/Poll");
+		EnvT = GetNode<Label>("EndWindow/HBoxContainer/Env");
 		
-		Close = GetNode<Button>("Close");
+		ScoreToggle = GetNode<TextureButton>("Score");
 
 		// Fetch the text controller
 		TC = GetNode<TextController>("/root/TextController");
 		
-		Close.Pressed += _OnClosePressed;
+		ScoreToggle.Pressed += _OnScorePressed;
 	}
 
 	// ==================== Public API ====================
@@ -104,7 +106,7 @@ public partial class End : CanvasLayer {
 		EnergyW.Text = enw.ToString();
 		EnergyS.Text = ens.ToString();
 		Support.Text = sup.ToString() + "%";
-		EnvScore.Text = ((int)(env_ * 100)).ToString();
+		EnvScore.Text = ((int)(env_ * 100)).ToString()+ "%";
 
 		// Set textual stats
 		MoneyT.Text = TC._GetText(END_FILE, END_GROUP, debt ? MONEY_DEBT_ID : MONEY_NO_DEBT_ID);
@@ -119,7 +121,7 @@ public partial class End : CanvasLayer {
 		EnvT.Text = TC._GetText(END_FILE, END_GROUP, ENV_TEXT_ID);
 	}
 	
-	private void _OnClosePressed() {
-		Hide();
+	private void _OnScorePressed() {
+		EndWindow.Visible = !EndWindow.Visible;
 	}
 }

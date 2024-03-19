@@ -1,12 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct4blqwh4y6ab"]
+[gd_scene load_steps=46 format=3 uid="uid://ct4blqwh4y6ab"]
 
 [ext_resource type="Script" path="res://src/cs/building/PowerPlant.cs" id="1_qsehc"]
+[ext_resource type="Texture2D" uid="uid://b60o54o5riav8" path="res://assets/UI Elements/Build_Menu_0005_Build-Menu-Metal.png" id="2_ambcb"]
 [ext_resource type="Texture2D" uid="uid://cf3amacrbvg0b" path="res://assets/Elements/ENERGY PLANT - ON.png" id="2_nry78"]
+[ext_resource type="Texture2D" uid="uid://behxblj10y4lm" path="res://assets/UI Elements/Build_Menu_0004_Build-Menu-Screen.png" id="3_d3qhq"]
 [ext_resource type="Texture2D" uid="uid://c7wjxue882i0r" path="res://assets/Elements/INFO ENVIORMENT.png" id="3_jv8ie"]
 [ext_resource type="Script" path="res://src/cs/utils/xml/ConfigController.cs" id="3_runxt"]
 [ext_resource type="Texture2D" uid="uid://bvjrf5k45j5m0" path="res://assets/Elements/ENERGY PLANT - INFO HOVER.png" id="3_sgdtt"]
+[ext_resource type="Texture2D" uid="uid://od33hjtqpm14" path="res://assets/UI Elements/Build_Menu_0003_Numbers-hole.png" id="4_ovnj6"]
+[ext_resource type="Texture2D" uid="uid://bobwaj4wxr0fj" path="res://assets/UI Elements/Build_Menu_0002_Numbers-counter-1.png" id="5_bit08"]
+[ext_resource type="AudioStream" uid="uid://d0mx81kv2vlha" path="res://assets/Sounds/Negative 2_1.wav" id="6_5wr63"]
+[ext_resource type="Texture2D" uid="uid://ca5ev88u31iqa" path="res://assets/UI Elements/Icon-Solar.png" id="6_qkc2p"]
+[ext_resource type="Texture2D" uid="uid://bbnupxdtp78l5" path="res://assets/UI Elements/Icon-Wind.png" id="7_fjg03"]
+[ext_resource type="FontFile" uid="uid://doaord8a13muh" path="res://assets/Fonts/Helvetica.ttc" id="8_a13i5"]
+[ext_resource type="Texture2D" uid="uid://co2hnnf0cnn72" path="res://assets/UI Elements/Plant_Menu_Base.png" id="9_r47k3"]
+[ext_resource type="Texture2D" uid="uid://dwys7y27kiabl" path="res://assets/UI Elements/Import-Switch-On.png" id="11_o2k5p"]
+[ext_resource type="Texture2D" uid="uid://dhxkhfg2qxlgx" path="res://assets/UI Elements/Import-Switch-Off.png" id="12_yxhto"]
+[ext_resource type="Texture2D" uid="uid://c42n2mmget4xn" path="res://assets/no-money.png" id="14_x1bya"]
+[ext_resource type="FontFile" uid="uid://bwuskgw4ek8y" path="res://assets/Fonts/static/OpenSans-Medium.ttf" id="15_6udtn"]
+[ext_resource type="Texture2D" uid="uid://cdn0h6b873gbk" path="res://assets/UI Elements/Build_Menu_counter_yellow-1.png" id="16_svf0w"]
+[ext_resource type="Texture2D" uid="uid://duxc28wuegrwc" path="res://assets/UI Elements/Button-small-normal.png" id="17_1peyq"]
+[ext_resource type="Texture2D" uid="uid://bvgpy40ml2nxm" path="res://assets/UI Elements/Button-small-press.png" id="18_ni8pb"]
+[ext_resource type="Texture2D" uid="uid://cuvs42pma25xn" path="res://assets/UI Elements/Button-small-hover.png" id="19_pbahr"]
+[ext_resource type="Texture2D" uid="uid://bjeebs7uy4hpn" path="res://assets/UI Elements/Button-small-Hole.png" id="20_6s7vn"]
+
+[sub_resource type="FontVariation" id="FontVariation_us0ja"]
+base_font = ExtResource("8_a13i5")
+variation_embolden = 0.3
+
+[sub_resource type="FontVariation" id="FontVariation_62ju4"]
+base_font = ExtResource("8_a13i5")
+variation_embolden = 0.3
 
 [sub_resource type="Theme" id="Theme_f6ssq"]
+
+[sub_resource type="FontVariation" id="FontVariation_q0ye0"]
+base_font = ExtResource("8_a13i5")
+variation_embolden = 0.2
+spacing_glyph = 3
+
+[sub_resource type="FontVariation" id="FontVariation_g0hl7"]
+base_font = ExtResource("15_6udtn")
+
+[sub_resource type="FontVariation" id="FontVariation_ji1at"]
+base_font = ExtResource("15_6udtn")
+spacing_glyph = 7
+
+[sub_resource type="FontVariation" id="FontVariation_muro4"]
+base_font = ExtResource("15_6udtn")
+
+[sub_resource type="FontVariation" id="FontVariation_054ol"]
+base_font = ExtResource("15_6udtn")
+
+[sub_resource type="FontVariation" id="FontVariation_bcams"]
+base_font = ExtResource("15_6udtn")
+
+[sub_resource type="FontVariation" id="FontVariation_vvvj4"]
+base_font = ExtResource("8_a13i5")
+variation_embolden = 0.2
+
+[sub_resource type="FontVariation" id="FontVariation_tek51"]
+base_font = ExtResource("8_a13i5")
+spacing_glyph = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ted5n"]
 atlas = ExtResource("3_sgdtt")
@@ -16,38 +71,272 @@ region = Rect2(22, 24, 116, 72)
 atlas = ExtResource("2_nry78")
 region = Rect2(58, 262, 162, 46)
 
+[sub_resource type="FontVariation" id="FontVariation_nky5f"]
+base_font = ExtResource("8_a13i5")
+
+[sub_resource type="FontVariation" id="FontVariation_uwmcg"]
+base_font = SubResource("FontVariation_nky5f")
+spacing_glyph = 6
+
+[sub_resource type="FontVariation" id="FontVariation_r1iqv"]
+base_font = ExtResource("8_a13i5")
+spacing_glyph = 6
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hky5x"]
 size = Vector2(176, 248)
+
+[sub_resource type="Animation" id="Animation_qnlx6"]
+resource_name = "Money+"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Money:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, 25), Vector2(-25, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Money:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.627451, 0, 0), Color(0.121569, 0.627451, 0, 1), Color(0.121569, 0.627451, 0, 1), Color(0.121569, 0.627451, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Money:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3cbms"]
+resource_name = "Money-"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Money:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, 25), Vector2(-25, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Money:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Money:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(0.752941, 0, 0, 1), Color(0.752941, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_slugf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoMoney:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoMoney:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 221)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoMoney:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AP/Error")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Money:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, 40)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Money:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Money:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_og42j"]
+resource_name = "noMoney"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoMoney:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoMoney:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 221), Vector2(3, 161)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoMoney:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AP/Error")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_5wr63")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_volmv"]
+_data = {
+"Money+": SubResource("Animation_qnlx6"),
+"Money-": SubResource("Animation_3cbms"),
+"RESET": SubResource("Animation_slugf"),
+"noMoney": SubResource("Animation_og42j")
+}
 
 [node name="PowerPlant" type="Node2D"]
 script = ExtResource("1_qsehc")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 2
-position = Vector2(-1, 44)
-scale = Vector2(0.8, 0.8)
-
 [node name="PreviewInfo" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -88.0
-offset_top = 194.0
-offset_right = 88.0
-offset_bottom = 234.0
+offset_left = -80.0
+offset_top = 152.0
+offset_right = 96.0
+offset_bottom = 218.0
 
 [node name="Time" type="Label" parent="PreviewInfo"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -35.0
-offset_right = -12.0
+offset_left = -40.0
+offset_top = -246.0
+offset_right = 24.0
+offset_bottom = -188.0
 grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 23
+theme_override_colors/font_color = Color(0.258824, 0.87451, 0.847059, 1)
+theme_override_fonts/font = SubResource("FontVariation_us0ja")
+theme_override_font_sizes/font_size = 28
 text = "0"
 
 [node name="Time2" type="Label" parent="PreviewInfo"]
@@ -62,33 +351,80 @@ text = "🔨"
 
 [node name="Time3" type="Label" parent="PreviewInfo"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -30.0
-offset_right = -17.0
-offset_bottom = 6.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -277.0
+offset_right = 20.0
+offset_bottom = -222.0
 grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 26
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
 text = "⌛"
 
 [node name="Price" type="Label" parent="PreviewInfo"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -34.0
-offset_right = 64.0
-offset_bottom = 1.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 23
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -280.0
+offset_right = 84.0
+offset_bottom = -248.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.258824, 0.87451, 0.847059, 1)
+theme_override_fonts/font = SubResource("FontVariation_us0ja")
+theme_override_font_sizes/font_size = 28
 text = "1000"
-horizontal_alignment = 1
+
+[node name="BuildMenuBG" type="Sprite2D" parent="PreviewInfo"]
+show_behind_parent = true
+position = Vector2(96, -128)
+texture = ExtResource("2_ambcb")
+
+[node name="BuildMenuScreen" type="Sprite2D" parent="PreviewInfo/BuildMenuBG"]
+position = Vector2(-14, -16)
+texture = ExtResource("3_d3qhq")
+
+[node name="BuildMenuNumHole" type="Sprite2D" parent="PreviewInfo/BuildMenuBG"]
+position = Vector2(40, 129)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="PreviewInfo/BuildMenuBG/BuildMenuNumHole"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="PreviewInfo/BuildMenuBG/BuildMenuNumHole"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumHole2" type="Sprite2D" parent="PreviewInfo/BuildMenuBG"]
+position = Vector2(-60, 130)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="PreviewInfo/BuildMenuBG/BuildMenuNumHole2"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="PreviewInfo/BuildMenuBG/BuildMenuNumHole2"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
+
+[node name="Icon-solar" type="Sprite2D" parent="PreviewInfo/BuildMenuBG"]
+position = Vector2(12, 128)
+texture = ExtResource("6_qkc2p")
+
+[node name="Icon-wind" type="Sprite2D" parent="PreviewInfo/BuildMenuBG"]
+position = Vector2(-88, 129)
+texture = ExtResource("7_fjg03")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-1, 44)
+scale = Vector2(0.8, 0.8)
 
 [node name="BuildInfo" type="Control" parent="."]
 visible = false
@@ -96,16 +432,22 @@ z_index = 1
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -65.0
-offset_top = -276.0
-offset_right = -25.0
-offset_bottom = -236.0
+offset_left = -86.0
+offset_top = -440.0
+offset_right = -46.0
+offset_bottom = -400.0
+
+[node name="PlantMenuBase" type="Sprite2D" parent="BuildInfo"]
+position = Vector2(86, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("9_r47k3")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="BuildInfo"]
+visible = false
 layout_mode = 0
-offset_left = -79.0
-offset_top = -108.0
-offset_right = 209.0
+offset_left = -182.0
+offset_top = -208.0
+offset_right = 359.0
 offset_bottom = 126.0
 texture = ExtResource("3_jv8ie")
 region_rect = Rect2(24, 32, 254, 152)
@@ -116,86 +458,62 @@ patch_margin_bottom = 12
 
 [node name="ColorRect" type="ColorRect" parent="BuildInfo"]
 layout_mode = 0
-offset_left = -55.0
-offset_top = -87.0
-offset_right = 185.0
+offset_left = -132.0
+offset_top = -168.0
+offset_right = 310.0
 offset_bottom = 97.0
-color = Color(0.596078, 0.596078, 0.596078, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BuildInfo/ColorRect"]
-layout_mode = 0
-offset_right = 248.0
-offset_bottom = 184.0
-alignment = 2
-
-[node name="ColorRect2" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-color = Color(0.839216, 0.882353, 0.0862745, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-color = Color(0.541176, 0.541176, 0.541176, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-color = Color(0.231373, 0.584314, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="BuildInfo/ColorRect/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-color = Color(0.545098, 0.976471, 0, 1)
+color = Color(0.596078, 0.596078, 0.596078, 0)
 
 [node name="ContainerL" type="VBoxContainer" parent="BuildInfo/ColorRect"]
 layout_mode = 0
-offset_top = -44.0
-offset_right = 239.0
-offset_bottom = 167.0
+offset_left = -24.0
+offset_top = -45.0
+offset_right = 222.0
+offset_bottom = 204.0
+theme_override_constants/separation = 0
 alignment = 2
 
 [node name="LifeSpan2" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 28
 text = "Shutting down in"
 
 [node name="Prod" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 1, 0.996078, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 35
 text = "$ / ⌛"
 
 [node name="Poll" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 1, 0.996078, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 26
-text = "Pollution"
+theme_override_font_sizes/font_size = 35
+text = "CO2 Emissions"
 
 [node name="Land" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 1, 0.996078, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 35
 text = "Land Use"
 
 [node name="Bio" type="Label" parent="BuildInfo/ColorRect/ContainerL"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 1, 0.996078, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 35
 text = "Biodiversity"
 
 [node name="ContainerN" type="VBoxContainer" parent="BuildInfo/ColorRect"]
@@ -204,47 +522,180 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -184.0
-offset_bottom = -13.0
+offset_left = 15.0
+offset_top = -282.0
+offset_right = 15.0
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 5
+theme_override_constants/separation = 0
 alignment = 2
 
 [node name="LifeSpan" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "3"
 horizontal_alignment = 2
 
 [node name="Prod" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.3, 1, 0.1, 1)
+theme_override_font_sizes/font_size = 35
 text = "100"
+horizontal_alignment = 2
+
+[node name="MultProd" type="Label" parent="BuildInfo/ColorRect/ContainerN/Prod"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -26.0
+offset_right = -149.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0627451, 0.572549, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "10"
+horizontal_alignment = 2
+
+[node name="arrow" type="Label" parent="BuildInfo/ColorRect/ContainerN/Prod/MultProd"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -22.0
+offset_right = 70.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.699219, 0.824219, 0.835938, 1)
+theme_override_fonts/font = SubResource("FontVariation_62ju4")
+theme_override_font_sizes/font_size = 35
+text = "→"
 horizontal_alignment = 2
 
 [node name="Poll" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 0.129412, 0.207843, 1)
+theme_override_font_sizes/font_size = 35
 text = "10"
+horizontal_alignment = 2
+
+[node name="MultPoll" type="Label" parent="BuildInfo/ColorRect/ContainerN/Poll"]
+visible = false
+layout_mode = 2
+offset_left = 193.0
+offset_top = 4.0
+offset_right = 293.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 35
+text = "10"
+horizontal_alignment = 2
+
+[node name="arrow" type="Label" parent="BuildInfo/ColorRect/ContainerN/Poll/MultPoll"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -21.0
+offset_right = 70.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.699219, 0.824219, 0.835938, 1)
+theme_override_fonts/font = SubResource("FontVariation_62ju4")
+theme_override_font_sizes/font_size = 35
+text = "→"
 horizontal_alignment = 2
 
 [node name="Land" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 0.129412, 0.207843, 1)
+theme_override_font_sizes/font_size = 35
 text = "3"
+horizontal_alignment = 2
+
+[node name="MultLand" type="Label" parent="BuildInfo/ColorRect/ContainerN/Land"]
+visible = false
+layout_mode = 2
+offset_left = 193.0
+offset_top = 2.0
+offset_right = 293.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 35
+text = "3"
+horizontal_alignment = 2
+
+[node name="arrow" type="Label" parent="BuildInfo/ColorRect/ContainerN/Land/MultLand"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -22.0
+offset_right = 70.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.699219, 0.824219, 0.835938, 1)
+theme_override_fonts/font = SubResource("FontVariation_62ju4")
+theme_override_font_sizes/font_size = 35
+text = "→"
 horizontal_alignment = 2
 
 [node name="Bio" type="Label" parent="BuildInfo/ColorRect/ContainerN"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 0.129412, 0.207843, 1)
+theme_override_font_sizes/font_size = 35
 text = "3"
+horizontal_alignment = 2
+
+[node name="MultBio" type="Label" parent="BuildInfo/ColorRect/ContainerN/Bio"]
+visible = false
+layout_mode = 2
+offset_left = 193.0
+offset_top = 1.0
+offset_right = 293.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.560784, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 35
+text = "3"
+horizontal_alignment = 2
+
+[node name="arrow" type="Label" parent="BuildInfo/ColorRect/ContainerN/Bio/MultBio"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -22.0
+offset_right = 70.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.699219, 0.824219, 0.835938, 1)
+theme_override_fonts/font = SubResource("FontVariation_62ju4")
+theme_override_font_sizes/font_size = 35
+text = "→"
 horizontal_alignment = 2
 
 [node name="Switch" type="CheckButton" parent="BuildInfo"]
@@ -254,15 +705,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 133.0
-offset_top = 64.0
-offset_right = 177.0
-offset_bottom = 96.0
+offset_left = -322.0
+offset_top = -33.0
+offset_right = -242.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_f6ssq")
+theme_override_icons/checked = ExtResource("11_o2k5p")
+theme_override_icons/unchecked = ExtResource("12_yxhto")
 button_pressed = true
 action_mode = 0
 keep_pressed_outside = true
@@ -270,16 +724,235 @@ flat = true
 alignment = 1
 expand_icon = true
 
+[node name="MultWinterE" type="Label" parent="BuildInfo"]
+visible = false
+layout_mode = 0
+offset_left = -58.0
+offset_top = 192.0
+offset_right = -18.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.113725, 0.215686, 0.227451, 1)
+theme_override_fonts/font = SubResource("FontVariation_q0ye0")
+theme_override_font_sizes/font_size = 24
+text = "+ 2"
+horizontal_alignment = 2
+
+[node name="MultSummerE" type="Label" parent="BuildInfo"]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = 192.0
+offset_right = 190.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.113725, 0.215686, 0.227451, 1)
+theme_override_fonts/font = SubResource("FontVariation_q0ye0")
+theme_override_font_sizes/font_size = 24
+text = "+ 2"
+horizontal_alignment = 2
+
+[node name="Name" type="Label" parent="BuildInfo"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -248.0
+offset_right = 214.0
+offset_bottom = -184.0
+theme_override_fonts/font = SubResource("FontVariation_g0hl7")
+theme_override_font_sizes/font_size = 32
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="EnergyContainer" type="HBoxContainer" parent="BuildInfo"]
+layout_mode = 0
+offset_left = -258.0
+offset_top = 64.0
+offset_right = 270.0
+offset_bottom = 256.0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Winter" type="Control" parent="BuildInfo/EnergyContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="BuildMenuNumHole2" type="Sprite2D" parent="BuildInfo/EnergyContainer/Winter"]
+position = Vector2(112, 89)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="BuildInfo/EnergyContainer/Winter/BuildMenuNumHole2"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="BuildInfo/EnergyContainer/Winter/BuildMenuNumHole2"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
+
+[node name="WinterE" type="Label" parent="BuildInfo/EnergyContainer/Winter/BuildMenuNumHole2"]
+offset_left = -3.25
+offset_top = -17.25
+offset_right = 36.75
+offset_bottom = 16.75
+theme_override_colors/font_color = Color(0.0862745, 0.184314, 0.196078, 1)
+theme_override_fonts/font = SubResource("FontVariation_ji1at")
+theme_override_font_sizes/font_size = 22
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Icon-wind" type="Sprite2D" parent="BuildInfo/EnergyContainer/Winter/BuildMenuNumHole2"]
+position = Vector2(-28, 0)
+texture = ExtResource("7_fjg03")
+
+[node name="Summer" type="Control" parent="BuildInfo/EnergyContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="BuildMenuNumHole" type="Sprite2D" parent="BuildInfo/EnergyContainer/Summer"]
+position = Vector2(112, 89)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="BuildInfo/EnergyContainer/Summer/BuildMenuNumHole"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="BuildInfo/EnergyContainer/Summer/BuildMenuNumHole"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
+
+[node name="SummerE" type="Label" parent="BuildInfo/EnergyContainer/Summer/BuildMenuNumHole"]
+offset_left = -3.0
+offset_top = -16.5
+offset_right = 37.0
+offset_bottom = 17.5
+theme_override_colors/font_color = Color(0.0862745, 0.184314, 0.196078, 1)
+theme_override_fonts/font = SubResource("FontVariation_ji1at")
+theme_override_font_sizes/font_size = 22
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Icon-solar" type="Sprite2D" parent="BuildInfo/EnergyContainer/Summer/BuildMenuNumHole"]
+position = Vector2(-28, 0)
+texture = ExtResource("6_qkc2p")
+
+[node name="Multiplier" type="ColorRect" parent="BuildInfo/EnergyContainer"]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+color = Color(0.596078, 0.596078, 0.596078, 0)
+
+[node name="MultAmount" type="Label" parent="BuildInfo/EnergyContainer/Multiplier"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 57.0
+offset_right = 85.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0.0431373, 0.141176, 0.14902, 1)
+theme_override_fonts/font = SubResource("FontVariation_muro4")
+theme_override_font_sizes/font_size = 44
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildInfo/EnergyContainer/Multiplier/MultAmount"]
+show_behind_parent = true
+position = Vector2(16.1667, 31.6667)
+scale = Vector2(2, 2)
+texture = ExtResource("16_svf0w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BuildInfo/EnergyContainer/Multiplier/MultAmount/Sprite2D"]
+show_behind_parent = true
+position = Vector2(-9.0417, 1.25)
+scale = Vector2(0.487402, 1)
+texture = ExtResource("4_ovnj6")
+
+[node name="Inc" type="TextureButton" parent="BuildInfo/EnergyContainer/Multiplier"]
+layout_mode = 0
+offset_left = 100.333
+offset_top = 56.0
+offset_right = 131.333
+offset_bottom = 87.0
+focus_mode = 0
+texture_normal = ExtResource("17_1peyq")
+texture_pressed = ExtResource("18_ni8pb")
+texture_hover = ExtResource("19_pbahr")
+ignore_texture_size = true
+
+[node name="Label" type="Label" parent="BuildInfo/EnergyContainer/Multiplier/Inc"]
+layout_mode = 0
+offset_left = 8.33334
+offset_top = -7.16667
+offset_right = 26.3333
+offset_bottom = 39.8333
+theme_override_fonts/font = SubResource("FontVariation_054ol")
+theme_override_font_sizes/font_size = 28
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildInfo/EnergyContainer/Multiplier/Inc"]
+show_behind_parent = true
+position = Vector2(29.6667, 34)
+texture = ExtResource("20_6s7vn")
+
+[node name="Dec" type="TextureButton" parent="BuildInfo/EnergyContainer/Multiplier"]
+layout_mode = 0
+offset_left = 99.5
+offset_top = 89.3333
+offset_right = 130.5
+offset_bottom = 122.333
+focus_mode = 0
+texture_normal = ExtResource("17_1peyq")
+texture_pressed = ExtResource("18_ni8pb")
+texture_hover = ExtResource("19_pbahr")
+ignore_texture_size = true
+
+[node name="Label2" type="Label" parent="BuildInfo/EnergyContainer/Multiplier/Dec"]
+layout_mode = 0
+offset_left = 7.1666
+offset_top = -11.0
+offset_right = 25.1666
+offset_bottom = 36.0
+theme_override_fonts/font = SubResource("FontVariation_bcams")
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="BuildInfo/EnergyContainer/Multiplier/Dec"]
+show_behind_parent = true
+position = Vector2(29.5, 34.6667)
+texture = ExtResource("20_6s7vn")
+
+[node name="MultPrice" type="Label" parent="BuildInfo/EnergyContainer/Multiplier"]
+visible = false
+layout_mode = 0
+offset_left = 146.0
+offset_top = 80.0
+offset_right = 191.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.745098, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.121569, 0.223529, 0.235294, 0.784314)
+theme_override_fonts/font = SubResource("FontVariation_vvvj4")
+theme_override_font_sizes/font_size = 26
+text = "$$$"
+horizontal_alignment = 2
+
 [node name="NameRect" type="ColorRect" parent="."]
+z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -56.0
-offset_top = -192.0
+offset_top = -144.0
 offset_right = 56.0
-offset_bottom = -164.0
+offset_bottom = -116.0
 grow_horizontal = 2
-color = Color(0.597656, 0.597656, 0.597656, 1)
+color = Color(0.596078, 0.596078, 0.596078, 0)
 metadata/_edit_group_ = true
 
 [node name="Name" type="Label" parent="NameRect"]
@@ -288,17 +961,23 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -81.0
-offset_top = -1.0
+offset_top = 7.0
 offset_right = 81.0
-offset_bottom = 30.0
+offset_bottom = 43.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.815686, 0.937255, 0.94902, 1)
+theme_override_colors/font_shadow_color = Color(0.0352941, 0.156863, 0.168627, 0.698039)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = -1
+theme_override_fonts/font = SubResource("FontVariation_tek51")
+theme_override_font_sizes/font_size = 32
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
 [node name="InfoHover" type="TextureRect" parent="NameRect/Name"]
+visible = false
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = -1
@@ -315,6 +994,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_ted5n")
 
 [node name="ColorRect" type="ColorRect" parent="NameRect/Name"]
+visible = false
 show_behind_parent = true
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 1
@@ -323,39 +1003,49 @@ anchor_left = 0.154
 anchor_top = -0.194
 anchor_right = 0.846
 anchor_bottom = -0.194
-offset_left = 0.0519981
-offset_top = 2.014
+offset_left = 0.052
+offset_top = 2.312
 offset_right = -0.052002
-offset_bottom = 42.014
+offset_bottom = 64.312
 grow_horizontal = 2
 color = Color(0.597656, 0.597656, 0.597656, 1)
 
 [node name="ResRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
-offset_left = -50.0
-offset_top = 154.0
-offset_right = -18.0
-offset_bottom = 183.0
-scale = Vector2(1.2, 1.2)
-color = Color(0.398438, 0.398438, 0.398438, 1)
+offset_left = -35.0
+offset_top = 157.0
+offset_right = -3.0
+offset_bottom = 186.0
+color = Color(0.4, 0.4, 0.4, 0)
+
+[node name="BuildMenuNumHole" type="Sprite2D" parent="ResRect"]
+position = Vector2(91, -4)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="ResRect/BuildMenuNumHole"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="ResRect/BuildMenuNumHole"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumHole2" type="Sprite2D" parent="ResRect"]
+position = Vector2(-9, -3)
+texture = ExtResource("4_ovnj6")
+
+[node name="BuildMenuNumCounter" type="Sprite2D" parent="ResRect/BuildMenuNumHole2"]
+position = Vector2(9, 0)
+texture = ExtResource("5_bit08")
+
+[node name="BuildMenuNumCounter2" type="Sprite2D" parent="ResRect/BuildMenuNumHole2"]
+position = Vector2(29, 0)
+texture = ExtResource("5_bit08")
 
 [node name="InfoBG2" type="Sprite2D" parent="ResRect"]
+visible = false
 position = Vector2(41, 10)
 texture = SubResource("AtlasTexture_vpdo4")
-
-[node name="ColorRect" type="ColorRect" parent="ResRect"]
-layout_mode = 0
-offset_left = 72.0
-offset_right = 108.0
-offset_bottom = 25.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="ResRect"]
-layout_mode = 0
-offset_right = 36.0
-offset_bottom = 25.0
-color = Color(0.398438, 0.398438, 0.398438, 1)
 
 [node name="Icons" type="Label" parent="ResRect"]
 visible = false
@@ -400,27 +1090,27 @@ vertical_alignment = 1
 
 [node name="EnergyS" type="Label" parent="ResRect"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -5.99999
-offset_right = 41.0
-offset_bottom = 28.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 22
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 89.0
+offset_top = -14.0
+offset_right = 128.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.0352941, 0.156863, 0.168627, 1)
+theme_override_fonts/font = SubResource("FontVariation_uwmcg")
+theme_override_font_sizes/font_size = 25
+text = "10"
+horizontal_alignment = 2
 
 [node name="EnergyW" type="Label" parent="ResRect"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = -5.99999
-offset_right = 115.0
-offset_bottom = 28.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 22
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -11.0
+offset_top = -14.0
+offset_right = 28.0003
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.0352941, 0.156863, 0.168627, 1)
+theme_override_fonts/font = SubResource("FontVariation_r1iqv")
+theme_override_font_sizes/font_size = 25
+text = "10"
+horizontal_alignment = 2
 
 [node name="Money" type="Label" parent="ResRect"]
 visible = false
@@ -432,76 +1122,13 @@ offset_bottom = 29.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
-[node name="Line2D" type="Line2D" parent="ResRect"]
-visible = false
-position = Vector2(0, -2)
-points = PackedVector2Array(0, 35, 0, 2, 128, 2, 128, 34, 0, 34)
-width = 2.0
-default_color = Color(0.109375, 0.0703125, 0.25, 1)
+[node name="Icon-solar" type="Sprite2D" parent="ResRect"]
+position = Vector2(63, -5)
+texture = ExtResource("6_qkc2p")
 
-[node name="Multiplier" type="ColorRect" parent="."]
-visible = false
-z_index = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 96.0
-offset_top = 142.0
-offset_right = 176.0
-offset_bottom = 182.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.2, 1.2)
-color = Color(0.596078, 0.596078, 0.596078, 1)
-metadata/_edit_group_ = true
-
-[node name="MultAmount" type="Label" parent="Multiplier"]
-layout_mode = 0
-offset_left = 6.66666
-offset_top = 2.0
-offset_right = 73.6667
-offset_bottom = 39.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Inc" type="Button" parent="Multiplier"]
-layout_mode = 0
-offset_left = 53.6667
-offset_top = 4.0
-offset_right = 84.6667
-offset_bottom = 35.0
-text = "+"
-
-[node name="Label" type="Label" parent="Multiplier/Inc"]
-layout_mode = 0
-offset_left = 6.33334
-offset_top = -8.16667
-offset_right = 24.3333
-offset_bottom = 38.8333
-theme_override_font_sizes/font_size = 31
-text = "+"
-
-[node name="Dec" type="Button" parent="Multiplier"]
-layout_mode = 0
-offset_left = -4.33334
-offset_top = 4.0
-offset_right = 26.6667
-offset_bottom = 35.0
-text = "-"
-
-[node name="Label2" type="Label" parent="Multiplier/Dec"]
-layout_mode = 0
-offset_left = 10.1666
-offset_top = -9.00001
-offset_right = 28.1666
-offset_bottom = 38.0
-theme_override_font_sizes/font_size = 31
-text = "-"
+[node name="Icon-wind" type="Sprite2D" parent="ResRect"]
+position = Vector2(-37, -4)
+texture = ExtResource("7_fjg03")
 
 [node name="ConfigController" type="Node" parent="."]
 script = ExtResource("3_runxt")
@@ -512,6 +1139,7 @@ offset_left = 106.0
 offset_top = -141.0
 offset_right = 137.0
 offset_bottom = -110.0
+focus_mode = 0
 text = "X"
 
 [node name="InfoButton" type="Button" parent="."]
@@ -540,3 +1168,38 @@ tooltip_text = "Shutting down next turn"
 mouse_filter = 0
 theme_override_font_sizes/font_size = 34
 text = "⚠️"
+
+[node name="NoMoney" type="Label" parent="."]
+visible = false
+z_index = 2
+offset_left = 3.0
+offset_top = 221.0
+offset_right = 390.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Not enough money !"
+
+[node name="Money" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = -25.0
+offset_top = 40.0
+offset_right = 45.0
+offset_bottom = 129.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 62
+text = "$$"
+
+[node name="AP" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_volmv")
+}
+
+[node name="Error" type="AudioStreamPlayer" parent="AP"]
+
+[node name="NoMoneySprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_x1bya")

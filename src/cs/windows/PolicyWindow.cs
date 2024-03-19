@@ -35,13 +35,15 @@ public partial class PolicyWindow : CanvasLayer {
 
 	private ColorRect P;
 	private AnimationPlayer AP;
-	private Button Vote;
-	private Button WindButton;
+	public TextureButton Vote;
+	private TextureButton WindButton;
 	private ButtonGroup PolicyGroup;
-	private BaseButton PressedPolicy;
+	private TextureButton PressedPolicy;
+	private List<TextureButton> ImplementedPolicy;
 	private Label VoteResult;
-	private List<Button> PolicyButtons;
+	private List<TextureButton> PolicyButtons;
 	private string SelectedPolicy;
+	private Label Implemented;
 
 	// ==================== UI fields ====================
 
@@ -65,28 +67,31 @@ public partial class PolicyWindow : CanvasLayer {
 		TC = GetNode<TextController>("/root/TextController");
 		P = GetNode<ColorRect>("ColorRect");
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
-		VoteResult = GetNode<Label>("ColorRect/NinePatchRect/ColorRect2/VoteResult");
-		Vote = GetNode<Button>("ColorRect/NinePatchRect/ColorRect2/Vote");
-		WindButton = GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect/Wind_buildtime");
+		VoteResult = GetNode<Label>("Control/Policies-base-2/Vote/VoteResult");
+		Vote = GetNode<TextureButton>("Control/Policies-base-2/Vote");
+		WindButton = GetNode<TextureButton>("Control/PoliciesBase-1/Wind_buildtime");
+		Implemented = GetNode<Label>("Control/Policies-base-2/Implemented");
 
 		// Fetch UI Elements
-		PN = GetNode<Label>("ColorRect/NinePatchRect/ColorRect2/PolicyName");
-		PT = GetNode<Label>("ColorRect/NinePatchRect/ColorRect2/Text");
-		ET = GetNode<Label>("ColorRect/NinePatchRect/ColorRect2/EffectTitle/Text");
-		Pop = GetNode<ProgressBar>("ColorRect/NinePatchRect/ColorRect2/Vote/Popularity");
+		PN = GetNode<Label>("Control/Policies-base-2/PolicyName");
+		PT = GetNode<Label>("Control/Policies-base-2/Text");
+		ET = GetNode<Label>("Control/Policies-base-2/EffectTitle/Text");
+		Pop = GetNode<ProgressBar>("Control/Policies-base-2/Vote/Popularity");
 		
 		PolicyGroup = WindButton.ButtonGroup;
-		PressedPolicy = PolicyGroup.GetPressedButton();
+		PressedPolicy = PolicyGroup.GetPressedButton() as TextureButton;
 		
 		PolicyButtons = new()
 		{
 			// Fetch policy buttons
-			GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect/Wind_buildtime"),
-			GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect/Upgrade_wind"),
-			GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect2/home_regulation"),
-			GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect2/industry_subsidy"),
-			GetNode<Button>("ColorRect/NinePatchRect/ColorRect/ColorRect/Upgrade_PV")
+			GetNode<TextureButton>("Control/PoliciesBase-1/Wind_buildtime"),
+			GetNode<TextureButton>("Control/PoliciesBase-1/Upgrade_wind"),
+			GetNode<TextureButton>("Control/PoliciesBase-2/home_regulation"),
+			GetNode<TextureButton>("Control/PoliciesBase-2/industry_subsidy"),
+			GetNode<TextureButton>("Control/PoliciesBase-1/Upgrade_PV")
 		};
+		
+		ImplementedPolicy = new(){};
 
 		// Connect the policy button callbacks
 		PolicyButtons.ForEach(pb => pb.Pressed += _OnPolicyButtonPressed);
@@ -109,6 +114,12 @@ public partial class PolicyWindow : CanvasLayer {
 			AP.PlayBackwards(Anim);
 		}
 	}
+	
+	// Reset vote button at the end of each turn (player can vote once/turn)
+	public void _ResetVote() {
+		Vote.Disabled = false;
+		VoteResult.Hide();
+	}
 			
 	// ==================== Interaction Callbacks ====================
 
@@ -116,9 +127,9 @@ public partial class PolicyWindow : CanvasLayer {
 	public void _OnPanelGuiInput(InputEvent input) {
 		if(input.GetType() == new InputEventMouseButton().GetType()) {
 			Hide();
-			Vote.Hide();
-			PressedPolicy = PolicyGroup.GetPressedButton();
+			PressedPolicy = PolicyGroup.GetPressedButton() as TextureButton;
 			if (PressedPolicy != null) {
+				Vote.Hide();
 				PressedPolicy.ButtonPressed = false;
 			}
 		}
@@ -127,12 +138,13 @@ public partial class PolicyWindow : CanvasLayer {
 	// When a policy button is pressed, we simply show the vote button 
 	// We also need to update the window to display all of the specific data
 	public void _OnPolicyButtonPressed() {
-		// Allow for the user to trigger a vote
-		Vote.Show();
-
 		// Retrieve the policy information to use it to update the UI
-		PressedPolicy = PolicyGroup.GetPressedButton();
+		PressedPolicy = PolicyGroup.GetPressedButton() as TextureButton;
 		if(PressedPolicy != null) {
+			// Allow for the user to trigger a vote
+			Vote.Show();
+			Implemented.Hide();
+			if (!Vote.Disabled) {VoteResult.Hide();}
 			// Retrieve the UI infor such as name, text and effects
 			// and update the UI with them
 			PN.Text = PC._GetPolicyName(PressedPolicy.Name);
@@ -144,17 +156,25 @@ public partial class PolicyWindow : CanvasLayer {
 
 			// Update the probability preview
 			Pop.Value = C._GetGL()._GetPM()._GetRealProb(PressedPolicy.Name) * 100.0f;
+		} if(ImplementedPolicy.Contains(PressedPolicy)) {
+			Vote.Hide();
+			Implemented.Show();
+		} if (Vote.Disabled) {
+			VoteResult.Text = "You can only implement one policy per turn.";
 		}
 	}
 
 	// Attempts a vote and shows the result
 	public void _OnVotePressed() {
 		// Check the vote result based on the selected policy
-		PressedPolicy = PolicyGroup.GetPressedButton();
+		PressedPolicy = PolicyGroup.GetPressedButton() as TextureButton;
 		if (PressedPolicy != null) {
 			// Attempt the vote
 			bool success = C._GetGL()._GetPM()._RequestPolicy(PressedPolicy.Name);
-
+			
+			if(success) {
+				ImplementedPolicy.Add(PressedPolicy);
+			}
 			// Disable the vote
 			Vote.Disabled = true;
 			VoteResult.Show();
@@ -164,6 +184,9 @@ public partial class PolicyWindow : CanvasLayer {
 				"labels.xml", POLICY_GROUP, 
 				success ? POLICY_SUCCESS : POLICY_FAILURE
 			);
+		} else {
+			VoteResult.Text = "Please select a policy.";
+			VoteResult.Show();
 		}
 	}
 }

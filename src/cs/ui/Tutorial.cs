@@ -48,7 +48,7 @@ public partial class Tutorial : CanvasLayer {
 	private AnimationPlayer AP;
 
 	// Array containing the various info bubbles and their texts
-	private List<(NinePatchRect, RichTextLabel)> IBs;
+	private List<(MarginContainer, RichTextLabel)> IBs;
 
 	// ==================== GODOT Method Overrides ====================
 	
@@ -59,17 +59,17 @@ public partial class Tutorial : CanvasLayer {
 		C = GetNode<Context>("/root/Context");
 
 		// Fetch other nodes
-		B = GetNode<Button>("TutoPopUp/ColorRect/Button");
+		B = GetNode<Button>("MarginContainer/Button");
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
-		L = GetNode<RichTextLabel>("TutoPopUp/ColorRect/Text");
+		L = GetNode<RichTextLabel>("MarginContainer/MarginContainer/Text");
 
 		// Build out the info bubble list
 		IBs = new () {
-			(GetNode<NinePatchRect>("InfoBubble"), GetNode<RichTextLabel>("InfoBubble/ColorRect/Text")),
-			(GetNode<NinePatchRect>("InfoBubble2"), GetNode<RichTextLabel>("InfoBubble2/ColorRect/Text")),
-			(GetNode<NinePatchRect>("InfoBubble3"), GetNode<RichTextLabel>("InfoBubble3/ColorRect/Text")),
-			(GetNode<NinePatchRect>("InfoBubble4"), GetNode<RichTextLabel>("InfoBubble4/ColorRect/Text")),
-			(GetNode<NinePatchRect>("InfoBubble5"), GetNode<RichTextLabel>("InfoBubble5/ColorRect/Text"))
+			(GetNode<MarginContainer>("InfoBubble"), GetNode<RichTextLabel>("InfoBubble/MarginContainer/Text")),
+			(GetNode<MarginContainer>("InfoBubble2"), GetNode<RichTextLabel>("InfoBubble2/MarginContainer/Text")),
+			(GetNode<MarginContainer>("InfoBubble3"), GetNode<RichTextLabel>("InfoBubble3/MarginContainer/Text")),
+			(GetNode<MarginContainer>("InfoBubble4"), GetNode<RichTextLabel>("InfoBubble4/MarginContainer/Text")),
+			(GetNode<MarginContainer>("InfoBubble5"), GetNode<RichTextLabel>("InfoBubble5/MarginContainer/Text"))
 		};
 
 		// Initialize the tutorial text
@@ -134,6 +134,15 @@ public partial class Tutorial : CanvasLayer {
 			// If we are out of range, we can hide the tutorial
 			Hide();
 		}
+	}
+	
+	// Press tab to skip tutorial
+	public override void _UnhandledInput(InputEvent E) {
+		if (E is InputEventKey eventKey) {
+			if (eventKey.Pressed && eventKey.Keycode == Key.Tab) {
+				Hide();
+			}
+		} 
 	}
 
 	// ==================== Internal Helpers ====================

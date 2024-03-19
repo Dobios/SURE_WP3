@@ -24,13 +24,31 @@
         <text id="label_afford">Affordability</text>
         <text id="label_aesth">Aesthetic</text>
         <text id="label_land">Land Use</text>
-        <text id="label_pollution">Pollution</text>
+        <text id="label_pollution">CO2 Emissions</text>
         <text id="label_biodiversity">Biodiversity</text>
         <text id="label_money">Money</text>
         <text id="label_budget">Budget</text>
         <text id="label_building">Building</text>
         <text id="label_production">Production</text>
-        <text id="label_import_pol">Imports Pollution</text>
+        <text id="label_import_pol">Imports Emissions</text>
+    </group>
+
+    <!-- Texts for more info on resources -->
+    <group id="moreinfo">
+        <text id="biodiversity_info">Biodiversity shows the environmental impact of the energy system. The higher the score, the more can animals and plants thrive in their natural habitats.</text>
+        <text id="landuse_info">Land use shows how much land is used by the energy system. The smaller the indicator, the less impact from the energy system on land use.</text>
+        <text id="pollution_info">CO2 emission shows how much greenhouse gas is released by the energy system. Lower emissions mean a lower impact on global warming.</text>
+        <text id="support_info">Political support shows how popular your decisions are. The higher the support the more options in policy choices you have.</text>
+        <text id="budget_info">The budget shows you how much money you have and can spend. At the beginning of each round, you receive new money.</text>
+        <text id="biomass_info">Biomass power plants use wood and organic waste to generate electricity.</text>
+        <text id="wind_info">Wind power plants use wind to create electricity.</text>
+        <text id="solar_info">Solar power plants use the sunlight to produce electricity.</text>
+        <text id="gas_info">Gas power plants burn natural gas to produce electricity.</text>
+        <text id="waste_info">Waste power plants burn waste from households and industries to produce electricity.</text>
+        <text id="hydro_info">Hydropower plants use dams to capture water and produce electricity.</text>
+        <text id="river_info">River power plants use the water flow in rivers to produce electricity.</text>
+        <text id="dam_info">Pump storages use gravity to store excess electricity and release electricity when it is needed subsequently.</text>
+        <text id="nuclear_info">Nuclear power plants use nuclear reactions to produce electricity.</text>
     </group>
 
     <!-- Labels used in the policies window -->
@@ -50,7 +68,7 @@
 
      <!-- Labels for general UI buttons -->
     <group id="ui">
-        <text id="label_next_turn">Next Turn ⌛</text>
+        <text id="label_next_turn">Next Turn</text>
         <text id="label_import">Imports</text>
         <text id="debt_title">How much would you like to borrow?</text>
         <text id="label_borrow">Borrow</text>
@@ -102,23 +120,16 @@ You ensured enough energy for 30 years.
 
         </text>
         <text id="energy">Final Energy Supply
-            and
+and
         </text>
-        <text id="money_good">
-            You avoided an economical crisis</text>
-            <text id="money_loan">
-                You had to take a loan to provide enough energy</text>
-        <text id="money_bad">
-            You destroyed the economy</text>
+        <text id="money_good">You avoided an economical crisis</text>
+            <text id="money_loan">You had to take a loan to provide enough energy</text>
+        <text id="money_bad">You destroyed the economy</text>
         <text id="support">Final Support
 
         </text>
-        <text id="pollution_good">Pollution level in 2050
-            
-            You reached net zero by 2050</text>
-        <text id="pollution_bad">Pollution level in 2050
-            
-            You did not reach net zero by 2050</text>
+        <text id="pollution_good">You reached net zero by 2050</text>
+        <text id="pollution_bad">You did not reach net zero by 2050</text>
         <text id="env">Environmental score
             
         </text>

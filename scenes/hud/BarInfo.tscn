@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://u1nvhv5ceok"]
+[gd_scene load_steps=4 format=3 uid="uid://u1nvhv5ceok"]
 
 [ext_resource type="Script" path="res://src/cs/ui/InfoBox.cs" id="1_oefrc"]
-[ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="2_66uk2"]
+[ext_resource type="Texture2D" uid="uid://dyc87atrxvivu" path="res://assets/UI Elements/Paper_Info-1.png" id="2_d73ho"]
+[ext_resource type="Texture2D" uid="uid://dcbjy5kxo2vbm" path="res://assets/Elements/INFO ICON.png" id="3_wryn5"]
 
 [node name="BarInfo" type="Control"]
 layout_mode = 3
@@ -13,119 +14,130 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oefrc")
 
-[node name="InfoMoney" type="NinePatchRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 328.0
-offset_bottom = 288.0
-texture = ExtResource("2_66uk2")
-region_rect = Rect2(24, 28, 300, 218)
-patch_margin_left = 18
-patch_margin_top = 18
-patch_margin_right = 18
-patch_margin_bottom = 19
+offset_right = 426.0
+offset_bottom = 162.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="Control" type="ColorRect" parent="."]
+[node name="Bubble" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_d73ho")
+region_rect = Rect2(-4, 14, 596, 514)
+patch_margin_left = 38
+patch_margin_top = 48
+patch_margin_right = 46
+patch_margin_bottom = 46
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Text0" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Text"
+
+[node name="n" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/Text0"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.972
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -19.0
-offset_bottom = -7.936
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
 grow_vertical = 2
-color = Color(0.597656, 0.597656, 0.597656, 1)
-metadata/_edit_group_ = true
-
-[node name="TextContainer" type="VBoxContainer" parent="Control"]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0661104
-anchor_top = 0.0273247
-anchor_right = 0.819568
-anchor_bottom = 0.297161
-offset_left = 18.9602
-offset_top = 4.00488
-offset_right = 28.8031
-offset_bottom = 160.927
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 22
-metadata/_edit_use_anchors_ = true
-
-[node name="Text0" type="Label" parent="Control/TextContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Texte"
-vertical_alignment = 1
-
-[node name="Text1" type="Label" parent="Control/TextContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Texte"
-vertical_alignment = 1
-
-[node name="Text2" type="Label" parent="Control/TextContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Texte"
-vertical_alignment = 1
-
-[node name="space" type="Label" parent="Control/TextContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-vertical_alignment = 1
-
-[node name="nContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0174423
-anchor_top = -0.0122959
-anchor_right = 0.714963
-anchor_bottom = 0.333447
-offset_left = 19.0234
-offset_top = 15.1477
-offset_right = 43.8663
-offset_bottom = 152.638
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 22
-metadata/_edit_use_anchors_ = true
-
-[node name="n" type="Label" parent="Control/nContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.666667, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
 text = "n"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="n1" type="Label" parent="Control/nContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="InfoText" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Most power plants negatively affect biodiversity because they require lots of land and water.
+"
+autowrap_mode = 3
+
+[node name="Text1" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.45098, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Text"
+autowrap_mode = 3
+
+[node name="n1" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/Text1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.45098, 0, 1)
+theme_override_font_sizes/font_size = 26
 text = "n"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="n2" type="Label" parent="Control/nContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="InfoText2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = " n"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Most power plants negatively affect biodiversity because they require lots of land and water.
+"
+autowrap_mode = 3
 
-[node name="n_ov_max" type="Label" parent="Control/nContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="n_ov_max" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "n / max"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Most power plants negatively affect biodiversity because they require lots of land and water.
+"
+autowrap_mode = 3
+
+[node name="MoreInfo" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = -27.0
+offset_right = 434.0
+offset_bottom = 53.0
+texture_normal = ExtResource("3_wryn5")
+texture_pressed = ExtResource("3_wryn5")
+texture_hover = ExtResource("3_wryn5")
+
+[node name="ColorRect" type="ColorRect" parent="MoreInfo"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 2
+color = Color(0.945313, 0.945313, 0.945313, 1)
+
+[node name="Label" type="Label" parent="MoreInfo"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 22.0
+offset_right = 74.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.398438, 0.398438, 0.398438, 1)
+theme_override_font_sizes/font_size = 25
+text = "?"

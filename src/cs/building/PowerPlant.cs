@@ -29,6 +29,8 @@ public partial class PowerPlant : Node2D {
 	// Check if the powerplant has an animation
 	[Export]
 	public bool HasAnimation = false;
+	[Export]
+	public bool HasMultSprite = false;
 
 	[Signal]
 	/* Signals that the plant should be deleted and replaced by a buildbutton */
@@ -41,6 +43,10 @@ public partial class PowerPlant : Node2D {
 	 * @param pp, the plant that emitted the signal (in order to potentially revert the request) 
 	 */
 	public delegate void UpgradePlantEventHandler(bool inc, int cost, PowerPlant pp);
+	
+	// Signal the position of the selected plant for a zoom effect
+	[Signal]
+	public delegate void ZoomSignalEventHandler(Vector2 PlantPos);
 
 
 	[ExportGroup("Meta Parameters")]
@@ -90,7 +96,7 @@ public partial class PowerPlant : Node2D {
 	public (float, float) InitialEnergyAvailability = (1.0f, 1.0f); // This is a percentage
 
 	// Amount of pollution caused by the power plant (can be negative in the tree case)
-	public int InitialPollution = 10;
+	public float InitialPollution = 10f;
 
 	// Percentage of the total land used up by this power plant
 	public float LandUse = 0.1f;
@@ -103,7 +109,7 @@ public partial class PowerPlant : Node2D {
 	private int ProductionCost = 0;
 	private int EnergyCapacity = 100;
 	private (float, float) EnergyAvailability = (1.0f, 1.0f); // (Winter, Summer)
-	private int Pollution = 10;
+	private float Pollution = 10f;
 
 	// Life flag: Whether or not the plant is on
 	private bool IsAlive = true;
@@ -112,18 +118,24 @@ public partial class PowerPlant : Node2D {
 	private Color GRAY = new Color(0.7f, 0.7f, 0.7f);
 	private Color HOVER_COLOR = new Color(0.9f, 0.9f, 0.7f);
 	private Color DEFAULT_COLOR = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-	private Color RED = new Color(0.65f, 0f, 0.05f, 1.0f);
-	private Color GREEN = new Color(0, 0.55f, 0.27f, 1.0f);
+	private Color RED = new Color(1f, 0.1f, 0.2f, 1.0f);
+	private Color GREEN = new Color(0.3f, 1f, 0.1f, 1.0f);
 	
 	private string AnimName;
 
 	// Children Nodes
 	private Sprite2D Sprite;
+	private Sprite2D Sprite2;
+	private Sprite2D Sprite3;
 	private ColorRect NameR;
 	private Label NameL;
+	private Label NameBI;
+	private Label PollN;
 	private Label PollL;
 	private Label EnergyS;
 	private Label EnergyW;
+	private Label EnergySL;
+	private Label EnergyWL;
 	private Label MoneyL;
 	public CheckButton Switch;
 	private Control PreviewInfo;
@@ -134,19 +146,36 @@ public partial class PowerPlant : Node2D {
 	private Control InfoBubble;
 	private Button InfoButton;
 	private ColorRect ResRect;
+	private Label LandN;
+	private Label BioN;
 	private Label LandL;
 	private Label BioL;
 	private Label LifeSpan;
 	private Label LifeSpanWarning;
+	private Label MultProd;
+	private Label MultPoll;
+	private Label MultLand;
+	private Label MultBio;
+	private Label MultPrice;
+	private Label MultWinterE;
+	private Label MultSummerE;
+	private Sprite2D NoMoneySprite;
+	
+	public AnimationPlayer AP;
+	private Label AnimMoney;
 	
 	// The Area used to detect hovering
 	private Area2D HoverArea;
+	private CollisionShape2D CollShape;
 
 	// Configuration controller
 	private ConfigController CC;
 
 	// Context
 	private Context C;
+	
+	// Text controller for the dynamic text
+	private TextController TC;
 
 	// Build Button associated to this plant
 	private BuildButton BB;
@@ -162,8 +191,8 @@ public partial class PowerPlant : Node2D {
 	private int MultiplierValue = 1; // The number of elements the plant contains
 	private ColorRect Multiplier; // The visual Multiplier amount display
 	private Label MultiplierL; // The label containing the multiplier amount
-	private Button MultInc; // Increases the multiplier
-	private Button MultDec; // Decreases the multiplier
+	private TextureButton MultInc; // Increases the multiplier
+	private TextureButton MultDec; // Decreases the multiplier
 	private int MultiplierMax;
 
 
@@ -173,31 +202,55 @@ public partial class PowerPlant : Node2D {
 	public override void _Ready() {
 		// Fetch all children nodes
 		Sprite = GetNode<Sprite2D>("Sprite");
+		if(HasMultSprite) {
+			Sprite2 = GetNode<Sprite2D>("Sprite2");
+			Sprite3 = GetNode<Sprite2D>("Sprite3");
+		}
+		NameBI = GetNode<Label>("BuildInfo/Name");
 		NameL = GetNode<Label>("NameRect/Name");
 		NameR = GetNode<ColorRect>("NameRect");
-		PollL = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Poll");
+		PollN = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Poll");
+		PollL = GetNode<Label>("BuildInfo/ColorRect/ContainerL/Poll");
 		EnergyS = GetNode<Label>("ResRect/EnergyS");
 		EnergyW = GetNode<Label>("ResRect/EnergyW");
+		EnergySL = GetNode<Label>("BuildInfo/EnergyContainer/Summer/BuildMenuNumHole/SummerE");
+		EnergyWL = GetNode<Label>("BuildInfo/EnergyContainer/Winter/BuildMenuNumHole2/WinterE");
 		MoneyL = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Prod");
 		Switch = GetNode<CheckButton>("BuildInfo/Switch");
 		CC = GetNode<ConfigController>("ConfigController");
 		PreviewInfo = GetNode<Control>("PreviewInfo");
 		Price = GetNode<Label>("PreviewInfo/Price");
 		HoverArea = GetNode<Area2D>("HoverArea");
+		CollShape = GetNode<CollisionShape2D>("HoverArea/CollisionShape2D");
 		Info = GetNode<Control>("BuildInfo");
 		BTime = GetNode<Label>("PreviewInfo/Time");
 		C = GetNode<Context>("/root/Context");
 		Delete = GetNode<Button>("Delete");
-		Multiplier = GetNode<ColorRect>("Multiplier");
-		MultiplierL = GetNode<Label>("Multiplier/MultAmount");
-		MultInc = GetNode<Button>("Multiplier/Inc");
-		MultDec = GetNode<Button>("Multiplier/Dec");
+		Multiplier = GetNode<ColorRect>("BuildInfo/EnergyContainer/Multiplier");
+		MultiplierL = GetNode<Label>("BuildInfo/EnergyContainer/Multiplier/MultAmount");
+		MultInc = GetNode<TextureButton>("BuildInfo/EnergyContainer/Multiplier/Inc");
+		MultDec = GetNode<TextureButton>("BuildInfo/EnergyContainer/Multiplier/Dec");
 		InfoButton = GetNode<Button>("InfoButton");
 		ResRect = GetNode<ColorRect>("ResRect");
-		LandL = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Land");
-		BioL = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Bio");
+		LandN = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Land");
+		LandL = GetNode<Label>("BuildInfo/ColorRect/ContainerL/Land");
+		BioN = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Bio");
+		BioL = GetNode<Label>("BuildInfo/ColorRect/ContainerL/Bio");
 		LifeSpan = GetNode<Label>("BuildInfo/ColorRect/ContainerN/LifeSpan");
 		LifeSpanWarning = GetNode<Label>("LifeSpanWarning");
+		AP = GetNode<AnimationPlayer>("AP");
+		AnimMoney = GetNode<Label>("Money");
+		MultProd = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Prod/MultProd");
+		MultPoll = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Poll/MultPoll");
+		MultLand = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Land/MultLand");
+		MultBio = GetNode<Label>("BuildInfo/ColorRect/ContainerN/Bio/MultBio");
+		MultPrice = GetNode<Label>("BuildInfo/EnergyContainer/Multiplier/MultPrice");
+		MultWinterE = GetNode<Label>("BuildInfo/MultWinterE");
+		MultSummerE = GetNode<Label>("BuildInfo/MultSummerE");
+		NoMoneySprite = GetNode<Sprite2D>("NoMoneySprite");
+		
+		// Fetch the text controller
+		TC = GetNode<TextController>("/root/TextController");
 
 		// the delete button should only be shown on new constructions
 		Delete.Hide();
@@ -217,15 +270,24 @@ public partial class PowerPlant : Node2D {
 		}
 
 		// Set the labels correctly
+		NameBI.Text = PlantName;
 		NameL.Text = PlantName;
 		EnergyS.Text = EnergyCapacity.ToString();
 		EnergyW.Text = EnergyCapacity.ToString();
+		EnergySL.Text = EnergyCapacity.ToString();
+		EnergyWL.Text = EnergyCapacity.ToString();
 		MoneyL.Text = "💰/⌛ " +  ProductionCost.ToString();
 		Price.Text = BuildCost.ToString() + "$";
-		PollL.Text = "🏭 " + Pollution.ToString();
+		PollN.Text = "🏭 " + Pollution.ToString();
 		BTime.Text = BuildTime.ToString();
-		LandL.Text = (LandUse * 100).ToString();
-		BioL.Text = (-BiodiversityImpact * 100).ToString();
+		LandN.Text = (LandUse * 100).ToString();
+		BioN.Text = (-BiodiversityImpact * 100).ToString();
+		
+		// Set text labels coorectly
+		PollL.Text = TC._GetText("labels.xml", "infobar", "label_pollution");
+		LandL.Text = TC._GetText("labels.xml", "infobar", "label_land");
+		BioL.Text = TC._GetText("labels.xml", "infobar", "label_biodiversity");
+		
 
 		// Set plant life cycle
 		EndTurn = (PlantType == Building.Type.NUCLEAR) ? NUCLEAR_LIFE_SPAN : DEFAULT_LIFE_SPAN;
@@ -247,6 +309,10 @@ public partial class PowerPlant : Node2D {
 		Delete.Pressed += OnDeletePressed;
 		MultInc.Pressed += OnMultIncPressed;
 		MultDec.Pressed += OnMultDecPressed;
+		MultInc.MouseEntered += OnMultIncMouseEntered;
+		MultInc.MouseExited += OnMultIncMouseExited;
+		MultDec.MouseEntered += OnMultDecMouseEntered;
+		MultDec.MouseExited += OnMultDecMouseExited;
 
 		// Reset multiplier
 		MultiplierValue = 1;
@@ -305,7 +371,7 @@ public partial class PowerPlant : Node2D {
 			MultiplierValue++;
 
 			// Apply the multiplier
-			Pollution = (int)(Pollution * mult.Pollution);
+			Pollution *= mult.Pollution;
 			LandUse *= mult.LandUse;
 			BiodiversityImpact *= mult.Biodiversity;
 			ProductionCost = (int)(ProductionCost * mult.ProductionCost);
@@ -317,11 +383,25 @@ public partial class PowerPlant : Node2D {
 			// Update the label and make sure that it is shown
 			MultiplierL.Text = MultiplierValue.ToString();
 			Multiplier.Show();
+			
+			if(HasMultSprite) {
+				if(MultiplierValue == 2) {
+					Sprite.Hide();
+					Sprite2.Show();
+					Sprite3.Hide();
+				}
+				if(MultiplierValue == 3) {
+					Sprite.Hide();
+					Sprite2.Hide();
+					Sprite3.Show();
+				}
+			}
 		}
 
 		// Check if we can still increase
 		if(MultiplierValue >= MultiplierMax) {
 			MultInc.Hide();
+			HideMultInfo();
 		} 
 
 		// Check if we can decrement now 
@@ -340,7 +420,7 @@ public partial class PowerPlant : Node2D {
 			MultiplierValue--;
 
 			// Apply the multiplier
-			Pollution = (int)(Pollution / Math.Max(1.0f, mult.Pollution));
+			Pollution /= mult.Pollution;
 			LandUse /= Math.Max(1.0f, mult.LandUse);
 			BiodiversityImpact /= Math.Max(1.0f, mult.Biodiversity);
 			ProductionCost = (int)(ProductionCost / Math.Max(1.0f, mult.ProductionCost));
@@ -352,6 +432,20 @@ public partial class PowerPlant : Node2D {
 			// Update the label and make sure that it is shown
 			MultiplierL.Text = MultiplierValue.ToString();
 			Multiplier.Show();
+			
+			if(HasMultSprite){
+				if(Sprite2 != null && MultiplierValue == 2) {
+					Sprite.Hide();
+					Sprite2.Show();
+					Sprite3.Hide();
+				}
+				if(Sprite2 != null && MultiplierValue == 1) {
+					Sprite.Show();
+					Sprite2.Hide();
+					Sprite3.Hide();
+				}
+			}
+			
 		}
 
 		// Check if we can still increase
@@ -362,17 +456,22 @@ public partial class PowerPlant : Node2D {
 		// Check if we can decrement now 
 		if(MultiplierValue <= 1) {
 			MultDec.Hide();
+			HideMultInfo();
 		}
 	}
 
 	// Makes the sprite transparent
 	public void _MakeTransparent() {
 		Sprite.Modulate = new (1, 0.75f, 0.75f, 0.5f);
+		CollShape.Disabled = true;
+		NoMoneySprite.Show();
 	}
 
 	// Makes the sprite opaque
 	public void _MakeOpaque() {
 		Sprite.Modulate = new(1, 1, 1, 1);
+		CollShape.Disabled = false;
+		NoMoneySprite.Hide();
   }
   
 	// Resets the plant
@@ -381,6 +480,14 @@ public partial class PowerPlant : Node2D {
 		Switch.ButtonPressed = true;
 		Switch.Disabled = false;
 		Switch.Show();
+		MultInc.Disabled = false;
+		MultDec.Disabled = false;
+		
+		if(HasMultSprite) {
+			Sprite.Show();
+			Sprite2.Hide();
+			Sprite3.Hide();
+		}
 
 		// Retrieve the multiplier
 		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
@@ -394,6 +501,7 @@ public partial class PowerPlant : Node2D {
 			MultInc.Show();
 		}
 		MultDec.Hide();
+		HideMultInfo();
 		
 		// Workaround to allow for an immediate update
 		IsAlive = false;
@@ -404,7 +512,7 @@ public partial class PowerPlant : Node2D {
 	public int _GetCapacity() => EnergyCapacity;
 
 	// Getter for the Pollution amount
-	public int _GetPollution() => Pollution;
+	public float _GetPollution() => Pollution;
 
 	// Getter for the plant's production cost
 	public int _GetProductionCost() => ProductionCost;
@@ -512,7 +620,7 @@ public partial class PowerPlant : Node2D {
 	// Update API for the private fields of the plant
 	public void _UdpatePowerPlantFields(
 		bool updateInit=false, // Whether or not to update the initial values as well
-		int pol=-1, // pollution amount
+		float pol=-1, // pollution amount
 		int PC=-1, // Production cost
 		int EC=-1, // Energy capacity
 		float AV_W=-1, // Winter availability
@@ -559,6 +667,7 @@ public partial class PowerPlant : Node2D {
 			// Check if the multiplier window should be shown
 			if(mult.MaxElements <= 1) {
 				Multiplier.Hide();
+				HideMultInfo();
 			} else {
 				Multiplier.Show();
 				MultInc.Show();
@@ -575,7 +684,13 @@ public partial class PowerPlant : Node2D {
 	// Updates the UI label for the plant to the given name
 	public void _UpdatePlantName(string name) {
 		NameL.Text = name;
+		NameBI.Text = name;
 		PlantName = name;
+		
+		// Update buildInfo text labels correctly
+		PollL.Text = TC._GetText("labels.xml", "infobar", "label_pollution");
+		LandL.Text = TC._GetText("labels.xml", "infobar", "label_land");
+		BioL.Text = TC._GetText("labels.xml", "infobar", "label_biodiversity");
 	}
 
 	// Updates the UI to match the internal state of the plant
@@ -587,31 +702,40 @@ public partial class PowerPlant : Node2D {
 			ResRect.Show();
 		} else {
 			NameR.Hide();
+			ResRect.Hide();
 		}
 
 		// Set the labels correctly
 		NameL.Text = PlantName;
+		NameBI.Text = PlantName;
 		EnergyS.Text = (EnergyCapacity * EnergyAvailability.Item2).ToString();
+		EnergySL.Text = (EnergyCapacity * EnergyAvailability.Item2).ToString();
 		EnergyW.Text = (EnergyCapacity * EnergyAvailability.Item1).ToString();
+		EnergyWL.Text = (EnergyCapacity * EnergyAvailability.Item1).ToString();
 		MoneyL.Text = ProductionCost.ToString();
 		Price.Text = BuildCost.ToString() + "$";
-		PollL.Text = Convert.ToInt32(Pollution).ToString();
+		PollN.Text = Pollution.ToString("0.0");
 		BTime.Text = BuildTime.ToString();
-		LandL.Text = Convert.ToInt32(LandUse * 100).ToString();
-		BioL.Text = Convert.ToInt32(-BiodiversityImpact * 100).ToString();
+		LandN.Text = (LandUse * 100).ToString("0.0");
+		BioN.Text = (-BiodiversityImpact * 100).ToString("0.0");
+		
+		// Set text labels coorectly
+		PollL.Text = TC._GetText("labels.xml", "infobar", "label_pollution");
+		LandL.Text = TC._GetText("labels.xml", "infobar", "label_land");
+		BioL.Text = TC._GetText("labels.xml", "infobar", "label_biodiversity");
 		
 		// Update label colors to represent levels
 		if (BiodiversityImpact < 0) {
-			BioL.Set("theme_override_colors/font_color", GREEN);
+			BioN.Set("theme_override_colors/font_color", GREEN);
 		}
 		if (LandUse < 0) {
-			LandL.Set("theme_override_colors/font_color", GREEN);
+			LandN.Set("theme_override_colors/font_color", GREEN);
 		}
 		if (Pollution <= 0) {
-			PollL.Set("theme_override_colors/font_color", GREEN);
+			PollN.Set("theme_override_colors/font_color", GREEN);
 
 		} else {
-			PollL.Set("theme_override_colors/font_color", RED);
+			PollN.Set("theme_override_colors/font_color", RED);
 		}
 		if (ProductionCost <= 0) {
 			MoneyL.Set("theme_override_colors/font_color", GREEN);
@@ -674,10 +798,10 @@ public partial class PowerPlant : Node2D {
 		
 		// Turns animation off
 		if(HasAnimation) {
-			AnimationPlayer AP = GetNode<AnimationPlayer>("AnimationPlayer");
-			AnimName = AP.CurrentAnimation;
-			AP.Play("RESET");
-			AP.Stop();
+			AnimationPlayer APlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+			AnimName = APlayer.CurrentAnimation;
+			APlayer.Play("RESET");
+			APlayer.Stop();
 		}
 		
 		// Propagate the new values to the UI
@@ -700,12 +824,43 @@ public partial class PowerPlant : Node2D {
 		Modulate = DEFAULT_COLOR;
 		
 		if(HasAnimation) {
-			AnimationPlayer AP = GetNode<AnimationPlayer>("AnimationPlayer");
-			AP.Play(AnimName);
+			AnimationPlayer APlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+			APlayer.Play(AnimName);
 		}
 		
 		// Propagate the new values to the UI
 		_UpdatePlantData();
+	}
+	
+	public void Disable() {
+		MultInc.Disabled = true;
+		MultDec.Disabled = true;
+	}
+	
+	public void PlayAnimation() {
+		// TODO set text in lang
+		//NoMoney.Text =
+		AP.Play("noMoney");
+	}
+	
+	public void ShowMultInfo() {
+		MultProd.Show();
+		MultPoll.Show();
+		MultLand.Show();
+		MultBio.Show();
+		MultPrice.Show();
+		MultWinterE.Show();
+		MultSummerE.Show();
+	}
+	
+	public void HideMultInfo() {
+		MultProd.Hide();
+		MultPoll.Hide();
+		MultLand.Hide();
+		MultBio.Hide();
+		MultPrice.Hide();
+		MultWinterE.Hide();
+		MultSummerE.Hide();
 	}
 
 	// ==================== Button Callbacks ====================  
@@ -733,7 +888,6 @@ public partial class PowerPlant : Node2D {
 	private void OnArea2DMouseEntered() {
 		// Make sure that the plant isn't in the build menu
 		if(!IsPreview) {
-			NameR.Show();
 			Sprite.SelfModulate = HOVER_COLOR;
 			
 		} else {
@@ -745,7 +899,6 @@ public partial class PowerPlant : Node2D {
 	private void OnArea2DMouseExited() {
 		// Make sure that the plant isn't in the build menu
 		if(!IsPreview) {
-			NameR.Hide();
 			Sprite.SelfModulate = DEFAULT_COLOR;
 		} else {
 			Info.Hide();
@@ -753,14 +906,30 @@ public partial class PowerPlant : Node2D {
 	}
 	
 	// Press on the powerplant to get more info about it
-	private void OnInfoButtonPressed(){
-		Info.Visible = !Info.Visible;
-		ResRect.Visible = !ResRect.Visible;
-		
-		// Toggle multiplier state if several elements are available
-		if(MultiplierMax > 1) {
-			Multiplier.Visible = !Multiplier.Visible;
+	private void OnInfoButtonPressed() {
+		// only show the multiplier if  the plant can be upgraded
+		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
+	
+		if(Info.Visible) {
+			Info.Visible = false;
+			ResRect.Visible = false;
+			Multiplier.Visible = false;
+		} else {
+			// Hide other powerplants info before showing the selected plant's info
+			foreach (PowerPlant Plant in GetTree().GetNodesInGroup("PP")) {
+				Plant.Info.Visible = false;
+				Plant.ResRect.Visible = false;
+				Plant.Multiplier.Visible = false;
+			}
+			Info.Visible = true;
+			//ResRect.Visible = true;
+			// Toggle multiplier state if several elements are available
+			if(mult.MaxElements > 1) {
+				Multiplier.Visible = true;
+			}
 		}
+		
+		EmitSignal(SignalName.ZoomSignal, Position);
 	}
 
 	// Requests a deletion of the powerplant
@@ -791,6 +960,7 @@ public partial class PowerPlant : Node2D {
 			BB.AnimMoney.Text = "+" + RefundAmount.ToString() + "$";
 			BB.AP.Play("Money+");
 		}
+		
 
 		// Kill the deleted power plant
 		KillPowerPlant();
@@ -816,17 +986,20 @@ public partial class PowerPlant : Node2D {
 		Debug.Print("UPGRADE PLANT");
 		// Retrieve the multiplier
 		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
-
+		
 		// Check that the max hasn't been reached
 		if(MultiplierValue < MultiplierMax) {
 			// check if the cost is more than 0 before playing the money anim
-			if(C._GetGL()._CheckBuildReq(mult.Cost) && BB != null) {
-				BB.AnimMoney.Text = "-" + mult.Cost.ToString() + "$";
-				BB.AP.Play("Money-");
+			if(C._GetGL()._CheckBuildReq(mult.Cost)) {
+				AnimMoney.Text = "-" + mult.Cost.ToString() + "$";
+				AP.Play("Money-");
 			}
+			
 			// Signal the request to the game loop
 			EmitSignal(SignalName.UpgradePlant, true, mult.Cost, this);
 		}
+		// Recalculate multiplier info numbers
+		GetMultIncInfo();
 	}
 
 	// Reacts to the decrease request by requesting it to the game loop
@@ -835,15 +1008,70 @@ public partial class PowerPlant : Node2D {
 		Debug.Print("DOWNGRADE PLANT");
 		// Retrieve the multiplier
 		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
-
+		
 		// Check that the min hasn't been reached
 		if(MultiplierValue > 1) {
-			if(mult.Cost > 0 && BB != null) {
-				BB.AnimMoney.Text = "+" + mult.Cost.ToString() + "$";
-				BB.AP.Play("Money+");
+			if(mult.Cost > 0) {
+				AnimMoney.Text = "+" + mult.Cost.ToString() + "$";
+				AP.Play("Money+");
 			}
 			// Signal the request to the game loop
 			EmitSignal(SignalName.UpgradePlant, false, -mult.Cost, this);
 		}
+		
+		// Recalculate multiplier info numbers
+		GetMultDecInfo();
+	}
+	
+	private void GetMultIncInfo() {
+		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
+		MultPrice.Text = "-" + mult.Cost.ToString() + "$";
+		MultPrice.Set("theme_override_colors/font_color", RED);
+		MultBio.Text = BioN.Text;
+		BioN.Text = (-BiodiversityImpact * 100 * mult.Biodiversity).ToString("0.0");
+		MultProd.Text = MoneyL.Text;
+		MoneyL.Text = (ProductionCost * mult.ProductionCost).ToString("0.0");
+		MultPoll.Text = PollN.Text; 
+		PollN.Text = (Pollution * mult.Pollution).ToString("0.0");
+		MultLand.Text = LandN.Text;
+		LandN.Text = (LandUse * 100 * mult.LandUse).ToString("0.0");
+		MultWinterE.Text = "+" + (mult.Capacity * EnergyAvailability.Item1).ToString();
+		MultSummerE.Text = "+" + (mult.Capacity * EnergyAvailability.Item2).ToString();
+	}
+	
+	private void GetMultDecInfo() {
+		Multiplier mult = CC._ReadMultiplier(Config.Type.POWER_PLANT, PlantType.ToString());
+		MultPrice.Text = "+" + mult.Cost.ToString() + "$";
+		MultPrice.Set("theme_override_colors/font_color", GREEN);
+		MultBio.Text = BioN.Text; 
+		BioN.Text = (-BiodiversityImpact * 100 / mult.Biodiversity).ToString("0.0");
+		MultProd.Text = MoneyL.Text;
+		MoneyL.Text = (ProductionCost / mult.ProductionCost).ToString("0.0");
+		MultPoll.Text = PollN.Text;
+		PollN.Text = (Pollution / mult.Pollution).ToString("0.0");
+		MultLand.Text = LandN.Text;
+		LandN.Text = (LandUse * 100 / mult.LandUse).ToString("0.0");
+		MultWinterE.Text = "-" + (mult.Capacity * EnergyAvailability.Item1).ToString();
+		MultSummerE.Text = "-" + (mult.Capacity * EnergyAvailability.Item2).ToString();
+	}
+	
+	private void OnMultIncMouseEntered() {
+		GetMultIncInfo();
+		ShowMultInfo();
+	}
+	
+	private void OnMultIncMouseExited() {
+		HideMultInfo();
+		_UpdatePlantData();
+	}
+	
+	private void OnMultDecMouseEntered() {
+		GetMultDecInfo();
+		ShowMultInfo();
+	}
+	
+	private void OnMultDecMouseExited() {
+		HideMultInfo();
+		_UpdatePlantData();
 	}
 }

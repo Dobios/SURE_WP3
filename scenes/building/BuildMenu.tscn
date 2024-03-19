@@ -19,30 +19,30 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TabContainer:position")
+tracks/0/path = NodePath("Container:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(400, 656)]
+"values": [Vector2(400, 1100)]
 }
 
 [sub_resource type="Animation" id="Animation_kodya"]
 resource_name = "SlideUp"
-length = 0.3
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TabContainer:position")
+tracks/0/path = NodePath("Container:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(400, 1080), Vector2(400, 656)]
+"values": [Vector2(400, 1100), Vector2(400, 725)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqvg1"]
@@ -66,281 +66,310 @@ libraries = {
 "": SubResource("AnimationLibrary_cqvg1")
 }
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="Container" type="ColorRect" parent="."]
 offset_left = 400.0
-offset_top = 656.0
-offset_right = 1992.0
-offset_bottom = 1080.0
-mouse_filter = 0
+offset_top = 1100.0
+offset_right = 1920.0
+offset_bottom = 1452.0
+color = Color(0.180392, 0.180392, 0.180392, 0)
 
-[node name="TabBar" type="TabBar" parent="TabContainer"]
-layout_mode = 2
-
-[node name="Solar" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(140, 183)
-scale = Vector2(0.8, 0.8)
+[node name="Solar" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(156, 142)
 PlantName = "Solar Plant"
 _PlantType = 2
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="TabContainer/TabBar/Solar" index="0"]
+[node name="Sprite" parent="Container/Solar" index="1"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_jhvum")
 
-[node name="Price" parent="TabContainer/TabBar/Solar/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Solar" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="SolarButton" type="Button" parent="TabContainer/TabBar/Solar"]
+[node name="SolarButton" type="Button" parent="Container/Solar"]
 offset_left = -104.0
 offset_top = -139.0
 offset_right = 104.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="Wind" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(380, 183)
-scale = Vector2(0.8, 0.8)
+[node name="Wind" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(402, 142)
 PlantName = "Wind"
 _PlantType = 5
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="TabContainer/TabBar/Wind" index="0"]
-position = Vector2(0, 21.1111)
-texture = ExtResource("4_35oxp")
-
-[node name="Price" parent="TabContainer/TabBar/Wind/PreviewInfo" index="3"]
+[node name="Price" parent="Container/Wind/PreviewInfo" index="3"]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
+offset_left = -9.0
+offset_top = -249.0
+offset_right = 55.0
+offset_bottom = -217.0
 grow_vertical = 1
 
-[node name="Turbine" type="Sprite2D" parent="TabContainer/TabBar/Wind"]
-position = Vector2(-86.25, -107.5)
+[node name="Sprite" parent="Container/Wind" index="1"]
+position = Vector2(0, 21.1111)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_35oxp")
+
+[node name="BuildInfo" parent="Container/Wind" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Turbine" type="Sprite2D" parent="Container/Wind"]
+position = Vector2(-56.25, -57.5)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_y46fy")
 
-[node name="WindButton" type="Button" parent="TabContainer/TabBar/Wind"]
+[node name="WindButton" type="Button" parent="Container/Wind"]
 offset_left = -104.0
 offset_top = -139.0
 offset_right = 104.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="Tree" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(1374, 182)
-scale = Vector2(0.8, 0.8)
+[node name="Tree" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(1385, 141)
 PlantName = "Trees"
 _PlantType = 3
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="TabContainer/TabBar/Tree" index="0"]
+[node name="Price" parent="Container/Tree/PreviewInfo" index="3"]
+offset_top = -281.0
+offset_right = 64.0
+offset_bottom = -246.0
+
+[node name="Sprite" parent="Container/Tree" index="1"]
+position = Vector2(-2.25, 44)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_cx1ud")
 
-[node name="Price" parent="TabContainer/TabBar/Tree/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Tree" index="2"]
+offset_left = -195.0
+offset_top = -360.0
+offset_right = -155.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="TreeButton" type="Button" parent="TabContainer/TabBar/Tree"]
-offset_left = -109.0
+[node name="TreeButton" type="Button" parent="Container/Tree"]
+offset_left = -110.0
 offset_top = -143.0
-offset_right = 104.0
+offset_right = 103.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="Hydro" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(140, 183)
-scale = Vector2(0.8, 0.8)
+[node name="Hydro" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(156, 142)
 PlantName = "Hydro Plant"
 _PlantType = 0
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="TabContainer/TabBar/Hydro" index="0"]
+[node name="Price" parent="Container/Hydro/PreviewInfo" index="3"]
+offset_left = -11.0
+offset_top = -282.0
+offset_right = 61.0
+offset_bottom = -247.0
+
+[node name="Sprite" parent="Container/Hydro" index="1"]
+position = Vector2(-1, 24)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_n0676")
 
-[node name="Water" type="Sprite2D" parent="TabContainer/TabBar/Hydro/Sprite" index="0"]
+[node name="Water" type="Sprite2D" parent="Container/Hydro/Sprite" index="0"]
 position = Vector2(-39.375, 85.625)
 texture = ExtResource("8_ypqld")
 
-[node name="Price" parent="TabContainer/TabBar/Hydro/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Hydro" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="HydroButton" type="Button" parent="TabContainer/TabBar/Hydro"]
+[node name="HydroButton" type="Button" parent="Container/Hydro"]
 offset_left = -104.0
 offset_top = -143.0
 offset_right = 100.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="Gas" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(630, 182)
-scale = Vector2(0.8, 0.8)
+[node name="Gas" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(648, 141)
 PlantName = "Gas Plant"
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="TabContainer/TabBar/Gas" index="0"]
+[node name="Price" parent="Container/Gas/PreviewInfo" index="3"]
+offset_left = -7.0
+offset_top = -281.0
+offset_right = 65.0
+offset_bottom = -246.0
+
+[node name="Sprite" parent="Container/Gas" index="1"]
+position = Vector2(-1, 24)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_61mnc")
 
-[node name="Price" parent="TabContainer/TabBar/Gas/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Gas" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="GasButton" type="Button" parent="TabContainer/TabBar/Gas"]
+[node name="GasButton" type="Button" parent="Container/Gas"]
 offset_left = -102.0
 offset_top = -143.0
 offset_right = 102.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="Waste" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(884, 182)
-scale = Vector2(0.8, 0.8)
+[node name="Waste" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(894, 141)
 PlantName = "Waste"
 _PlantType = 6
 
-[node name="Sprite" parent="TabContainer/TabBar/Waste" index="0"]
+[node name="Price" parent="Container/Waste/PreviewInfo" index="3"]
+offset_left = -13.0
+offset_top = -281.0
+offset_right = 59.0
+offset_bottom = -246.0
+
+[node name="Sprite" parent="Container/Waste" index="1"]
+position = Vector2(4, 10.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_5wkvd")
 
-[node name="Price" parent="TabContainer/TabBar/Waste/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Waste" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="WasteButton" type="Button" parent="TabContainer/TabBar/Waste"]
+[node name="WasteButton" type="Button" parent="Container/Waste"]
 offset_left = -101.0
 offset_top = -144.0
 offset_right = 104.0
 offset_bottom = 143.0
+focus_mode = 0
 flat = true
 
-[node name="Biomass" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-position = Vector2(1134, 182)
-scale = Vector2(0.8, 0.8)
+[node name="Biomass" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(1140, 141)
 _PlantType = 7
 
-[node name="Sprite" parent="TabContainer/TabBar/Biomass" index="0"]
+[node name="Price" parent="Container/Biomass/PreviewInfo" index="3"]
+offset_left = -11.0
+offset_top = -281.0
+offset_right = 61.0
+offset_bottom = -246.0
+
+[node name="Sprite" parent="Container/Biomass" index="1"]
+position = Vector2(0.25, 25.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xrjfu")
 
-[node name="Price" parent="TabContainer/TabBar/Biomass/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Biomass" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="BiomassButton" type="Button" parent="TabContainer/TabBar/Biomass"]
+[node name="BiomassButton" type="Button" parent="Container/Biomass"]
 offset_left = -103.0
 offset_top = -148.0
 offset_right = 96.0
 offset_bottom = 141.0
+focus_mode = 0
 flat = true
 
-[node name="River" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
+[node name="River" parent="Container" instance=ExtResource("2_236y8")]
 visible = false
-position = Vector2(381, 183)
-scale = Vector2(0.8, 0.8)
+position = Vector2(402, 142)
 _PlantType = 8
 
-[node name="Sprite" parent="TabContainer/TabBar/River" index="0"]
+[node name="Price" parent="Container/River/PreviewInfo" index="3"]
+offset_left = -9.0
+offset_top = -282.0
+offset_right = 63.0
+offset_bottom = -247.0
+
+[node name="Sprite" parent="Container/River" index="1"]
+position = Vector2(9, 32.75)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_orq8p")
 
-[node name="Water" type="Sprite2D" parent="TabContainer/TabBar/River/Sprite" index="0"]
+[node name="Water" type="Sprite2D" parent="Container/River/Sprite" index="0"]
 position = Vector2(80.9375, 60.625)
 texture = ExtResource("13_wuh2w")
 
-[node name="Price" parent="TabContainer/TabBar/River/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/River" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="RiverButton" type="Button" parent="TabContainer/TabBar/River"]
+[node name="RiverButton" type="Button" parent="Container/River"]
 offset_left = -98.0
 offset_top = -120.0
 offset_right = 108.0
 offset_bottom = 146.0
+focus_mode = 0
 flat = true
 
-[node name="Pump" parent="TabContainer/TabBar" instance=ExtResource("2_236y8")]
-visible = false
-position = Vector2(629, 181)
-scale = Vector2(0.8, 0.8)
+[node name="Pump" parent="Container" instance=ExtResource("2_236y8")]
+position = Vector2(648, 141)
 _PlantType = 9
 
-[node name="Sprite" parent="TabContainer/TabBar/Pump" index="0"]
+[node name="Price" parent="Container/Pump/PreviewInfo" index="3"]
+offset_left = -7.0
+offset_top = -281.0
+offset_right = 65.0
+offset_bottom = -246.0
+
+[node name="Sprite" parent="Container/Pump" index="1"]
+position = Vector2(-1, 24)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_n0676")
 
-[node name="Price" parent="TabContainer/TabBar/Pump/PreviewInfo" index="3"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 52.0
-offset_bottom = 35.0
-grow_vertical = 1
+[node name="BuildInfo" parent="Container/Pump" index="2"]
+offset_left = -65.0
+offset_top = -360.0
+offset_right = -25.0
+offset_bottom = -320.0
+scale = Vector2(0.7, 0.7)
 
-[node name="PumpButton" type="Button" parent="TabContainer/TabBar/Pump"]
+[node name="PumpButton" type="Button" parent="Container/Pump"]
 offset_left = -90.0
 offset_top = -120.0
 offset_right = 93.0
 offset_bottom = 144.0
+focus_mode = 0
 flat = true
 
-[editable path="TabContainer/TabBar/Solar"]
-[editable path="TabContainer/TabBar/Wind"]
-[editable path="TabContainer/TabBar/Tree"]
-[editable path="TabContainer/TabBar/Hydro"]
-[editable path="TabContainer/TabBar/Gas"]
-[editable path="TabContainer/TabBar/Waste"]
-[editable path="TabContainer/TabBar/Biomass"]
-[editable path="TabContainer/TabBar/River"]
-[editable path="TabContainer/TabBar/Pump"]
+[editable path="Container/Solar"]
+[editable path="Container/Wind"]
+[editable path="Container/Tree"]
+[editable path="Container/Hydro"]
+[editable path="Container/Gas"]
+[editable path="Container/Waste"]
+[editable path="Container/Biomass"]
+[editable path="Container/River"]
+[editable path="Container/Pump"]

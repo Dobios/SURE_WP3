@@ -70,6 +70,7 @@ public partial class BuildButton : TextureButton {
 	// Building sprite
 	private Sprite2D BuildSprite;
 	private Label TL;
+	private Label Hammer;
 
 	// Build cancellation button
 	private Button Cancel;
@@ -135,6 +136,7 @@ public partial class BuildButton : TextureButton {
 		AP = GetNode<AnimationPlayer>("AnimationPlayer");
 		AnimMoney = GetNode<Label>("Money");
 		BuildingSound = GetNode<AudioStreamPlayer2D>("BuildingSound");
+		Hammer = GetNode<Label>("Hammer");
 
 		// Fetch the context
 		C = GetNode<Context>("/root/Context");
@@ -183,8 +185,11 @@ public partial class BuildButton : TextureButton {
 	}	
 
 	// Public accessor which disables the current build button
-	public void _Disable() {
+	public void _Disable(List<PowerPlant> PP) {
 		Disabled = true;
+		foreach(PowerPlant pp in PP) {
+			pp.Disable();
+		}
 	}
 
 	// Resets the build button
@@ -258,19 +263,21 @@ public partial class BuildButton : TextureButton {
 	private void HideOnlyButton() {
 		Disabled = true;
 		SelfModulate = new Color(1,1,1,0);
+		Hammer.Hide();
 	}
 
 	// Show only the button
 	private void ShowOnlyButton() {
 		Disabled = false;
 		SelfModulate = new Color(1,1,1,1);
+		Hammer.Show();
 	}
 
 	// Sets the button to the build state
 	private void SetToBuild() {
 		BuildingSound.Play();
 		BuildSprite.Show();
-		TL.Text = "⌛ " + TurnsToBuild.ToString();
+		TL.Text = TurnsToBuild.ToString() + "⌛";
 		Disabled = true;
 	}
 
@@ -404,7 +411,9 @@ public partial class BuildButton : TextureButton {
 		if(PP.BuildCost > 0) {
 			AnimMoney.Text = "-" + PP.BuildCost.ToString() + "$";
 			AP.Play("Money-");
-		}
+		} else {
+			AP.Play("SmokeEffect");
+			}
 
 		// Check if the requested build was legal
 		if(GL._RequestBuild(PP.BuildCost)) {
@@ -446,7 +455,9 @@ public partial class BuildButton : TextureButton {
 		if(RefundAmount > 0) {
 			AnimMoney.Text = "+" + RefundAmount.ToString() + "$";
 			AP.Play("Money+");
-		}
+		} else {
+			AP.Play("SmokeEffect");
+			}
 		
 		// Hide all plants
 		HideAllPlants();

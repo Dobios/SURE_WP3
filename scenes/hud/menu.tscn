@@ -1,49 +1,63 @@
-[gd_scene load_steps=16 format=3 uid="uid://pvoi2mcc3oc1"]
+[gd_scene load_steps=23 format=3 uid="uid://pvoi2mcc3oc1"]
 
 [ext_resource type="Script" path="res://src/cs/ui/MainMenu.cs" id="1_acmck"]
 [ext_resource type="Texture2D" uid="uid://bdjbeos1j2wsr" path="res://assets/MAP-BG.png" id="2_rie33"]
-[ext_resource type="Texture2D" uid="uid://b7nmuayewqbbg" path="res://assets/Elements/NEXT TURN - BUTTON.png" id="2_tndym"]
-[ext_resource type="FontFile" uid="uid://dgb2xwp51s2cc" path="res://assets/Fonts/HeavyEquipment.otf" id="2_v5gom"]
-[ext_resource type="Texture2D" uid="uid://djj2k1h7yrhsy" path="res://assets/Elements/NEXTTURNBUTTONPressed.png" id="3_t8pt2"]
-[ext_resource type="Texture2D" uid="uid://sob7pstxhrp" path="res://assets/Elements/NEXTTURNBUTTONHover.png" id="4_ppdqc"]
 [ext_resource type="Texture2D" uid="uid://d2dxa7x362j3j" path="res://assets/Elements/NEXTTURNBUTTONDisabled.png" id="5_gh7te"]
-[ext_resource type="Texture2D" uid="uid://bbnrrcffpjcdk" path="res://assets/Elements/INFO MONEY.png" id="8_6l5mf"]
-[ext_resource type="Texture2D" uid="uid://cd6sf3eopmy2p" path="res://assets/UI/leftClick1.png" id="9_gmi16"]
-[ext_resource type="Texture2D" uid="uid://bwsp0bov6brls" path="res://assets/UI/leftClick5.png" id="10_dsxfl"]
-[ext_resource type="Texture2D" uid="uid://sabh1djtxkod" path="res://assets/UI/leftClick2.png" id="11_8vm85"]
-[ext_resource type="Texture2D" uid="uid://yrdc3dolvhwh" path="res://assets/UI/leftClick3.png" id="12_mb4hu"]
-[ext_resource type="Texture2D" uid="uid://cpbd0webiu3jh" path="res://assets/UI/leftClick4.png" id="13_be3wx"]
+[ext_resource type="FontFile" uid="uid://doaord8a13muh" path="res://assets/Fonts/Helvetica.ttc" id="8_jaeq3"]
+[ext_resource type="Texture2D" uid="uid://dvojrl48elrdl" path="res://assets/UI Elements/Start_Menu_base.png" id="10_cm00s"]
+[ext_resource type="Texture2D" uid="uid://cqekiqjn8gvh7" path="res://assets/UI Elements/Button-Play-normal.png" id="11_v1gn1"]
+[ext_resource type="Texture2D" uid="uid://c5tgx0yng476j" path="res://assets/UI Elements/Button-Play-press.png" id="12_2e306"]
+[ext_resource type="Texture2D" uid="uid://id0egjudmljv" path="res://assets/UI Elements/Blueprint_normal.png" id="12_eqfmq"]
+[ext_resource type="Texture2D" uid="uid://bhipsxe5qj5kh" path="res://assets/UI Elements/Blueprint_active_1.png" id="13_bf784"]
+[ext_resource type="Texture2D" uid="uid://0od1i8cgelas" path="res://assets/UI Elements/Button-Play-hover.png" id="13_ngmjh"]
+[ext_resource type="Texture2D" uid="uid://b4m67oni44dpg" path="res://assets/UI Elements/Button-normal.png" id="14_38vq8"]
+[ext_resource type="Texture2D" uid="uid://bdqqnt7g3ojt8" path="res://assets/UI Elements/Blueprint_active_2.png" id="14_wbube"]
+[ext_resource type="Texture2D" uid="uid://60dl810b25fd" path="res://assets/UI Elements/Button-press.png" id="15_4vyug"]
+[ext_resource type="FontFile" uid="uid://dxtsp51pqna2o" path="res://assets/Fonts/static/OpenSans-Bold.ttf" id="15_ue4ic"]
+[ext_resource type="Texture2D" uid="uid://cuhckno2t6g0r" path="res://assets/UI Elements/Button-hover.png" id="16_gqjv5"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tjwrc"]
+[sub_resource type="FontVariation" id="FontVariation_m8fhd"]
+base_font = ExtResource("8_jaeq3")
+
+[sub_resource type="FontVariation" id="FontVariation_iute2"]
+base_font = ExtResource("8_jaeq3")
+variation_embolden = 0.5
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_6favg"]
+base_font = ExtResource("8_jaeq3")
+variation_embolden = 0.5
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_4plkp"]
+base_font = ExtResource("8_jaeq3")
+variation_embolden = 0.5
+spacing_glyph = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fibyn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_gmi16")
+"texture": ExtResource("12_eqfmq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_dsxfl")
+"texture": ExtResource("13_bf784")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wbube")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 4.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u5hyn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_8vm85")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_mb4hu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_be3wx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="FontVariation" id="FontVariation_4utnw"]
+base_font = ExtResource("8_jaeq3")
+variation_face_index = 1
+
+[sub_resource type="FontVariation" id="FontVariation_a82w2"]
+base_font = ExtResource("15_ue4ic")
+spacing_glyph = 2
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_acmck")
@@ -68,16 +82,19 @@ anchor_bottom = 1.0
 offset_bottom = -432.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.980392, 0.760784, 1)
-theme_override_colors/font_outline_color = Color(1, 0.882353, 0.392157, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_v5gom")
-theme_override_font_sizes/font_size = 135
+theme_override_colors/font_color = Color(0.647059, 0.521569, 0.027451, 1)
+theme_override_colors/font_shadow_color = Color(0.341176, 0.254902, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_m8fhd")
+theme_override_font_sizes/font_size = 100
 text = "Ensured 
 Energy"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="StartMenuBase" type="Sprite2D" parent="."]
+position = Vector2(695, 673)
+texture = ExtResource("10_cm00s")
 
 [node name="Play" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -85,17 +102,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = 5.0
-offset_right = 98.5
-offset_bottom = 69.0
+offset_left = -364.0
+offset_top = 18.0
+offset_right = -167.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_tndym")
-texture_pressed = ExtResource("3_t8pt2")
-texture_hover = ExtResource("4_ppdqc")
-texture_disabled = ExtResource("5_gh7te")
+texture_normal = ExtResource("11_v1gn1")
+texture_pressed = ExtResource("12_2e306")
+texture_hover = ExtResource("13_ngmjh")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -104,11 +120,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_iute2")
+theme_override_font_sizes/font_size = 20
 text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Lang" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -116,16 +138,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -365.0
 offset_top = 105.0
-offset_right = 97.0
+offset_right = -168.0
 offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_tndym")
-texture_pressed = ExtResource("3_t8pt2")
-texture_hover = ExtResource("4_ppdqc")
+texture_normal = ExtResource("14_38vq8")
+texture_pressed = ExtResource("15_4vyug")
+texture_hover = ExtResource("16_gqjv5")
 texture_disabled = ExtResource("5_gh7te")
 ignore_texture_size = true
 stretch_mode = 3
@@ -136,11 +158,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_6favg")
+theme_override_font_sizes/font_size = 18
 text = "LANGUAGE"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
 
 [node name="Offline" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -148,17 +177,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 209.0
-offset_right = 97.0
-offset_bottom = 273.0
+offset_left = -364.0
+offset_top = 193.0
+offset_right = -167.0
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_tndym")
-texture_pressed = ExtResource("3_t8pt2")
-texture_hover = ExtResource("4_ppdqc")
-texture_disabled = ExtResource("5_gh7te")
+texture_normal = ExtResource("14_38vq8")
+texture_pressed = ExtResource("15_4vyug")
+texture_hover = ExtResource("16_gqjv5")
+texture_disabled = ExtResource("15_4vyug")
 ignore_texture_size = true
 stretch_mode = 3
 metadata/_edit_group_ = true
@@ -168,67 +197,48 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_4plkp")
 text = "Mode: Online"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.721569, 0.847059, 0.701961, 1)
-position = Vector2(224, 168)
-texture = ExtResource("8_6l5mf")
-
-[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_left = -112.0
-offset_top = -80.0
-offset_right = 120.0
-offset_bottom = 72.0
-color = Color(0.429688, 0.507813, 0.417969, 1)
-
-[node name="ClickAnim" type="AnimatedSprite2D" parent="Sprite2D"]
-texture_filter = 1
-position = Vector2(-72, 7)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_tjwrc")
+[node name="BlueprintNormal" type="AnimatedSprite2D" parent="."]
+position = Vector2(1232, 680)
+sprite_frames = SubResource("SpriteFrames_fibyn")
 autoplay = "default"
-frame_progress = 0.948559
+frame_progress = 0.665593
 
-[node name="ScrollAnim" type="AnimatedSprite2D" parent="Sprite2D"]
-texture_filter = 1
-position = Vector2(64, 7)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_u5hyn")
-autoplay = "default"
-frame_progress = 0.56765
-
-[node name="Label" type="Label" parent="Sprite2D"]
-offset_left = -128.0
-offset_top = -88.0
-offset_right = -16.0
-offset_bottom = -10.0
-text = "Hold and drag 
-
-
-
-
-to MOVE"
-horizontal_alignment = 1
+[node name="Drag" type="Label" parent="BlueprintNormal"]
+offset_left = -204.0
+offset_top = -104.0
+offset_right = -76.0
+offset_bottom = -52.0
+theme_override_fonts/font = SubResource("FontVariation_4utnw")
+text = "Hold & drag to move"
 autowrap_mode = 3
 uppercase = true
 
-[node name="Label2" type="Label" parent="Sprite2D"]
-offset_left = 16.0
-offset_top = -88.0
-offset_right = 112.0
-offset_bottom = 94.0
-text = "Scroll 
-
-
-
-
-
-to zoom"
-horizontal_alignment = 1
+[node name="Scroll" type="Label" parent="BlueprintNormal"]
+offset_left = -204.0
+offset_top = 59.0
+offset_right = -76.0
+offset_bottom = 111.0
+theme_override_fonts/font = SubResource("FontVariation_4utnw")
+text = "Scroll to zoom"
 autowrap_mode = 3
 uppercase = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 654.0
+offset_top = 494.0
+offset_right = 728.0
+offset_bottom = 528.0
+theme_override_fonts/font = SubResource("FontVariation_a82w2")
+theme_override_font_sizes/font_size = 22
+text = "MENU"

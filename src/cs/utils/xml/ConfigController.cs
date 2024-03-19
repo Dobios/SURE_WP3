@@ -69,7 +69,7 @@ public partial class ConfigController : XMLController {
 	private Multiplier ReadPPMultiplier(string filename, string id) {
 		// Start by checking if the file is loaded in or not
 		if(LoadedFileName != filename) {
-			ParseXML(ref LoadedXML, Path.Combine("configs", filename));
+			ParseXML(ref LoadedXML, Path.Combine("configs/", filename));
 			LoadedFileName = filename;
 		}
 
@@ -100,7 +100,7 @@ public partial class ConfigController : XMLController {
 	private PowerPlantConfigData ReadPPConfig(string filename, string id) {
 		// Start by checking if the file is loaded in or not
 		if(LoadedFileName != filename) {
-			ParseXML(ref LoadedXML, Path.Combine("configs", filename));
+			ParseXML(ref LoadedXML, Path.Combine("configs/", filename));
 			LoadedFileName = filename;
 		}
 

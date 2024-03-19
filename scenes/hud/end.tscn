@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cej4dlw11su6f"]
+[gd_scene load_steps=7 format=3 uid="uid://cej4dlw11su6f"]
 
 [ext_resource type="Script" path="res://src/cs/ui/End.cs" id="1_dvce5"]
 [ext_resource type="FontFile" uid="uid://dgb2xwp51s2cc" path="res://assets/Fonts/HeavyEquipment.otf" id="1_rfnjf"]
+[ext_resource type="Texture2D" uid="uid://b7nmuayewqbbg" path="res://assets/Elements/NEXT TURN - BUTTON.png" id="3_8mcym"]
+[ext_resource type="Texture2D" uid="uid://djj2k1h7yrhsy" path="res://assets/Elements/NEXTTURNBUTTONPressed.png" id="4_e0pjh"]
+[ext_resource type="Texture2D" uid="uid://sob7pstxhrp" path="res://assets/Elements/NEXTTURNBUTTONHover.png" id="5_pyjgd"]
 
 [sub_resource type="Theme" id="Theme_yg7sq"]
 
 [node name="End" type="CanvasLayer"]
 script = ExtResource("1_dvce5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="EndWindow" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,11 +23,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.596078, 0.596078, 0.596078, 0.917647)
 
-[node name="Bravo" type="Label" parent="."]
+[node name="Bravo" type="Label" parent="EndWindow"]
+visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -656.0
+offset_left = 10.0
+offset_top = -91.0
+offset_right = 10.0
+offset_bottom = -747.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
@@ -36,20 +44,21 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="EndText" type="Label" parent="."]
+[node name="EndText" type="Label" parent="EndWindow"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 328.0
-offset_top = -156.0
-offset_right = -342.0
-offset_bottom = 10.0
+offset_left = 338.0
+offset_top = -412.5
+offset_right = -332.0
+offset_bottom = -38.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_rfnjf")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 100
 text = "You ensured enough energy 
 for 30 years
 "
@@ -58,19 +67,23 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="EndWindow"]
 custom_minimum_size = Vector2(55, 0)
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -488.0
+offset_left = 10.0
+offset_top = -494.0
+offset_right = 10.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 22
 alignment = 1
 
-[node name="Shock" type="Label" parent="HBoxContainer"]
+[node name="Shock" type="Label" parent="EndWindow/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(290, 250)
 layout_mode = 2
@@ -84,7 +97,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/Shock"]
+[node name="ColorRect2" type="ColorRect" parent="EndWindow/HBoxContainer/Shock"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -95,8 +108,8 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(1, 0.305882, 0.176471, 1)
 
-[node name="Energy" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(350, 250)
+[node name="Energy" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
 theme_override_font_sizes/font_size = 46
@@ -108,7 +121,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="ColorRect3" type="ColorRect" parent="HBoxContainer/Energy"]
+[node name="ColorRect3" type="ColorRect" parent="EndWindow/HBoxContainer/Energy"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -119,8 +132,31 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(1, 0.470588, 0.180392, 1)
 
-[node name="Money" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(350, 250)
+[node name="Import" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rfnjf")
+theme_override_font_sizes/font_size = 46
+text = "You imported %
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="ColorRect3" type="ColorRect" parent="EndWindow/HBoxContainer/Import"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yg7sq")
+color = Color(0.921569, 0.407843, 0.909804, 1)
+
+[node name="Money" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
 theme_override_font_sizes/font_size = 46
@@ -131,7 +167,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="ColorRect4" type="ColorRect" parent="HBoxContainer/Money"]
+[node name="ColorRect4" type="ColorRect" parent="EndWindow/HBoxContainer/Money"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -142,8 +178,8 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(0.827451, 0.819608, 0.0313726, 1)
 
-[node name="Support" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(350, 250)
+[node name="Support" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
 theme_override_font_sizes/font_size = 46
@@ -156,7 +192,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="ColorRect5" type="ColorRect" parent="HBoxContainer/Support"]
+[node name="ColorRect5" type="ColorRect" parent="EndWindow/HBoxContainer/Support"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -167,8 +203,8 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(0.466667, 0.607843, 0.917647, 1)
 
-[node name="Poll" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(350, 250)
+[node name="Poll" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
 theme_override_font_sizes/font_size = 46
@@ -179,7 +215,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="ColorRect6" type="ColorRect" parent="HBoxContainer/Poll"]
+[node name="ColorRect6" type="ColorRect" parent="EndWindow/HBoxContainer/Poll"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -190,8 +226,8 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(0.501961, 0.501961, 0.501961, 1)
 
-[node name="Env" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(350, 250)
+[node name="Env" type="Label" parent="EndWindow/HBoxContainer"]
+custom_minimum_size = Vector2(280, 250)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
 theme_override_font_sizes/font_size = 46
@@ -203,7 +239,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="ColorRect7" type="ColorRect" parent="HBoxContainer/Env"]
+[node name="ColorRect7" type="ColorRect" parent="EndWindow/HBoxContainer/Env"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -214,15 +250,19 @@ grow_vertical = 2
 theme = SubResource("Theme_yg7sq")
 color = Color(0.317647, 0.721569, 0.294118, 1)
 
-[node name="Stats" type="Control" parent="."]
-layout_mode = 3
+[node name="Stats" type="Control" parent="EndWindow"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -91.0
+offset_right = 10.0
+offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shocks" type="Label" parent="Stats"]
+[node name="Shocks" type="Label" parent="EndWindow/Stats"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -244,7 +284,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="EnergyW" type="Label" parent="Stats"]
+[node name="EnergyW" type="Label" parent="EndWindow/Stats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -252,9 +292,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -729.0
-offset_top = 308.0
+offset_top = 356.0
 offset_right = -617.0
-offset_bottom = 391.0
+offset_bottom = 439.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
@@ -265,7 +305,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="EnergyS" type="Label" parent="Stats"]
+[node name="EnergyS" type="Label" parent="EndWindow/Stats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -273,9 +313,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -880.0
-offset_top = 309.0
+offset_top = 357.0
 offset_right = -768.0
-offset_bottom = 392.0
+offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
@@ -285,17 +325,17 @@ text = "900
 vertical_alignment = 1
 uppercase = true
 
-[node name="Support" type="Label" parent="Stats"]
+[node name="Support" type="Label" parent="EndWindow/Stats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = 308.0
-offset_right = 84.0
-offset_bottom = 419.0
+offset_left = 82.0
+offset_top = 350.5
+offset_right = 228.0
+offset_bottom = 461.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
@@ -306,17 +346,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Env" type="Label" parent="Stats"]
+[node name="Env" type="Label" parent="EndWindow/Stats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 680.0
-offset_top = 300.0
-offset_right = 819.0
-offset_bottom = 411.0
+offset_left = 690.0
+offset_top = 358.5
+offset_right = 835.0
+offset_bottom = 469.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rfnjf")
@@ -328,8 +368,36 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Close" type="Button" parent="."]
+visible = false
 offset_left = 1859.0
 offset_top = 104.0
 offset_right = 1888.0
 offset_bottom = 138.0
 text = "x"
+
+[node name="Score" type="TextureButton" parent="."]
+offset_left = 856.0
+offset_top = -16.0
+offset_right = 992.0
+offset_bottom = 106.0
+toggle_mode = true
+texture_normal = ExtResource("3_8mcym")
+texture_pressed = ExtResource("4_e0pjh")
+texture_hover = ExtResource("5_pyjgd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -13.0
+offset_right = 21.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score"

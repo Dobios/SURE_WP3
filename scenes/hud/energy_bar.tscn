@@ -1,42 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2hyunjbx7qb7"]
+[gd_scene load_steps=7 format=3 uid="uid://d2hyunjbx7qb7"]
 
-[ext_resource type="StyleBox" uid="uid://phji31i5dkkd" path="res://scenes/hud/energy_low.tres" id="2_0gu0e"]
+[ext_resource type="StyleBox" uid="uid://lco0fbxgcpii" path="res://scenes/hud/energy_bar_low.tres" id="1_opl83"]
 [ext_resource type="Script" path="res://src/cs/ui/InfoBar.cs" id="2_otguq"]
+[ext_resource type="StyleBox" uid="uid://yqtdxtw3vpjp" path="res://scenes/hud/energy_bar_green.tres" id="3_0cuo8"]
 [ext_resource type="PackedScene" uid="uid://u1nvhv5ceok" path="res://scenes/hud/BarInfo.tscn" id="3_an05x"]
+[ext_resource type="Texture2D" uid="uid://cq6ey1a2kxut1" path="res://assets/UI Elements/Energy-limit.png" id="3_rqqb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaeus"]
 bg_color = Color(0.317647, 0.317647, 0.317647, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 border_blend = true
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Energy" type="ProgressBar"]
 offset_left = 86.0
 offset_top = -2.0
-offset_right = 224.0
+offset_right = 276.0
 offset_bottom = 36.0
 rotation = -1.5708
 theme_override_styles/background = SubResource("StyleBoxFlat_kaeus")
-theme_override_styles/fill = ExtResource("2_0gu0e")
+theme_override_styles/fill = ExtResource("3_0cuo8")
 max_value = 600.0
 step = 1.0
 value = 50.0
 show_percentage = false
 script = ExtResource("2_otguq")
-NormalColor = Color(0.94902, 0.815686, 0.0666667, 1)
-LowColor = Color(0.94902, 0.533333, 0.0666667, 1)
+EnergyBar = true
+NormalColor = ExtResource("1_opl83")
+LowColor = ExtResource("3_0cuo8")
 
 [node name="Target" type="Line2D" parent="."]
 position = Vector2(-195, -616.5)
 points = PackedVector2Array(332, 643.5, 332, 616.5)
 width = 2.0
+default_color = Color(1, 1, 1, 0)
+
+[node name="Energy-limit" type="Sprite2D" parent="Target"]
+z_index = 2
+position = Vector2(332, 630.5)
+rotation = 1.5708
+texture = ExtResource("3_rqqb7")
 
 [node name="BarInfo" parent="." instance=ExtResource("3_an05x")]
 visible = false
@@ -67,3 +73,12 @@ offset_right = 84.5
 offset_bottom = 26.0
 text = "Energy :"
 horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true

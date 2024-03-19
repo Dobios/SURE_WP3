@@ -1,39 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dna2006dnsx2x"]
+[gd_scene load_steps=4 format=3 uid="uid://dna2006dnsx2x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oju76"]
-bg_color = Color(0.301961, 0.584314, 0.309804, 1)
+[ext_resource type="Texture2D" uid="uid://dd0u0byc32nyg" path="res://assets/UI Elements/Policies_Button_small_Normal.png" id="1_ox18k"]
+[ext_resource type="Texture2D" uid="uid://d2l0lmv37o0pm" path="res://assets/UI Elements/Policies_Button_small_Press.png" id="2_er6v5"]
+[ext_resource type="Texture2D" uid="uid://dnr3tvwn2pcnj" path="res://assets/UI Elements/Policies_Button_small_Hole.png" id="3_lax6w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwu07"]
-bg_color = Color(0.243137, 0.52549, 0, 1)
-
-[node name="PolicyButton" type="Button"]
+[node name="PolicyButton" type="TextureButton"]
 custom_minimum_size = Vector2(0, 80)
 offset_left = 145.0
 offset_top = 40.0
 offset_right = 272.0
 offset_bottom = 120.0
-tooltip_text = "Information campaign explaining the advantages of renewable energy."
 focus_mode = 0
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_oju76")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qwu07")
 toggle_mode = true
 action_mode = 0
-text = "🍃"
+texture_normal = ExtResource("1_ox18k")
+texture_pressed = ExtResource("2_er6v5")
+
+[node name="PoliciesButtonSmallHole" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(63, 33)
+texture = ExtResource("3_lax6w")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = 8.0
-offset_right = 60.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 text = "Policy"
 horizontal_alignment = 1
+vertical_alignment = 1

@@ -124,7 +124,7 @@ public partial class EnvironmentManager : Node {
 	);
 
 	// Aggregate the pollution contributions from all power plants
-	private int AggregatePollution() =>
+	private float AggregatePollution() =>
 		PowerPlants.Where(pp => pp._GetLiveness()).Select(pp => pp._GetPollution()).Sum();
 
 	// Estimates the environmental impact the various power plants have
@@ -132,7 +132,7 @@ public partial class EnvironmentManager : Node {
 		// Compute the various contributions
 		float biodiv = AggregateBiodiversity();
 		float lu = AggregateLandUse();
-		int pol = AggregatePollution();
+		float pol = AggregatePollution();
 
 		return new Environment(pol, lu, biodiv, ImportPollution, s: ShockImpact);
 	}

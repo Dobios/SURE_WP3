@@ -30,7 +30,7 @@
         <text id="label_budget">Budget</text>
         <text id="label_building">Konstruktion</text>
         <text id="label_production">Produktion</text>
-        <text id="label_import_pol">Einführensverschmutzung</text>
+        <text id="label_import_pol">Imports verschmutzung</text>
     </group>
 
     <!-- Labels used in the policies window -->
@@ -50,8 +50,8 @@
 
      <!-- Labels for general UI buttons -->
     <group id="ui">
-        <text id="label_next_turn">Nächste Runde ⌛</text>
-        <text id="label_import">Einführen</text>
+        <text id="label_next_turn">Nächste Runde</text>
+        <text id="label_import">Import</text>
         <text id="debt_title">Wie viel möchten Sie leihen?</text>
         <text id="label_borrow">Ausleihen</text>
         <text id="label_debt">Zurückzahlen (nächste Runde)</text>

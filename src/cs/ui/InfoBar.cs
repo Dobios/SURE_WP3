@@ -24,7 +24,7 @@ public partial class InfoBar : ProgressBar {
 
 	// Slider initial positions
 	private const int SLIDER_BEG_X = -330;
-	private const int SLIDER_END_X = -158;
+	private const int SLIDER_END_X = -139;
 	private int SLIDER_RANGE = Math.Abs(SLIDER_BEG_X - SLIDER_END_X);
 
 	// Line showing the target amount to reach
@@ -32,15 +32,23 @@ public partial class InfoBar : ProgressBar {
 
 	// Label containing the name of the bar
 	private Label BarName;
+	
+	private Button BarButton;
+	
+	private Sprite2D Arrow;
 
 	// Info boc showing all of the relevant subfields of this resource
-	private InfoBox Box;
+	public InfoBox Box;
+	
+	// Energy bar check
+	[Export]
+	private bool EnergyBar = true;
 	
 	// Colors for Bars
 	[Export]
-	private Color NormalColor;
+	private StyleBoxTexture NormalColor;
 	[Export]
-	private Color LowColor;
+	private StyleBoxTexture LowColor;
 
 	// ==================== GODOT Method Overrides ====================
 
@@ -50,6 +58,12 @@ public partial class InfoBar : ProgressBar {
 		Target = GetNode<Line2D>("Target");
 		BarName = GetNode<Label>("Name");
 		Box = GetNode<InfoBox>("BarInfo");
+		BarButton = GetNode<Button>("Button");
+		
+		NormalColor = ResourceLoader.Load("res://scenes/hud/energy_bar_green.tres") as StyleBoxTexture;
+		LowColor = ResourceLoader.Load("res://scenes/hud/energy_bar_low.tres") as StyleBoxTexture;
+
+		
 
 		Box.Hide();
 	}
@@ -64,8 +78,16 @@ public partial class InfoBar : ProgressBar {
 		// Update the progress bar's value
 		//Value = v;
 		// Animates the value going to v in n seconds
-		Tween tween = CreateTween();
-		tween.TweenProperty(this, "value", v, 0.8f);
+		if (!EnergyBar) {
+			v = (int)Mathf.Remap(v, 0, 100, -70, 70);
+			Sprite2D Arrow = GetNode<Sprite2D>("Arrow");
+			Tween tween = CreateTween();
+			tween.TweenProperty(Arrow, "rotation_degrees", v, 0.5f);
+		} else {
+			Tween tween = CreateTween();
+			tween.TweenProperty(this, "value", v, 0.8f);
+		}
+		
 
 	}
 
@@ -84,7 +106,7 @@ public partial class InfoBar : ProgressBar {
 
 	// Updates the bar name (for localization)
 	public void _UpdateBarName(string name) {
-		BarName.Text = name;
+		BarButton.TooltipText = name;
 	}
 
 	// Updates the information of the associated info box 
@@ -108,16 +130,20 @@ public partial class InfoBar : ProgressBar {
 	// The bar can have 2 colors, one when it's low and one normal
 	public void _UpdateColor(bool IsLow) {
 		if (IsLow) {
-			StyleBoxFlat Stylebox = GetThemeStylebox("fill").Duplicate() as StyleBoxFlat;
-			Tween tween = CreateTween();
-			tween.TweenProperty(Stylebox, "bg_color", LowColor, 0.8f);
-			this.AddThemeStyleboxOverride("fill", Stylebox);
+			this.AddThemeStyleboxOverride("fill", LowColor);
 		} else {
-			StyleBoxFlat Stylebox = GetThemeStylebox("fill").Duplicate() as StyleBoxFlat;
-			Tween tween = CreateTween();
-			tween.TweenProperty(Stylebox, "bg_color", NormalColor, 0.8f);
-			this.AddThemeStyleboxOverride("fill", Stylebox);
+			
+			this.AddThemeStyleboxOverride("fill", NormalColor);
 		}
 
 	}
+	
+	// Hides the info if the player clicks somewhere else on the map
+	public override void _UnhandledInput(InputEvent E) {
+		if(E is InputEventMouseButton MouseButton) {
+			if(MouseButton.ButtonMask == MouseButtonMask.Left) {
+				_HideInfo();
+			}
+		}
+		}
 }
